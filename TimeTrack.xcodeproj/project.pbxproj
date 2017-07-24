@@ -19,6 +19,10 @@
 		FFAFCCED1F2669A9009D2692 /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCCEC1F2669A9009D2692 /* CreateUsernameViewController.swift */; };
 		FFAFCCEF1F267063009D2692 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCCEE1F267063009D2692 /* UserService.swift */; };
 		FFAFCCF41F267164009D2692 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCCF31F267164009D2692 /* User.swift */; };
+		FFAFCCF81F267A96009D2692 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFAFCCF61F267A96009D2692 /* GoogleService-Info.plist */; };
+		FFAFCCF91F267A96009D2692 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFAFCCF71F267A96009D2692 /* Info.plist */; };
+		FFAFCD001F267B79009D2692 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCCFF1F267B79009D2692 /* Constants.swift */; };
+		FFAFCD041F267CA1009D2692 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCD031F267CA1009D2692 /* Storyboard+Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		FFAFCCEC1F2669A9009D2692 /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUsernameViewController.swift; sourceTree = "<group>"; };
 		FFAFCCEE1F267063009D2692 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = Storyboards/UserService.swift; sourceTree = "<group>"; };
 		FFAFCCF31F267164009D2692 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FFAFCCF61F267A96009D2692 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FFAFCCF71F267A96009D2692 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFAFCCFF1F267B79009D2692 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FFAFCD031F267CA1009D2692 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Utility.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +104,8 @@
 				FFAFCCD81F2632BB009D2692 /* Storyboards */,
 				FFAFCCF01F267069009D2692 /* Services */,
 				FFAFCCD61F263057009D2692 /* View Controllers */,
+				FFAFCD051F267CA9009D2692 /* Extensions */,
+				FFAFCCF51F267A96009D2692 /* Supporting */,
 				FFAFCCEB1F26648C009D2692 /* Models */,
 			);
 			path = TimeTrack;
@@ -144,6 +154,24 @@
 				FFAFCCEE1F267063009D2692 /* UserService.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		FFAFCCF51F267A96009D2692 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				FFAFCCF61F267A96009D2692 /* GoogleService-Info.plist */,
+				FFAFCCF71F267A96009D2692 /* Info.plist */,
+				FFAFCCFF1F267B79009D2692 /* Constants.swift */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		FFAFCD051F267CA9009D2692 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FFAFCD031F267CA1009D2692 /* Storyboard+Utility.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +241,8 @@
 				FFAFCCE01F263351009D2692 /* Login.storyboard in Resources */,
 				FFAFCCE41F2634CE009D2692 /* LaunchScreen.storyboard in Resources */,
 				FFAFCCDE1F26332D009D2692 /* Main.storyboard in Resources */,
+				FFAFCCF81F267A96009D2692 /* GoogleService-Info.plist in Resources */,
+				FFAFCCF91F267A96009D2692 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +304,9 @@
 				FFAFCCE81F26495D009D2692 /* LoginViewController.swift in Sources */,
 				FFAFCCEF1F267063009D2692 /* UserService.swift in Sources */,
 				FFAFCCF41F267164009D2692 /* User.swift in Sources */,
+				FFAFCD041F267CA1009D2692 /* Storyboard+Utility.swift in Sources */,
 				FFAFCCCC1F262F5E009D2692 /* ViewController.swift in Sources */,
+				FFAFCD001F267B79009D2692 /* Constants.swift in Sources */,
 				FFAFCCED1F2669A9009D2692 /* CreateUsernameViewController.swift in Sources */,
 				FF37C6071F2525CA0018940B /* AppDelegate.swift in Sources */,
 			);
