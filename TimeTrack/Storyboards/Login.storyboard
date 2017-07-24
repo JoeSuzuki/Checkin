@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeTrack" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7q-f6-Jx8">
-                                <rect key="frame" x="23" y="82" width="328" height="54"/>
+                                <rect key="frame" x="23" y="38" width="329" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="BPw-w4-VYc"/>
                                 </constraints>
@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The smart way to check-in." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMJ-vv-pcX">
-                                <rect key="frame" x="23" y="144" width="328" height="54"/>
+                                <rect key="frame" x="23" y="100" width="329" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="Sve-ML-NiH"/>
                                 </constraints>
@@ -41,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Qx-kG-3m0">
-                                <rect key="frame" x="23" y="466" width="328" height="59"/>
+                                <rect key="frame" x="23" y="466" width="329" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="Mpq-mF-Mfd"/>
                                 </constraints>
@@ -89,7 +89,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDw-D0-BWl">
-                                <rect key="frame" x="23" y="466" width="328" height="59"/>
+                                <rect key="frame" x="23" y="466" width="329" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="ATM-4z-10J"/>
                                 </constraints>
@@ -120,7 +120,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZa-Yq-J4O">
-                                <rect key="frame" x="23" y="221" width="328" height="30"/>
+                                <rect key="frame" x="23" y="221" width="329" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>

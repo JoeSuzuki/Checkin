@@ -16,8 +16,9 @@
 		FFAFCCE01F263351009D2692 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFAFCCDF1F263351009D2692 /* Login.storyboard */; };
 		FFAFCCE41F2634CE009D2692 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFAFCCE31F2634CE009D2692 /* LaunchScreen.storyboard */; };
 		FFAFCCE81F26495D009D2692 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCCE71F26495D009D2692 /* LoginViewController.swift */; };
-		FFAFCCEA1F266486009D2692 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCCE91F266486009D2692 /* User.swift */; };
 		FFAFCCED1F2669A9009D2692 /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCCEC1F2669A9009D2692 /* CreateUsernameViewController.swift */; };
+		FFAFCCEF1F267063009D2692 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCCEE1F267063009D2692 /* UserService.swift */; };
+		FFAFCCF41F267164009D2692 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCCF31F267164009D2692 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +35,9 @@
 		FFAFCCDF1F263351009D2692 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		FFAFCCE31F2634CE009D2692 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFAFCCE71F26495D009D2692 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
-		FFAFCCE91F266486009D2692 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FFAFCCEC1F2669A9009D2692 /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUsernameViewController.swift; sourceTree = "<group>"; };
+		FFAFCCEE1F267063009D2692 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = Storyboards/UserService.swift; sourceTree = "<group>"; };
+		FFAFCCF31F267164009D2692 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				FF37C60D1F2525CA0018940B /* Assets.xcassets */,
 				FFAFCCD51F263040009D2692 /* Supporting Files */,
 				FFAFCCD81F2632BB009D2692 /* Storyboards */,
+				FFAFCCF01F267069009D2692 /* Services */,
 				FFAFCCD61F263057009D2692 /* View Controllers */,
 				FFAFCCEB1F26648C009D2692 /* Models */,
 			);
@@ -130,9 +133,17 @@
 		FFAFCCEB1F26648C009D2692 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FFAFCCE91F266486009D2692 /* User.swift */,
+				FFAFCCF31F267164009D2692 /* User.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		FFAFCCF01F267069009D2692 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FFAFCCEE1F267063009D2692 /* UserService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,8 +271,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFAFCCEA1F266486009D2692 /* User.swift in Sources */,
 				FFAFCCE81F26495D009D2692 /* LoginViewController.swift in Sources */,
+				FFAFCCEF1F267063009D2692 /* UserService.swift in Sources */,
+				FFAFCCF41F267164009D2692 /* User.swift in Sources */,
 				FFAFCCCC1F262F5E009D2692 /* ViewController.swift in Sources */,
 				FFAFCCED1F2669A9009D2692 /* CreateUsernameViewController.swift in Sources */,
 				FF37C6071F2525CA0018940B /* AppDelegate.swift in Sources */,
