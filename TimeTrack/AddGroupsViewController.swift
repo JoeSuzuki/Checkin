@@ -1,14 +1,15 @@
 //
-//  ProfileEditViewController.swift
+//  AddGroupsViewController.swift
 //  TimeTrack
 //
-//  Created by Joe Suzuki on 7/24/17.
+//  Created by Joe Suzuki on 7/25/17.
 //  Copyright © 2017 JoeSuzuki. All rights reserved.
 //
 
 import UIKit
 
-class ProfileEditViewController: UIViewController {
+class AddGroupsViewController: UIViewController {
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,8 @@ class ProfileEditViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
+   
+    @IBAction func CreateButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "create", sender: self)
+    }
 }

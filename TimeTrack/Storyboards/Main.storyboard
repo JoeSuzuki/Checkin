@@ -10,27 +10,6 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="wzu-EM-UL9">
-            <objects>
-                <viewController id="unT-gw-sBK" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="FNL-sH-sOd"/>
-                        <viewControllerLayoutGuide type="bottom" id="RAw-kW-NkE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Fh9-Nf-Llq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.95165767769999998" green="0.84353084379999999" blue="0.79938741390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="tab_plus_black" id="tFD-JE-gwq">
-                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NdZ-de-PGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-871" y="869"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="RgQ-vG-6PH">
             <objects>
                 <viewController id="bAO-aT-uWb" sceneMemberID="viewController">
@@ -84,7 +63,7 @@
                     <connections>
                         <segue destination="u4b-ee-eIA" kind="relationship" relationship="viewControllers" id="1xy-4V-Ecw"/>
                         <segue destination="bAO-aT-uWb" kind="relationship" relationship="viewControllers" id="VvT-Cm-aoi"/>
-                        <segue destination="unT-gw-sBK" kind="relationship" relationship="viewControllers" id="MYH-da-AZN"/>
+                        <segue destination="DQI-lO-rQd" kind="relationship" relationship="viewControllers" id="MYH-da-AZN"/>
                         <segue destination="pFk-HC-NgA" kind="relationship" relationship="viewControllers" id="sv0-eI-UlB"/>
                     </connections>
                 </tabBarController>
@@ -100,12 +79,21 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kes-Mu-7I5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1362" y="868"/>
+            <point key="canvasLocation" x="-1263" y="777"/>
+        </scene>
+        <!--AddGroups-->
+        <scene sceneID="M3C-Z1-4tr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddGroups" id="DQI-lO-rQd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="opj-YE-79x"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y0O-U3-2KR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1048" y="776"/>
         </scene>
     </scenes>
     <resources>
         <image name="calendar" width="29" height="30"/>
         <image name="clock" width="29" height="30"/>
-        <image name="tab_plus_black" width="25" height="25"/>
     </resources>
 </document>

@@ -23,8 +23,10 @@
 		FFAFCD001F267B79009D2692 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCCFF1F267B79009D2692 /* Constants.swift */; };
 		FFAFCD041F267CA1009D2692 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCD031F267CA1009D2692 /* Storyboard+Utility.swift */; };
 		FFAFCD0B1F2688A5009D2692 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFAFCD0A1F2688A5009D2692 /* Profile.storyboard */; };
-		FFAFCD0F1F268C1C009D2692 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCD0E1F268C1C009D2692 /* ProfileEditViewController.swift */; };
 		FFAFCD191F278DDC009D2692 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCD181F278DDC009D2692 /* ProfileViewController.swift */; };
+		FFAFCD1B1F279B99009D2692 /* AddGroups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFAFCD1A1F279B99009D2692 /* AddGroups.storyboard */; };
+		FFAFCD1D1F279CBC009D2692 /* AddGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCD1C1F279CBC009D2692 /* AddGroupsViewController.swift */; };
+		FFAFCD201F27BA0F009D2692 /* CreateViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCD1F1F27BA0F009D2692 /* CreateViewControllers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,8 +51,10 @@
 		FFAFCCFF1F267B79009D2692 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FFAFCD031F267CA1009D2692 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		FFAFCD0A1F2688A5009D2692 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		FFAFCD0E1F268C1C009D2692 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileEditViewController.swift; path = Storyboards/ProfileEditViewController.swift; sourceTree = "<group>"; };
 		FFAFCD181F278DDC009D2692 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FFAFCD1A1F279B99009D2692 /* AddGroups.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddGroups.storyboard; sourceTree = "<group>"; };
+		FFAFCD1C1F279CBC009D2692 /* AddGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGroupsViewController.swift; sourceTree = "<group>"; };
+		FFAFCD1F1F27BA0F009D2692 /* CreateViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewControllers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,7 @@
 				FFAFCCCB1F262F5E009D2692 /* ViewController.swift */,
 				FFAFCD111F268C73009D2692 /* Login/Signup */,
 				FFAFCD101F268C4C009D2692 /* Profile */,
+				FFAFCD1E1F279CBF009D2692 /* Groups */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				FFAFCCDD1F26332D009D2692 /* Main.storyboard */,
+				FFAFCD1A1F279B99009D2692 /* AddGroups.storyboard */,
 				FFAFCD0A1F2688A5009D2692 /* Profile.storyboard */,
 				FFAFCCDF1F263351009D2692 /* Login.storyboard */,
 			);
@@ -184,7 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				FFAFCD181F278DDC009D2692 /* ProfileViewController.swift */,
-				FFAFCD0E1F268C1C009D2692 /* ProfileEditViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -196,6 +201,15 @@
 				FFAFCCE71F26495D009D2692 /* LoginViewController.swift */,
 			);
 			name = Login/Signup;
+			sourceTree = "<group>";
+		};
+		FFAFCD1E1F279CBF009D2692 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				FFAFCD1C1F279CBC009D2692 /* AddGroupsViewController.swift */,
+				FFAFCD1F1F27BA0F009D2692 /* CreateViewControllers.swift */,
+			);
+			name = Groups;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +278,7 @@
 				FFAFCCCF1F262F67009D2692 /* GoogleService-Info.plist in Resources */,
 				FFAFCD0B1F2688A5009D2692 /* Profile.storyboard in Resources */,
 				FFAFCCE01F263351009D2692 /* Login.storyboard in Resources */,
+				FFAFCD1B1F279B99009D2692 /* AddGroups.storyboard in Resources */,
 				FFAFCCE41F2634CE009D2692 /* LaunchScreen.storyboard in Resources */,
 				FFAFCCDE1F26332D009D2692 /* Main.storyboard in Resources */,
 				FFAFCCF81F267A96009D2692 /* GoogleService-Info.plist in Resources */,
@@ -325,14 +340,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFAFCD1D1F279CBC009D2692 /* AddGroupsViewController.swift in Sources */,
 				FFAFCCE81F26495D009D2692 /* LoginViewController.swift in Sources */,
 				FFAFCCEF1F267063009D2692 /* UserService.swift in Sources */,
 				FFAFCD191F278DDC009D2692 /* ProfileViewController.swift in Sources */,
 				FFAFCCF41F267164009D2692 /* User.swift in Sources */,
+				FFAFCD201F27BA0F009D2692 /* CreateViewControllers.swift in Sources */,
 				FFAFCD041F267CA1009D2692 /* Storyboard+Utility.swift in Sources */,
 				FFAFCCCC1F262F5E009D2692 /* ViewController.swift in Sources */,
 				FFAFCD001F267B79009D2692 /* Constants.swift in Sources */,
-				FFAFCD0F1F268C1C009D2692 /* ProfileEditViewController.swift in Sources */,
 				FFAFCCED1F2669A9009D2692 /* CreateUsernameViewController.swift in Sources */,
 				FF37C6071F2525CA0018940B /* AppDelegate.swift in Sources */,
 			);
