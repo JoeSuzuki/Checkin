@@ -11,7 +11,6 @@ import FirebaseAuth.FIRUser
 import FirebaseDatabase
 
 struct UserService {
-    
     static func show(forUID uid: String, completion: @escaping (User?) -> Void) {// refactoring for the DatabaseReference
         let ref = Database.database().reference().child("users").child(uid)
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
