@@ -72,10 +72,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     func logout(){
-        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+        do {
+            try Auth.auth().signOut()
+        } catch let logoutError {
+            print(logoutError)
+        }
         let storyProfile = UIStoryboard(name: "Login", bundle: nil)
         let loginViewController = storyProfile.instantiateViewController(withIdentifier: "login")
         present(loginViewController, animated: true, completion: nil)
+        
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
