@@ -45,7 +45,7 @@ class CreateViewControllers: UIPageViewController, UIPageViewControllerDataSourc
         
         let previousIndex = viewControllerIndex - 1
         guard previousIndex >= 0 else {
-            return VCList.last
+            return nil
         }
         guard VCList.count > previousIndex else {
             return nil
@@ -59,7 +59,7 @@ class CreateViewControllers: UIPageViewController, UIPageViewControllerDataSourc
         
         let nextIndex = viewControllerIndex + 1
         guard nextIndex < VCList.count else {
-            return VCList.first
+            return nil
         }
         guard VCList.count > nextIndex else {
             return nil
