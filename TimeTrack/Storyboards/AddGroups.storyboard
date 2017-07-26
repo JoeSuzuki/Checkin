@@ -13,7 +13,7 @@
         <!--Add Groups-->
         <scene sceneID="wzu-EM-UL9">
             <objects>
-                <viewController id="unT-gw-sBK" customClass="AddGroupsViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="FirstVC" storyboardIdentifier="FirstVC" id="unT-gw-sBK" customClass="AddGroupsViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FNL-sH-sOd"/>
                         <viewControllerLayoutGuide type="bottom" id="RAw-kW-NkE"/>
@@ -34,16 +34,16 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose to join or create your own check-in group. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOw-3e-t3L">
-                                <rect key="frame" x="16" y="72" width="343" height="85"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="x5z-Ta-SAA"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="28" width="343" height="57.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.99195677042007446" green="0.99622899293899536" blue="0.99192315340042114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HH2-TD-icC">
-                                <rect key="frame" x="16" y="180" width="343" height="52"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HH2-TD-icC">
+                                <rect key="frame" x="16" y="152.5" width="343" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="vY0-ji-Shc"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Join ">
                                     <color key="titleColor" red="0.99195677042007446" green="0.99622899293899536" blue="0.99192315340042114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -52,12 +52,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.95165767769999998" green="0.84353084379999999" blue="0.79938741390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="NOw-3e-t3L" firstAttribute="trailing" secondItem="Fh9-Nf-Llq" secondAttribute="trailingMargin" id="0Ho-ht-eZo"/>
-                            <constraint firstItem="HH2-TD-icC" firstAttribute="top" secondItem="NOw-3e-t3L" secondAttribute="bottom" constant="23" id="ATc-VP-a4m"/>
-                            <constraint firstItem="NOw-3e-t3L" firstAttribute="top" secondItem="FNL-sH-sOd" secondAttribute="bottom" constant="8" symbolic="YES" id="WGq-1J-kON"/>
-                            <constraint firstItem="NOw-3e-t3L" firstAttribute="leading" secondItem="Fh9-Nf-Llq" secondAttribute="leadingMargin" id="cFF-Wg-IHR"/>
-                            <constraint firstItem="NOw-3e-t3L" firstAttribute="leading" secondItem="HH2-TD-icC" secondAttribute="leading" id="vRd-XM-S1M"/>
-                            <constraint firstItem="NOw-3e-t3L" firstAttribute="trailing" secondItem="HH2-TD-icC" secondAttribute="trailing" id="zuB-I2-Vey"/>
+                            <constraint firstItem="NOw-3e-t3L" firstAttribute="leading" secondItem="HH2-TD-icC" secondAttribute="leading" id="77J-VF-krP"/>
+                            <constraint firstItem="NOw-3e-t3L" firstAttribute="trailing" secondItem="HH2-TD-icC" secondAttribute="trailing" id="8bR-xk-EuN"/>
+                            <constraint firstItem="NOw-3e-t3L" firstAttribute="trailing" secondItem="Fh9-Nf-Llq" secondAttribute="trailingMargin" id="ayi-2l-LxU"/>
+                            <constraint firstItem="NOw-3e-t3L" firstAttribute="top" secondItem="FNL-sH-sOd" secondAttribute="bottom" constant="8" symbolic="YES" id="ecB-UX-Uq5"/>
+                            <constraint firstItem="HH2-TD-icC" firstAttribute="top" secondItem="NOw-3e-t3L" secondAttribute="bottom" constant="67" id="fo2-Lv-tbf"/>
+                            <constraint firstItem="NOw-3e-t3L" firstAttribute="leading" secondItem="Fh9-Nf-Llq" secondAttribute="leadingMargin" id="zPT-yX-DIh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Groups" id="C6w-gZ-Dqh"/>
@@ -101,7 +101,7 @@
         <!--Navigation Controller-->
         <scene sceneID="X5B-6n-I70">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8iW-ZA-WIF" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="8iW-ZA-WIF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tab_plus_black" id="tFD-JE-gwq">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
@@ -131,12 +131,28 @@
                     <view key="view" contentMode="scaleToFill" id="pJu-gx-NAT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.99195677042007446" green="0.99622899293899536" blue="0.99192315340042114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAo-cZ-U2B">
+                                <rect key="frame" x="0.0" y="28" width="370" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.99195677042007446" green="0.99622899293899536" blue="0.99192315340042114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter the location of the where the events happens." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6F-7m-TLy">
+                                <rect key="frame" x="0.0" y="78" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.99195677042007446" green="0.99622899293899536" blue="0.99192315340042114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99622899293899536" green="0.59295063090625233" blue="0.78005708412348762" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROc-ow-vm5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1356" y="1600"/>
+            <point key="canvasLocation" x="1356" y="1599.8500749625189"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5fK-Mg-p6W">

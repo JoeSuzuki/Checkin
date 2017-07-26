@@ -6,7 +6,7 @@
 //  Copyright © 2017 JoeSuzuki. All rights reserved.
 //
 
-import UIKit
+import UIKit // page view controls
 
 class CreateViewControllers: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     lazy var VCList: [UIViewController] = {
@@ -28,6 +28,7 @@ class CreateViewControllers: UIPageViewController, UIPageViewControllerDataSourc
             setViewControllers([LocationVC], direction: .forward, animated: true, completion: nil)
         }
     }
+    // makes the pageview better looking
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         for view in self.view.subviews {
@@ -38,6 +39,7 @@ class CreateViewControllers: UIPageViewController, UIPageViewControllerDataSourc
             }
         }
     }
+    // pageview controls
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = VCList.index(of: viewController) else {
             return nil
@@ -48,7 +50,7 @@ class CreateViewControllers: UIPageViewController, UIPageViewControllerDataSourc
             return nil
         }
         guard VCList.count > previousIndex else {
-            return nil
+            return nil // finite
         }
         return VCList[previousIndex]
     }
@@ -62,7 +64,7 @@ class CreateViewControllers: UIPageViewController, UIPageViewControllerDataSourc
             return nil
         }
         guard VCList.count > nextIndex else {
-            return nil
+            return nil // finite
         }
         return VCList[nextIndex]
     }

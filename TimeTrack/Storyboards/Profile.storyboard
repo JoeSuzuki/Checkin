@@ -64,7 +64,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6b-3h-urz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6b-3h-urz">
                                 <rect key="frame" x="170" y="122" width="35" height="17"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <constraints>
@@ -84,7 +84,7 @@
                         <constraints>
                             <constraint firstItem="GbX-J3-rH6" firstAttribute="leading" secondItem="IFu-hj-w1V" secondAttribute="leadingMargin" id="7ZS-HO-rGk"/>
                             <constraint firstItem="GbX-J3-rH6" firstAttribute="trailing" secondItem="bqP-WZ-Eku" secondAttribute="trailing" id="7zT-fH-XU8"/>
-                            <constraint firstItem="hMO-bd-Zru" firstAttribute="trailing" secondItem="z6b-3h-urz" secondAttribute="trailing" id="CMt-cH-tAc"/>
+                            <constraint firstItem="hMO-bd-Zru" firstAttribute="trailing" secondItem="z6b-3h-urz" secondAttribute="trailing" constant="37" id="CMt-cH-tAc"/>
                             <constraint firstItem="bqP-WZ-Eku" firstAttribute="top" secondItem="GbX-J3-rH6" secondAttribute="bottom" id="FuM-jv-Rls"/>
                             <constraint firstItem="QSO-hG-xFz" firstAttribute="centerX" secondItem="GbX-J3-rH6" secondAttribute="centerX" id="H8R-TA-lsl"/>
                             <constraint firstItem="GbX-J3-rH6" firstAttribute="leading" secondItem="bqP-WZ-Eku" secondAttribute="leading" id="KdR-Zh-d8B"/>
