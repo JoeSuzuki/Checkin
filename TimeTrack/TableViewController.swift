@@ -7,22 +7,33 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 struct cellData {
     let cell: Int!
     let text: String?
     let image: UIImage?
 }
+
 class TableViewController: UITableViewController {
 
+    var ref: DatabaseReference! // firebase
+    
     var arrayOfCellData = [cellData]()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         arrayOfCellData = [cellData(cell : 1, text : "Dr.Andy's office", image : #imageLiteral(resourceName: "docotrsoffice")),
-                           cellData(cell : 1, text : "Dr. Bob's office", image : #imageLiteral(resourceName: "maxresdefault"))
-//                           cellData(cell : 2, text : "llll", image : #imageLiteral(resourceName: "docotrsoffice")),
-//                           cellData(cell : 1, text : "pppp", image : #imageLiteral(resourceName: "docotrsoffice"))
+                           cellData(cell : 1, text : "Dr. Bob's office", image : #imageLiteral(resourceName: "maxresdefault")),
+            cellData(cell : 1, text : "Gods teeth office", image : #imageLiteral(resourceName: "w"))
         ]
+        ref = Database.database().reference() // firebase
+        fetchUsers() // firebase
+    }
+    
+    func fetchUsers() {
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,13 +45,12 @@ class TableViewController: UITableViewController {
             
             cell.mainImageView.image = arrayOfCellData[indexPath.row].image
             cell.mainLabelView.text = arrayOfCellData[indexPath.row].text
-            
+    
             return cell
         } else if arrayOfCellData[indexPath.row].cell == 2  {
-            let cell = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
-            
+            let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
             cell.mainImageView.image = arrayOfCellData[indexPath.row].image
-            cell.mainLbl.text = arrayOfCellData[indexPath.row].text
+            cell.mainLabelView.text = arrayOfCellData[indexPath.row].text
             
             return cell
         } else {
@@ -48,7 +58,7 @@ class TableViewController: UITableViewController {
             
             cell.mainImageView.image = arrayOfCellData[indexPath.row].image
             cell.mainLabelView.text = arrayOfCellData[indexPath.row].text
-            
+
             return cell
         }
     }

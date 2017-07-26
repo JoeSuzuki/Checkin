@@ -30,8 +30,6 @@
 		FFB799931F2904A8001B7C61 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB799921F2904A8001B7C61 /* TableViewController.swift */; };
 		FFB799961F29056E001B7C61 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB799941F29056E001B7C61 /* TableViewCell.swift */; };
 		FFB799971F29056E001B7C61 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB799951F29056E001B7C61 /* TableViewCell.xib */; };
-		FFB7999A1F2906E7001B7C61 /* TableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB799981F2906E7001B7C61 /* TableViewCell2.swift */; };
-		FFB7999B1F2906E7001B7C61 /* TableViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB799991F2906E7001B7C61 /* TableViewCell2.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,8 +62,6 @@
 		FFB799921F2904A8001B7C61 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		FFB799941F29056E001B7C61 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FFB799951F29056E001B7C61 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableViewCell.xib; path = ../TableViewCell.xib; sourceTree = "<group>"; };
-		FFB799981F2906E7001B7C61 /* TableViewCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell2.swift; path = Storyboards/TableViewCell2.swift; sourceTree = "<group>"; };
-		FFB799991F2906E7001B7C61 /* TableViewCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell2.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,9 +154,7 @@
 			children = (
 				FFAFCCDF1F263351009D2692 /* Login.storyboard */,
 				FFAFCCDD1F26332D009D2692 /* Main.storyboard */,
-				FFB7998B1F28F1EA001B7C61 /* GroupsTable.storyboard */,
-				FFB799951F29056E001B7C61 /* TableViewCell.xib */,
-				FFB799991F2906E7001B7C61 /* TableViewCell2.xib */,
+				FFB7999F1F292153001B7C61 /* Table */,
 				FFAFCD0A1F2688A5009D2692 /* Profile.storyboard */,
 				FFAFCD1A1F279B99009D2692 /* AddGroups.storyboard */,
 			);
@@ -232,7 +226,15 @@
 			children = (
 				FFB799921F2904A8001B7C61 /* TableViewController.swift */,
 				FFB799941F29056E001B7C61 /* TableViewCell.swift */,
-				FFB799981F2906E7001B7C61 /* TableViewCell2.swift */,
+			);
+			name = Table;
+			sourceTree = "<group>";
+		};
+		FFB7999F1F292153001B7C61 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				FFB7998B1F28F1EA001B7C61 /* GroupsTable.storyboard */,
+				FFB799951F29056E001B7C61 /* TableViewCell.xib */,
 			);
 			name = Table;
 			sourceTree = "<group>";
@@ -309,7 +311,6 @@
 				FFAFCCE41F2634CE009D2692 /* LaunchScreen.storyboard in Resources */,
 				FFB7998C1F28F1EA001B7C61 /* GroupsTable.storyboard in Resources */,
 				FFAFCCDE1F26332D009D2692 /* Main.storyboard in Resources */,
-				FFB7999B1F2906E7001B7C61 /* TableViewCell2.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,7 +371,6 @@
 			files = (
 				FFB799961F29056E001B7C61 /* TableViewCell.swift in Sources */,
 				FFAFCD1D1F279CBC009D2692 /* AddGroupsViewController.swift in Sources */,
-				FFB7999A1F2906E7001B7C61 /* TableViewCell2.swift in Sources */,
 				FFAFCCE81F26495D009D2692 /* LoginViewController.swift in Sources */,
 				FFAFCCEF1F267063009D2692 /* UserService.swift in Sources */,
 				FFAFCD191F278DDC009D2692 /* ProfileViewController.swift in Sources */,
