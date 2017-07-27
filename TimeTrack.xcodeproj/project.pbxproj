@@ -32,6 +32,8 @@
 		FFB799971F29056E001B7C61 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB799951F29056E001B7C61 /* TableViewCell.xib */; };
 		FFB799A11F29A7C7001B7C61 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB799A01F29A7C7001B7C61 /* Search.storyboard */; };
 		FFB799A51F2A23B0001B7C61 /* FireTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB799A41F2A23B0001B7C61 /* FireTableViewController.swift */; };
+		FFDABC811F2A5AE200C64D39 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDABC801F2A5AE200C64D39 /* SearchViewController.swift */; };
+		FFDABC831F2A5B6600C64D39 /* SearchViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDABC821F2A5B6600C64D39 /* SearchViewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		FFB799951F29056E001B7C61 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableViewCell.xib; path = ../TableViewCell.xib; sourceTree = "<group>"; };
 		FFB799A01F29A7C7001B7C61 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		FFB799A41F2A23B0001B7C61 /* FireTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireTableViewController.swift; sourceTree = "<group>"; };
+		FFDABC801F2A5AE200C64D39 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		FFDABC821F2A5B6600C64D39 /* SearchViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,7 @@
 				FFAFCCDF1F263351009D2692 /* Login.storyboard */,
 				FFAFCCDD1F26332D009D2692 /* Main.storyboard */,
 				FFB799A21F29B103001B7C61 /* Search */,
+				FFDABC841F2A613A00C64D39 /* Group */,
 				FFB7999F1F292153001B7C61 /* Table */,
 				FFB799A31F29B19C001B7C61 /* Profile */,
 			);
@@ -228,6 +233,8 @@
 		FFB799911F290482001B7C61 /* Table */ = {
 			isa = PBXGroup;
 			children = (
+				FFDABC801F2A5AE200C64D39 /* SearchViewController.swift */,
+				FFDABC821F2A5B6600C64D39 /* SearchViewViewController.swift */,
 				FFB799921F2904A8001B7C61 /* TableViewController.swift */,
 				FFB799941F29056E001B7C61 /* TableViewCell.swift */,
 				FFB799A41F2A23B0001B7C61 /* FireTableViewController.swift */,
@@ -248,7 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				FFB799A01F29A7C7001B7C61 /* Search.storyboard */,
-				FFAFCD1A1F279B99009D2692 /* AddGroups.storyboard */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -259,6 +265,14 @@
 				FFAFCD0A1F2688A5009D2692 /* Profile.storyboard */,
 			);
 			name = Profile;
+			sourceTree = "<group>";
+		};
+		FFDABC841F2A613A00C64D39 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				FFAFCD1A1F279B99009D2692 /* AddGroups.storyboard */,
+			);
+			name = Group;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFDABC811F2A5AE200C64D39 /* SearchViewController.swift in Sources */,
 				FFB799961F29056E001B7C61 /* TableViewCell.swift in Sources */,
 				FFAFCD1D1F279CBC009D2692 /* AddGroupsViewController.swift in Sources */,
 				FFAFCCE81F26495D009D2692 /* LoginViewController.swift in Sources */,
@@ -400,6 +415,7 @@
 				FFAFCCF41F267164009D2692 /* User.swift in Sources */,
 				FFAFCD201F27BA0F009D2692 /* CreateViewControllers.swift in Sources */,
 				FFAFCD041F267CA1009D2692 /* Storyboard+Utility.swift in Sources */,
+				FFDABC831F2A5B6600C64D39 /* SearchViewViewController.swift in Sources */,
 				FFB799931F2904A8001B7C61 /* TableViewController.swift in Sources */,
 				FFAFCCCC1F262F5E009D2692 /* ViewController.swift in Sources */,
 				FFAFCD001F267B79009D2692 /* Constants.swift in Sources */,

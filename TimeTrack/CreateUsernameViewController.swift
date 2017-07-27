@@ -10,13 +10,25 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class CreateUsernameViewController: UIViewController {
+class CreateUsernameViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+         self.usernameTextField.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
+    // hides keyboard 
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    // hides keyboard when pressing return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+         usernameTextField.resignFirstResponder()
+        return(true)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,8 +59,10 @@ class CreateUsernameViewController: UIViewController {
                 let initialViewController = UIStoryboard.initialViewController(for: .main)
                 self.view.window?.rootViewController = initialViewController
                 self.view.window?.makeKeyAndVisible()
+                
             }
         }
     }
+
 }
 
