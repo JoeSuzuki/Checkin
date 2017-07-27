@@ -11,6 +11,9 @@ import FirebaseDatabase.FIRDataSnapshot
 
 class User: NSObject {
     
+    var email: String?
+    var password: String?
+    
     // MARK: - Properties
     
     let uid: String

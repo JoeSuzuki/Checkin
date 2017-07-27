@@ -19,13 +19,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="235"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Kg-rr-gh8">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Kg-rr-gh8">
                         <rect key="frame" x="0.0" y="-1" width="320" height="194"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFI-aP-u9J">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFI-aP-u9J">
                         <rect key="frame" x="0.0" y="193" width="320" height="42"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="33" id="YA1-sO-FSA"/>
+                            <constraint firstAttribute="height" constant="42" id="YA1-sO-FSA"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                         <nil key="textColor"/>
@@ -35,7 +35,7 @@
                 <constraints>
                     <constraint firstItem="6Kg-rr-gh8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="G1d-RO-ytU"/>
                     <constraint firstItem="IFI-aP-u9J" firstAttribute="top" secondItem="6Kg-rr-gh8" secondAttribute="bottom" id="PLE-6p-oIK"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="IFI-aP-u9J" secondAttribute="bottom" constant="20" id="bbo-aL-lAD"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="IFI-aP-u9J" secondAttribute="bottom" constant="-8" id="bbo-aL-lAD"/>
                     <constraint firstItem="6Kg-rr-gh8" firstAttribute="leading" secondItem="IFI-aP-u9J" secondAttribute="leading" id="g7j-XV-pID"/>
                     <constraint firstItem="6Kg-rr-gh8" firstAttribute="trailing" secondItem="IFI-aP-u9J" secondAttribute="trailing" id="m4K-p2-fEI"/>
                     <constraint firstItem="6Kg-rr-gh8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-1" id="mXu-H2-gGF"/>

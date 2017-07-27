@@ -30,6 +30,8 @@
 		FFB799931F2904A8001B7C61 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB799921F2904A8001B7C61 /* TableViewController.swift */; };
 		FFB799961F29056E001B7C61 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB799941F29056E001B7C61 /* TableViewCell.swift */; };
 		FFB799971F29056E001B7C61 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB799951F29056E001B7C61 /* TableViewCell.xib */; };
+		FFB799A11F29A7C7001B7C61 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB799A01F29A7C7001B7C61 /* Search.storyboard */; };
+		FFB799A51F2A23B0001B7C61 /* FireTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB799A41F2A23B0001B7C61 /* FireTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		FFB799921F2904A8001B7C61 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		FFB799941F29056E001B7C61 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FFB799951F29056E001B7C61 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableViewCell.xib; path = ../TableViewCell.xib; sourceTree = "<group>"; };
+		FFB799A01F29A7C7001B7C61 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		FFB799A41F2A23B0001B7C61 /* FireTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,9 +124,9 @@
 				FFAFCCD81F2632BB009D2692 /* Storyboards */,
 				FFAFCCF01F267069009D2692 /* Services */,
 				FFAFCCD61F263057009D2692 /* View Controllers */,
+				FFAFCCEB1F26648C009D2692 /* Models */,
 				FFAFCD051F267CA9009D2692 /* Extensions */,
 				FFAFCCF51F267A96009D2692 /* Supporting */,
-				FFAFCCEB1F26648C009D2692 /* Models */,
 			);
 			path = TimeTrack;
 			sourceTree = "<group>";
@@ -154,9 +158,9 @@
 			children = (
 				FFAFCCDF1F263351009D2692 /* Login.storyboard */,
 				FFAFCCDD1F26332D009D2692 /* Main.storyboard */,
+				FFB799A21F29B103001B7C61 /* Search */,
 				FFB7999F1F292153001B7C61 /* Table */,
-				FFAFCD0A1F2688A5009D2692 /* Profile.storyboard */,
-				FFAFCD1A1F279B99009D2692 /* AddGroups.storyboard */,
+				FFB799A31F29B19C001B7C61 /* Profile */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -226,6 +230,7 @@
 			children = (
 				FFB799921F2904A8001B7C61 /* TableViewController.swift */,
 				FFB799941F29056E001B7C61 /* TableViewCell.swift */,
+				FFB799A41F2A23B0001B7C61 /* FireTableViewController.swift */,
 			);
 			name = Table;
 			sourceTree = "<group>";
@@ -237,6 +242,23 @@
 				FFB799951F29056E001B7C61 /* TableViewCell.xib */,
 			);
 			name = Table;
+			sourceTree = "<group>";
+		};
+		FFB799A21F29B103001B7C61 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				FFB799A01F29A7C7001B7C61 /* Search.storyboard */,
+				FFAFCD1A1F279B99009D2692 /* AddGroups.storyboard */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		FFB799A31F29B19C001B7C61 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FFAFCD0A1F2688A5009D2692 /* Profile.storyboard */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +328,7 @@
 				FFB799971F29056E001B7C61 /* TableViewCell.xib in Resources */,
 				FFAFCCCF1F262F67009D2692 /* GoogleService-Info.plist in Resources */,
 				FFAFCD0B1F2688A5009D2692 /* Profile.storyboard in Resources */,
+				FFB799A11F29A7C7001B7C61 /* Search.storyboard in Resources */,
 				FFAFCCE01F263351009D2692 /* Login.storyboard in Resources */,
 				FFAFCD1B1F279B99009D2692 /* AddGroups.storyboard in Resources */,
 				FFAFCCE41F2634CE009D2692 /* LaunchScreen.storyboard in Resources */,
@@ -380,6 +403,7 @@
 				FFB799931F2904A8001B7C61 /* TableViewController.swift in Sources */,
 				FFAFCCCC1F262F5E009D2692 /* ViewController.swift in Sources */,
 				FFAFCD001F267B79009D2692 /* Constants.swift in Sources */,
+				FFB799A51F2A23B0001B7C61 /* FireTableViewController.swift in Sources */,
 				FFAFCCED1F2669A9009D2692 /* CreateUsernameViewController.swift in Sources */,
 				FF37C6071F2525CA0018940B /* AppDelegate.swift in Sources */,
 			);

@@ -102,7 +102,7 @@
         <scene sceneID="X5B-6n-I70">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="8iW-ZA-WIF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab_plus_black" id="tFD-JE-gwq">
+                    <tabBarItem key="tabBarItem" title="" systemItem="search" id="tFD-JE-gwq">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -173,7 +173,4 @@
             <point key="canvasLocation" x="2655" y="1600"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="tab_plus_black" width="25" height="25"/>
-    </resources>
 </document>

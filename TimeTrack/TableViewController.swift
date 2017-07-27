@@ -6,9 +6,9 @@
 //  Copyright © 2017 JoeSuzuki. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import Firebase
-import FirebaseDatabase
 
 struct cellData {
     let cell: Int!
@@ -18,22 +18,15 @@ struct cellData {
 
 class TableViewController: UITableViewController {
 
-    var ref: DatabaseReference! // firebase
-    
+    //let ref = Database.database().reference().child("users")
+
     var arrayOfCellData = [cellData]()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         arrayOfCellData = [cellData(cell : 1, text : "Dr.Andy's office", image : #imageLiteral(resourceName: "docotrsoffice")),
                            cellData(cell : 1, text : "Dr. Bob's office", image : #imageLiteral(resourceName: "maxresdefault")),
             cellData(cell : 1, text : "Gods teeth office", image : #imageLiteral(resourceName: "w"))
         ]
-        ref = Database.database().reference() // firebase
-        fetchUsers() // firebase
-    }
-    
-    func fetchUsers() {
-        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
