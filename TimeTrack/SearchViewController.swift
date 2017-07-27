@@ -11,16 +11,27 @@ import Firebase
 
 class SearchViewController: UIViewController{
     var ref: DatabaseReference!
+    let userID = Auth.auth().currentUser!.uid
+    
+    @IBOutlet weak var searchTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         ref = Database.database().reference()
- 
     }
-    @IBAction func button(_ sender: UIButton) {
-        self.ref?.child("users").setValue("ikkkkkk")
-    }
+    
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        
+//    }
+//    
+//    
+//    //this method will return the total rows count in the table view
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        
+//    }
+    
+
 
     
    
