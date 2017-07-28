@@ -42,7 +42,16 @@ class GroupLocationViewController: UIViewController {
         locationDisplay.text = searchTextField.text
         self.ref?.child("location").updateChildValues(["location": searchTextField.text as Any])
         }
- 
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+    }
+    @IBAction func cancelButton(_ sender: UIButton) {
+        let initialViewController = UIStoryboard.initialViewController(for: .main)
+        self.view.window?.rootViewController = initialViewController
+        self.view.window?.makeKeyAndVisible()
+    }
+
+    
+
 
     //self.ref?.child("users").child(userID).child("groups").child("personal groups").childByAutoId().updateChildValues(["address": searchTextField.text])
     //self.ref?.child("users").child(userID).child("groups").updateChildValues(["personal groups": "ppppp"])

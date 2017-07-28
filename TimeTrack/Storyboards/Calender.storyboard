@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="l31-va-7SK">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,7 +21,24 @@
                     <view key="view" contentMode="scaleToFill" id="uDC-1Q-vM4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The color is temporary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9n-ub-g5E">
+                                <rect key="frame" x="53" y="183" width="268" height="201"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="268" id="0iK-1a-uwQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="0.99203723669052124" green="0.9921455979347229" blue="0.9961208701133728" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.73042542359999996" blue="0.86789956160000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="M9n-ub-g5E" firstAttribute="top" secondItem="KWN-Eo-mSf" secondAttribute="bottom" constant="119" id="JX4-21-cD2"/>
+                            <constraint firstItem="M9n-ub-g5E" firstAttribute="leading" secondItem="uDC-1Q-vM4" secondAttribute="leadingMargin" constant="37" id="WkZ-sG-cDN"/>
+                            <constraint firstItem="M9n-ub-g5E" firstAttribute="centerX" secondItem="uDC-1Q-vM4" secondAttribute="centerX" id="gYN-Ow-rgX"/>
+                            <constraint firstItem="ODD-tQ-SKe" firstAttribute="top" secondItem="M9n-ub-g5E" secondAttribute="bottom" constant="234" id="i2l-pT-hwq"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RDT-5Y-aAm"/>
                 </viewController>
@@ -33,7 +55,6 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4_7.fullscreen"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Osl-ZA-Q6Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
