@@ -98,13 +98,6 @@
                                 <color key="textColor" red="0.99195677039999997" green="0.9962289929" blue="0.99192315340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hqe-bs-Wo0">
-                                <rect key="frame" x="18" y="120" width="159" height="169"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="5Jq-7G-s7j" id="6Tx-Zu-lld"/>
-                                    <outlet property="delegate" destination="5Jq-7G-s7j" id="h67-JX-jZB"/>
-                                </connections>
-                            </pickerView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1J-t4-3yH">
                                 <rect key="frame" x="203" y="120" width="158" height="169"/>
                                 <constraints>
@@ -201,6 +194,13 @@
                                     <action selector="addButton:" destination="5Jq-7G-s7j" eventType="touchUpInside" id="eb7-dF-CGc"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hqe-bs-Wo0">
+                                <rect key="frame" x="17" y="120" width="159" height="169"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="5Jq-7G-s7j" id="6Tx-Zu-lld"/>
+                                    <outlet property="delegate" destination="5Jq-7G-s7j" id="h67-JX-jZB"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="0.32049418880000002" green="0.87535190039999999" blue="0.48080930579999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -499,7 +499,7 @@
                     <connections>
                         <outlet property="descriptionTextField" destination="r2k-rS-PGG" id="7FM-GW-2Tv"/>
                         <outlet property="groupNameTextField" destination="Bpz-Mw-DSs" id="bQf-2e-ore"/>
-                        <segue destination="3ho-mS-Gzo" kind="show" identifier="groupSegue" id="QRH-tF-bCf"/>
+                        <segue destination="3ho-mS-Gzo" kind="show" identifier="groupSegue" id="rdY-HZ-Ucj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gGi-4E-cm9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -625,7 +625,6 @@
                     <connections>
                         <outlet property="addressLabel" destination="YOn-NS-33Y" id="TZN-Pz-srm"/>
                         <outlet property="daysOpen" destination="uUI-J5-Fqr" id="izh-V4-b68"/>
-                        <outlet property="description" destination="bap-Bm-dkt" id="PPJ-zS-vHQ"/>
                         <outlet property="descriptionLabel" destination="bap-Bm-dkt" id="BMM-4q-vto"/>
                         <outlet property="groupNameLabel" destination="GgS-Bq-tGL" id="fWS-Ww-amv"/>
                         <outlet property="img" destination="oeY-6p-pMI" id="CuJ-OM-bDh"/>

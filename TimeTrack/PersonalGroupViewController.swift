@@ -28,7 +28,11 @@ class PersonalGroupViewController: UIViewController{
         self.ref?.child("to").updateChildValues(Constants.to.myStrings)
         self.ref?.child("name").updateChildValues(Constants.name.myStrings)
         self.ref?.child("description").updateChildValues(Constants.description.myStrings)
-        self.ref?.child("location").updateChildValues(Constants.location.myStrings)
+        descriptionLabel.text = Constants.description.myStrings["description"]
+        addressLabel.text = Constants.location.myStrings["location"]
+        let days = "\(Constants.from.myStrings["from"]) - \(Constants.to.myStrings["to"])"
+        daysOpen.text = days
+        groupNameLabel.text = Constants.name.myStrings["name"]
         
     }
 
