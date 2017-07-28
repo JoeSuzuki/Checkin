@@ -41,8 +41,11 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func addButton(_ sender: UIButton) {
-        self.ref?.child("group name").updateChildValues(["name": groupNameTextField.text as Any])
-        self.ref?.child("description").updateChildValues(["description": descriptionTextField.text as Any])
+//        self.ref?.child("group name").updateChildValues(["name": groupNameTextField.text as Any])
+//        self.ref?.child("description").updateChildValues(["description": descriptionTextField.text as Any])
+        Constants.name.myStrings = ["name": groupNameTextField.text as
+            Any as! String]
+        Constants.description.myStrings = ["description": descriptionTextField.text as Any as! String]
         performSegue(withIdentifier: "groupSegue", sender: self)
 
     }

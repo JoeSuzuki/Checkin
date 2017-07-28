@@ -355,7 +355,7 @@
                                     <color key="titleColor" red="0.99203723669052124" green="0.9921455979347229" blue="0.9961208701133728" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelButton:" destination="q8S-El-EKV" eventType="touchUpInside" id="vOA-JD-eWW"/>
+                                    <action selector="cancelButton:" destination="q8S-El-EKV" eventType="touchUpInside" id="B5F-LG-oI2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -578,7 +578,7 @@
                                     <constraint firstAttribute="height" constant="64" id="PtB-Cs-aMB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Leave">
+                                <state key="normal" title="Home">
                                     <color key="titleColor" red="0.99203723669052124" green="0.9921455979347229" blue="0.9961208701133728" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -625,6 +625,8 @@
                     <connections>
                         <outlet property="addressLabel" destination="YOn-NS-33Y" id="TZN-Pz-srm"/>
                         <outlet property="daysOpen" destination="uUI-J5-Fqr" id="izh-V4-b68"/>
+                        <outlet property="description" destination="bap-Bm-dkt" id="PPJ-zS-vHQ"/>
+                        <outlet property="descriptionLabel" destination="bap-Bm-dkt" id="BMM-4q-vto"/>
                         <outlet property="groupNameLabel" destination="GgS-Bq-tGL" id="fWS-Ww-amv"/>
                         <outlet property="img" destination="oeY-6p-pMI" id="CuJ-OM-bDh"/>
                     </connections>

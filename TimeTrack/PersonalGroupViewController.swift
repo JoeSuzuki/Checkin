@@ -11,6 +11,7 @@ import Firebase
 
 class PersonalGroupViewController: UIViewController{
 
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var addressLabel: UILabel!
@@ -22,10 +23,13 @@ class PersonalGroupViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference().child("users").child(userID).child("groups").child("personal groups").childByAutoId()
-
-            // ...
-    
-        // Do any additional setup after loading the view.
+        self.ref?.child("location").updateChildValues(Constants.location.myStrings)
+        self.ref?.child("from").updateChildValues(Constants.from.myStrings)
+        self.ref?.child("to").updateChildValues(Constants.to.myStrings)
+        self.ref?.child("name").updateChildValues(Constants.name.myStrings)
+        self.ref?.child("description").updateChildValues(Constants.description.myStrings)
+        self.ref?.child("location").updateChildValues(Constants.location.myStrings)
+        
     }
 
     override func didReceiveMemoryWarning() {

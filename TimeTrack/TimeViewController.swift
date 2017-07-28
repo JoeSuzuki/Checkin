@@ -96,12 +96,12 @@ class TimeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         // Dispose of any resources that can be recreated.
     }
     @IBAction func addButton(_ sender: UIButton) {
-        self.ref?.child("days").updateChildValues(["from": textBox1.text as Any])
-        self.ref?.child("days").updateChildValues(["to": textBox2.text as Any])
+        Constants.from.myStrings = ["from": textBox1.text as Any as! String]
+        Constants.to.myStrings = ["to": textBox2.text as Any as! String]
+      //  self.ref?.child("days").updateChildValues(["from": textBox1.text as Any])
+      //  self.ref?.child("days").updateChildValues(["to": textBox2.text as Any])
         displayDaysLabel.text = textBox1.text
         displayDaysLabel2.text = textBox2.text
-        UserService.collect(textBox1.text as Any as! String)
-         UserService.collect(textBox1.text as Any as! String)
     }
     
 

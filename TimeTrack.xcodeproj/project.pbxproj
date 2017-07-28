@@ -140,9 +140,9 @@
 				FFAFCCD81F2632BB009D2692 /* Storyboards */,
 				FFAFCCF01F267069009D2692 /* Services */,
 				FFAFCCD61F263057009D2692 /* View Controllers */,
+				FFAFCCF51F267A96009D2692 /* Supporting */,
 				FFAFCCEB1F26648C009D2692 /* Models */,
 				FFAFCD051F267CA9009D2692 /* Extensions */,
-				FFAFCCF51F267A96009D2692 /* Supporting */,
 			);
 			path = TimeTrack;
 			sourceTree = "<group>";
@@ -204,8 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				FFAFCCF61F267A96009D2692 /* GoogleService-Info.plist */,
-				FFAFCCF71F267A96009D2692 /* Info.plist */,
 				FFAFCCFF1F267B79009D2692 /* Constants.swift */,
+				FFAFCCF71F267A96009D2692 /* Info.plist */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";

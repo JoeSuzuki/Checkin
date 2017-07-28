@@ -40,15 +40,15 @@ class GroupLocationViewController: UIViewController {
     }
     @IBAction func searchButton(_ sender: UIButton) {
         locationDisplay.text = searchTextField.text
-         UserService.collect("searchTextField.text")
+        //self.ref?.child("location").updateChildValues(["location": searchTextField.text as Any])
+        Constants.location.myStrings = ["location": searchTextField.text as Any as! String]
         }
-
     @IBAction func cancelButton(_ sender: UIButton) {
         let initialViewController = UIStoryboard.initialViewController(for: .main)
         self.view.window?.rootViewController = initialViewController
         self.view.window?.makeKeyAndVisible()
-    }
 
+    }
     
 
 

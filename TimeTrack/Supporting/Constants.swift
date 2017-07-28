@@ -17,4 +17,19 @@ struct Constants {
         static let uid = "uid"
         static let username = "username"
     }
+    struct location {
+        static var myStrings = [String: String]()
+    }
+    struct from {
+        static var myStrings = [String: String]()
+    }
+    struct to {
+        static var myStrings = [String: String]()
+    }
+    struct name {
+        static var myStrings = [String: String]()
+    }
+    struct description {
+        static var myStrings = [String: String]()
+    }
 }
