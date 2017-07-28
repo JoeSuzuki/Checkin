@@ -32,9 +32,13 @@
 		FFB799971F29056E001B7C61 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB799951F29056E001B7C61 /* TableViewCell.xib */; };
 		FFB799A11F29A7C7001B7C61 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB799A01F29A7C7001B7C61 /* Search.storyboard */; };
 		FFB799A51F2A23B0001B7C61 /* FireTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB799A41F2A23B0001B7C61 /* FireTableViewController.swift */; };
+		FFD5BD411F2B868E00C3BEE7 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD5BD401F2B868E00C3BEE7 /* TimeViewController.swift */; };
+		FFD5BD431F2B96C600C3BEE7 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD5BD421F2B96C600C3BEE7 /* DetailsViewController.swift */; };
 		FFDABC811F2A5AE200C64D39 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDABC801F2A5AE200C64D39 /* SearchViewController.swift */; };
 		FFDABC831F2A5B6600C64D39 /* SearchViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDABC821F2A5B6600C64D39 /* SearchViewViewController.swift */; };
 		FFDABC861F2A7C9B00C64D39 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDABC851F2A7C9B00C64D39 /* SearchTableViewController.swift */; };
+		FFDABC891F2A84DF00C64D39 /* Calender.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFDABC881F2A84DF00C64D39 /* Calender.storyboard */; };
+		FFDABC8C1F2B47B700C64D39 /* GroupLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDABC8B1F2B47B700C64D39 /* GroupLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,9 +73,13 @@
 		FFB799951F29056E001B7C61 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableViewCell.xib; path = ../TableViewCell.xib; sourceTree = "<group>"; };
 		FFB799A01F29A7C7001B7C61 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		FFB799A41F2A23B0001B7C61 /* FireTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireTableViewController.swift; sourceTree = "<group>"; };
+		FFD5BD401F2B868E00C3BEE7 /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
+		FFD5BD421F2B96C600C3BEE7 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		FFDABC801F2A5AE200C64D39 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FFDABC821F2A5B6600C64D39 /* SearchViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewViewController.swift; sourceTree = "<group>"; };
 		FFDABC851F2A7C9B00C64D39 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewController.swift; path = Assets.xcassets/SearchTableViewController.swift; sourceTree = "<group>"; };
+		FFDABC881F2A84DF00C64D39 /* Calender.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calender.storyboard; sourceTree = "<group>"; };
+		FFDABC8B1F2B47B700C64D39 /* GroupLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +173,7 @@
 			children = (
 				FFAFCCDF1F263351009D2692 /* Login.storyboard */,
 				FFAFCCDD1F26332D009D2692 /* Main.storyboard */,
+				FFDABC8A1F2A84E300C64D39 /* Calender */,
 				FFB799A21F29B103001B7C61 /* Search */,
 				FFDABC841F2A613A00C64D39 /* Group */,
 				FFB7999F1F292153001B7C61 /* Table */,
@@ -229,6 +238,9 @@
 			children = (
 				FFAFCD1C1F279CBC009D2692 /* AddGroupsViewController.swift */,
 				FFAFCD1F1F27BA0F009D2692 /* CreateViewControllers.swift */,
+				FFD5BD421F2B96C600C3BEE7 /* DetailsViewController.swift */,
+				FFD5BD401F2B868E00C3BEE7 /* TimeViewController.swift */,
+				FFDABC8B1F2B47B700C64D39 /* GroupLocationViewController.swift */,
 			);
 			name = Groups;
 			sourceTree = "<group>";
@@ -286,6 +298,14 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
+		FFDABC8A1F2A84E300C64D39 /* Calender */ = {
+			isa = PBXGroup;
+			children = (
+				FFDABC881F2A84DF00C64D39 /* Calender.storyboard */,
+			);
+			name = Calender;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -323,6 +343,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = URE62YMM2S;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -358,6 +383,7 @@
 				FFAFCD1B1F279B99009D2692 /* AddGroups.storyboard in Resources */,
 				FFAFCCE41F2634CE009D2692 /* LaunchScreen.storyboard in Resources */,
 				FFB7998C1F28F1EA001B7C61 /* GroupsTable.storyboard in Resources */,
+				FFDABC891F2A84DF00C64D39 /* Calender.storyboard in Resources */,
 				FFAFCCDE1F26332D009D2692 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFD5BD411F2B868E00C3BEE7 /* TimeViewController.swift in Sources */,
 				FFDABC811F2A5AE200C64D39 /* SearchViewController.swift in Sources */,
 				FFB799961F29056E001B7C61 /* TableViewCell.swift in Sources */,
 				FFAFCD1D1F279CBC009D2692 /* AddGroupsViewController.swift in Sources */,
@@ -434,6 +461,8 @@
 				FFDABC861F2A7C9B00C64D39 /* SearchTableViewController.swift in Sources */,
 				FFAFCCED1F2669A9009D2692 /* CreateUsernameViewController.swift in Sources */,
 				FF37C6071F2525CA0018940B /* AppDelegate.swift in Sources */,
+				FFDABC8C1F2B47B700C64D39 /* GroupLocationViewController.swift in Sources */,
+				FFD5BD431F2B96C600C3BEE7 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
