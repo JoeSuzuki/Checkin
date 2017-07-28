@@ -40,10 +40,9 @@ class GroupLocationViewController: UIViewController {
     }
     @IBAction func searchButton(_ sender: UIButton) {
         locationDisplay.text = searchTextField.text
-        self.ref?.child("location").updateChildValues(["location": searchTextField.text as Any])
+         UserService.collect("searchTextField.text")
         }
-    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
-    }
+
     @IBAction func cancelButton(_ sender: UIButton) {
         let initialViewController = UIStoryboard.initialViewController(for: .main)
         self.view.window?.rootViewController = initialViewController

@@ -21,6 +21,11 @@ struct UserService {
             completion(user)
         })
     }
+    static func collect(_ groupings: String) {
+        var group: Array<Any> = []
+        group.append(groupings)
+    
+    }
     
     static func create(_ firUser: FIRUser, username: String, completion: @escaping (User?) -> Void) {
         let userAttrs = ["username": username]

@@ -23,9 +23,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVi-HR-UGS">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVi-HR-UGS">
                                 <rect key="frame" x="16" y="308" width="343" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="kSi-IT-5Rn"/>
+                                    <constraint firstAttribute="width" constant="343" id="nOQ-BM-RFo"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Create">
                                     <color key="titleColor" red="0.4847074858" green="1" blue="0.66264127969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -34,8 +38,11 @@
                                     <action selector="CreateButton:" destination="unT-gw-sBK" eventType="touchUpInside" id="Bfg-fs-RMB"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Choose to join or create your own check-in group. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOw-3e-t3L">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose to join or create your own check-in group. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOw-3e-t3L">
                                 <rect key="frame" x="16" y="28" width="343" height="114"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="114" id="fhI-va-Xbm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.4847074858" green="1" blue="0.66264127969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -43,9 +50,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.5509395574" green="0.46202386369999998" blue="0.81803220180000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="NOw-3e-t3L" firstAttribute="trailing" secondItem="Fh9-Nf-Llq" secondAttribute="trailingMargin" id="ayi-2l-LxU"/>
-                            <constraint firstItem="NOw-3e-t3L" firstAttribute="top" secondItem="FNL-sH-sOd" secondAttribute="bottom" constant="8" symbolic="YES" id="ecB-UX-Uq5"/>
-                            <constraint firstItem="NOw-3e-t3L" firstAttribute="leading" secondItem="Fh9-Nf-Llq" secondAttribute="leadingMargin" id="zPT-yX-DIh"/>
+                            <constraint firstItem="NOw-3e-t3L" firstAttribute="top" secondItem="FNL-sH-sOd" secondAttribute="bottom" constant="8" symbolic="YES" id="4JI-aW-xvm"/>
+                            <constraint firstItem="FVi-HR-UGS" firstAttribute="centerY" secondItem="Fh9-Nf-Llq" secondAttribute="centerY" id="MIb-PU-i1d"/>
+                            <constraint firstItem="NOw-3e-t3L" firstAttribute="trailing" secondItem="Fh9-Nf-Llq" secondAttribute="trailingMargin" id="NYs-7d-J2H"/>
+                            <constraint firstItem="FVi-HR-UGS" firstAttribute="leading" secondItem="NOw-3e-t3L" secondAttribute="leading" id="aya-bE-qFo"/>
+                            <constraint firstItem="NOw-3e-t3L" firstAttribute="leading" secondItem="Fh9-Nf-Llq" secondAttribute="leadingMargin" id="fQK-cc-3PH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Groups" id="C6w-gZ-Dqh"/>

@@ -100,6 +100,8 @@ class TimeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         self.ref?.child("days").updateChildValues(["to": textBox2.text as Any])
         displayDaysLabel.text = textBox1.text
         displayDaysLabel2.text = textBox2.text
+        UserService.collect(textBox1.text as Any as! String)
+         UserService.collect(textBox1.text as Any as! String)
     }
     
 
