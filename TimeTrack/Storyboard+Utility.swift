@@ -1,15 +1,15 @@
 //
 //  Storyboard+Utility.swift
-//  TimeTrack
 //
-//  Created by Joe Suzuki on 7/24/17.
-//  Copyright © 2017 JoeSuzuki. All rights reserved.
+//  Created by Mariano Montori on 7/18/17.
+//  Copyright © 2017 Mariano Montori. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 extension UIStoryboard {
-    enum TTType: String {
+    enum MGType: String {
         case main
         case login
         
@@ -17,10 +17,10 @@ extension UIStoryboard {
             return rawValue.capitalized
         }
     }
-    convenience init(type: TTType, bundle: Bundle? = nil) {
+    convenience init(type: MGType, bundle: Bundle? = nil) {
         self.init(name: type.filename, bundle: bundle)
     }
-    static func initialViewController(for type: TTType) -> UIViewController {
+    static func initialViewController(for type: MGType) -> UIViewController {
         let storyboard = UIStoryboard(type: type)
         guard let initialViewController = storyboard.instantiateInitialViewController() else {
             fatalError("Couldn't instantiate initial view controller for \(type.filename) storyboard.")

@@ -6,73 +6,77 @@
 //  Copyright © 2017 JoeSuzuki. All rights reserved.
 //
 
+
 import Foundation
+import UIKit
 import FirebaseDatabase.FIRDataSnapshot
 
-class User: NSObject {
+class User : NSObject {
     
-    var email: String?
-    var password: String?
-    
-    // MARK: - Properties
-    
-    let uid: String
-    let username: String
-    
-    // MARK: - Init
-    
-    init(uid: String, username: String) {
-        self.uid = uid
-        self.username = username
+    //User variables
+    let uid : String
+    let firstName : String
+    let lastName : String
+    let username : String
+    var dictValue: [String : Any] {
+        return ["firstName" : firstName,
+                "lastName" : lastName,
+                "username" : username]
     }
     
-    init?(snapshot: DataSnapshot) {
-        guard let dict = snapshot.value as? [String : Any],
-            let username = dict["username"] as? String
-            else { return nil }
-        
-        self.uid = snapshot.key
-        self.username = username
-    }
-    // NSCoder
-    required init?(coder aDecoder: NSCoder) {
-        guard let uid = aDecoder.decodeObject(forKey: Constants.UserDefaults.uid) as? String,
-            let username = aDecoder.decodeObject(forKey: Constants.UserDefaults.username) as? String
-            else { return nil }
-        
+    //Standard User init()
+    init(uid: String, username: String, firstName: String, lastName: String) {
         self.uid = uid
+        self.firstName = firstName
+        self.lastName = lastName
         self.username = username
-        
         super.init()
     }
     
-    // MARK: - Singleton
+    //User init using Firebase snapshots
+    init?(snapshot: DataSnapshot) {
+        guard let dict = snapshot.value as? [String : Any],
+            let firstName = dict["firstName"] as? String,
+            let lastName = dict["lastName"] as? String,
+            let username = dict["username"] as? String
+            else { return nil }
+        self.uid = snapshot.key
+        self.firstName = firstName
+        self.lastName = lastName
+        self.username = username
+    }
     
-    // 1
+    //UserDefaults
+    required init?(coder aDecoder: NSCoder) {
+        guard let uid = aDecoder.decodeObject(forKey: "uid") as? String,
+            let firstName = aDecoder.decodeObject(forKey: "firstName") as? String,
+            let lastName = aDecoder.decodeObject(forKey: "lastName") as? String,
+            let username = aDecoder.decodeObject(forKey: "username") as? String
+            else { return nil }
+        
+        self.uid = uid
+        self.firstName = firstName
+        self.lastName = lastName
+        self.username = username
+    }
+    
+    
+    //User singleton for currently logged user
     private static var _current: User?
     
-    // 2
     static var current: User {
-        // 3
         guard let currentUser = _current else {
             fatalError("Error: current user doesn't exist")
         }
         
-        // 4
         return currentUser
     }
     
-    // MARK: - Class Methods
-    
-    // 5
     class func setCurrent(_ user: User, writeToUserDefaults: Bool = false) {
-        // 2
         if writeToUserDefaults {
-            // 3
             let data = NSKeyedArchiver.archivedData(withRootObject: user)
             
-            // 4
-            UserDefaults.standard.set(data, forKey: Constants.UserDefaults.currentUser)
+            UserDefaults.standard.set(data, forKey: "currentUser")
         }
         
         _current = user
@@ -81,8 +85,9 @@ class User: NSObject {
 
 extension User: NSCoding {
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(uid, forKey: Constants.UserDefaults.uid)
-        aCoder.encode(username, forKey: Constants.UserDefaults.username)
+        aCoder.encode(uid, forKey: "uid")
+        aCoder.encode(firstName, forKey: "firstName")
+        aCoder.encode(lastName, forKey: "lastName")
+        aCoder.encode(username, forKey: "username")
     }
 }
-

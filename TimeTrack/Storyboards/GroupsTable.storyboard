@@ -19,9 +19,10 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yvH-va-hoK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yvH-va-hoK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.2784313725" green="0.72941176470000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -32,7 +33,7 @@
             </objects>
             <point key="canvasLocation" x="-830" y="52"/>
         </scene>
-        <!--Table View Controller-->
+        <!--My Groups-->
         <scene sceneID="SfF-Hh-n4V">
             <objects>
                 <tableViewController id="rJA-Qk-1Mr" customClass="TableViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,6 +48,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="avL-F7-N8M" id="Fcg-s0-I3C">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -55,7 +57,7 @@
                             <outlet property="delegate" destination="rJA-Qk-1Mr" id="Q3K-0s-0up"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="cCJ-Pc-LdM"/>
+                    <navigationItem key="navigationItem" title="My Groups" id="cCJ-Pc-LdM"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnR-Y3-1mS" userLabel="First Responder" sceneMemberID="firstResponder"/>
