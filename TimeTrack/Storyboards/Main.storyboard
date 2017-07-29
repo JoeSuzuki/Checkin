@@ -13,6 +13,7 @@
         <scene sceneID="4Ct-dQ-crC">
             <objects>
                 <tabBarController id="Bta-5v-fQs" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Cfa-ql-BbX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

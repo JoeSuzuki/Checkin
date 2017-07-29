@@ -99,6 +99,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="q3r-53-NvQ"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <connections>
                         <outlet property="profileImage" destination="hMO-bd-Zru" id="FAb-6h-I6X"/>
                         <outlet property="usernameLabel" destination="QSO-hG-xFz" id="Hu4-3n-J36"/>
@@ -116,8 +117,10 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WwL-rW-fi1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WwL-rW-fi1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

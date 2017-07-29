@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.32049418880000002" green="0.87535190039999999" blue="0.48080930579999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.2784313725" green="0.72941176470000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MnE-be-Hr5" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="163" id="3Vq-Y7-e04"/>
                             <constraint firstItem="2Ig-IW-7rX" firstAttribute="trailing" secondItem="MnE-be-Hr5" secondAttribute="trailing" id="8LJ-2r-yDT"/>
@@ -47,6 +47,7 @@
                             <constraint firstItem="MnE-be-Hr5" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-16" id="wMs-43-aZm"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

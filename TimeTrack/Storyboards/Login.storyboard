@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="height" constant="54" id="BPw-w4-VYc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <color key="textColor" red="0.4847074858" green="1" blue="0.66264127969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.99195677039999997" green="0.9962289929" blue="0.99192315340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The smart way to check-in." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMJ-vv-pcX">
@@ -37,25 +37,25 @@
                                     <constraint firstAttribute="height" constant="54" id="Sve-ML-NiH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                <color key="textColor" red="0.4847074858" green="1" blue="0.66264127969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.99195677039999997" green="0.9962289929" blue="0.99192315340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Qx-kG-3m0">
                                 <rect key="frame" x="23" y="466" width="329" height="59"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="Mpq-mF-Mfd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Sign in or Login ">
-                                    <color key="titleColor" red="0.4847074858" green="1" blue="0.66264127969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.99195677039999997" green="0.9962289929" blue="0.99192315340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="loginButtonTaped:" destination="AnH-7J-iE6" eventType="touchUpInside" id="TNV-K4-6Jy"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.5509395574" green="0.46202386369999998" blue="0.81803220180000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.27843137254901962" green="0.72941176470588232" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="A7q-f6-Jx8" firstAttribute="centerX" secondItem="fjG-fh-puV" secondAttribute="centerX" id="2Tf-el-cBu"/>
                             <constraint firstItem="A7q-f6-Jx8" firstAttribute="leading" secondItem="JMJ-vv-pcX" secondAttribute="leading" id="5pz-df-p7c"/>
@@ -69,6 +69,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hqJ-52-poX"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <connections>
                         <segue destination="4SZ-jd-gfV" kind="show" identifier="toCreateUsername" id="uCM-Xx-YZL"/>
                     </connections>

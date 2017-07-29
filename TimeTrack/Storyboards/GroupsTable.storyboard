@@ -17,6 +17,7 @@
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yvH-va-hoK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -55,6 +56,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="cCJ-Pc-LdM"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnR-Y3-1mS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

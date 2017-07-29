@@ -16,8 +16,9 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cNZ-eK-sW0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="9Ax-jC-dYr"/>
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Tah-LR-RJh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tah-LR-RJh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -204,6 +205,7 @@
                             <constraint firstItem="Wch-sZ-dHX" firstAttribute="top" secondItem="w0A-tY-VTh" secondAttribute="top" id="vAK-nL-hFg"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="detailsLabel" destination="YKg-EA-fWW" id="oD5-uG-sl4"/>
