@@ -37,49 +37,36 @@ class TimeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         var countrows : Int = days.count
         if pickerView == dayPicker2 {
-            
             countrows = self.days.count
         }
-        
         return countrows
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == dayPicker1 {
-            
             let titleRow = days[row]
-            
             return titleRow
-            
         }
-            
         else if pickerView == dayPicker2{
             let titleRow = days[row]
-            
             return titleRow
         }
-        
         return ""
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == dayPicker1 {
             self.textBox1.text = self.days[row]
         }
-            
         else if pickerView == dayPicker2 {
             self.textBox2.text = self.days[row]
-            
         }
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if (textField == self.textBox1){
             self.dayPicker1.isHidden = false
-            
         }
         else if (textField == self.textBox2){
             self.dayPicker2.isHidden = false
-            
         }
-        
     }
     
     var ref: DatabaseReference!
@@ -103,7 +90,15 @@ class TimeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         displayDaysLabel.text = textBox1.text
         displayDaysLabel2.text = textBox2.text
     }
-    
+    @IBAction func textBoxAction1(_ sender: UITextField) {
+            Constants.from.myStrings = ["from": textBox1.text as Any as! String]
+            displayDaysLabel.text = textBox1.text
+    }
+    @IBAction func textBoxAction2(_ sender: UITextField) {
+        displayDaysLabel2.text = textBox2.text
+        Constants.to.myStrings = ["to": textBox2.text as Any as! String]
+
+    }
 
     /*
     // MARK: - Navigation

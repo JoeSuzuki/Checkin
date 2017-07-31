@@ -17,6 +17,7 @@
 		FF115B371F2CF3C8008A1EB5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF115B351F2CF3C8008A1EB5 /* UserService.swift */; };
 		FF115B3A1F2CF3F9008A1EB5 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF115B381F2CF3F9008A1EB5 /* Storyboard+Utility.swift */; };
 		FF115B3B1F2CF3F9008A1EB5 /* ViewController+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF115B391F2CF3F9008A1EB5 /* ViewController+Utility.swift */; };
+		FF115B3D1F2F66D7008A1EB5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF115B3C1F2F66D7008A1EB5 /* MapKit.framework */; };
 		FF37C6071F2525CA0018940B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF37C6061F2525C90018940B /* AppDelegate.swift */; };
 		FF37C60E1F2525CA0018940B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF37C60D1F2525CA0018940B /* Assets.xcassets */; };
 		FFAFCCCC1F262F5E009D2692 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCCCB1F262F5E009D2692 /* ViewController.swift */; };
@@ -35,7 +36,6 @@
 		FFB799961F29056E001B7C61 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB799941F29056E001B7C61 /* TableViewCell.swift */; };
 		FFB799971F29056E001B7C61 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB799951F29056E001B7C61 /* TableViewCell.xib */; };
 		FFB799A11F29A7C7001B7C61 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB799A01F29A7C7001B7C61 /* Search.storyboard */; };
-		FFB799A51F2A23B0001B7C61 /* FireTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB799A41F2A23B0001B7C61 /* FireTableViewController.swift */; };
 		FFD5BD411F2B868E00C3BEE7 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD5BD401F2B868E00C3BEE7 /* TimeViewController.swift */; };
 		FFD5BD431F2B96C600C3BEE7 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD5BD421F2B96C600C3BEE7 /* DetailsViewController.swift */; };
 		FFD5BD451F2BB41700C3BEE7 /* PersonalGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD5BD441F2BB41700C3BEE7 /* PersonalGroupViewController.swift */; };
@@ -59,6 +59,7 @@
 		FF115B351F2CF3C8008A1EB5 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FF115B381F2CF3F9008A1EB5 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		FF115B391F2CF3F9008A1EB5 /* ViewController+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Utility.swift"; sourceTree = "<group>"; };
+		FF115B3C1F2F66D7008A1EB5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FF37C6031F2525C90018940B /* TimeTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF37C6061F2525C90018940B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF37C60D1F2525CA0018940B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,7 +82,6 @@
 		FFB799941F29056E001B7C61 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FFB799951F29056E001B7C61 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableViewCell.xib; path = ../TableViewCell.xib; sourceTree = "<group>"; };
 		FFB799A01F29A7C7001B7C61 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
-		FFB799A41F2A23B0001B7C61 /* FireTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireTableViewController.swift; sourceTree = "<group>"; };
 		FFD5BD401F2B868E00C3BEE7 /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		FFD5BD421F2B96C600C3BEE7 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		FFD5BD441F2BB41700C3BEE7 /* PersonalGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalGroupViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF115B3D1F2F66D7008A1EB5 /* MapKit.framework in Frameworks */,
 				6A939F7E74347450DA6F7A78 /* Pods_TimeTrack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +108,7 @@
 		3778478B13B8BA38E1BC3FDE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF115B3C1F2F66D7008A1EB5 /* MapKit.framework */,
 				F5D5DC40930E04B3B8DCC3E8 /* Pods_TimeTrack.framework */,
 			);
 			name = Frameworks;
@@ -181,8 +183,8 @@
 		FFAFCCD81F2632BB009D2692 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				FFAFCCDD1F26332D009D2692 /* Main.storyboard */,
 				FF115B321F2CF374008A1EB5 /* Login.storyboard */,
+				FFAFCCDD1F26332D009D2692 /* Main.storyboard */,
 				FFDABC8A1F2A84E300C64D39 /* Calender */,
 				FFB799A21F29B103001B7C61 /* Search */,
 				FFDABC841F2A613A00C64D39 /* Group */,
@@ -231,6 +233,7 @@
 		FFAFCD101F268C4C009D2692 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				FF115B2B1F2CF323008A1EB5 /* MainViewController.swift */,
 				FFAFCD181F278DDC009D2692 /* ProfileViewController.swift */,
 			);
 			name = Profile;
@@ -240,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				FF115B2A1F2CF323008A1EB5 /* ForgotPasswordViewController.swift */,
-				FF115B2B1F2CF323008A1EB5 /* MainViewController.swift */,
 				FF115B2C1F2CF323008A1EB5 /* LoginViewController.swift */,
 				FF115B2D1F2CF323008A1EB5 /* CreateUserViewController.swift */,
 			);
@@ -308,7 +310,6 @@
 			children = (
 				FFB799921F2904A8001B7C61 /* TableViewController.swift */,
 				FFB799941F29056E001B7C61 /* TableViewCell.swift */,
-				FFB799A41F2A23B0001B7C61 /* FireTableViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -361,6 +362,9 @@
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
 							};
 						};
 					};
@@ -475,7 +479,6 @@
 				FFB799931F2904A8001B7C61 /* TableViewController.swift in Sources */,
 				FFAFCCCC1F262F5E009D2692 /* ViewController.swift in Sources */,
 				FFAFCD001F267B79009D2692 /* Constants.swift in Sources */,
-				FFB799A51F2A23B0001B7C61 /* FireTableViewController.swift in Sources */,
 				FF115B311F2CF323008A1EB5 /* CreateUserViewController.swift in Sources */,
 				FFDABC861F2A7C9B00C64D39 /* SearchTableViewController.swift in Sources */,
 				FF115B2E1F2CF323008A1EB5 /* ForgotPasswordViewController.swift in Sources */,

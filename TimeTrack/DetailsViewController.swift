@@ -9,13 +9,45 @@
 import UIKit
 import Firebase
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var groupNameTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var editButton: UIButton!
+    
+    // image save
+    var imagePicker = UIImagePickerController()
+    let storageRef = Storage.storage().reference()
+    let databaseRef = Database.database().reference()
+    
+    @IBAction func editButtonClicked(_ sender: UIButton) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        self.present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        var selectedImageFromPicker: UIImage?
+        
+        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage{
+            selectedImageFromPicker = editedImage
+        }else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage{
+            selectedImageFromPicker = originalImage
+        }
+        if let selectedImage = selectedImageFromPicker{
+            imageView.image = selectedImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
     
     // hides keyboard
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -31,8 +63,9 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ref = Database.database().reference().child("users").child(userID).child("groups").child("personal groups").childByAutoId()
+        ref = Database.database().reference().child("users").child(userID).child("groups").childByAutoId()
         // Do any additional setup after loading the view.
+        imagePicker.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +80,35 @@ class DetailsViewController: UIViewController {
             Any as! String]
         Constants.description.myStrings = ["description": descriptionTextField.text as Any as! String]
         performSegue(withIdentifier: "groupSegue", sender: self)
+        
+        let imageName = NSUUID().uuidString
+        
+        let storedImage = storageRef.child("users").child(userID).child("groups").child(imageName)
+        
+        if let uploadData = UIImagePNGRepresentation(self.imageView.image!)
+        {
+            storedImage.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                if error != nil{
+                    print(error!)
+                    return
+                }
+                storedImage.downloadURL(completion: { (url, error) in
+                    if error != nil{
+                        print(error!)
+                        return
+                    }
+                    if let urlText = url?.absoluteString{
+                        self.databaseRef.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["pic" : urlText], withCompletionBlock: { (error, ref) in
+                            if error != nil{
+                                print(error!)
+                                return
+                            }
+                        })
+                    }
+                })
+            })
+        }
+    }
 
     }
     /*
@@ -63,4 +125,4 @@ class DetailsViewController: UIViewController {
     
 
 
-}
+

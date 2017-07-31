@@ -124,9 +124,7 @@
                             <outlet property="delegate" destination="4ao-go-hCs" id="tVv-zk-Xsj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="3jV-cu-Sgc">
-                        <nil key="title"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="3jV-cu-Sgc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYR-qH-jzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

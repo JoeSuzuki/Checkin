@@ -6,15 +6,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Home-->
         <scene sceneID="Ywh-hn-6nZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zJW-cB-3UD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="clock" id="A2U-Z2-1H9">
-                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="clock" id="A2U-Z2-1H9">
+                        <inset key="imageInsets" minX="0.0" minY="1" maxX="0.0" maxY="-1"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -37,18 +38,50 @@
         <scene sceneID="SfF-Hh-n4V">
             <objects>
                 <tableViewController id="rJA-Qk-1Mr" customClass="TableViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PXm-0P-hla">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="PXm-0P-hla">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" id="avL-F7-N8M">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" rowHeight="200" id="avL-F7-N8M">
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="avL-F7-N8M" id="Fcg-s0-I3C">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bAa-aa-ofe">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="145"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylC-jz-fKM">
+                                            <rect key="frame" x="0.0" y="145" width="375" height="47"/>
+                                            <color key="backgroundColor" red="0.99195677039999997" green="0.9962289929" blue="0.99192315340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="47" id="PnZ-0e-EJC"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <color key="textColor" white="0.1005048077" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2X8-IG-mze">
+                                            <rect key="frame" x="0.0" y="191" width="375" height="8"/>
+                                            <color key="backgroundColor" red="0.2784313725" green="0.72941176470000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                    </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="ylC-jz-fKM" firstAttribute="leading" secondItem="2X8-IG-mze" secondAttribute="leading" id="41i-dc-sSN"/>
+                                        <constraint firstItem="ylC-jz-fKM" firstAttribute="top" secondItem="bAa-aa-ofe" secondAttribute="bottom" id="8fb-xQ-zN8"/>
+                                        <constraint firstItem="ylC-jz-fKM" firstAttribute="trailing" secondItem="2X8-IG-mze" secondAttribute="trailing" id="FpS-fu-mg8"/>
+                                        <constraint firstItem="bAa-aa-ofe" firstAttribute="leading" secondItem="ylC-jz-fKM" secondAttribute="leading" id="GNk-K3-nCt"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ylC-jz-fKM" secondAttribute="bottom" constant="-0.5" id="O7v-Jh-okL"/>
+                                        <constraint firstItem="bAa-aa-ofe" firstAttribute="leading" secondItem="Fcg-s0-I3C" secondAttribute="leading" id="QUn-23-hlA"/>
+                                        <constraint firstItem="2X8-IG-mze" firstAttribute="top" secondItem="bAa-aa-ofe" secondAttribute="bottom" constant="46" id="Vrb-6J-zpi"/>
+                                        <constraint firstAttribute="trailing" secondItem="bAa-aa-ofe" secondAttribute="trailing" id="adZ-pr-r0K"/>
+                                        <constraint firstItem="bAa-aa-ofe" firstAttribute="trailing" secondItem="ylC-jz-fKM" secondAttribute="trailing" id="aw1-09-DR5"/>
+                                        <constraint firstItem="bAa-aa-ofe" firstAttribute="top" secondItem="Fcg-s0-I3C" secondAttribute="top" id="uTE-oO-4BZ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="2X8-IG-mze" secondAttribute="bottom" constant="-7.5" id="uhw-fu-jfp"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -62,7 +95,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnR-Y3-1mS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-62" y="52"/>
+            <point key="canvasLocation" x="-63.200000000000003" y="51.724137931034484"/>
         </scene>
     </scenes>
     <resources>

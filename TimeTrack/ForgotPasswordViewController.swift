@@ -16,7 +16,15 @@ class ForgotPasswordViewController: UIViewController {
         super.viewDidLoad()
         configureView()
     }
-
+    // hides keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    // hides keyboard when pressing return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        emailTextField.resignFirstResponder()
+        return(true)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -32,7 +40,9 @@ class ForgotPasswordViewController: UIViewController {
 
 extension ForgotPasswordViewController{
     func configureView(){
-        applyKeyboardPush()
-        applyKeyboardDismisser()
+//        applyKeyboardPush()
+//        applyKeyboardDismisser()
+        self.view.backgroundColor = UIColor(red: 71/255, green: 186/255, blue: 251/255, alpha: 1)
+
     }
 }

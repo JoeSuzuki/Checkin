@@ -19,14 +19,22 @@ struct cellData {
 class TableViewController: UITableViewController {
 
     //let ref = Database.database().reference().child("users")
-
-    var arrayOfCellData = [cellData]()
+    var tableText: String?
+    var tableImage: UIImage?
     
+    var arrayOfCellData = [cellData]()
+    var ref: DatabaseReference?
+
     override func viewDidLoad() {
-        arrayOfCellData = [cellData(cell : 1, text : "Dr.Andy's office", image : #imageLiteral(resourceName: "docotrsoffice")),
-                           cellData(cell : 1, text : "Dr. Bob's office", image : #imageLiteral(resourceName: "maxresdefault")),
-            cellData(cell : 1, text : "Gods teeth office", image : #imageLiteral(resourceName: "w"))
-        ]
+        let storageRef = Storage.storage().reference().child("users")
+        let ref = Database.database().reference()
+        ref.child("users").observe(.value, with: { snapshot in
+            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                for child in snapshots {
+                    print("Child: ", child)
+                }
+            }
+        })
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,3 +73,7 @@ class TableViewController: UITableViewController {
         }
     }
 }
+
+//        arrayOfCellData = [cellData(cell : 1, text : "Dr.Andy's office", image : #imageLiteral(resourceName: "docotrsoffice")),
+//                           cellData(cell : 1, text : "Dr. Bob's office", image : #imageLiteral(resourceName: "maxresdefault")),
+//            cellData(cell : 1, text : "Gods teeth office", image : #imageLiteral(resourceName: "w"))

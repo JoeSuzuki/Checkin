@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import MapKit
 
 class GroupLocationViewController: UIViewController {
 
@@ -38,17 +39,11 @@ class GroupLocationViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func searchButton(_ sender: UIButton) {
+    @IBAction func locationTextField(_ sender: UITextField) {
         locationDisplay.text = searchTextField.text
-        //self.ref?.child("location").updateChildValues(["location": searchTextField.text as Any])
         Constants.location.myStrings = ["location": searchTextField.text as Any as! String]
-        }
-    @IBAction func cancelButton(_ sender: UIButton) {
-        let initialViewController = UIStoryboard.initialViewController(for: .main)
-        self.view.window?.rootViewController = initialViewController
-        self.view.window?.makeKeyAndVisible()
-
     }
+    
     
 
 
