@@ -51,5 +51,13 @@ struct UserService {
         }
         
     }
- 
+
+//    static func groups(forUID uid: String, completion: @escaping (User?) -> Void) {
+//        let ref = Database.database().reference().child("users").child(uid).child("groups")
+//        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+////            
+//            completion(user)
+//        })
+// 
+//    }
 }

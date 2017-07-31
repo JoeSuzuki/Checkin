@@ -21,20 +21,25 @@ class TableViewController: UITableViewController {
     //let ref = Database.database().reference().child("users")
     var tableText: String?
     var tableImage: UIImage?
-    
     var arrayOfCellData = [cellData]()
     var ref: DatabaseReference?
-
+    let imageName = NSUUID().uuidString
+    
     override func viewDidLoad() {
-        let storageRef = Storage.storage().reference().child("users")
-        let ref = Database.database().reference()
-        ref.child("users").observe(.value, with: { snapshot in
-            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
-                for child in snapshots {
-                    print("Child: ", child)
-                }
-            }
-        })
+        super.viewDidLoad()
+        let userID = Auth.auth().currentUser!.uid
+        let uid = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference().child("users").child(uid!).observeSingleEvent(of: <#T##DataEventType#>, with: <#T##(DataSnapshot) -> Void#>) //.child("groups")
+        arrayOfCellData = [cellData(cell : 1, text : "Dr.Andy's office", image : #imageLiteral(resourceName: "docotrsoffice")),
+                                   cellData(cell : 1, text : "Dr. Bob's office", image : #imageLiteral(resourceName: "maxresdefault")),
+                    cellData(cell : 1, text : "Gods teeth office", image : #imageLiteral(resourceName: "w"))]
+        
+     //   ref.child("users").queryOrderedByKey().observe(.childAdded, with: { snapshot in
+           
+         //   let texted = snapshot.value!["name"] as! String
+           // self.arrayOfCellData.insert(cellData(text: texted))
+       // })
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,12 +53,6 @@ class TableViewController: UITableViewController {
             cell.mainLabelView.text = arrayOfCellData[indexPath.row].text
     
             return cell
-        } else if arrayOfCellData[indexPath.row].cell == 2  {
-            let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-            cell.mainImageView.image = arrayOfCellData[indexPath.row].image
-            cell.mainLabelView.text = arrayOfCellData[indexPath.row].text
-            
-            return cell
         } else {
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
             
@@ -63,6 +62,7 @@ class TableViewController: UITableViewController {
             return cell
         }
     }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if arrayOfCellData[indexPath.row].cell == 1 {
             return 235
