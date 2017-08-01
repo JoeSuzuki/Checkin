@@ -23,18 +23,21 @@ class TableViewController: UITableViewController {
     var tableImage: UIImage?
     var arrayOfCellData = [cellData]()
     var ref: DatabaseReference?
-    let imageName = NSUUID().uuidString
+    let userID = Auth.auth().currentUser!.uid
+    var name: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userID = Auth.auth().currentUser!.uid
-        let uid = Auth.auth().currentUser?.uid
-        let ref = Database.database().reference().child("users").child(uid!).observeSingleEvent(of: <#T##DataEventType#>, with: <#T##(DataSnapshot) -> Void#>) //.child("groups")
-        arrayOfCellData = [cellData(cell : 1, text : "Dr.Andy's office", image : #imageLiteral(resourceName: "docotrsoffice")),
-                                   cellData(cell : 1, text : "Dr. Bob's office", image : #imageLiteral(resourceName: "maxresdefault")),
-                    cellData(cell : 1, text : "Gods teeth office", image : #imageLiteral(resourceName: "w"))]
-        
-     //   ref.child("users").queryOrderedByKey().observe(.childAdded, with: { snapshot in
+        let ref = Database.database().reference().child("groups").child(userID)
+        ref.observe(.childAdded, with: { (snapshot) -> Void in
+           if let result = snapshot.children.allObjects as? [DataSnapshot] {
+                for child in result {
+                    let orderID = child.key
+                    print(orderID)
+                }
+            }
+        })
+     //   ref.queryOrderedByKey().observe(.childAdded, with: { snapshot in
            
          //   let texted = snapshot.value!["name"] as! String
            // self.arrayOfCellData.insert(cellData(text: texted))

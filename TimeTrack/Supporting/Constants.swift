@@ -32,4 +32,7 @@ struct Constants {
     struct description {
         static var myStrings = [String: String]()
     }
+//    struct groups {
+//        static var myStrings: Array = [Array<Any>]()
+//    }
 }

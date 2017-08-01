@@ -22,7 +22,7 @@ class PersonalGroupViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ref = Database.database().reference().child("users").child(userID).child("groups").childByAutoId()
+        ref = Database.database().reference().child("groups").child(userID).childByAutoId()
         self.ref?.child("location").updateChildValues(Constants.location.myStrings)
         self.ref?.child("from").updateChildValues(Constants.from.myStrings)
         self.ref?.child("to").updateChildValues(Constants.to.myStrings)
@@ -33,7 +33,6 @@ class PersonalGroupViewController: UIViewController{
         let days = "\(String(describing: Constants.from.myStrings["from"])) - \(String(describing: Constants.to.myStrings["to"]))"
         daysOpen.text = days
         groupNameLabel.text = Constants.name.myStrings["name"]
-        
     }
 
     override func didReceiveMemoryWarning() {
