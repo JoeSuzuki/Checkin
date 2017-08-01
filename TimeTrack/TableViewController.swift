@@ -23,20 +23,18 @@ class TableViewController: UITableViewController {
     var tableImage: UIImage?
     var arrayOfCellData = [cellData]()
     var ref: DatabaseReference?
-    let userID = Auth.auth().currentUser!.uid
+    let userID = Auth.auth().currentUser?.uid
     var name: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let ref = Database.database().reference().child("groups").child(userID)
-        ref.observe(.childAdded, with: { (snapshot) -> Void in
-           if let result = snapshot.children.allObjects as? [DataSnapshot] {
-                for child in result {
-                    let orderID = child.key
-                    print(orderID)
-                }
-            }
-        })
+        ref = Database.database().reference().child("groups").child(userID!)
+        GroupService.grouper(forUID: userID!) 
+//            for groupSnap in snapshot {
+//                guard let groupDict = groupSnap.value as? [String: Any] else { return }
+//                
+//                
+//            }
      //   ref.queryOrderedByKey().observe(.childAdded, with: { snapshot in
            
          //   let texted = snapshot.value!["name"] as! String

@@ -37,6 +37,7 @@
 		FFB799961F29056E001B7C61 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB799941F29056E001B7C61 /* TableViewCell.swift */; };
 		FFB799971F29056E001B7C61 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB799951F29056E001B7C61 /* TableViewCell.xib */; };
 		FFB799A11F29A7C7001B7C61 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB799A01F29A7C7001B7C61 /* Search.storyboard */; };
+		FFD360741F30F587009B6B17 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD360731F30F587009B6B17 /* GroupService.swift */; };
 		FFD5BD411F2B868E00C3BEE7 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD5BD401F2B868E00C3BEE7 /* TimeViewController.swift */; };
 		FFD5BD431F2B96C600C3BEE7 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD5BD421F2B96C600C3BEE7 /* DetailsViewController.swift */; };
 		FFD5BD451F2BB41700C3BEE7 /* PersonalGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD5BD441F2BB41700C3BEE7 /* PersonalGroupViewController.swift */; };
@@ -84,6 +85,7 @@
 		FFB799941F29056E001B7C61 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FFB799951F29056E001B7C61 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableViewCell.xib; path = ../TableViewCell.xib; sourceTree = "<group>"; };
 		FFB799A01F29A7C7001B7C61 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		FFD360731F30F587009B6B17 /* GroupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
 		FFD5BD401F2B868E00C3BEE7 /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		FFD5BD421F2B96C600C3BEE7 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		FFD5BD441F2BB41700C3BEE7 /* PersonalGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalGroupViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				FF115B341F2CF3C8008A1EB5 /* AuthService.swift */,
+				FFD360731F30F587009B6B17 /* GroupService.swift */,
 				FF115B351F2CF3C8008A1EB5 /* UserService.swift */,
 			);
 			name = Services;
@@ -474,6 +477,7 @@
 				FFD5BD411F2B868E00C3BEE7 /* TimeViewController.swift in Sources */,
 				FFDABC811F2A5AE200C64D39 /* SearchViewController.swift in Sources */,
 				FFB799961F29056E001B7C61 /* TableViewCell.swift in Sources */,
+				FFD360741F30F587009B6B17 /* GroupService.swift in Sources */,
 				FFAFCD1D1F279CBC009D2692 /* AddGroupsViewController.swift in Sources */,
 				FFAFCD191F278DDC009D2692 /* ProfileViewController.swift in Sources */,
 				FFAFCCF41F267164009D2692 /* User.swift in Sources */,

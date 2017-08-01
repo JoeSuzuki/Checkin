@@ -31,40 +31,6 @@
             </objects>
             <point key="canvasLocation" x="-68" y="672"/>
         </scene>
-        <!--Search View Controller-->
-        <scene sceneID="hxS-wK-noV">
-            <objects>
-                <viewController id="4eh-8R-3yy" customClass="SearchViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="l1Q-cv-fNd"/>
-                        <viewControllerLayoutGuide type="bottom" id="6m6-7a-VDb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Eu4-ah-i3p">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w6s-BL-Xsv">
-                                <rect key="frame" x="0.0" y="161" width="375" height="457"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="6m6-7a-VDb" firstAttribute="top" secondItem="w6s-BL-Xsv" secondAttribute="bottom" constant="49" id="9SP-Mm-VKG"/>
-                            <constraint firstItem="w6s-BL-Xsv" firstAttribute="top" secondItem="l1Q-cv-fNd" secondAttribute="bottom" constant="141" id="GVp-re-EXo"/>
-                            <constraint firstAttribute="trailing" secondItem="w6s-BL-Xsv" secondAttribute="trailing" id="IyD-Cc-2f9"/>
-                            <constraint firstItem="w6s-BL-Xsv" firstAttribute="leading" secondItem="Eu4-ah-i3p" secondAttribute="leading" id="z7X-Dl-20T"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="4II-R2-ak0"/>
-                    <connections>
-                        <outlet property="searchTable" destination="w6s-BL-Xsv" id="DOT-ol-DM3"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DFL-nf-bPp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="708" y="1313"/>
-        </scene>
         <!--Search Table View Controller-->
         <scene sceneID="Y5O-FV-xJY">
             <objects>
