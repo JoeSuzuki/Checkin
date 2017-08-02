@@ -27,7 +27,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="rJA-Qk-1Mr" kind="relationship" relationship="rootViewController" id="Ojp-SO-k5Z"/>
+                        <segue destination="rJA-Qk-1Mr" kind="relationship" relationship="rootViewController" id="dnP-Fk-CHV"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4GM-Tp-OxT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -92,10 +92,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="My Groups" id="cCJ-Pc-LdM"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    <connections>
+                        <outlet property="groupTableView" destination="PXm-0P-hla" id="3nC-IR-Ehf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnR-Y3-1mS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-63.200000000000003" y="51.724137931034484"/>
+            <point key="canvasLocation" x="1042" y="-40"/>
         </scene>
     </scenes>
     <resources>
