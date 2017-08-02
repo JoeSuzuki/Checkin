@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import MapKit
 
 class GroupLocationViewController: UIViewController {
 

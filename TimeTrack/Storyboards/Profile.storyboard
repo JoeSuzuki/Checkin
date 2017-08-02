@@ -14,7 +14,7 @@
         <scene sceneID="Ag6-sP-yWM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V4K-pC-b74" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="man" id="Ijn-TR-MBT">
+                    <tabBarItem key="tabBarItem" title="" image="icons8-Contacts-50" id="Ijn-TR-MBT">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -73,7 +73,7 @@
                                     <action selector="deleteAccountClicked:" destination="vyB-8K-76H" eventType="touchUpInside" id="rdJ-AQ-CCy"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="0UR-xy-xN1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-Contacts-50" translatesAutoresizingMaskIntoConstraints="NO" id="0UR-xy-xN1">
                                 <rect key="frame" x="118" y="72" width="139" height="131"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="131" id="JzL-cm-7zh"/>
@@ -127,6 +127,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="man" width="30" height="30"/>
+        <image name="icons8-Contacts-50" width="50" height="50"/>
     </resources>
 </document>

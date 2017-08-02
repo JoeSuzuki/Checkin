@@ -22,17 +22,17 @@ class PersonalGroupViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ref = Database.database().reference().child("groups").child(userID).childByAutoId()
-        self.ref?.child("location").updateChildValues(Constants.location.myStrings)
-        self.ref?.child("from").updateChildValues(Constants.from.myStrings)
-        self.ref?.child("to").updateChildValues(Constants.to.myStrings)
-        self.ref?.child("name").updateChildValues(Constants.name.myStrings)
-        self.ref?.child("description").updateChildValues(Constants.description.myStrings)
         descriptionLabel.text = Constants.description.myStrings["description"]
         addressLabel.text = Constants.location.myStrings["location"]
         let days = "\(String(describing: Constants.from.myStrings["from"])) - \(String(describing: Constants.to.myStrings["to"]))"
         daysOpen.text = days
         groupNameLabel.text = Constants.name.myStrings["name"]
+        ref = Database.database().reference().child("basic info").child(userID).childByAutoId()//.child("groups").child(userID).childByAutoId()
+        self.ref.child("location").updateChildValues(Constants.location.myStrings)
+        self.ref.child("from").updateChildValues(Constants.from.myStrings)
+        self.ref.child("to").updateChildValues(Constants.to.myStrings)
+        self.ref.child("name").updateChildValues(Constants.name.myStrings)
+        self.ref.child("description").updateChildValues(Constants.description.myStrings)
     }
 
     override func didReceiveMemoryWarning() {
