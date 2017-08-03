@@ -35,8 +35,8 @@ struct Constants {
     struct img {
         static var myImg =  [String: String]()
     }
-
-//    struct groups {
-//        static var myStrings: Array = [Array<Any>]()
-//    }
+// groups
+    struct groupsName {
+        static var myStrings: String = ""
+    }
 }

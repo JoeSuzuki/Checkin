@@ -119,12 +119,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6N-iX-D8K">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="docotrsoffice" translatesAutoresizingMaskIntoConstraints="NO" id="Xck-U7-d5T">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="171" id="FJv-DL-edd"/>
-                                                </constraints>
-                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvc-XU-EPC">
                                                 <rect key="frame" x="0.0" y="171" width="375" height="47"/>
                                                 <color key="backgroundColor" red="0.99195677039999997" green="0.9962289929" blue="0.99192315340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -145,14 +139,20 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.2784313725" green="0.72941176470000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="docotrsoffice" translatesAutoresizingMaskIntoConstraints="NO" id="Xck-U7-d5T">
+                                                <rect key="frame" x="108" y="0.0" width="174" height="174"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="172" id="FJv-DL-edd"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.99195677039999997" green="0.9962289929" blue="0.99192315340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="Xck-U7-d5T" firstAttribute="leading" secondItem="hvc-XU-EPC" secondAttribute="leading" id="3hw-Ev-RNd"/>
-                                            <constraint firstAttribute="trailing" secondItem="Xck-U7-d5T" secondAttribute="trailing" id="GVd-EP-oQ5"/>
+                                            <constraint firstItem="Xck-U7-d5T" firstAttribute="leading" secondItem="hvc-XU-EPC" secondAttribute="leading" constant="100" id="3hw-Ev-RNd"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xck-U7-d5T" secondAttribute="trailing" constant="101" id="GVd-EP-oQ5"/>
                                             <constraint firstAttribute="height" constant="1500" id="JDs-zC-Pqv"/>
-                                            <constraint firstItem="Xck-U7-d5T" firstAttribute="trailing" secondItem="hvc-XU-EPC" secondAttribute="trailing" id="TmT-zJ-16E"/>
-                                            <constraint firstItem="Xck-U7-d5T" firstAttribute="leading" secondItem="m6N-iX-D8K" secondAttribute="leading" id="lik-wR-7BS"/>
+                                            <constraint firstItem="Xck-U7-d5T" firstAttribute="trailing" secondItem="hvc-XU-EPC" secondAttribute="trailing" constant="-101" id="TmT-zJ-16E"/>
+                                            <constraint firstItem="Xck-U7-d5T" firstAttribute="leading" secondItem="m6N-iX-D8K" secondAttribute="leading" constant="100" id="lik-wR-7BS"/>
                                             <constraint firstItem="hvc-XU-EPC" firstAttribute="top" secondItem="m6N-iX-D8K" secondAttribute="top" constant="171" id="lzA-lX-sY2"/>
                                             <constraint firstItem="Xck-U7-d5T" firstAttribute="top" secondItem="m6N-iX-D8K" secondAttribute="top" id="rPE-4p-bRs"/>
                                         </constraints>
@@ -178,12 +178,13 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
+                        <outlet property="mainImageViewSecond" destination="Xck-U7-d5T" id="PC2-JZ-R3y"/>
                         <outlet property="mainTextViewSecond" destination="hvc-XU-EPC" id="2I0-8U-4kN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30p-bL-BCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="767" y="426"/>
+            <point key="canvasLocation" x="765.60000000000002" y="425.48725637181411"/>
         </scene>
     </scenes>
     <resources>

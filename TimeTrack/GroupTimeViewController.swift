@@ -12,10 +12,14 @@ class GroupTimeViewController: UIViewController {
 
     
     @IBOutlet weak var mainTextViewSecond: UILabel!
+    @IBOutlet weak var mainImageViewSecond: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        mainTextViewSecond.text = Constants.groupsName.myStrings
+        mainImageViewSecond.layer.masksToBounds = false
+        mainImageViewSecond.layer.cornerRadius = mainImageViewSecond.frame.size.width/2
+        mainImageViewSecond.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
 

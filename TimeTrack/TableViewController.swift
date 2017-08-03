@@ -32,6 +32,7 @@ class TableViewController: UITableViewController {
 //    var imageName: String = ""
 //    var imaged = UIImage?.self
     @IBOutlet var groupTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //configureDatabase()
@@ -87,15 +88,14 @@ class TableViewController: UITableViewController {
             
             cell.mainImageView.image = arrayOfCellData[indexPath.row].image
             cell.mainLabelView.text = arrayOfCellData[indexPath.row].text
-    
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
             
             cell.mainImageView.image = arrayOfCellData[indexPath.row].image
             cell.mainLabelView.text = (arrayOfCellData[indexPath.row].text!
-                
-            );   return cell
+            );
+            return cell
         }
     }
     
@@ -109,9 +109,13 @@ class TableViewController: UITableViewController {
         }
     }
    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        myIndex = indexPath.row
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
         performSegue(withIdentifier: "segue", sender: self)
     }
-}
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //Constants.groupsName.myStrings
+    }
+
+
+   }
