@@ -33,6 +33,7 @@ class PersonalGroupViewController: UIViewController{
         self.ref.child("to").updateChildValues(Constants.to.myStrings)
         self.ref.child("name").updateChildValues(Constants.name.myStrings)
         self.ref.child("description").updateChildValues(Constants.description.myStrings)
+        self.ref.child("img").updateChildValues(Constants.img.myImg)
     }
 
     override func didReceiveMemoryWarning() {

@@ -84,7 +84,8 @@ class DetailsViewController: UIViewController, UINavigationControllerDelegate, U
         let imageName = NSUUID().uuidString
         
         let storedImage = storageRef.child("users").child(userID).child("groups").child(imageName)
-        
+        Constants.img.myImg = ["img" : imageName]
+
         if let uploadData = UIImagePNGRepresentation(self.imageView.image!)
         {
             storedImage.putData(uploadData, metadata: nil, completion: { (metadata, error) in
@@ -109,7 +110,6 @@ class DetailsViewController: UIViewController, UINavigationControllerDelegate, U
             })
         }
     }
-
     }
     /*
     // MARK: - Navigation

@@ -15,7 +15,7 @@ struct cellData {
     let text: String?
     let image: UIImage?
 }
-
+var myIndex = 0
 class TableViewController: UITableViewController {
 
     //let ref = Database.database().reference().child("users")
@@ -29,13 +29,22 @@ class TableViewController: UITableViewController {
     var ref: DatabaseReference?
     let userID = Auth.auth().currentUser?.uid
     var name: [String] = []
-    
+//    var imageName: String = ""
+//    var imaged = UIImage?.self
     @IBOutlet var groupTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         //configureDatabase()
         ref = Database.database().reference().child("basic info").child(userID!)
-        ref?.observe(.childAdded, with: { (snapshot)  in
+//        let storageRef = Storage.storage().reference()
+//        ref?.observe(.childAdded, with: { (snapshot)  in
+//            if let result = snapshot.value as? [String : Any],
+//                let groupImg = result["img"] as? [String : Any],
+//                let img = groupImg["img"] as? String
+//            {
+//                let imaged = storageRef.child("users").child(self.userID!).child("groups").child(img)
+//                
+        self.ref?.observe(.childAdded, with: { (snapshot)  in
             if let result = snapshot.value as? [String : Any],
             let groupName = result["name"] as? [String : Any],
                 let name = groupName["name"] as? String
@@ -49,15 +58,10 @@ class TableViewController: UITableViewController {
                 self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice")))
             }
         })
-        for each in name {
-            arrayOfCellData = [cellData(cell : 1, text : each , image : #imageLiteral(resourceName: "docotrsoffice"))]
-        }
-        arrayOfCellData = [cellData(cell : 1, text : "Dr.Andy's office", image : #imageLiteral(resourceName: "docotrsoffice")),
-                                  cellData(cell : 1, text : "Dr. Bob's office", image : #imageLiteral(resourceName: "maxresdefault")),
-                                cellData(cell : 1, text : "Gods teeth office", image : #imageLiteral(resourceName: "w"))]
+//            }
+//        })
     }
-    
-    
+
 
     func configureDatabase() {
         ref = Database.database().reference().child("groups").child(userID!)
@@ -103,5 +107,11 @@ class TableViewController: UITableViewController {
         } else {
             return 235
         }
+    }
+   
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        myIndex = indexPath.row
+        performSegue(withIdentifier: "segue", sender: self)
     }
 }

@@ -30,7 +30,6 @@ class SearchViewViewController: UIViewController {
     }
     
     @IBAction func joinButton(_ sender: UIButton) {
-        self.ref?.child("users").child(userID).updateChildValues(["Groups": "hhhh"])
     }
 
 }
