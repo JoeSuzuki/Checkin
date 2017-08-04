@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="235"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="235"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="234.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Kg-rr-gh8">
@@ -26,17 +26,17 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFI-aP-u9J">
-                        <rect key="frame" x="0.0" y="180" width="320" height="47"/>
+                        <rect key="frame" x="0.0" y="180" width="320" height="51"/>
                         <color key="backgroundColor" red="0.99195677039999997" green="0.9962289929" blue="0.99192315340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="47" id="sez-LV-hUT"/>
+                            <constraint firstAttribute="height" constant="51" id="sez-LV-hUT"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                         <color key="textColor" white="0.1005048076923077" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x6o-bp-MM4">
-                        <rect key="frame" x="0.0" y="227" width="320" height="8"/>
+                        <rect key="frame" x="0.0" y="231" width="320" height="4"/>
                         <color key="backgroundColor" red="0.2784313725" green="0.72941176470000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </subviews>
@@ -45,7 +45,7 @@
                     <constraint firstItem="6Kg-rr-gh8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ASd-HA-P2r"/>
                     <constraint firstItem="6Kg-rr-gh8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Fdv-TM-ZHx"/>
                     <constraint firstItem="6Kg-rr-gh8" firstAttribute="trailing" secondItem="IFI-aP-u9J" secondAttribute="trailing" id="VQj-ub-rUj"/>
-                    <constraint firstItem="x6o-bp-MM4" firstAttribute="top" secondItem="6Kg-rr-gh8" secondAttribute="bottom" constant="46" id="cZt-sh-5Sd"/>
+                    <constraint firstItem="x6o-bp-MM4" firstAttribute="top" secondItem="6Kg-rr-gh8" secondAttribute="bottom" constant="50" id="cZt-sh-5Sd"/>
                     <constraint firstItem="IFI-aP-u9J" firstAttribute="leading" secondItem="x6o-bp-MM4" secondAttribute="leading" id="jx6-f0-0Ux"/>
                     <constraint firstItem="IFI-aP-u9J" firstAttribute="trailing" secondItem="x6o-bp-MM4" secondAttribute="trailing" id="mb3-fY-PxS"/>
                     <constraint firstItem="x6o-bp-MM4" firstAttribute="top" secondItem="IFI-aP-u9J" secondAttribute="bottom" id="ubm-fK-EPn"/>

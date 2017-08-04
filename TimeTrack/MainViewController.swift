@@ -38,17 +38,34 @@ class MainViewController: UIViewController {
     deinit {
         AuthService.removeAuthListener(authHandle: authHandle)
     }
-
-    @IBAction func logOutClicked(_ sender: UIButton) {
+    func logout() {
         AuthService.presentLogOut(viewController: self)
     }
-    
-    @IBAction func deleteAccountClicked(_ sender: UIButton) {
+    func deleteAccount() {
         guard let user = Auth.auth().currentUser else {
             print("NO USER EXISTS???")
             return
         }
         AuthService.presentDelete(viewController: self, user : user)
+    }
+
+    @IBAction func settingButton(_ sender: UIBarButtonItem) {
+        
+        // create the alert
+        let alert = UIAlertController(title: "Leaving?", message: "Would you like to logout or delete your account completely?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Log Out", style: UIAlertActionStyle.destructive, handler: { action in
+            self.logout()
+        }))
+        alert.addAction(UIAlertAction(title: "Delete Account", style: UIAlertActionStyle.destructive, handler: { action in
+            self.deleteAccount()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

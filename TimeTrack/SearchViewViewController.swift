@@ -10,9 +10,6 @@ import UIKit
 import Firebase
 
 class SearchViewViewController: UIViewController {
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var groupName: UILabel!
-    @IBOutlet weak var detailsLabel: UILabel!
 
     var ref: DatabaseReference!
     let userID = Auth.auth().currentUser!.uid

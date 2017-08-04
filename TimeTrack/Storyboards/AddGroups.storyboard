@@ -267,12 +267,12 @@
             </objects>
             <point key="canvasLocation" x="2039" y="1587"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Add-->
         <scene sceneID="X5B-6n-I70">
             <objects>
                 <navigationController restorationIdentifier="AddGroups" storyboardIdentifier="AddGroups" automaticallyAdjustsScrollViewInsets="NO" id="8iW-ZA-WIF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab_plus_black" id="tFD-JE-gwq">
-                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    <tabBarItem key="tabBarItem" title="Add" image="tab_plus_black" id="tFD-JE-gwq">
+                        <inset key="imageInsets" minX="0.0" minY="1" maxX="0.0" maxY="-1"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>

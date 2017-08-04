@@ -10,7 +10,7 @@ import UIKit
 
 class GroupTimeViewController: UIViewController {
 
-    @IBOutlet weak var mainImageViewSecon: UIImageView!
+    @IBOutlet weak var timeTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class GroupTimeViewController: UIViewController {
     }
     
 
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
     }
 //     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

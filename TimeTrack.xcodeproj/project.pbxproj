@@ -38,11 +38,11 @@
 		FFB799A11F29A7C7001B7C61 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB799A01F29A7C7001B7C61 /* Search.storyboard */; };
 		FFC091151F339B1100BD5143 /* GroupTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC091141F339B1100BD5143 /* GroupTimeViewController.swift */; };
 		FFC091171F342E7400BD5143 /* MoreInfoGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC091161F342E7400BD5143 /* MoreInfoGroupViewController.swift */; };
+		FFC091191F34E7AB00BD5143 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC091181F34E7AB00BD5143 /* SearchTableViewCell.swift */; };
 		FFD360741F30F587009B6B17 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD360731F30F587009B6B17 /* GroupService.swift */; };
 		FFD5BD411F2B868E00C3BEE7 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD5BD401F2B868E00C3BEE7 /* TimeViewController.swift */; };
 		FFD5BD431F2B96C600C3BEE7 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD5BD421F2B96C600C3BEE7 /* DetailsViewController.swift */; };
 		FFD5BD451F2BB41700C3BEE7 /* PersonalGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD5BD441F2BB41700C3BEE7 /* PersonalGroupViewController.swift */; };
-		FFDABC811F2A5AE200C64D39 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDABC801F2A5AE200C64D39 /* SearchViewController.swift */; };
 		FFDABC831F2A5B6600C64D39 /* SearchViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDABC821F2A5B6600C64D39 /* SearchViewViewController.swift */; };
 		FFDABC861F2A7C9B00C64D39 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDABC851F2A7C9B00C64D39 /* SearchTableViewController.swift */; };
 		FFDABC891F2A84DF00C64D39 /* Calender.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFDABC881F2A84DF00C64D39 /* Calender.storyboard */; };
@@ -87,11 +87,11 @@
 		FFB799A01F29A7C7001B7C61 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		FFC091141F339B1100BD5143 /* GroupTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTimeViewController.swift; sourceTree = "<group>"; };
 		FFC091161F342E7400BD5143 /* MoreInfoGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfoGroupViewController.swift; sourceTree = "<group>"; };
+		FFC091181F34E7AB00BD5143 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		FFD360731F30F587009B6B17 /* GroupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
 		FFD5BD401F2B868E00C3BEE7 /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		FFD5BD421F2B96C600C3BEE7 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		FFD5BD441F2BB41700C3BEE7 /* PersonalGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalGroupViewController.swift; sourceTree = "<group>"; };
-		FFDABC801F2A5AE200C64D39 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FFDABC821F2A5B6600C64D39 /* SearchViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewViewController.swift; sourceTree = "<group>"; };
 		FFDABC851F2A7C9B00C64D39 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewController.swift; path = Assets.xcassets/SearchTableViewController.swift; sourceTree = "<group>"; };
 		FFDABC881F2A84DF00C64D39 /* Calender.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calender.storyboard; sourceTree = "<group>"; };
@@ -272,9 +272,9 @@
 		FFB799911F290482001B7C61 /* Table */ = {
 			isa = PBXGroup;
 			children = (
-				FFDABC801F2A5AE200C64D39 /* SearchViewController.swift */,
 				FFDABC851F2A7C9B00C64D39 /* SearchTableViewController.swift */,
 				FFDABC821F2A5B6600C64D39 /* SearchViewViewController.swift */,
+				FFC091181F34E7AB00BD5143 /* SearchTableViewCell.swift */,
 			);
 			name = Table;
 			sourceTree = "<group>";
@@ -478,9 +478,9 @@
 				FF115B3B1F2CF3F9008A1EB5 /* ViewController+Utility.swift in Sources */,
 				FF115B3A1F2CF3F9008A1EB5 /* Storyboard+Utility.swift in Sources */,
 				FFD5BD411F2B868E00C3BEE7 /* TimeViewController.swift in Sources */,
-				FFDABC811F2A5AE200C64D39 /* SearchViewController.swift in Sources */,
 				FFB799961F29056E001B7C61 /* TableViewCell.swift in Sources */,
 				FFD360741F30F587009B6B17 /* GroupService.swift in Sources */,
+				FFC091191F34E7AB00BD5143 /* SearchTableViewCell.swift in Sources */,
 				FFAFCD1D1F279CBC009D2692 /* AddGroupsViewController.swift in Sources */,
 				FFAFCD191F278DDC009D2692 /* ProfileViewController.swift in Sources */,
 				FFAFCCF41F267164009D2692 /* User.swift in Sources */,

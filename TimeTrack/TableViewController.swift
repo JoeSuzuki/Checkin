@@ -32,6 +32,16 @@ class TableViewController: UITableViewController {
 //    var imageName: String = ""
 //    var imaged = UIImage?.self
     @IBOutlet var groupTableView: UITableView!
+    @IBAction func infoButton(_ sender: UIBarButtonItem) {
+        // create the alert
+        let alert = UIAlertController(title: "Info", message: "This is all the groups that you currently have editing control.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
