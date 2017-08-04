@@ -47,15 +47,12 @@ class TableViewController: UITableViewController {
 //                
         self.ref?.observe(.childAdded, with: { (snapshot)  in
             if let result = snapshot.value as? [String : Any],
+           // if let locationResult = snapshot.value as? [String : Any],
             let groupName = result["name"] as? [String : Any],
                 let name = groupName["name"] as? String
             {
                 let groupName = result["name"]
-                
-                //print(result)
-//                print(groupName as Any)
                 self.name.append(name)
-                //print(self.name[0])
                 self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice")))
             }
         })
@@ -93,12 +90,16 @@ class TableViewController: UITableViewController {
         }
     }
    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         performSegue(withIdentifier: "segue", sender: self)
-    }
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //Constants.groupsName.myStrings
+
+        let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
+        
+        Constants.groupsName.myStrings = (cell.mainLabelView?.text!)!
+        Constants.groupsLocation.myStrings = (cell.mainLabelView?.text!)!
+
     }
 
-
-   }
+}

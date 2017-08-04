@@ -11,9 +11,10 @@ import UIKit
 class MoreInfoGroupViewController: UIViewController {
 
     @IBOutlet weak var mainImageViewSecon: UIImageView!
+    @IBOutlet weak var mainNameLabelSecon: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //mainTextViewSecon.text = Constants.groupsName.myStrings
+        mainNameLabelSecon.text = Constants.groupsName.myStrings
         // mainImageViewSecon.layer.masksToBounds = false
         mainImageViewSecon.layer.cornerRadius = mainImageViewSecon.frame.size.width/2
         mainImageViewSecon.clipsToBounds = true

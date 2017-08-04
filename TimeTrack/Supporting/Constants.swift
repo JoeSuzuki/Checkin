@@ -39,4 +39,10 @@ struct Constants {
     struct groupsName {
         static var myStrings: String = ""
     }
+    struct groupsDescription {
+        static var myStrings: String = ""
+    }
+    struct groupsLocation {
+        static var myStrings: String = ""
+    }
 }

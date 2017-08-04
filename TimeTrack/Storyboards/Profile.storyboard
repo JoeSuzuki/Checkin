@@ -78,8 +78,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22Y-C4-dq5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22Y-C4-dq5">
                                 <rect key="frame" x="58" y="233" width="259" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="x5K-b6-c0H"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -102,6 +105,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="22Y-C4-dq5" firstAttribute="leading" secondItem="3Zt-1r-X97" secondAttribute="leading" id="3nC-Ie-aDU"/>
                             <constraint firstItem="XUX-RI-0nk" firstAttribute="top" secondItem="aEf-IU-5Lx" secondAttribute="top" id="4ir-Ke-2cT"/>
                             <constraint firstAttribute="trailing" secondItem="aEf-IU-5Lx" secondAttribute="trailing" constant="-15" id="9BH-U6-Mi0"/>
                             <constraint firstItem="XUX-RI-0nk" firstAttribute="centerY" secondItem="aEf-IU-5Lx" secondAttribute="centerY" id="B7o-q9-hPr"/>
@@ -109,15 +113,14 @@
                             <constraint firstItem="0UR-xy-xN1" firstAttribute="centerX" secondItem="3Zt-1r-X97" secondAttribute="centerX" id="IGI-vY-SHU"/>
                             <constraint firstItem="aEf-IU-5Lx" firstAttribute="leading" secondItem="XUX-RI-0nk" secondAttribute="trailing" constant="16" id="OWc-0W-L7e"/>
                             <constraint firstItem="XUX-RI-0nk" firstAttribute="bottom" secondItem="qLI-2M-tV9" secondAttribute="top" id="QOu-9h-fks"/>
+                            <constraint firstItem="22Y-C4-dq5" firstAttribute="top" secondItem="3Zt-1r-X97" secondAttribute="bottom" id="Spq-h6-Ui7"/>
                             <constraint firstItem="0UR-xy-xN1" firstAttribute="centerX" secondItem="ofl-1o-2JB" secondAttribute="centerX" id="fVR-tu-XYv"/>
                             <constraint firstItem="3Zt-1r-X97" firstAttribute="leading" secondItem="ofl-1o-2JB" secondAttribute="leadingMargin" constant="42" id="gh5-Zi-ib9"/>
                             <constraint firstItem="aEf-IU-5Lx" firstAttribute="height" secondItem="XUX-RI-0nk" secondAttribute="height" id="htv-yA-DXP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="22Y-C4-dq5" secondAttribute="trailing" constant="42" id="iLO-6h-vxE"/>
-                            <constraint firstItem="22Y-C4-dq5" firstAttribute="leading" secondItem="ofl-1o-2JB" secondAttribute="leadingMargin" constant="42" id="kxL-fi-isW"/>
                             <constraint firstItem="3Zt-1r-X97" firstAttribute="top" secondItem="0UR-xy-xN1" secondAttribute="bottom" constant="1" id="qCU-em-BmB"/>
                             <constraint firstItem="aEf-IU-5Lx" firstAttribute="width" secondItem="XUX-RI-0nk" secondAttribute="width" id="rpg-bh-kZj"/>
                             <constraint firstItem="0UR-xy-xN1" firstAttribute="top" secondItem="uCy-fy-WlG" secondAttribute="bottom" id="tO1-T5-Cmi"/>
-                            <constraint firstItem="22Y-C4-dq5" firstAttribute="top" secondItem="3Zt-1r-X97" secondAttribute="bottom" id="toe-q8-bSG"/>
+                            <constraint firstItem="22Y-C4-dq5" firstAttribute="trailing" secondItem="3Zt-1r-X97" secondAttribute="trailing" id="tlI-2Q-3mR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="sLP-GR-hWl"/>
