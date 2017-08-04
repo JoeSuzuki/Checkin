@@ -27,16 +27,19 @@ class MainViewController: UIViewController {
         authHandle = AuthService.authListener(viewController: self)
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
         profileImage.clipsToBounds = true
-    
+
 
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     deinit {
         AuthService.removeAuthListener(authHandle: authHandle)
+    }
+    func editScreen() {
+        performSegue(withIdentifier: "edit", sender: self)
     }
     func logout() {
         AuthService.presentLogOut(viewController: self)
@@ -52,9 +55,12 @@ class MainViewController: UIViewController {
     @IBAction func settingButton(_ sender: UIBarButtonItem) {
         
         // create the alert
-        let alert = UIAlertController(title: "Leaving?", message: "Would you like to logout or delete your account completely?", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Settings", message: "Would you like to edit your profile, logout or delete your account completely?", preferredStyle: UIAlertControllerStyle.alert)
         
         // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Edit", style: UIAlertActionStyle.destructive, handler: { action in
+            self.editScreen()
+        }))
         alert.addAction(UIAlertAction(title: "Log Out", style: UIAlertActionStyle.destructive, handler: { action in
             self.logout()
         }))

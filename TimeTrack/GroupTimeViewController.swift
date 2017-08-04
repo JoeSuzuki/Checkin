@@ -14,9 +14,7 @@ class GroupTimeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       //mainTextViewSecon.text = Constants.groupsName.myStrings
-       // mainImageViewSecon.layer.masksToBounds = false
-        
+               
     }
 
     override func didReceiveMemoryWarning() {

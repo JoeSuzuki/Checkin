@@ -14,6 +14,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -113,13 +114,14 @@
                         <segue destination="0pQ-EU-Pif" kind="show" identifier="forgotPassword" id="VG3-gZ-XEX"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1056.8" y="122.78860569715144"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="Th7-s0-olY">
             <objects>
+                <exit id="3dQ-Bj-NQI" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TaR-iL-bJH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="0pQ-EU-Pif" customClass="ForgotPasswordViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DUh-CM-PTt"/>
@@ -172,7 +174,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0k2-Vi-0pO">
-                                <rect key="frame" x="16" y="275" width="337" height="55"/>
+                                <rect key="frame" x="16" y="306" width="337" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="aT7-AL-GKL"/>
                                     <constraint firstAttribute="width" constant="337" id="nKw-wh-amO"/>
@@ -190,7 +192,6 @@
                             <constraint firstItem="Xfw-RV-aZf" firstAttribute="top" secondItem="DUh-CM-PTt" secondAttribute="bottom" id="NOA-3V-rh5"/>
                             <constraint firstItem="0k2-Vi-0pO" firstAttribute="trailing" secondItem="WyT-il-BQ0" secondAttribute="trailing" id="Pku-it-P8L"/>
                             <constraint firstItem="WyT-il-BQ0" firstAttribute="top" secondItem="0k2-Vi-0pO" secondAttribute="bottom" constant="113" id="Soz-8v-B7X"/>
-                            <constraint firstItem="q47-Vi-AVq" firstAttribute="centerX" secondItem="0k2-Vi-0pO" secondAttribute="centerX" id="Tzq-En-7HH"/>
                             <constraint firstItem="Xfw-RV-aZf" firstAttribute="leading" secondItem="1um-p6-4SQ" secondAttribute="leadingMargin" id="Yhp-rD-mfV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="q47-Vi-AVq" secondAttribute="trailing" constant="6" id="fb8-Zb-c0K"/>
                             <constraint firstItem="q47-Vi-AVq" firstAttribute="leading" secondItem="Xfw-RV-aZf" secondAttribute="leading" id="fy1-ct-jBt"/>
@@ -203,14 +204,14 @@
                         <outlet property="emailTextField" destination="0k2-Vi-0pO" id="SU8-dh-ofo"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TaR-iL-bJH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="3dQ-Bj-NQI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1848.8" y="-206.44677661169416"/>
         </scene>
         <!--Create User View Controller-->
         <scene sceneID="INS-8y-VIp">
             <objects>
+                <exit id="bxD-1c-Nao" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kwL-BU-3P7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="6xh-m6-fMI" customClass="CreateUserViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mpa-iN-WOB"/>
@@ -395,14 +396,13 @@
                         <outlet property="usernameTextField" destination="1Fu-Xu-x11" id="MSC-00-Xoc"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kwL-BU-3P7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="bxD-1c-Nao" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1924" y="540.17991004497753"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a8c-CG-1pv">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LsF-Px-QrH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="kAn-ea-sfi" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="A7P-N6-Gi2">
@@ -414,7 +414,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0Hs-WU-mJ8"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LsF-Px-QrH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
