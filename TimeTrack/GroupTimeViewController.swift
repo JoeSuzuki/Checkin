@@ -16,8 +16,7 @@ class GroupTimeViewController: UIViewController {
         super.viewDidLoad()
        //mainTextViewSecon.text = Constants.groupsName.myStrings
        // mainImageViewSecon.layer.masksToBounds = false
-        mainImageViewSecon.layer.cornerRadius = mainImageViewSecon.frame.size.width/2
-        mainImageViewSecon.clipsToBounds = true
+        
     }
 
     override func didReceiveMemoryWarning() {
