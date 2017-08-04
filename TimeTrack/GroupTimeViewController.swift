@@ -10,22 +10,18 @@ import UIKit
 
 class GroupTimeViewController: UIViewController {
 
-    
-    @IBOutlet weak var mainTextViewSecond: UILabel!
-    @IBOutlet weak var mainImageViewSecond: UIImageView!
+    @IBOutlet weak var mainImageViewSecon: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainTextViewSecond.text = Constants.groupsName.myStrings
-        mainImageViewSecond.layer.masksToBounds = false
-        mainImageViewSecond.layer.cornerRadius = mainImageViewSecond.frame.size.width/2
-        mainImageViewSecond.clipsToBounds = true
-        // Do any additional setup after loading the view.
+       //mainTextViewSecon.text = Constants.groupsName.myStrings
+       // mainImageViewSecon.layer.masksToBounds = false
+        mainImageViewSecon.layer.cornerRadius = mainImageViewSecon.frame.size.width/2
+        mainImageViewSecon.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
@@ -33,7 +29,7 @@ class GroupTimeViewController: UIViewController {
         return 0
     }
 //     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//       return
+//       
 //    }
     
 }

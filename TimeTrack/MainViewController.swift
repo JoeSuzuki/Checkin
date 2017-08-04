@@ -25,6 +25,10 @@ class MainViewController: UIViewController {
         usernameLabel.text = User.current.username
         
         authHandle = AuthService.authListener(viewController: self)
+        profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+        profileImage.clipsToBounds = true
+    
+
     }
 
     override func didReceiveMemoryWarning() {

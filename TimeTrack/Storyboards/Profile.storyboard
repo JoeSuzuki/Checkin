@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,7 +34,7 @@
             </objects>
             <point key="canvasLocation" x="-1564" y="1154.5727136431785"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Profile-->
         <scene sceneID="ETv-sK-ypx">
             <objects>
                 <viewController id="vyB-8K-76H" customClass="MainViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,10 +47,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUX-RI-0nk">
-                                <rect key="frame" x="0.0" y="549" width="177" height="69"/>
+                                <rect key="frame" x="0.0" y="550" width="187" height="68"/>
                                 <color key="backgroundColor" white="0.1005048077" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="177" id="eiM-Hl-QE9"/>
+                                    <constraint firstAttribute="width" constant="187" id="eiM-Hl-QE9"/>
+                                    <constraint firstAttribute="width" secondItem="XUX-RI-0nk" secondAttribute="height" multiplier="185:69" constant="4.6811594202898732" id="h8j-uK-nrM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Log Out">
@@ -59,11 +61,35 @@
                                     <action selector="logOutClicked:" destination="vyB-8K-76H" eventType="touchUpInside" id="r2l-qg-hOM"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-Contacts-50" translatesAutoresizingMaskIntoConstraints="NO" id="0UR-xy-xN1">
+                                <rect key="frame" x="118" y="64" width="139" height="139"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="139" id="JzL-cm-7zh"/>
+                                    <constraint firstAttribute="width" constant="139" id="kqD-mK-5vH"/>
+                                    <constraint firstAttribute="width" secondItem="0UR-xy-xN1" secondAttribute="height" multiplier="1:1" id="uU9-L0-NfR"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Zt-1r-X97">
+                                <rect key="frame" x="58" y="204" width="259" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="C8e-hR-rpO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22Y-C4-dq5">
+                                <rect key="frame" x="58" y="233" width="259" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEf-IU-5Lx">
-                                <rect key="frame" x="193" y="549" width="182" height="68"/>
+                                <rect key="frame" x="203" y="550" width="187" height="68"/>
                                 <color key="backgroundColor" white="0.1005048077" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="IZz-a2-ZEk"/>
+                                    <constraint firstAttribute="width" secondItem="aEf-IU-5Lx" secondAttribute="height" multiplier="11:4" id="Zj6-Hx-iMN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Delete Account">
@@ -73,33 +99,11 @@
                                     <action selector="deleteAccountClicked:" destination="vyB-8K-76H" eventType="touchUpInside" id="rdJ-AQ-CCy"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-Contacts-50" translatesAutoresizingMaskIntoConstraints="NO" id="0UR-xy-xN1">
-                                <rect key="frame" x="118" y="72" width="139" height="131"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="131" id="JzL-cm-7zh"/>
-                                    <constraint firstAttribute="width" constant="139" id="kqD-mK-5vH"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Zt-1r-X97">
-                                <rect key="frame" x="58" y="222" width="259" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="C8e-hR-rpO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22Y-C4-dq5">
-                                <rect key="frame" x="91" y="273" width="203" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XUX-RI-0nk" firstAttribute="top" secondItem="aEf-IU-5Lx" secondAttribute="top" id="4ir-Ke-2cT"/>
-                            <constraint firstAttribute="trailing" secondItem="aEf-IU-5Lx" secondAttribute="trailing" id="9BH-U6-Mi0"/>
+                            <constraint firstAttribute="trailing" secondItem="aEf-IU-5Lx" secondAttribute="trailing" constant="-15" id="9BH-U6-Mi0"/>
                             <constraint firstItem="XUX-RI-0nk" firstAttribute="centerY" secondItem="aEf-IU-5Lx" secondAttribute="centerY" id="B7o-q9-hPr"/>
                             <constraint firstItem="XUX-RI-0nk" firstAttribute="leading" secondItem="ofl-1o-2JB" secondAttribute="leading" id="FSS-Ut-My7"/>
                             <constraint firstItem="0UR-xy-xN1" firstAttribute="centerX" secondItem="3Zt-1r-X97" secondAttribute="centerX" id="IGI-vY-SHU"/>
@@ -107,14 +111,16 @@
                             <constraint firstItem="XUX-RI-0nk" firstAttribute="bottom" secondItem="qLI-2M-tV9" secondAttribute="top" id="QOu-9h-fks"/>
                             <constraint firstItem="0UR-xy-xN1" firstAttribute="centerX" secondItem="ofl-1o-2JB" secondAttribute="centerX" id="fVR-tu-XYv"/>
                             <constraint firstItem="3Zt-1r-X97" firstAttribute="leading" secondItem="ofl-1o-2JB" secondAttribute="leadingMargin" constant="42" id="gh5-Zi-ib9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="22Y-C4-dq5" secondAttribute="trailing" constant="65" id="iLO-6h-vxE"/>
-                            <constraint firstItem="22Y-C4-dq5" firstAttribute="leading" secondItem="ofl-1o-2JB" secondAttribute="leadingMargin" constant="75" id="kxL-fi-isW"/>
-                            <constraint firstItem="3Zt-1r-X97" firstAttribute="top" secondItem="0UR-xy-xN1" secondAttribute="bottom" constant="19" id="qCU-em-BmB"/>
-                            <constraint firstItem="0UR-xy-xN1" firstAttribute="top" secondItem="uCy-fy-WlG" secondAttribute="bottom" constant="8" symbolic="YES" id="tO1-T5-Cmi"/>
-                            <constraint firstItem="22Y-C4-dq5" firstAttribute="top" secondItem="3Zt-1r-X97" secondAttribute="bottom" constant="8" symbolic="YES" id="toe-q8-bSG"/>
+                            <constraint firstItem="aEf-IU-5Lx" firstAttribute="height" secondItem="XUX-RI-0nk" secondAttribute="height" id="htv-yA-DXP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="22Y-C4-dq5" secondAttribute="trailing" constant="42" id="iLO-6h-vxE"/>
+                            <constraint firstItem="22Y-C4-dq5" firstAttribute="leading" secondItem="ofl-1o-2JB" secondAttribute="leadingMargin" constant="42" id="kxL-fi-isW"/>
+                            <constraint firstItem="3Zt-1r-X97" firstAttribute="top" secondItem="0UR-xy-xN1" secondAttribute="bottom" constant="1" id="qCU-em-BmB"/>
+                            <constraint firstItem="aEf-IU-5Lx" firstAttribute="width" secondItem="XUX-RI-0nk" secondAttribute="width" id="rpg-bh-kZj"/>
+                            <constraint firstItem="0UR-xy-xN1" firstAttribute="top" secondItem="uCy-fy-WlG" secondAttribute="bottom" id="tO1-T5-Cmi"/>
+                            <constraint firstItem="22Y-C4-dq5" firstAttribute="top" secondItem="3Zt-1r-X97" secondAttribute="bottom" id="toe-q8-bSG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="sLP-GR-hWl"/>
+                    <navigationItem key="navigationItem" title="Profile" id="sLP-GR-hWl"/>
                     <connections>
                         <outlet property="nameLabel" destination="3Zt-1r-X97" id="9V6-Ve-yaZ"/>
                         <outlet property="profileImage" destination="0UR-xy-xN1" id="v2w-aG-YH7"/>

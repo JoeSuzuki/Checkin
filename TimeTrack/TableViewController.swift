@@ -50,33 +50,17 @@ class TableViewController: UITableViewController {
             let groupName = result["name"] as? [String : Any],
                 let name = groupName["name"] as? String
             {
-//                let groupName = result["name"]
+                let groupName = result["name"]
                 
                 //print(result)
 //                print(groupName as Any)
-//                self.name.append(name)
+                self.name.append(name)
                 //print(self.name[0])
                 self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice")))
             }
         })
 //            }
 //        })
-    }
-
-
-    func configureDatabase() {
-        ref = Database.database().reference().child("groups").child(userID!)
-        // Listen for new messages in the Firebase database
-        ref?.observe(.childAdded, with: { (snapshot)  in
-            if let result = snapshot.value as? [String : Any] {
-                //print(result)
-                let groupName = result["name"]
-               // print(groupName!)
-            //    self.name.append(groupName as! String)
-                //print(self.name)
-                //self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: self.name.count-1, inSection: 0)], withRowAnimation: .Automatic)
-            }
-        })
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -110,7 +94,6 @@ class TableViewController: UITableViewController {
     }
    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        
         performSegue(withIdentifier: "segue", sender: self)
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
