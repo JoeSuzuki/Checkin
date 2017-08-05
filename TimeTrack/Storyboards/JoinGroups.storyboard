@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="e6q-NZ-gQU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Join a group-->
+        <scene sceneID="VII-Xo-nxj">
+            <objects>
+                <viewController id="fgZ-Th-GxS" customClass="JoinGroupViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="idC-6v-k0m"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yiq-RL-BSX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wPq-dp-27a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="slm-cd-cdB">
+                                <rect key="frame" x="133" y="178" width="226" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Passcode:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jk-62-aDv">
+                                <rect key="frame" x="0.0" y="168" width="125" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="Rdj-qB-8ZD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Enter the unique passcode to join a spcefic group" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0Q-32-FFr">
+                                <rect key="frame" x="16" y="64" width="343" height="80"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2jk-62-aDv" firstAttribute="leading" secondItem="wPq-dp-27a" secondAttribute="leading" id="1Hr-BJ-GNb"/>
+                            <constraint firstItem="slm-cd-cdB" firstAttribute="top" secondItem="E0Q-32-FFr" secondAttribute="bottom" constant="34" id="3gZ-8Q-3b6"/>
+                            <constraint firstItem="E0Q-32-FFr" firstAttribute="trailing" secondItem="slm-cd-cdB" secondAttribute="trailing" id="QUx-uv-vJp"/>
+                            <constraint firstItem="2jk-62-aDv" firstAttribute="top" secondItem="E0Q-32-FFr" secondAttribute="bottom" constant="24" id="Qd7-Eb-TLg"/>
+                            <constraint firstItem="Yiq-RL-BSX" firstAttribute="top" secondItem="2jk-62-aDv" secondAttribute="bottom" constant="428" id="S6i-6z-lpu"/>
+                            <constraint firstItem="slm-cd-cdB" firstAttribute="leading" secondItem="2jk-62-aDv" secondAttribute="trailing" constant="8" symbolic="YES" id="Zuk-vr-WoY"/>
+                            <constraint firstItem="E0Q-32-FFr" firstAttribute="leading" secondItem="wPq-dp-27a" secondAttribute="leadingMargin" id="ikr-tE-aWa"/>
+                            <constraint firstItem="2jk-62-aDv" firstAttribute="centerY" secondItem="slm-cd-cdB" secondAttribute="centerY" id="rS9-hJ-3SL"/>
+                            <constraint firstItem="E0Q-32-FFr" firstAttribute="trailing" secondItem="wPq-dp-27a" secondAttribute="trailingMargin" id="ts6-o5-svt"/>
+                            <constraint firstItem="E0Q-32-FFr" firstAttribute="top" secondItem="wPq-dp-27a" secondAttribute="topMargin" constant="35" id="vxn-Eb-o0n"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Join a group" id="M15-fd-HTq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cdW-ks-Diy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1676" y="2497.6011994003002"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="biW-jb-kBy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e6q-NZ-gQU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bza-XG-VA2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fgZ-Th-GxS" kind="relationship" relationship="rootViewController" id="ZJ3-hc-Gu7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zNf-aL-pLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="736.79999999999995" y="2497.6011994003002"/>
+        </scene>
+    </scenes>
+</document>

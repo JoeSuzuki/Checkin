@@ -24,5 +24,9 @@ class AddGroupsViewController: UIViewController {
     @IBAction func CreateButton(_ sender: UIButton) {
         performSegue(withIdentifier: "create", sender: self)
     }
+    @IBAction func joinButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "join", sender: self)
+
+    }
  
 }

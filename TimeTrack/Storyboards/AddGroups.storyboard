@@ -26,11 +26,10 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVi-HR-UGS">
                                 <rect key="frame" x="16" y="308" width="343" height="51"/>
-                                <color key="backgroundColor" white="0.098473557690000005" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.099380304783950615" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="FVi-HR-UGS" secondAttribute="height" multiplier="343:51" id="3bL-io-sdz"/>
-                                    <constraint firstAttribute="height" constant="51" id="evN-LT-Ls2"/>
-                                    <constraint firstAttribute="width" constant="343" id="pyh-qX-lB7"/>
+                                    <constraint firstAttribute="width" secondItem="FVi-HR-UGS" secondAttribute="height" multiplier="343:51" id="20D-KL-tcM"/>
+                                    <constraint firstAttribute="height" constant="51" id="zI0-ft-NBt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Create">
@@ -43,33 +42,55 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose to join or create your own check-in group. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOw-3e-t3L">
                                 <rect key="frame" x="16" y="72" width="343" height="114"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="114" id="rVq-yD-MGU"/>
+                                    <constraint firstAttribute="height" constant="114" id="BOa-4n-ONS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHY-dS-BXU">
+                                <rect key="frame" x="16" y="393" width="343" height="51"/>
+                                <color key="backgroundColor" white="0.099898726851851846" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gHY-dS-BXU" secondAttribute="height" multiplier="343:51" id="Axh-tC-WaA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Join">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="CreateButton:" destination="unT-gw-sBK" eventType="touchUpInside" id="YkR-MM-U01"/>
+                                    <action selector="joinButton:" destination="unT-gw-sBK" eventType="touchUpInside" id="WlT-lW-8pg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2784313725" green="0.72941176470000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NOw-3e-t3L" firstAttribute="leading" secondItem="Fh9-Nf-Llq" secondAttribute="leadingMargin" id="6Ml-IG-nPg"/>
-                            <constraint firstItem="NOw-3e-t3L" firstAttribute="top" secondItem="FNL-sH-sOd" secondAttribute="bottom" constant="8" symbolic="YES" id="7PB-bZ-yWH"/>
-                            <constraint firstItem="NOw-3e-t3L" firstAttribute="trailing" secondItem="Fh9-Nf-Llq" secondAttribute="trailingMargin" id="O3v-IR-DE2"/>
-                            <constraint firstItem="FVi-HR-UGS" firstAttribute="leading" secondItem="Fh9-Nf-Llq" secondAttribute="leadingMargin" id="VKa-Zh-ErG"/>
-                            <constraint firstItem="FVi-HR-UGS" firstAttribute="centerY" secondItem="Fh9-Nf-Llq" secondAttribute="centerY" id="be1-vj-Hsy"/>
-                            <constraint firstItem="FVi-HR-UGS" firstAttribute="trailing" secondItem="Fh9-Nf-Llq" secondAttribute="trailingMargin" id="lbx-cc-l1y"/>
+                            <constraint firstItem="FVi-HR-UGS" firstAttribute="leading" secondItem="gHY-dS-BXU" secondAttribute="leading" id="0IL-7s-0mL"/>
+                            <constraint firstItem="gHY-dS-BXU" firstAttribute="top" secondItem="FVi-HR-UGS" secondAttribute="bottom" constant="34" id="1ki-ot-iic"/>
+                            <constraint firstItem="gHY-dS-BXU" firstAttribute="height" secondItem="FVi-HR-UGS" secondAttribute="height" id="BfV-fX-uTz"/>
+                            <constraint firstItem="NOw-3e-t3L" firstAttribute="top" secondItem="FNL-sH-sOd" secondAttribute="bottom" constant="8" symbolic="YES" id="LdP-PK-dCB"/>
+                            <constraint firstItem="NOw-3e-t3L" firstAttribute="trailing" secondItem="Fh9-Nf-Llq" secondAttribute="trailingMargin" id="N8Q-hb-ZfU"/>
+                            <constraint firstItem="RAw-kW-NkE" firstAttribute="top" secondItem="gHY-dS-BXU" secondAttribute="bottom" constant="174" id="PFG-sL-8uK"/>
+                            <constraint firstItem="FVi-HR-UGS" firstAttribute="trailing" secondItem="gHY-dS-BXU" secondAttribute="trailing" id="XfM-vX-YY8"/>
+                            <constraint firstItem="NOw-3e-t3L" firstAttribute="leading" secondItem="FVi-HR-UGS" secondAttribute="leading" id="cf8-xj-j2c"/>
+                            <constraint firstItem="NOw-3e-t3L" firstAttribute="leading" secondItem="Fh9-Nf-Llq" secondAttribute="leadingMargin" id="nb2-5h-IJL"/>
+                            <constraint firstItem="NOw-3e-t3L" firstAttribute="trailing" secondItem="FVi-HR-UGS" secondAttribute="trailing" id="pQk-G3-idd"/>
+                            <constraint firstItem="gHY-dS-BXU" firstAttribute="width" secondItem="FVi-HR-UGS" secondAttribute="width" id="sPC-0o-79m"/>
+                            <constraint firstItem="FVi-HR-UGS" firstAttribute="centerY" secondItem="Fh9-Nf-Llq" secondAttribute="centerY" id="vFL-is-Agg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Groups" id="C6w-gZ-Dqh"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <segue destination="cKj-A0-y5d" kind="show" identifier="create" id="pWH-3l-33r"/>
+                        <segue destination="lEq-iw-vEY" kind="show" identifier="join" id="xog-NL-CmC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NdZ-de-PGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-63" y="1836"/>
+            <point key="canvasLocation" x="-50" y="2140"/>
         </scene>
         <!--Create View Controllers-->
         <scene sceneID="p3y-3Y-3im">
@@ -81,7 +102,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Mh-yn-lb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="658" y="1835"/>
+            <point key="canvasLocation" x="738" y="1193"/>
         </scene>
         <!--Time View Controller-->
         <scene sceneID="j4q-Pm-IaQ">
@@ -265,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="irA-bR-loe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1983" y="1836"/>
+            <point key="canvasLocation" x="737" y="1836"/>
         </scene>
         <!--Add-->
         <scene sceneID="X5B-6n-I70">
@@ -367,7 +388,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROc-ow-vm5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="RFD-eA-k3U" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1330" y="1835"/>
+            <point key="canvasLocation" x="1410" y="1193"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="5fK-Mg-p6W">
@@ -509,7 +530,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gGi-4E-cm9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2666" y="1835"/>
+            <point key="canvasLocation" x="1409" y="1836"/>
         </scene>
         <!--Personal Group View Controller-->
         <scene sceneID="Dhr-Cf-aO0">
@@ -638,7 +659,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LEG-Qx-mvv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3418" y="1586"/>
+            <point key="canvasLocation" x="2031" y="1836"/>
+        </scene>
+        <!--JoinGroups-->
+        <scene sceneID="Z18-by-kl8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="JoinGroups" id="lEq-iw-vEY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VQG-z9-jfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="736.79999999999995" y="2497.6011994003002"/>
         </scene>
     </scenes>
     <resources>
