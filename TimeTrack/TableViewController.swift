@@ -14,6 +14,7 @@ struct cellData {
     let cell: Int!
     let text: String?
     let image: UIImage?
+    let address: String?
 }
 var myIndex = 0
 class TableViewController: UITableViewController {
@@ -34,7 +35,7 @@ class TableViewController: UITableViewController {
     @IBOutlet var groupTableView: UITableView!
     @IBAction func infoButton(_ sender: UIBarButtonItem) {
         // create the alert
-        let alert = UIAlertController(title: "Info", message: "This is all the groups that you currently have editing control.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Info", message: "These are all the groups that you currently have editing control.", preferredStyle: UIAlertControllerStyle.alert)
         
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -63,7 +64,7 @@ class TableViewController: UITableViewController {
             {
                 let groupName = result["name"]
                 self.name.append(name)
-                self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice")))
+                self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: "canal street"))
             }
         })
 //            }
@@ -76,16 +77,15 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if arrayOfCellData[indexPath.row].cell == 1 {
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-            
             cell.mainImageView.image = arrayOfCellData[indexPath.row].image
             cell.mainLabelView.text = arrayOfCellData[indexPath.row].text
+            cell.addressLabelView.text = arrayOfCellData[indexPath.row].address
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-            
             cell.mainImageView.image = arrayOfCellData[indexPath.row].image
-            cell.mainLabelView.text = (arrayOfCellData[indexPath.row].text!
-            );
+            cell.mainLabelView.text = arrayOfCellData[indexPath.row].text!
+            cell.addressLabelView.text = arrayOfCellData[indexPath.row].address
             return cell
         }
     }

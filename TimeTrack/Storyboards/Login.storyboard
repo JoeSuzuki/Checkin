@@ -115,7 +115,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1056.8" y="122.78860569715144"/>
+            <point key="canvasLocation" x="982" y="20"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="Th7-s0-olY">
@@ -397,7 +397,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1924" y="540.17991004497753"/>
+            <point key="canvasLocation" x="1849" y="438"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a8c-CG-1pv">

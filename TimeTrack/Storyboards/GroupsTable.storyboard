@@ -51,11 +51,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bAa-aa-ofe">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="145"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bAa-aa-ofe">
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="145"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylC-jz-fKM">
-                                            <rect key="frame" x="0.0" y="145" width="375" height="47"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylC-jz-fKM">
+                                            <rect key="frame" x="0.0" y="145" width="345" height="47"/>
                                             <color key="backgroundColor" red="0.99195677039999997" green="0.9962289929" blue="0.99192315340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="47" id="PnZ-0e-EJC"/>
@@ -68,6 +68,13 @@
                                             <rect key="frame" x="0.0" y="191" width="375" height="8"/>
                                             <color key="backgroundColor" red="0.2784313725" green="0.72941176470000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOz-lh-LvO">
+                                            <rect key="frame" x="344" y="0.0" width="31" height="192"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <color key="textColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -107,7 +114,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnR-Y3-1mS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="165.96701649175412"/>
+            <point key="canvasLocation" x="52" y="165.06746626686657"/>
         </scene>
         <!--More Info Group View Controller-->
         <scene sceneID="tmx-9o-cuR">
@@ -167,15 +174,25 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGi-a3-Cxa">
                                         <rect key="frame" x="0.0" y="309" width="330" height="47"/>
-                                        <color key="backgroundColor" white="0.24921874999999999" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.25739052854938271" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="330" id="3pM-X4-OIs"/>
                                             <constraint firstAttribute="height" constant="44" id="Fne-pi-t7c"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="47" id="f6c-Rr-LHH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <color key="tintColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="View Check-in">
                                             <color key="titleColor" red="0.99195677039999997" green="0.9962289929" blue="0.99192315340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="zhi-Di-clA" kind="show" id="ZZc-gS-cXI"/>
@@ -203,6 +220,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <state key="normal" title="Invite">
                                             <color key="titleColor" red="0.99195677039999997" green="0.9962289929" blue="0.99192315340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
                                 </subviews>

@@ -11,11 +11,19 @@ import Firebase
 class EditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let storageRef = Storage.storage().reference()
     let databaseRef = Database.database().reference()
-var first = ""
+    var first = ""
     var last = ""
     var ref: DatabaseReference!
     let userID = Auth.auth().currentUser!.uid
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }    
@@ -68,11 +76,7 @@ var first = ""
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var lastTextField: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-    }
     func reNew(){
         //reload application data (renew root view )
         UIApplication.shared.keyWindow?.rootViewController = storyboard!.instantiateViewController(withIdentifier: "MainViewController")

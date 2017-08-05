@@ -16,13 +16,11 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var usernameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
-        usernameLabel.text = User.current.username
         
         authHandle = AuthService.authListener(viewController: self)
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
@@ -68,8 +66,6 @@ class MainViewController: UIViewController {
             self.deleteAccount()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-
-        
         // show the alert
         self.present(alert, animated: true, completion: nil)
     }
