@@ -10,6 +10,8 @@ import UIKit
 
 class JoinGroupViewController: UIViewController {
     
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,5 +23,8 @@ class JoinGroupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func passwordEnterButton(_ sender: UIButton) {
+        
+    }
     
 }

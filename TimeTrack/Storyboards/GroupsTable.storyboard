@@ -122,7 +122,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnR-Y3-1mS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1326" y="1970"/>
+            <point key="canvasLocation" x="-1327" y="1970"/>
         </scene>
         <!--More Info Group View Controller-->
         <scene sceneID="tmx-9o-cuR">
@@ -271,7 +271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2PV-FA-JWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-650" y="1970"/>
+            <point key="canvasLocation" x="-577" y="1970"/>
         </scene>
         <!--Group Time View Controller-->
         <scene sceneID="a2X-6F-Tav">
@@ -365,7 +365,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKS-Gm-qTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="39" y="1970"/>
+            <point key="canvasLocation" x="110" y="1970"/>
         </scene>
         <!--Add Groups-->
         <scene sceneID="7G7-tg-ksH">
@@ -715,38 +715,55 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passcode:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97S-0H-5SK">
                                 <rect key="frame" x="0.0" y="126" width="125" height="51"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="125" id="dPL-07-j3y"/>
+                                    <constraint firstAttribute="width" constant="125" id="pTh-8E-unb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the unique passcode to join a spcefic group" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVo-LN-pyq">
-                                <rect key="frame" x="15" y="22" width="343" height="80"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the unique passcode to join a spcefic group" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVo-LN-pyq">
+                                <rect key="frame" x="15" y="22" width="343" height="96"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eM5-rv-37p">
+                                <rect key="frame" x="16" y="185" width="343" height="50"/>
+                                <color key="backgroundColor" white="0.24288676697530864" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="JpJ-JU-2XX"/>
+                                </constraints>
+                                <state key="normal" title="Enter"/>
+                                <connections>
+                                    <action selector="passwordEnterButton:" destination="fJP-u8-ThO" eventType="touchUpInside" id="Fvt-OU-enk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="97S-0H-5SK" firstAttribute="top" secondItem="nVo-LN-pyq" secondAttribute="bottom" constant="24" id="2BL-8t-vUu"/>
-                            <constraint firstItem="nVo-LN-pyq" firstAttribute="top" secondItem="hTx-eu-Y4E" secondAttribute="bottom" constant="22" id="D7A-Dc-VLe"/>
-                            <constraint firstItem="Rjv-j0-2jK" firstAttribute="top" secondItem="97S-0H-5SK" secondAttribute="bottom" constant="377" id="FtY-lT-SW0"/>
-                            <constraint firstItem="nVo-LN-pyq" firstAttribute="trailing" secondItem="YjZ-bE-PY2" secondAttribute="trailingMargin" constant="-1" id="OKZ-HV-C9R"/>
-                            <constraint firstItem="nVo-LN-pyq" firstAttribute="trailing" secondItem="Zo9-fN-Vha" secondAttribute="trailing" id="Uax-4I-3ue"/>
-                            <constraint firstItem="nVo-LN-pyq" firstAttribute="leading" secondItem="YjZ-bE-PY2" secondAttribute="leadingMargin" constant="-1" id="Vb6-AP-4o1"/>
-                            <constraint firstItem="Zo9-fN-Vha" firstAttribute="leading" secondItem="97S-0H-5SK" secondAttribute="trailing" constant="7" id="Wss-bD-yf8"/>
-                            <constraint firstItem="97S-0H-5SK" firstAttribute="leading" secondItem="YjZ-bE-PY2" secondAttribute="leading" id="clT-TE-2li"/>
-                            <constraint firstItem="97S-0H-5SK" firstAttribute="centerY" secondItem="Zo9-fN-Vha" secondAttribute="centerY" id="gEh-Xn-c13"/>
-                            <constraint firstItem="Zo9-fN-Vha" firstAttribute="top" secondItem="nVo-LN-pyq" secondAttribute="bottom" constant="34" id="v7B-aZ-Cbs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nVo-LN-pyq" secondAttribute="trailing" constant="1" id="0VF-3M-rIC"/>
+                            <constraint firstItem="Zo9-fN-Vha" firstAttribute="top" secondItem="nVo-LN-pyq" secondAttribute="bottom" constant="18" id="1tw-sC-0kb"/>
+                            <constraint firstItem="97S-0H-5SK" firstAttribute="top" secondItem="nVo-LN-pyq" secondAttribute="bottom" constant="8" symbolic="YES" id="8OD-m8-q0A"/>
+                            <constraint firstItem="97S-0H-5SK" firstAttribute="leading" secondItem="YjZ-bE-PY2" secondAttribute="leading" id="AET-Vv-xnj"/>
+                            <constraint firstItem="nVo-LN-pyq" firstAttribute="top" secondItem="hTx-eu-Y4E" secondAttribute="bottom" constant="22" id="JCB-ts-LUN"/>
+                            <constraint firstItem="97S-0H-5SK" firstAttribute="centerY" secondItem="Zo9-fN-Vha" secondAttribute="centerY" id="O2v-ne-IyN"/>
+                            <constraint firstItem="eM5-rv-37p" firstAttribute="trailing" secondItem="YjZ-bE-PY2" secondAttribute="trailingMargin" id="Ou9-mn-wgd"/>
+                            <constraint firstItem="nVo-LN-pyq" firstAttribute="leading" secondItem="YjZ-bE-PY2" secondAttribute="leadingMargin" constant="-1" id="QVd-8s-dGY"/>
+                            <constraint firstItem="eM5-rv-37p" firstAttribute="leading" secondItem="YjZ-bE-PY2" secondAttribute="leadingMargin" id="bLf-WF-RhX"/>
+                            <constraint firstItem="Zo9-fN-Vha" firstAttribute="leading" secondItem="97S-0H-5SK" secondAttribute="trailing" constant="7" id="bcO-dU-2OY"/>
+                            <constraint firstItem="eM5-rv-37p" firstAttribute="top" secondItem="97S-0H-5SK" secondAttribute="bottom" constant="8" symbolic="YES" id="hoE-UZ-GFD"/>
+                            <constraint firstItem="nVo-LN-pyq" firstAttribute="trailing" secondItem="Zo9-fN-Vha" secondAttribute="trailing" id="ux0-7f-qG7"/>
+                            <constraint firstItem="Rjv-j0-2jK" firstAttribute="top" secondItem="eM5-rv-37p" secondAttribute="bottom" constant="319" id="wEk-iJ-HE8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Join a group" id="BdZ-hE-hEh"/>
+                    <connections>
+                        <outlet property="passwordTextField" destination="Zo9-fN-Vha" id="wGS-E3-GFn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Zh-2l-ldf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-650" y="1308"/>
+            <point key="canvasLocation" x="-578.39999999999998" y="1280.5097451274364"/>
         </scene>
     </scenes>
     <resources>

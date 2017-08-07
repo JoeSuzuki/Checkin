@@ -162,7 +162,9 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         Constants.from.myStrings = ["from": textBox1.text as Any as! String]
         Constants.to.myStrings = ["to": textBox2.text as Any as! String]
         Constants.description.myStrings = ["description": descriptionText.text as Any as! String]
+        
         ref = Database.database().reference().child("basic info").child(userID).childByAutoId()
+        
         let imageName = NSUUID().uuidString
         let storedImage = storageRef.child("users").child(userID).child("groups").child(imageName)
         Constants.img.myImg = ["img" : imageName]
@@ -190,6 +192,9 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
                 })
             }
         // Write to Firebase
+        var memref = Database.database().reference().child("groupsMembers").child(userID)
+        var groupRef = Database.database().reference().child("basic info").child(userID)
+
         self.ref.child("location").updateChildValues(Constants.location.myStrings)
         self.ref.child("from").updateChildValues(Constants.from.myStrings)
         self.ref.child("to").updateChildValues(Constants.to.myStrings)
