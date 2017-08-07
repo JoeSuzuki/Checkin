@@ -9,7 +9,8 @@
 import UIKit
 import Firebase
 
-class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
 
     @IBOutlet weak var groupNameTextField: UITextField!
     @IBOutlet weak var dayPicker1: UIPickerView!
@@ -21,6 +22,8 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var timePicker2: UIDatePicker!
     @IBOutlet weak var urlText: UITextField!
     @IBOutlet weak var descriptionText: UITextView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var editButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,8 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
      self.clearsSelectionOnViewWillAppear = false
         self.timePicker1.datePickerMode = .time
         self.timePicker2.datePickerMode = .time
+        imagePicker.delegate = self
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -35,10 +40,14 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     let days = ["Sunday", "Monday", "Tuesday", "Wenesday", "Thursday", "Friday", "Saturday"]
     var ref: DatabaseReference!
     let userID = Auth.auth().currentUser!.uid
-
+    // image save
+    var imagePicker = UIImagePickerController()
+    let storageRef = Storage.storage().reference()
+    let databaseRef = Database.database().reference()
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 4
     }
     
         // hides keyboard
@@ -94,12 +103,85 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
                 self.dayPicker2.isHidden = false
             }
         }
-        @IBAction func addButton(_ sender: UIButton) {
+    @IBAction func editButtonClicked(_ sender: UIButton) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        self.present(picker, animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        var selectedImageFromPicker: UIImage?
+        
+        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage{
+            selectedImageFromPicker = editedImage
+        }else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage{
+            selectedImageFromPicker = originalImage
+        }
+        if let selectedImage = selectedImageFromPicker{
+            imageView.image = selectedImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+
+    @IBAction func addButton(_ sender: Any) {
             Constants.location.myStrings = ["location": locationTextField.text as Any as! String]
             Constants.name.myStrings = ["name": groupNameTextField.text as
                 Any as! String]
             Constants.from.myStrings = ["from": textBox1.text as Any as! String]
             Constants.to.myStrings = ["to": textBox2.text as Any as! String]
+            Constants.description.myStrings = ["description": descriptionText.text as Any as! String]
+        ref = Database.database().reference().child("basic info").child(userID).childByAutoId()
+            let imageName = NSUUID().uuidString
+            
+            let storedImage = storageRef.child("users").child(userID).child("groups").child(imageName)
+            Constants.img.myImg = ["img" : imageName]
+            
+            if let uploadData = UIImagePNGRepresentation(self.imageView.image!)
+            {
+                storedImage.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                    if error != nil{
+                        print(error!)
+                        return
+                    }
+                    storedImage.downloadURL(completion: { (url, error) in
+                        if error != nil{
+                            print(error!)
+                            return
+                        }
+                        if let urlText = url?.absoluteString{
+                            self.databaseRef.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["pic" : urlText], withCompletionBlock: { (error, ref) in
+                                if error != nil{
+                                    print(error!)
+                                    return
+                                }
+                            })
+                        }
+                    })
+                })
+            }
+        self.ref.child("location").updateChildValues(Constants.location.myStrings)
+        self.ref.child("from").updateChildValues(Constants.from.myStrings)
+        self.ref.child("to").updateChildValues(Constants.to.myStrings)
+        self.ref.child("name").updateChildValues(Constants.name.myStrings)
+        self.ref.child("description").updateChildValues(Constants.description.myStrings)
+        self.ref.child("img").updateChildValues(Constants.img.myImg)
+        //performSegue(withIdentifier: "groupSegue", sender: self)
+       
+        let initialViewController = UIStoryboard.initialViewController(for: .main)
+        self.view.window?.rootViewController = initialViewController
+        self.view.window?.makeKeyAndVisible()
+    }
+    @IBAction func cancelButton(_ sender: Any) {
+        let initialViewController = UIStoryboard.initialViewController(for: .main)
+        self.view.window?.rootViewController = initialViewController
+        self.view.window?.makeKeyAndVisible()
+    }
     }
     
 
@@ -165,4 +247,3 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     }
     */
 
-}

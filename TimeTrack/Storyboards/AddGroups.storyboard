@@ -37,6 +37,7 @@
                                 </state>
                                 <connections>
                                     <action selector="CreateButton:" destination="unT-gw-sBK" eventType="touchUpInside" id="Bfg-fs-RMB"/>
+                                    <segue destination="cKj-A0-y5d" kind="show" identifier="create" id="o4f-0H-lHx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose to join or create your own check-in group. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOw-3e-t3L">
@@ -84,7 +85,6 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <segue destination="Ucf-Zv-Mp5" kind="show" identifier="join" id="C5o-OB-RbK"/>
-                        <segue destination="lWm-9p-lXr" kind="show" identifier="create" id="qKd-ig-cSc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NdZ-de-PGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -272,7 +272,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-5" id="Cfp-fo-UdO">
+                            <tableViewSection headerTitle="Description" id="Cfp-fo-UdO">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cMx-7q-kjC">
                                         <rect key="frame" x="0.0" y="330" width="375" height="44"/>
@@ -319,6 +319,37 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Group Image" id="Lw1-od-E3y">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="122" id="adx-Ak-6FU">
+                                        <rect key="frame" x="0.0" y="524" width="375" height="122"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="adx-Ak-6FU" id="8g4-9e-WgG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="121.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c3O-qq-b7O">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="122"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.99195677039999997" green="0.9962289929" blue="0.99192315340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CU6-Al-hku">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="122"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                                    <state key="normal" title="Edit">
+                                                        <color key="titleColor" red="1" green="0.0" blue="0.04677283753" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="editButtonClicked:" destination="lWm-9p-lXr" eventType="touchUpInside" id="sM3-dn-UHr"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="lWm-9p-lXr" id="vot-gB-aNr"/>
@@ -329,7 +360,9 @@
                         <outlet property="dayPicker1" destination="D5o-xV-scQ" id="k8o-tt-T9Z"/>
                         <outlet property="dayPicker2" destination="L5J-VV-EQo" id="qA4-aN-5bf"/>
                         <outlet property="descriptionText" destination="kJ2-wX-KBL" id="8WX-Uc-sWe"/>
+                        <outlet property="editButton" destination="CU6-Al-hku" id="ySz-P2-Bje"/>
                         <outlet property="groupNameTextField" destination="RXn-3Q-sRk" id="q0c-LT-a9m"/>
+                        <outlet property="imageView" destination="c3O-qq-b7O" id="k8Y-Wm-O7Z"/>
                         <outlet property="locationTextField" destination="Utd-i8-omB" id="Ijf-XP-KVw"/>
                         <outlet property="textBox1" destination="yQR-MK-sL2" id="WnY-3q-N1b"/>
                         <outlet property="textBox2" destination="FTV-df-e3A" id="Qdq-tW-SIb"/>
@@ -340,7 +373,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="STJ-du-T1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="2048.7256371814096"/>
+            <point key="canvasLocation" x="1122" y="2061"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1CZ-pa-OJ0">

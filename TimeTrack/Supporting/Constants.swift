@@ -45,6 +45,16 @@ struct Constants {
     struct groupsLocation {
         static var myStrings: String = ""
     }
+    struct numberOfMembers {
+        static var myInts: Int = 0
+    }
+    struct numberOfCheckIns {
+        static var myInts: Int = 0
+    }
+    struct time {
+        static var time = Timer()
+    }
+    
 // Profile
     struct fullname {
         static var myStrings: String = ""

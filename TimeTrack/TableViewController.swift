@@ -41,6 +41,9 @@ class TableViewController: UITableViewController {
         // show the alert
         self.present(alert, animated: true, completion: nil)
     }
+    @IBAction func addGroups(_ sender: Any) {
+        performSegue(withIdentifier: "addGroup", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
