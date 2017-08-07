@@ -99,11 +99,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Groups" id="cCJ-Pc-LdM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="96i-FK-TCD">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="KT4-N3-5S7">
+                            <color key="tintColor" white="0.099898726849999994" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="infoButton:" destination="rJA-Qk-1Mr" id="83h-mG-o9o"/>
+                                <action selector="infoButton:" destination="rJA-Qk-1Mr" id="0vX-4I-rhg"/>
                             </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="96i-FK-TCD">
+                            <color key="tintColor" white="0.099898726849999994" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -143,7 +146,7 @@
                                             <constraint firstAttribute="width" secondItem="cUk-OO-06w" secondAttribute="height" multiplier="1:1" id="vzT-YM-IAN"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCT-MG-D6k">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCT-MG-D6k">
                                         <rect key="frame" x="0.0" y="132" width="330" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="47" id="qiI-GX-FcA"/>
@@ -153,7 +156,7 @@
                                         <color key="textColor" white="0.1005048077" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bE6-ON-Ceh">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bE6-ON-Ceh">
                                         <rect key="frame" x="0.0" y="191" width="330" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="TZS-vL-VUS"/>
@@ -163,7 +166,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OO-c6-om8">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OO-c6-om8">
                                         <rect key="frame" x="0.0" y="250" width="330" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="330" id="FT8-TM-eqF"/>

@@ -41,7 +41,8 @@
 		FFC0911B1F34ECE400BD5143 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC0911A1F34ECE300BD5143 /* EditViewController.swift */; };
 		FFC3AFF41F359F6200E9BF64 /* JoinGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3AFF31F359F6200E9BF64 /* JoinGroupViewController.swift */; };
 		FFC3AFF61F35A4F300E9BF64 /* AddGroups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFC3AFF51F35A4F300E9BF64 /* AddGroups.storyboard */; };
-		FFC3AFF81F35A77200E9BF64 /* JoinGroups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFC3AFF71F35A77200E9BF64 /* JoinGroups.storyboard */; };
+		FFC3B0051F36C10600E9BF64 /* CreateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3B0041F36C10600E9BF64 /* CreateTableViewController.swift */; };
+		FFC3B0071F36C11D00E9BF64 /* CreateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3B0061F36C11D00E9BF64 /* CreateTableViewCell.swift */; };
 		FFD360741F30F587009B6B17 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD360731F30F587009B6B17 /* GroupService.swift */; };
 		FFD5BD411F2B868E00C3BEE7 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD5BD401F2B868E00C3BEE7 /* TimeViewController.swift */; };
 		FFD5BD431F2B96C600C3BEE7 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD5BD421F2B96C600C3BEE7 /* DetailsViewController.swift */; };
@@ -93,7 +94,8 @@
 		FFC0911A1F34ECE300BD5143 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		FFC3AFF31F359F6200E9BF64 /* JoinGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGroupViewController.swift; sourceTree = "<group>"; };
 		FFC3AFF51F35A4F300E9BF64 /* AddGroups.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddGroups.storyboard; sourceTree = "<group>"; };
-		FFC3AFF71F35A77200E9BF64 /* JoinGroups.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JoinGroups.storyboard; sourceTree = "<group>"; };
+		FFC3B0041F36C10600E9BF64 /* CreateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTableViewController.swift; sourceTree = "<group>"; };
+		FFC3B0061F36C11D00E9BF64 /* CreateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTableViewCell.swift; sourceTree = "<group>"; };
 		FFD360731F30F587009B6B17 /* GroupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
 		FFD5BD401F2B868E00C3BEE7 /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		FFD5BD421F2B96C600C3BEE7 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -266,13 +268,11 @@
 		FFAFCD1E1F279CBF009D2692 /* Groups */ = {
 			isa = PBXGroup;
 			children = (
+				FFC3B0041F36C10600E9BF64 /* CreateTableViewController.swift */,
+				FFC3B0061F36C11D00E9BF64 /* CreateTableViewCell.swift */,
 				FFAFCD1C1F279CBC009D2692 /* AddGroupsViewController.swift */,
-				FFAFCD1F1F27BA0F009D2692 /* CreateViewControllers.swift */,
 				FFC3AFF31F359F6200E9BF64 /* JoinGroupViewController.swift */,
-				FFD5BD421F2B96C600C3BEE7 /* DetailsViewController.swift */,
-				FFD5BD441F2BB41700C3BEE7 /* PersonalGroupViewController.swift */,
-				FFD5BD401F2B868E00C3BEE7 /* TimeViewController.swift */,
-				FFDABC8B1F2B47B700C64D39 /* GroupLocationViewController.swift */,
+				FFC3AFF91F3651D100E9BF64 /* page */,
 			);
 			name = Groups;
 			sourceTree = "<group>";
@@ -312,11 +312,22 @@
 			name = Profile;
 			sourceTree = "<group>";
 		};
+		FFC3AFF91F3651D100E9BF64 /* page */ = {
+			isa = PBXGroup;
+			children = (
+				FFAFCD1F1F27BA0F009D2692 /* CreateViewControllers.swift */,
+				FFD5BD421F2B96C600C3BEE7 /* DetailsViewController.swift */,
+				FFD5BD441F2BB41700C3BEE7 /* PersonalGroupViewController.swift */,
+				FFD5BD401F2B868E00C3BEE7 /* TimeViewController.swift */,
+				FFDABC8B1F2B47B700C64D39 /* GroupLocationViewController.swift */,
+			);
+			name = page;
+			sourceTree = "<group>";
+		};
 		FFDABC841F2A613A00C64D39 /* Group */ = {
 			isa = PBXGroup;
 			children = (
 				FFC3AFF51F35A4F300E9BF64 /* AddGroups.storyboard */,
-				FFC3AFF71F35A77200E9BF64 /* JoinGroups.storyboard */,
 			);
 			name = Group;
 			sourceTree = "<group>";
@@ -411,7 +422,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFC3AFF81F35A77200E9BF64 /* JoinGroups.storyboard in Resources */,
 				FF37C60E1F2525CA0018940B /* Assets.xcassets in Resources */,
 				FFB799971F29056E001B7C61 /* TableViewCell.xib in Resources */,
 				FFAFCCCF1F262F67009D2692 /* GoogleService-Info.plist in Resources */,
@@ -482,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF115B2F1F2CF323008A1EB5 /* MainViewController.swift in Sources */,
+				FFC3B0051F36C10600E9BF64 /* CreateTableViewController.swift in Sources */,
 				FF115B361F2CF3C8008A1EB5 /* AuthService.swift in Sources */,
 				FFC091171F342E7400BD5143 /* MoreInfoGroupViewController.swift in Sources */,
 				FFD5BD451F2BB41700C3BEE7 /* PersonalGroupViewController.swift in Sources */,
@@ -491,6 +502,7 @@
 				FFB799961F29056E001B7C61 /* TableViewCell.swift in Sources */,
 				FFD360741F30F587009B6B17 /* GroupService.swift in Sources */,
 				FFC091191F34E7AB00BD5143 /* SearchTableViewCell.swift in Sources */,
+				FFC3B0071F36C11D00E9BF64 /* CreateTableViewCell.swift in Sources */,
 				FFC3AFF41F359F6200E9BF64 /* JoinGroupViewController.swift in Sources */,
 				FFAFCD1D1F279CBC009D2692 /* AddGroupsViewController.swift in Sources */,
 				FFAFCD191F278DDC009D2692 /* ProfileViewController.swift in Sources */,
