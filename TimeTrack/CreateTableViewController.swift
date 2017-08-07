@@ -34,6 +34,10 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         self.timePicker1.datePickerMode = .time
         self.timePicker2.datePickerMode = .time
         imagePicker.delegate = self
+        var numOfMembers: Int = 0
+        var numOfCheckIns: Int = 0
+        Constants.numberOfMembers.myInts = ["numOfMembers": numOfMembers]
+        Constants.numberOfCheckIns.myInts = ["numOfCheckIns": numOfCheckIns]
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -187,6 +191,8 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         self.ref.child("description").updateChildValues(Constants.description.myStrings)
         self.ref.child("img").updateChildValues(Constants.img.myImg)
         self.ref.child("url").updateChildValues(Constants.url.myStrings)
+        self.ref.child("numOfMembers").updateChildValues(Constants.numberOfMembers.myInts)
+        self.ref.child("numOfCheckIns").updateChildValues(Constants.numberOfCheckIns.myInts)
         //performSegue(withIdentifier: "groupSegue", sender: self)
         let initialViewController = UIStoryboard.initialViewController(for: .main)
         self.view.window?.rootViewController = initialViewController

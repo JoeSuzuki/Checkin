@@ -46,13 +46,13 @@ struct Constants {
         static var myStrings: String = ""
     }
     struct numberOfMembers {
-        static var myInts: Int = 0
+        static var myInts = [String: Int]()
     }
     struct numberOfCheckIns {
-        static var myInts: Int = 0
+        static var myInts = [String: Int]()
     }
     struct timeNow {
-        static var time: String = ""
+        static var time = [String: String]()
     }
     struct timeSet {
         static var time = [String: String]()
