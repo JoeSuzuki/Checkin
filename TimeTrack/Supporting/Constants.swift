@@ -51,8 +51,14 @@ struct Constants {
     struct numberOfCheckIns {
         static var myInts: Int = 0
     }
-    struct time {
-        static var time = Timer()
+    struct timeNow {
+        static var time: String = ""
+    }
+    struct timeSet {
+        static var time = [String: String]()
+    }
+    struct url {
+        static var myStrings = [String: String]()
     }
     
 // Profile

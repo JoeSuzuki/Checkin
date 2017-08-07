@@ -24,6 +24,8 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timeLabel2: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,6 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         self.timePicker1.datePickerMode = .time
         self.timePicker2.datePickerMode = .time
         imagePicker.delegate = self
-        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -95,7 +96,24 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
                 self.textBox2.text = self.days[row]
             }
         }
-        func textFieldDidBeginEditing(_ textField: UITextField) {
+    @IBAction func timePicker(_ sender: UIDatePicker) {
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        print("hours = \(hour):\(minutes):\(seconds)")
+    }
+    
+    @IBAction func urlTextAction(_ sender: UITextField) {
+        if urlText.text != nil {
+            Constants.url.myStrings = ["url": urlText.text!]
+        } else {
+            return
+        }
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
             if (textField == self.textBox1){
                 self.dayPicker1.isHidden = false
             }
@@ -127,33 +145,30 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-    
 
     @IBAction func addButton(_ sender: Any) {
-            Constants.location.myStrings = ["location": locationTextField.text as Any as! String]
-            Constants.name.myStrings = ["name": groupNameTextField.text as
-                Any as! String]
-            Constants.from.myStrings = ["from": textBox1.text as Any as! String]
-            Constants.to.myStrings = ["to": textBox2.text as Any as! String]
-            Constants.description.myStrings = ["description": descriptionText.text as Any as! String]
+        Constants.location.myStrings = ["location": locationTextField.text as Any as! String]
+        Constants.name.myStrings = ["name": groupNameTextField.text as
+            Any as! String]
+        Constants.from.myStrings = ["from": textBox1.text as Any as! String]
+        Constants.to.myStrings = ["to": textBox2.text as Any as! String]
+        Constants.description.myStrings = ["description": descriptionText.text as Any as! String]
         ref = Database.database().reference().child("basic info").child(userID).childByAutoId()
-            let imageName = NSUUID().uuidString
-            
-            let storedImage = storageRef.child("users").child(userID).child("groups").child(imageName)
-            Constants.img.myImg = ["img" : imageName]
-            
-            if let uploadData = UIImagePNGRepresentation(self.imageView.image!)
-            {
-                storedImage.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+        let imageName = NSUUID().uuidString
+        let storedImage = storageRef.child("users").child(userID).child("groups").child(imageName)
+        Constants.img.myImg = ["img" : imageName]
+        
+        if let uploadData = UIImagePNGRepresentation(self.imageView.image!){
+            storedImage.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                if error != nil{
+                    print(error!)
+                    return
+                }
+                storedImage.downloadURL(completion: { (url, error) in
                     if error != nil{
                         print(error!)
                         return
                     }
-                    storedImage.downloadURL(completion: { (url, error) in
-                        if error != nil{
-                            print(error!)
-                            return
-                        }
                         if let urlText = url?.absoluteString{
                             self.databaseRef.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["pic" : urlText], withCompletionBlock: { (error, ref) in
                                 if error != nil{
@@ -171,8 +186,8 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         self.ref.child("name").updateChildValues(Constants.name.myStrings)
         self.ref.child("description").updateChildValues(Constants.description.myStrings)
         self.ref.child("img").updateChildValues(Constants.img.myImg)
+        self.ref.child("url").updateChildValues(Constants.url.myStrings)
         //performSegue(withIdentifier: "groupSegue", sender: self)
-       
         let initialViewController = UIStoryboard.initialViewController(for: .main)
         self.view.window?.rootViewController = initialViewController
         self.view.window?.makeKeyAndVisible()
