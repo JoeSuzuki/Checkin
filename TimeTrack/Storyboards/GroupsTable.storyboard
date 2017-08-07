@@ -33,7 +33,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4GM-Tp-OxT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-724" y="166"/>
+            <point key="canvasLocation" x="-2102" y="1971"/>
         </scene>
         <!--My Groups-->
         <scene sceneID="SfF-Hh-n4V">
@@ -99,14 +99,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Groups" id="cCJ-Pc-LdM">
-                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="KT4-N3-5S7">
-                            <color key="tintColor" white="0.099898726849999994" alpha="1" colorSpace="calibratedWhite"/>
+                        <barButtonItem key="leftBarButtonItem" title="Join" id="KT4-N3-5S7">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="infoButton:" destination="rJA-Qk-1Mr" id="0vX-4I-rhg"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="96i-FK-TCD">
-                            <color key="tintColor" white="0.099898726849999994" alpha="1" colorSpace="calibratedWhite"/>
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="96i-FK-TCD">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="addGroups:" destination="rJA-Qk-1Mr" id="yIC-32-xk0"/>
                             </connections>
@@ -117,11 +117,12 @@
                         <outlet property="groupTableView" destination="PXm-0P-hla" id="3nC-IR-Ehf"/>
                         <segue destination="U1P-t8-djj" kind="show" identifier="segue" id="Sl5-Lw-8Tk"/>
                         <segue destination="KYx-Yy-cu8" kind="show" identifier="addGroup" id="tBJ-kg-y2J"/>
+                        <segue destination="fJP-u8-ThO" kind="show" identifier="joinGroup" id="Oud-vf-V2R"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnR-Y3-1mS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="165.06746626686657"/>
+            <point key="canvasLocation" x="-1326" y="1970"/>
         </scene>
         <!--More Info Group View Controller-->
         <scene sceneID="tmx-9o-cuR">
@@ -270,7 +271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2PV-FA-JWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="725.60000000000002" y="165.06746626686657"/>
+            <point key="canvasLocation" x="-650" y="1970"/>
         </scene>
         <!--Group Time View Controller-->
         <scene sceneID="a2X-6F-Tav">
@@ -364,7 +365,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKS-Gm-qTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1416.8" y="164.16791604197903"/>
+            <point key="canvasLocation" x="39" y="1970"/>
         </scene>
         <!--Add Groups-->
         <scene sceneID="7G7-tg-ksH">
@@ -691,7 +692,61 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cno-zl-dvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="-523.088455772114"/>
+            <point key="canvasLocation" x="-1326" y="1281"/>
+        </scene>
+        <!--Join a group-->
+        <scene sceneID="I3W-82-VjR">
+            <objects>
+                <viewController id="fJP-u8-ThO" customClass="JoinGroupViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hTx-eu-Y4E"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rjv-j0-2jK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YjZ-bE-PY2">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zo9-fN-Vha">
+                                <rect key="frame" x="132" y="136" width="226" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passcode:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97S-0H-5SK">
+                                <rect key="frame" x="0.0" y="126" width="125" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="dPL-07-j3y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the unique passcode to join a spcefic group" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVo-LN-pyq">
+                                <rect key="frame" x="15" y="22" width="343" height="80"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="97S-0H-5SK" firstAttribute="top" secondItem="nVo-LN-pyq" secondAttribute="bottom" constant="24" id="2BL-8t-vUu"/>
+                            <constraint firstItem="nVo-LN-pyq" firstAttribute="top" secondItem="hTx-eu-Y4E" secondAttribute="bottom" constant="22" id="D7A-Dc-VLe"/>
+                            <constraint firstItem="Rjv-j0-2jK" firstAttribute="top" secondItem="97S-0H-5SK" secondAttribute="bottom" constant="377" id="FtY-lT-SW0"/>
+                            <constraint firstItem="nVo-LN-pyq" firstAttribute="trailing" secondItem="YjZ-bE-PY2" secondAttribute="trailingMargin" constant="-1" id="OKZ-HV-C9R"/>
+                            <constraint firstItem="nVo-LN-pyq" firstAttribute="trailing" secondItem="Zo9-fN-Vha" secondAttribute="trailing" id="Uax-4I-3ue"/>
+                            <constraint firstItem="nVo-LN-pyq" firstAttribute="leading" secondItem="YjZ-bE-PY2" secondAttribute="leadingMargin" constant="-1" id="Vb6-AP-4o1"/>
+                            <constraint firstItem="Zo9-fN-Vha" firstAttribute="leading" secondItem="97S-0H-5SK" secondAttribute="trailing" constant="7" id="Wss-bD-yf8"/>
+                            <constraint firstItem="97S-0H-5SK" firstAttribute="leading" secondItem="YjZ-bE-PY2" secondAttribute="leading" id="clT-TE-2li"/>
+                            <constraint firstItem="97S-0H-5SK" firstAttribute="centerY" secondItem="Zo9-fN-Vha" secondAttribute="centerY" id="gEh-Xn-c13"/>
+                            <constraint firstItem="Zo9-fN-Vha" firstAttribute="top" secondItem="nVo-LN-pyq" secondAttribute="bottom" constant="34" id="v7B-aZ-Cbs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Join a group" id="BdZ-hE-hEh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Zh-2l-ldf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-650" y="1308"/>
         </scene>
     </scenes>
     <resources>

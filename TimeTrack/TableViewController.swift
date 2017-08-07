@@ -34,12 +34,7 @@ class TableViewController: UITableViewController {
 //    var imaged = UIImage?.self
     @IBOutlet var groupTableView: UITableView!
     @IBAction func infoButton(_ sender: UIBarButtonItem) {
-        // create the alert
-        let alert = UIAlertController(title: "Info", message: "These are all the groups that you currently have editing control.", preferredStyle: UIAlertControllerStyle.alert)
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
+        performSegue(withIdentifier: "joinGroup", sender: self)
     }
     @IBAction func addGroups(_ sender: Any) {
         performSegue(withIdentifier: "addGroup", sender: self)
@@ -70,6 +65,14 @@ class TableViewController: UITableViewController {
         })
 //            }
 //        })
+//        if arrayOfCellData.count == 0 {
+//            // create the alert
+//            let alert = UIAlertController(title: "Info", message: "These are all the groups that you currently have editing control.", preferredStyle: UIAlertControllerStyle.alert)
+//            // add an action (button)
+//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//            // show the alert
+//            self.present(alert, animated: true, completion: nil)
+//        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
