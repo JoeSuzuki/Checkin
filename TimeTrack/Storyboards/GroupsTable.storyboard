@@ -410,7 +410,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -582,7 +582,7 @@
                                                     <rect key="frame" x="8" y="6" width="359" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="yes" keyboardType="URL" keyboardAppearance="light" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <action selector="urlTextAction:" destination="KYx-Yy-cu8" eventType="editingDidEnd" id="Y1y-HW-ymd"/>
                                                     </connections>
