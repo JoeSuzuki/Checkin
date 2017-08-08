@@ -76,15 +76,15 @@ class DetailsViewController: UIViewController, UINavigationControllerDelegate, U
     @IBAction func addButton(_ sender: UIButton) {
 //        self.ref?.child("group name").updateChildValues(["name": groupNameTextField.text as Any])
 //        self.ref?.child("description").updateChildValues(["description": descriptionTextField.text as Any])
-        Constants.name.myStrings = ["name": groupNameTextField.text as
-            Any as! String]
-        Constants.description.myStrings = ["description": descriptionTextField.text as Any as! String]
+        Constants.name.myStrings = groupNameTextField.text as
+            Any as! String
+        Constants.description.myStrings = descriptionTextField.text as Any as! String
         performSegue(withIdentifier: "groupSegue", sender: self)
         
         let imageName = NSUUID().uuidString
         
         let storedImage = storageRef.child("users").child(userID).child("groups").child(imageName)
-        Constants.img.myImg = ["img" : imageName]
+        Constants.img.myImg = imageName
 
         if let uploadData = UIImagePNGRepresentation(self.imageView.image!)
         {

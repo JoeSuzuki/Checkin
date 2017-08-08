@@ -15,6 +15,7 @@ struct cellData {
     let text: String?
     let image: UIImage?
     let address: String?
+    let numOfMembers: Int?
 }
 var myIndex = 0
 class TableViewController: UITableViewController {
@@ -44,35 +45,26 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         //configureDatabase()
         ref = Database.database().reference().child("basic info").child(userID!)
-//        let storageRef = Storage.storage().reference()
-//        ref?.observe(.childAdded, with: { (snapshot)  in
-//            if let result = snapshot.value as? [String : Any],
-//                let groupImg = result["img"] as? [String : Any],
-//                let img = groupImg["img"] as? String
-//            {
-//                let imaged = storageRef.child("users").child(self.userID!).child("groups").child(img)
-//                
-        self.ref?.observe(.childAdded, with: { (snapshot)  in
-            if let result = snapshot.value as? [String : Any],
-           // if let locationResult = snapshot.value as? [String : Any],
-            let groupName = result["name"] as? [String : Any],
-                let name = groupName["name"] as? String
-            {
-                let groupName = result["name"]
-                self.name.append(name)
-                self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: "canal street"))
-            }
+        ref?.queryOrderedByKey().observe(.childAdded, with: {
+            (snapshot) in
+            let value = snapshot.value as! [String: AnyObject]
+            let name = value["name"] as? String
+            let location = value["location"] as? String
+            let checkIns: Int = value["numOfCheckIns"] as! Int
+            self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: location, numOfMembers: checkIns ))
         })
+//        self.ref?.observe(.childAdded, with: { (snapshot)  in
+//            if let result = snapshot.value as? [String : Any],
+//                // if let locationResult = snapshot.value as? [String : Any],
+//                let groupName = result["name"] as? [String : Any],
+//                let name = groupName["name"] as? String
+//            {
+//                let groupName = result["name"]
+//                self.name.append(name)
+//                self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: "canal street"))
 //            }
 //        })
-//        if arrayOfCellData.count == 0 {
-//            // create the alert
-//            let alert = UIAlertController(title: "Info", message: "These are all the groups that you currently have editing control.", preferredStyle: UIAlertControllerStyle.alert)
-//            // add an action (button)
-//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//            // show the alert
-//            self.present(alert, animated: true, completion: nil)
-//        }
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,6 +76,9 @@ class TableViewController: UITableViewController {
             cell.mainImageView.image = arrayOfCellData[indexPath.row].image
             cell.mainLabelView.text = arrayOfCellData[indexPath.row].text
             cell.addressLabelView.text = arrayOfCellData[indexPath.row].address
+            if let members = arrayOfCellData[indexPath.row].numOfMembers {
+                cell.counterLabelView.text = String(describing: members)
+            }
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
@@ -117,3 +112,7 @@ class TableViewController: UITableViewController {
     }
 
 }
+//
+//extension TableViewController: UITableViewDataSource {
+//    
+//}

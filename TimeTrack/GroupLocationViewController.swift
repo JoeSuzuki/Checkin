@@ -46,7 +46,7 @@ class GroupLocationViewController: UIViewController {
     }
     @IBAction func locationTextField(_ sender: UITextField) {
         locationDisplay.text = searchTextField.text
-        Constants.location.myStrings = ["location": searchTextField.text as Any as! String]
+        Constants.location.myStrings = searchTextField.text as Any as! String
     }
     
     

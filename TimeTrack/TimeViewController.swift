@@ -82,21 +82,21 @@ class TimeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func addButton(_ sender: UIButton) {
-        Constants.from.myStrings = ["from": textBox1.text as Any as! String]
-        Constants.to.myStrings = ["to": textBox2.text as Any as! String]
+    @IBAction func addButton(_ sender: UIButton){
+        Constants.from.myStrings = textBox1.text as Any as! String
+        Constants.to.myStrings = textBox2.text as Any as! String
       //  self.ref?.child("days").updateChildValues(["from": textBox1.text as Any])
       //  self.ref?.child("days").updateChildValues(["to": textBox2.text as Any])
         displayDaysLabel.text = textBox1.text
         displayDaysLabel2.text = textBox2.text
     }
     @IBAction func textBoxAction1(_ sender: UITextField) {
-            Constants.from.myStrings = ["from": textBox1.text as Any as! String]
+            Constants.from.myStrings = textBox1.text as Any as! String
             displayDaysLabel.text = textBox1.text
     }
     @IBAction func textBoxAction2(_ sender: UITextField) {
         displayDaysLabel2.text = textBox2.text
-        Constants.to.myStrings = ["to": textBox2.text as Any as! String]
+        Constants.to.myStrings = textBox2.text as Any as! String
 
     }
 

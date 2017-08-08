@@ -22,18 +22,18 @@ class PersonalGroupViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        descriptionLabel.text = Constants.description.myStrings["description"]
-        addressLabel.text = Constants.location.myStrings["location"]
-        let days = "\(String(describing: Constants.from.myStrings["from"])) - \(String(describing: Constants.to.myStrings["to"]))"
+        descriptionLabel.text = Constants.description.myStrings
+        addressLabel.text = Constants.location.myStrings
+        let days = "\(String(describing: Constants.from.myStrings)) - \(String(describing: Constants.to.myStrings))"
         daysOpen.text = days
-        groupNameLabel.text = Constants.name.myStrings["name"]
+        groupNameLabel.text = Constants.name.myStrings
         ref = Database.database().reference().child("basic info").child(userID).childByAutoId()//.child("groups").child(userID).childByAutoId()
-        self.ref.child("location").updateChildValues(Constants.location.myStrings)
-        self.ref.child("from").updateChildValues(Constants.from.myStrings)
-        self.ref.child("to").updateChildValues(Constants.to.myStrings)
-        self.ref.child("name").updateChildValues(Constants.name.myStrings)
-        self.ref.child("description").updateChildValues(Constants.description.myStrings)
-        self.ref.child("img").updateChildValues(Constants.img.myImg)
+        self.ref.child("location").setValue(Constants.location.myStrings)
+        self.ref.child("from").setValue(Constants.from.myStrings)
+        self.ref.child("to").setValue(Constants.to.myStrings)
+        self.ref.child("name").setValue(Constants.name.myStrings)
+        self.ref.child("description").setValue(Constants.description.myStrings)
+        self.ref.child("img").setValue(Constants.img.myImg)
     }
 
     override func didReceiveMemoryWarning() {

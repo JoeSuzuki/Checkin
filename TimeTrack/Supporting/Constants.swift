@@ -18,24 +18,27 @@ struct Constants {
         static let username = "username"
     }
     struct location {
-        static var myStrings = [String: String]()
+        static var myStrings: String = ""
     }
     struct from {
-        static var myStrings = [String: String]()
+        static var myStrings: String = ""
     }
     struct to {
-        static var myStrings = [String: String]()
+        static var myStrings: String = ""
     }
     struct name {
-        static var myStrings = [String: String]()
+        static var myStrings: String = ""
     }
     struct description {
-        static var myStrings = [String: String]()
+        static var myStrings: String = ""
     }
     struct img {
-        static var myImg =  [String: String]()
+        static var myImg: String = ""
     }
 // groups
+    struct groupDetails {
+        static var myDicts = [String: Any]()
+    }
     struct groupsName {
         static var myStrings: String = ""
     }
@@ -46,10 +49,10 @@ struct Constants {
         static var myStrings: String = ""
     }
     struct numberOfMembers {
-        static var myInts = [String: Int]()
+        static var myInts: Int = 0
     }
     struct numberOfCheckIns {
-        static var myInts = [String: Int]()
+        static var myInts: Int = 0
     }
     struct timeNow {
         static var time = [String: String]()
@@ -58,7 +61,7 @@ struct Constants {
         static var time = [String: String]()
     }
     struct url {
-        static var myStrings = [String: String]()
+        static var myStrings: String = ""
     }
     
 // Profile

@@ -117,7 +117,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     
     @IBAction func urlTextAction(_ sender: UITextField) {
         if urlText.text != nil {
-            Constants.url.myStrings = ["url": urlText.text!]
+            Constants.url.myStrings = urlText.text!
         } else {
             return
         }
@@ -156,18 +156,18 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     }
 
     @IBAction func addButton(_ sender: Any) {
-        Constants.location.myStrings = ["location": locationTextField.text as Any as! String]
-        Constants.name.myStrings = ["name": groupNameTextField.text as
-            Any as! String]
-        Constants.from.myStrings = ["from": textBox1.text as Any as! String]
-        Constants.to.myStrings = ["to": textBox2.text as Any as! String]
-        Constants.description.myStrings = ["description": descriptionText.text as Any as! String]
+        Constants.location.myStrings = locationTextField.text!
+        Constants.name.myStrings = groupNameTextField.text as
+            Any as! String
+        Constants.from.myStrings = textBox1.text as Any as! String
+        Constants.to.myStrings = textBox2.text as Any as! String
+        Constants.description.myStrings = descriptionText.text as Any as! String
         
         ref = Database.database().reference().child("basic info").child(userID).childByAutoId()
         
         let imageName = NSUUID().uuidString
         let storedImage = storageRef.child("users").child(userID).child("groups").child(imageName)
-        Constants.img.myImg = ["img" : imageName]
+        Constants.img.myImg = imageName
         
         if let uploadData = UIImagePNGRepresentation(self.imageView.image!){
             storedImage.putData(uploadData, metadata: nil, completion: { (metadata, error) in
@@ -181,7 +181,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
                         return
                     }
                         if let urlText = url?.absoluteString{
-                            self.databaseRef.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["pic" : urlText], withCompletionBlock: { (error, ref) in
+                            self.ref!.updateChildValues(["pic" : urlText], withCompletionBlock: { (error, ref) in
                                 if error != nil{
                                     print(error!)
                                     return
@@ -195,15 +195,15 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         var memref = Database.database().reference().child("groupsMembers").child(userID)
         var groupRef = Database.database().reference().child("basic info").child(userID)
 
-        self.ref.child("location").updateChildValues(Constants.location.myStrings)
-        self.ref.child("from").updateChildValues(Constants.from.myStrings)
-        self.ref.child("to").updateChildValues(Constants.to.myStrings)
-        self.ref.child("name").updateChildValues(Constants.name.myStrings)
-        self.ref.child("description").updateChildValues(Constants.description.myStrings)
-        self.ref.child("img").updateChildValues(Constants.img.myImg)
-        self.ref.child("url").updateChildValues(Constants.url.myStrings)
-        self.ref.child("numOfMembers").updateChildValues(Constants.numberOfMembers.myInts)
-        self.ref.child("numOfCheckIns").updateChildValues(Constants.numberOfCheckIns.myInts)
+        self.ref.child("location").setValue(Constants.location.myStrings)
+        self.ref.child("from").setValue(Constants.from.myStrings)
+        self.ref.child("to").setValue(Constants.to.myStrings)
+        self.ref.child("name").setValue(Constants.name.myStrings)
+        self.ref.child("description").setValue(Constants.description.myStrings)
+        self.ref.child("img").setValue(Constants.img.myImg)
+        self.ref.child("url").setValue(Constants.url.myStrings)
+        self.ref.child("numOfMembers").setValue(Constants.numberOfMembers.myInts)
+        self.ref.child("numOfCheckIns").setValue(Constants.numberOfCheckIns.myInts)
         //performSegue(withIdentifier: "groupSegue", sender: self)
         let initialViewController = UIStoryboard.initialViewController(for: .main)
         self.view.window?.rootViewController = initialViewController
