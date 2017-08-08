@@ -332,13 +332,13 @@
 		FFDABC871F2A7EA300C64D39 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				FFC3AFF31F359F6200E9BF64 /* JoinGroupViewController.swift */,
 				FFB799921F2904A8001B7C61 /* TableViewController.swift */,
-				FFC091141F339B1100BD5143 /* GroupTimeViewController.swift */,
 				FFC091161F342E7400BD5143 /* MoreInfoGroupViewController.swift */,
+				FFC091141F339B1100BD5143 /* GroupTimeViewController.swift */,
 				FFB799941F29056E001B7C61 /* TableViewCell.swift */,
 				FFC3B0041F36C10600E9BF64 /* CreateTableViewController.swift */,
 				FFC3B0061F36C11D00E9BF64 /* CreateTableViewCell.swift */,
+				FFC3AFF31F359F6200E9BF64 /* JoinGroupViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";

@@ -164,7 +164,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         Constants.description.myStrings = descriptionText.text as Any as! String
         
         ref = Database.database().reference().child("basic info").child(userID).childByAutoId()
-        
+
         let imageName = NSUUID().uuidString
         let storedImage = storageRef.child("users").child(userID).child("groups").child(imageName)
         Constants.img.myImg = imageName

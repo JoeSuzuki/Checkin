@@ -36,11 +36,12 @@ class TableViewController: UITableViewController {
     @IBOutlet var groupTableView: UITableView!
     @IBAction func infoButton(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "joinGroup", sender: self)
+        
     }
     @IBAction func addGroups(_ sender: Any) {
         performSegue(withIdentifier: "addGroup", sender: self)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //configureDatabase()
@@ -50,7 +51,7 @@ class TableViewController: UITableViewController {
             let value = snapshot.value as! [String: AnyObject]
             let name = value["name"] as? String
             let location = value["location"] as? String
-            let checkIns: Int = value["numOfCheckIns"] as! Int
+            let checkIns = value["numOfCheckIns"] as? Int
             self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: location, numOfCheckIns: checkIns ))
         })
 //        self.ref?.observe(.childAdded, with: { (snapshot)  in
