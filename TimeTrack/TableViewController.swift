@@ -15,7 +15,7 @@ struct cellData {
     let text: String?
     let image: UIImage?
     let address: String?
-    let numOfMembers: Int?
+    let numOfCheckIns: Int?
 }
 var myIndex = 0
 class TableViewController: UITableViewController {
@@ -51,7 +51,7 @@ class TableViewController: UITableViewController {
             let name = value["name"] as? String
             let location = value["location"] as? String
             let checkIns: Int = value["numOfCheckIns"] as! Int
-            self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: location, numOfMembers: checkIns ))
+            self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: location, numOfCheckIns: checkIns ))
         })
 //        self.ref?.observe(.childAdded, with: { (snapshot)  in
 //            if let result = snapshot.value as? [String : Any],
@@ -76,7 +76,7 @@ class TableViewController: UITableViewController {
             cell.mainImageView.image = arrayOfCellData[indexPath.row].image
             cell.mainLabelView.text = arrayOfCellData[indexPath.row].text
             cell.addressLabelView.text = arrayOfCellData[indexPath.row].address
-            if let members = arrayOfCellData[indexPath.row].numOfMembers {
+            if let members = arrayOfCellData[indexPath.row].numOfCheckIns {
                 cell.counterLabelView.text = String(describing: members)
             }
             return cell
