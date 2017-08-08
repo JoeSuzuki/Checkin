@@ -16,6 +16,7 @@ struct cellData {
     let image: UIImage?
     let address: String?
     let numOfCheckIns: Int?
+    let id: String!
 }
 var myIndex = 0
 class TableViewController: UITableViewController {
@@ -45,14 +46,16 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //configureDatabase()
-        ref = Database.database().reference().child("basic info").child(userID!)
+        ref = Database.database().reference().child("personal groups info").child(userID!)
         ref?.queryOrderedByKey().observe(.childAdded, with: {
             (snapshot) in
             let value = snapshot.value as! [String: AnyObject]
             let name = value["name"] as? String
             let location = value["location"] as? String
             let checkIns = value["numOfCheckIns"] as? Int
-            self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: location, numOfCheckIns: checkIns ))
+            let keyed = value["key"] as! String!
+            
+            self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: location, numOfCheckIns: checkIns, id: keyed))
         })
 //        self.ref?.observe(.childAdded, with: { (snapshot)  in
 //            if let result = snapshot.value as? [String : Any],
@@ -80,12 +83,17 @@ class TableViewController: UITableViewController {
             if let members = arrayOfCellData[indexPath.row].numOfCheckIns {
                 cell.counterLabelView.text = String(describing: members)
             }
+            cell.idLabel.text = arrayOfCellData[indexPath.row].id
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
             cell.mainImageView.image = arrayOfCellData[indexPath.row].image
             cell.mainLabelView.text = arrayOfCellData[indexPath.row].text!
             cell.addressLabelView.text = arrayOfCellData[indexPath.row].address
+            if let members = arrayOfCellData[indexPath.row].numOfCheckIns {
+                cell.counterLabelView.text = String(describing: members)
+            }
+            cell.idLabel.text = arrayOfCellData[indexPath.row].id
             return cell
         }
     }
@@ -110,9 +118,8 @@ class TableViewController: UITableViewController {
         Constants.groupsName.myStrings = (cell.mainLabelView?.text!)!
         Constants.groupsLocation.myStrings = (cell.addressLabelView?.text!)!
         Constants.numberOfCheckIns.myInts = Int(cell.counterLabelView.text!)!
-
+        Constants.idd.myStrings = (cell.idLabel?.text!)!
     }
-
 }
 //
 //extension TableViewController: UITableViewDataSource {

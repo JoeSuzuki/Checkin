@@ -15,9 +15,7 @@
         <scene sceneID="Ag6-sP-yWM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V4K-pC-b74" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="tab_profile_black" id="Ijn-TR-MBT">
-                        <inset key="imageInsets" minX="-5" minY="0.0" maxX="-4" maxY="0.0"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Profile" image="tab_profile_black" id="Ijn-TR-MBT"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -143,7 +141,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AoW-VW-yJ4">
-                                <rect key="frame" x="125" y="72" width="126" height="118"/>
+                                <rect key="frame" x="125" y="72" width="118" height="118"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="AoW-VW-yJ4" secondAttribute="height" multiplier="1:1" id="4Vn-UC-7wD"/>
                                 </constraints>
@@ -156,7 +154,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFK-cs-Hrk">
-                                <rect key="frame" x="38" y="520" width="300" height="51"/>
+                                <rect key="frame" x="38" y="520" width="292" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="7lX-Sm-tEt"/>
                                 </constraints>

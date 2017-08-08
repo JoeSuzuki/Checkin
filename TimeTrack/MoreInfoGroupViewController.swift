@@ -14,11 +14,13 @@ class MoreInfoGroupViewController: UIViewController {
     @IBOutlet weak var mainNameLabelSecon: UILabel!
     @IBOutlet weak var addressLabelSecon: UILabel!
     @IBOutlet weak var counterLabelSecon: UILabel!
+    @IBOutlet weak var idLabelView: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         mainNameLabelSecon.text = Constants.groupsName.myStrings
         addressLabelSecon.text = Constants.groupsLocation.myStrings
         counterLabelSecon.text = String(Constants.numberOfCheckIns.myInts)
+        idLabelView.text = Constants.idd.myStrings
         // mainImageViewSecon.layer.masksToBounds = false
         mainImageViewSecon.layer.cornerRadius = mainImageViewSecon.frame.size.width/2
         mainImageViewSecon.clipsToBounds = true

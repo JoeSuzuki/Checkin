@@ -14,6 +14,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var mainLabelView: UILabel!
     @IBOutlet weak var addressLabelView: UILabel!
     @IBOutlet weak var counterLabelView: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
 
 }
 

@@ -24,10 +24,12 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timeLabel2: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ref = Database.database().reference().child("users").child(userID).child("groups").child("personal groups").childByAutoId()
+        ref = Database.database().reference().child("personal groups info").child(userID).childByAutoId()
+        let refKey = ref.key
      self.clearsSelectionOnViewWillAppear = false
         self.timePicker1.datePickerMode = .time
         self.timePicker2.datePickerMode = .time
@@ -35,6 +37,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         var numOfMembers: Int = 0
         var numOfCheckIns: Int = 0
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard)))
+        idLabel.text = refKey
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -156,15 +159,15 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     }
 
     @IBAction func addButton(_ sender: Any) {
+        ref = Database.database().reference().child("personal groups info").child(userID).childByAutoId()
+        let refKey = ref.key
         Constants.location.myStrings = locationTextField.text!
         Constants.name.myStrings = groupNameTextField.text as
             Any as! String
         Constants.from.myStrings = textBox1.text as Any as! String
         Constants.to.myStrings = textBox2.text as Any as! String
         Constants.description.myStrings = descriptionText.text as Any as! String
-        
-        ref = Database.database().reference().child("basic info").child(userID).childByAutoId()
-        let refKey = ref.key
+        Constants.idd.myStrings = refKey
         let imageName = NSUUID().uuidString
         let storedImage = storageRef.child("users").child(userID).child("groups").child(imageName)
         Constants.img.myImg = imageName
@@ -194,6 +197,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         // Write to Firebase
         var memref = Database.database().reference().child("groupsMembers").child(userID)
         var groupRef = Database.database().reference().child("basic info").child(userID)
+        
         self.ref.child("location").setValue(Constants.location.myStrings)
         self.ref.child("from").setValue(Constants.from.myStrings)
         self.ref.child("to").setValue(Constants.to.myStrings)
@@ -201,9 +205,9 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         self.ref.child("description").setValue(Constants.description.myStrings)
         self.ref.child("img").setValue(Constants.img.myImg)
         self.ref.child("url").setValue(Constants.url.myStrings)
+        self.ref.child("key").setValue(Constants.idd.myStrings)
         self.ref.child("numOfMembers").setValue(Constants.numberOfMembers.myInts)
         self.ref.child("numOfCheckIns").setValue(Constants.numberOfCheckIns.myInts)
-        self.ref.child("key").setValue(refKey)
         //performSegue(withIdentifier: "groupSegue", sender: self)
         let initialViewController = UIStoryboard.initialViewController(for: .main)
         self.view.window?.rootViewController = initialViewController

@@ -63,6 +63,9 @@ struct Constants {
     struct url {
         static var myStrings: String = ""
     }
+    struct idd {
+        static var myStrings: String = ""
+    }
     
 // Profile
     struct fullname {
