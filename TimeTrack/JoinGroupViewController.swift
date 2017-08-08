@@ -46,7 +46,7 @@ class JoinGroupViewController: UIViewController {
         ref = Database.database().reference().child("global groups info").child(userID)
         ref.setValue("")
 //        let refKey = ref.key
-        // if passwordTextField.text ==
+   //     if passwordTextField.text ==
     }
     
 }

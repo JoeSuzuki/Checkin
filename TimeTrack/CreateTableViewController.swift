@@ -195,9 +195,6 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
                 })
             }
         // Write to Firebase
-        var memref = Database.database().reference().child("groupsMembers").child(userID)
-        var groupRef = Database.database().reference().child("basic info").child(userID)
-        
         self.ref.child("location").setValue(Constants.location.myStrings)
         self.ref.child("from").setValue(Constants.from.myStrings)
         self.ref.child("to").setValue(Constants.to.myStrings)
