@@ -164,7 +164,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         Constants.description.myStrings = descriptionText.text as Any as! String
         
         ref = Database.database().reference().child("basic info").child(userID).childByAutoId()
-
+        let refKey = ref.key
         let imageName = NSUUID().uuidString
         let storedImage = storageRef.child("users").child(userID).child("groups").child(imageName)
         Constants.img.myImg = imageName
@@ -194,7 +194,6 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         // Write to Firebase
         var memref = Database.database().reference().child("groupsMembers").child(userID)
         var groupRef = Database.database().reference().child("basic info").child(userID)
-
         self.ref.child("location").setValue(Constants.location.myStrings)
         self.ref.child("from").setValue(Constants.from.myStrings)
         self.ref.child("to").setValue(Constants.to.myStrings)
@@ -204,6 +203,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         self.ref.child("url").setValue(Constants.url.myStrings)
         self.ref.child("numOfMembers").setValue(Constants.numberOfMembers.myInts)
         self.ref.child("numOfCheckIns").setValue(Constants.numberOfCheckIns.myInts)
+        self.ref.child("key").setValue(refKey)
         //performSegue(withIdentifier: "groupSegue", sender: self)
         let initialViewController = UIStoryboard.initialViewController(for: .main)
         self.view.window?.rootViewController = initialViewController

@@ -108,7 +108,8 @@ class TableViewController: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
         
         Constants.groupsName.myStrings = (cell.mainLabelView?.text!)!
-        Constants.groupsLocation.myStrings = (cell.mainLabelView?.text!)!
+        Constants.groupsLocation.myStrings = (cell.addressLabelView?.text!)!
+        Constants.numberOfCheckIns.myInts = Int(cell.counterLabelView.text!)!
 
     }
 
