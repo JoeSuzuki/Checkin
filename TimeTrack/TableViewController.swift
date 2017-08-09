@@ -17,6 +17,7 @@ struct cellData {
     let address: String?
     let numOfCheckIns: Int?
     let id: String!
+    let memberTotal: Int!
 }
 var myIndex = 0
 class TableViewController: UITableViewController {
@@ -54,8 +55,8 @@ class TableViewController: UITableViewController {
             let location = value["location"] as? String
             let checkIns = value["numOfCheckIns"] as? Int
             let keyed = value["key"] as! String!
-            
-            self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: location, numOfCheckIns: checkIns, id: keyed))
+            let mem = value["numOfMembers"] as? Int
+            self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
         })
 //        self.ref?.observe(.childAdded, with: { (snapshot)  in
 //            if let result = snapshot.value as? [String : Any],
@@ -84,6 +85,9 @@ class TableViewController: UITableViewController {
                 cell.counterLabelView.text = String(describing: members)
             }
             cell.idLabel.text = arrayOfCellData[indexPath.row].id
+            if let totalMembers = arrayOfCellData[indexPath.row].memberTotal {
+                cell.totalMembers.text = String(describing: totalMembers)
+            }
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
@@ -94,6 +98,9 @@ class TableViewController: UITableViewController {
                 cell.counterLabelView.text = String(describing: members)
             }
             cell.idLabel.text = arrayOfCellData[indexPath.row].id
+            if let totalMembers = arrayOfCellData[indexPath.row].memberTotal {
+                cell.totalMembers.text = String(describing: totalMembers)
+            }
             return cell
         }
     }
@@ -119,6 +126,8 @@ class TableViewController: UITableViewController {
         Constants.groupsLocation.myStrings = (cell.addressLabelView?.text!)!
         Constants.numberOfCheckIns.myInts = Int(cell.counterLabelView.text!)!
         Constants.idd.myStrings = (cell.idLabel?.text!)!
+        Constants.numberOfMembers.myInts = Int((cell.totalMembers?.text!)!)!
+        //        totalMembers
     }
 }
 //

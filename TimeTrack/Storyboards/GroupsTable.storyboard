@@ -33,7 +33,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4GM-Tp-OxT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3015" y="1862"/>
+            <point key="canvasLocation" x="-3071" y="1862"/>
         </scene>
         <!--My Groups-->
         <scene sceneID="SfF-Hh-n4V">
@@ -72,7 +72,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnR-Y3-1mS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2263" y="1862"/>
+            <point key="canvasLocation" x="-2353" y="1862"/>
         </scene>
         <!--More Info Group View Controller-->
         <scene sceneID="tmx-9o-cuR">
@@ -234,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2PV-FA-JWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1705" y="2544"/>
+            <point key="canvasLocation" x="-1644" y="2522"/>
         </scene>
         <!--Group Time View Controller-->
         <scene sceneID="a2X-6F-Tav">
@@ -314,7 +314,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKS-Gm-qTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-692" y="2521.8890554722639"/>
+            <point key="canvasLocation" x="-937" y="2522"/>
         </scene>
         <!--Add Groups-->
         <scene sceneID="7G7-tg-ksH">
@@ -664,7 +664,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cno-zl-dvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1314.4000000000001" y="1021.889055472264"/>
+            <point key="canvasLocation" x="-1644" y="1198"/>
         </scene>
         <!--Join a group-->
         <scene sceneID="I3W-82-VjR">
@@ -711,7 +711,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Zh-2l-ldf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1313" y="1862"/>
+            <point key="canvasLocation" x="-1351" y="1862"/>
         </scene>
         <!--Group Time1 View Controller-->
         <scene sceneID="mXM-8i-PKh">

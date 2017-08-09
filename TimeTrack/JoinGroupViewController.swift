@@ -33,7 +33,6 @@ class JoinGroupViewController: UIViewController {
         super.viewDidLoad()
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard)))
         ref = Database.database().reference().child("global groups info").child(userID)
-        let groupRef = Database.database().reference().child("personal groups info")
         let groupsRef = Database.database().reference().child("groupsIds")
         groupsRef.queryOrderedByKey().observe(.childAdded, with: {
             (snapshot) in
@@ -60,13 +59,21 @@ class JoinGroupViewController: UIViewController {
         return true
     }
     @IBAction func passwordEnterButton(_ sender: UIButton) {
-        let membersRef = Database.database().reference().child("Members of Groups")
         for key in self.childIds {
             if self.passwordTextField.text! == key {
-                membersRef.child(key).updateChildValues([userID: userID])
+                let membersRef = Database.database().reference().child("Members of Groups").child(key)
+                membersRef.updateChildValues([userID: userID])
+                let reff = Database.database().reference().child("personal groups info").child(userID).child(key)
+                var count: Int = 0
+                membersRef.observe(.value, with: { (snapshot: DataSnapshot!) in
+                    //print(snapshot.childrenCount)
+                    count = Int(snapshot.childrenCount)
+                    reff.updateChildValues(["numOfMembers": count])
+                })
                 let alert = SCLAlertView()
                 _ = alert.showSuccess(kSuccessTitle, subTitle: kSubtitld)
                 break
+                
             } else {
                 let membersRef = Database.database().reference().child("Members of Groups")
                 _ = SCLAlertView().showError("Opps!", subTitle:"Your passcode seems to not be correct. ", closeButtonTitle:"OK")

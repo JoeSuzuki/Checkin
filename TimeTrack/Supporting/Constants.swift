@@ -49,7 +49,7 @@ struct Constants {
         static var myStrings: String = ""
     }
     struct numberOfMembers {
-        static var myInts: Int = 0
+        static var myInts: Int = 1
     }
     struct numberOfCheckIns {
         static var myInts: Int = 0

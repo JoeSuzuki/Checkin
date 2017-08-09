@@ -341,13 +341,13 @@
 			children = (
 				FFB799921F2904A8001B7C61 /* TableViewController.swift */,
 				FFC091161F342E7400BD5143 /* MoreInfoGroupViewController.swift */,
-				FFB799941F29056E001B7C61 /* TableViewCell.swift */,
 				FFAE463A1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift */,
-				FFC3B0041F36C10600E9BF64 /* CreateTableViewController.swift */,
 				FFAE463C1F3B50D6001CC9EC /* GroupTimeTableViewController.swift */,
 				FFC3B0061F36C11D00E9BF64 /* CreateTableViewCell.swift */,
-				FFC3AFF31F359F6200E9BF64 /* JoinGroupViewController.swift */,
+				FFB799941F29056E001B7C61 /* TableViewCell.swift */,
 				FFAE463E1F3B5156001CC9EC /* GroupTimeTableViewCell.swift */,
+				FFC3B0041F36C10600E9BF64 /* CreateTableViewController.swift */,
+				FFC3AFF31F359F6200E9BF64 /* JoinGroupViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";

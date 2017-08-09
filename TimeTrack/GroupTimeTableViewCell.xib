@@ -34,6 +34,10 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="nameLabel" destination="OL1-9R-Ift" id="NZq-5L-JTQ"/>
+                <outlet property="timeLabel" destination="dwp-o5-fCa" id="8HT-8Y-LMa"/>
+            </connections>
             <point key="canvasLocation" x="81" y="46"/>
         </tableViewCell>
     </objects>
