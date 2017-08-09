@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_TimeTrackVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_TimeTrackVersionString[];
+FOUNDATION_EXPORT double SCLAlertViewVersionNumber;
+FOUNDATION_EXPORT const unsigned char SCLAlertViewVersionString[];
 

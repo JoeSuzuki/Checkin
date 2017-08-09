@@ -8,9 +8,20 @@
 
 import UIKit
 import Firebase
+import SCLAlertView
+
+let kSuccessTitle = "Congratulations"
+let kErrorTitle = "Connection error"
+let kNoticeTitle = "Notice"
+let kWarningTitle = "Opps"
+let kInfoTitle = "Info"
+let kSubtitle = "The passcode you entered is incorrect"
+let kSubtitld = "You joined a group!"
+
+let kDefaultAnimationDuration = 2.0
 
 class JoinGroupViewController: UIViewController {
-   
+    
     var childIds: [String] = []
     var ref: DatabaseReference!
     var groupRef: DatabaseReference?
@@ -53,19 +64,18 @@ class JoinGroupViewController: UIViewController {
         for key in self.childIds {
             if self.passwordTextField.text! == key {
                 membersRef.child(key).updateChildValues([userID: userID])
+                let alert = SCLAlertView()
+                _ = alert.showSuccess(kSuccessTitle, subTitle: kSubtitld)
+                break
+            } else {
+                let membersRef = Database.database().reference().child("Members of Groups")
+                _ = SCLAlertView().showError("Opps!", subTitle:"Your passcode seems to not be correct. ", closeButtonTitle:"OK")
+                break
             }
+            
         }
-//        groupRef.observe(.value, with: { snapshot in
-//            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
-//                for child in snapshots {
-//                    if passwordTextField.text! == child {
-//                        print("Child: ", child)}
-//                }
-//            }
-//        })
-        
-        //        let refKey = ref.key
-   //     if passwordTextField.text ==
     }
-    
 }
+//
+//let membersRef = Database.database().reference().child("Members of Groups")
+//_ = SCLAlertView().showError("Opps!", subTitle:"Your passcode seems to not be correct. ", closeButtonTitle:"OK")

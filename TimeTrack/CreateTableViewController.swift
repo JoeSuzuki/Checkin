@@ -8,6 +8,15 @@
 
 import UIKit
 import Firebase
+import SCLAlertView
+
+let kSuccessTitled = "Awesome!"
+let kErrorTitled = "Connection error"
+let kNoticeTitled = "Notice"
+let kWarningTitled = "Opps"
+let kInfoTitled = "Info"
+let kSubtitled = "The passcode you entered is incorrect"
+let kSubtitldd = "You created a group! Go invite people to check-in!"
 
 class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     @IBOutlet weak var groupNameTextField: UITextField!
@@ -222,9 +231,13 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         let membersRef = Database.database().reference().child("Members of Groups").child(Constants.idd.myStrings)
         membersRef.updateChildValues([userID:userID])
         //performSegue(withIdentifier: "groupSegue", sender: self)
+        
         let initialViewController = UIStoryboard.initialViewController(for: .main)
         self.view.window?.rootViewController = initialViewController
         self.view.window?.makeKeyAndVisible()
+        let alert = SCLAlertView()
+        _ = alert.showSuccess(kSuccessTitled, subTitle: kSubtitldd)
+
     }
     @IBAction func cancelButton(_ sender: Any) {
         let initialViewController = UIStoryboard.initialViewController(for: .main)
