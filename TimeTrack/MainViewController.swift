@@ -26,7 +26,6 @@ class MainViewController: UIViewController {
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
         profileImage.clipsToBounds = true
 
-
     }
     
     override func didReceiveMemoryWarning() {

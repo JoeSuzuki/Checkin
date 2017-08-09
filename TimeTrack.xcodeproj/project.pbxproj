@@ -20,6 +20,10 @@
 		FF115B3D1F2F66D7008A1EB5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF115B3C1F2F66D7008A1EB5 /* MapKit.framework */; };
 		FF37C6071F2525CA0018940B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF37C6061F2525C90018940B /* AppDelegate.swift */; };
 		FF37C60E1F2525CA0018940B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF37C60D1F2525CA0018940B /* Assets.xcassets */; };
+		FFAE463B1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAE463A1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift */; };
+		FFAE463D1F3B50D6001CC9EC /* GroupTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAE463C1F3B50D6001CC9EC /* GroupTimeTableViewController.swift */; };
+		FFAE46401F3B5156001CC9EC /* GroupTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAE463E1F3B5156001CC9EC /* GroupTimeTableViewCell.swift */; };
+		FFAE46411F3B5156001CC9EC /* GroupTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFAE463F1F3B5156001CC9EC /* GroupTimeTableViewCell.xib */; };
 		FFAFCCCC1F262F5E009D2692 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCCCB1F262F5E009D2692 /* ViewController.swift */; };
 		FFAFCCCF1F262F67009D2692 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFAFCCCD1F262F67009D2692 /* GoogleService-Info.plist */; };
 		FFAFCCDE1F26332D009D2692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFAFCCDD1F26332D009D2692 /* Main.storyboard */; };
@@ -35,7 +39,6 @@
 		FFB799961F29056E001B7C61 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB799941F29056E001B7C61 /* TableViewCell.swift */; };
 		FFB799971F29056E001B7C61 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB799951F29056E001B7C61 /* TableViewCell.xib */; };
 		FFB799A11F29A7C7001B7C61 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB799A01F29A7C7001B7C61 /* Search.storyboard */; };
-		FFC091151F339B1100BD5143 /* GroupTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC091141F339B1100BD5143 /* GroupTimeViewController.swift */; };
 		FFC091171F342E7400BD5143 /* MoreInfoGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC091161F342E7400BD5143 /* MoreInfoGroupViewController.swift */; };
 		FFC091191F34E7AB00BD5143 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC091181F34E7AB00BD5143 /* SearchTableViewCell.swift */; };
 		FFC0911B1F34ECE400BD5143 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC0911A1F34ECE300BD5143 /* EditViewController.swift */; };
@@ -70,6 +73,10 @@
 		FF37C6031F2525C90018940B /* TimeTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF37C6061F2525C90018940B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF37C60D1F2525CA0018940B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FFAE463A1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTime1TableViewController.swift; sourceTree = "<group>"; };
+		FFAE463C1F3B50D6001CC9EC /* GroupTimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTimeTableViewController.swift; sourceTree = "<group>"; };
+		FFAE463E1F3B5156001CC9EC /* GroupTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTimeTableViewCell.swift; sourceTree = "<group>"; };
+		FFAE463F1F3B5156001CC9EC /* GroupTimeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupTimeTableViewCell.xib; path = ../GroupTimeTableViewCell.xib; sourceTree = "<group>"; };
 		FFAFCCCB1F262F5E009D2692 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controllers/ViewController.swift; sourceTree = "<group>"; };
 		FFAFCCCD1F262F67009D2692 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Supporting/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FFAFCCCE1F262F67009D2692 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Supporting/Info.plist; sourceTree = "<group>"; };
@@ -88,7 +95,6 @@
 		FFB799941F29056E001B7C61 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FFB799951F29056E001B7C61 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableViewCell.xib; path = ../TableViewCell.xib; sourceTree = "<group>"; };
 		FFB799A01F29A7C7001B7C61 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
-		FFC091141F339B1100BD5143 /* GroupTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTimeViewController.swift; sourceTree = "<group>"; };
 		FFC091161F342E7400BD5143 /* MoreInfoGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfoGroupViewController.swift; sourceTree = "<group>"; };
 		FFC091181F34E7AB00BD5143 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		FFC0911A1F34ECE300BD5143 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +295,7 @@
 			children = (
 				FFB7998B1F28F1EA001B7C61 /* GroupsTable.storyboard */,
 				FFB799951F29056E001B7C61 /* TableViewCell.xib */,
+				FFAE463F1F3B5156001CC9EC /* GroupTimeTableViewCell.xib */,
 			);
 			name = Table;
 			sourceTree = "<group>";
@@ -334,11 +341,13 @@
 			children = (
 				FFB799921F2904A8001B7C61 /* TableViewController.swift */,
 				FFC091161F342E7400BD5143 /* MoreInfoGroupViewController.swift */,
-				FFC091141F339B1100BD5143 /* GroupTimeViewController.swift */,
 				FFB799941F29056E001B7C61 /* TableViewCell.swift */,
+				FFAE463A1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift */,
 				FFC3B0041F36C10600E9BF64 /* CreateTableViewController.swift */,
+				FFAE463C1F3B50D6001CC9EC /* GroupTimeTableViewController.swift */,
 				FFC3B0061F36C11D00E9BF64 /* CreateTableViewCell.swift */,
 				FFC3AFF31F359F6200E9BF64 /* JoinGroupViewController.swift */,
+				FFAE463E1F3B5156001CC9EC /* GroupTimeTableViewCell.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -424,6 +433,7 @@
 			files = (
 				FF37C60E1F2525CA0018940B /* Assets.xcassets in Resources */,
 				FFB799971F29056E001B7C61 /* TableViewCell.xib in Resources */,
+				FFAE46411F3B5156001CC9EC /* GroupTimeTableViewCell.xib in Resources */,
 				FFAFCCCF1F262F67009D2692 /* GoogleService-Info.plist in Resources */,
 				FFAFCD0B1F2688A5009D2692 /* Profile.storyboard in Resources */,
 				FFC3AFF61F35A4F300E9BF64 /* AddGroups.storyboard in Resources */,
@@ -491,8 +501,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFAE463D1F3B50D6001CC9EC /* GroupTimeTableViewController.swift in Sources */,
 				FF115B2F1F2CF323008A1EB5 /* MainViewController.swift in Sources */,
 				FFC3B0051F36C10600E9BF64 /* CreateTableViewController.swift in Sources */,
+				FFAE463B1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift in Sources */,
 				FF115B361F2CF3C8008A1EB5 /* AuthService.swift in Sources */,
 				FFC091171F342E7400BD5143 /* MoreInfoGroupViewController.swift in Sources */,
 				FFD5BD451F2BB41700C3BEE7 /* PersonalGroupViewController.swift in Sources */,
@@ -500,6 +512,7 @@
 				FF115B3A1F2CF3F9008A1EB5 /* Storyboard+Utility.swift in Sources */,
 				FFD5BD411F2B868E00C3BEE7 /* TimeViewController.swift in Sources */,
 				FFB799961F29056E001B7C61 /* TableViewCell.swift in Sources */,
+				FFAE46401F3B5156001CC9EC /* GroupTimeTableViewCell.swift in Sources */,
 				FFD360741F30F587009B6B17 /* GroupService.swift in Sources */,
 				FFC091191F34E7AB00BD5143 /* SearchTableViewCell.swift in Sources */,
 				FFC3B0071F36C11D00E9BF64 /* CreateTableViewCell.swift in Sources */,
@@ -521,7 +534,6 @@
 				FF37C6071F2525CA0018940B /* AppDelegate.swift in Sources */,
 				FFDABC8C1F2B47B700C64D39 /* GroupLocationViewController.swift in Sources */,
 				FFD5BD431F2B96C600C3BEE7 /* DetailsViewController.swift in Sources */,
-				FFC091151F339B1100BD5143 /* GroupTimeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

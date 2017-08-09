@@ -25,23 +25,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timeLabel2: UILabel!
     @IBOutlet weak var idLabel: UILabel!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        ref = Database.database().reference().child("personal groups info").child(userID).childByAutoId()
-        let refKey = ref.key
-     self.clearsSelectionOnViewWillAppear = false
-        self.timePicker1.datePickerMode = .time
-        self.timePicker2.datePickerMode = .time
-        imagePicker.delegate = self
-        var numOfMembers: Int = 0
-        var numOfCheckIns: Int = 0
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard)))
-        idLabel.text = refKey
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+  
     let days = ["Sunday", "Monday", "Tuesday", "Wenesday", "Thursday", "Friday", "Saturday"]
     var ref: DatabaseReference!
     let userID = Auth.auth().currentUser!.uid
@@ -49,7 +33,37 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     var imagePicker = UIImagePickerController()
     let storageRef = Storage.storage().reference()
     let databaseRef = Database.database().reference()
+    var refKey: String = ""
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        ref = Database.database().reference().child("personal groups info").child(userID).childByAutoId()
+        refKey = ref.key
+        self.clearsSelectionOnViewWillAppear = false
+        self.timePicker1.datePickerMode = .time
+        self.timePicker2.datePickerMode = .time
+        imagePicker.delegate = self
+        var numOfMembers: Int = 0
+        var numOfCheckIns: Int = 0
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard)))
+        idLabel.text = refKey
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        print ("\(hour):\(minutes):\(seconds)")
+        
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        print("\(day).\(month)")
+
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 4
@@ -159,8 +173,6 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     }
 
     @IBAction func addButton(_ sender: Any) {
-        ref = Database.database().reference().child("personal groups info").child(userID).childByAutoId()
-        let refKey = ref.key
         Constants.location.myStrings = locationTextField.text!
         Constants.name.myStrings = groupNameTextField.text as
             Any as! String
@@ -205,6 +217,8 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         self.ref.child("key").setValue(Constants.idd.myStrings)
         self.ref.child("numOfMembers").setValue(Constants.numberOfMembers.myInts)
         self.ref.child("numOfCheckIns").setValue(Constants.numberOfCheckIns.myInts)
+        var groupsRef = Database.database().reference().child("groupsIds")
+        groupsRef.updateChildValues([Constants.idd.myStrings: Constants.idd.myStrings])
         //performSegue(withIdentifier: "groupSegue", sender: self)
         let initialViewController = UIStoryboard.initialViewController(for: .main)
         self.view.window?.rootViewController = initialViewController
