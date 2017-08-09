@@ -23,15 +23,16 @@ class JoinGroupViewController: UIViewController {
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard)))
         ref = Database.database().reference().child("global groups info").child(userID)
         let groupRef = Database.database().reference().child("personal groups info")
-        let groupsRef = Database.database().reference().child("personal groups info").child(userID)
+        let groupsRef = Database.database().reference().child("groupsIds")
         groupsRef.queryOrderedByKey().observe(.childAdded, with: {
             (snapshot) in
-            let value = snapshot.value as! [String: AnyObject]
-            let key = value["key"] as? String
-            self.childIds.append(key!)
-            //            print(childIds)
+            let value = snapshot.value as! String
+    //     let key = value["key"] as? String
+            self.childIds.append(value)
+            //print(childIds)
         })
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -48,13 +49,11 @@ class JoinGroupViewController: UIViewController {
         return true
     }
     @IBAction func passwordEnterButton(_ sender: UIButton) {
+        let membersRef = Database.database().reference().child("Members of Groups")
         for key in self.childIds {
             if self.passwordTextField.text! == key {
-                print(key)
-            } else {
-                print("none")
+                membersRef.child(key).updateChildValues([userID: userID])
             }
-
         }
 //        groupRef.observe(.value, with: { snapshot in
 //            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {

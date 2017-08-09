@@ -217,8 +217,10 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         self.ref.child("key").setValue(Constants.idd.myStrings)
         self.ref.child("numOfMembers").setValue(Constants.numberOfMembers.myInts)
         self.ref.child("numOfCheckIns").setValue(Constants.numberOfCheckIns.myInts)
-        var groupsRef = Database.database().reference().child("groupsIds")
+        let groupsRef = Database.database().reference().child("groupsIds")
         groupsRef.updateChildValues([Constants.idd.myStrings: Constants.idd.myStrings])
+        let membersRef = Database.database().reference().child("Members of Groups").child(Constants.idd.myStrings)
+        membersRef.updateChildValues([userID:userID])
         //performSegue(withIdentifier: "groupSegue", sender: self)
         let initialViewController = UIStoryboard.initialViewController(for: .main)
         self.view.window?.rootViewController = initialViewController

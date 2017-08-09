@@ -678,23 +678,23 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zo9-fN-Vha">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zo9-fN-Vha">
                                 <rect key="frame" x="140" y="222" width="227" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="227" id="ezq-xC-jn4"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Passcode:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97S-0H-5SK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Passcode:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97S-0H-5SK">
                                 <rect key="frame" x="8" y="227" width="125" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eM5-rv-37p">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eM5-rv-37p">
                                 <rect key="frame" x="8" y="304" width="359" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.24288676697530864" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Enter"/>
                                 <connections>
@@ -703,14 +703,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Zo9-fN-Vha" firstAttribute="top" secondItem="hTx-eu-Y4E" secondAttribute="bottom" constant="222" id="18m-dr-7MY"/>
-                            <constraint firstItem="Zo9-fN-Vha" firstAttribute="trailing" secondItem="eM5-rv-37p" secondAttribute="trailing" id="cFP-wb-2df"/>
-                            <constraint firstItem="Zo9-fN-Vha" firstAttribute="leading" secondItem="97S-0H-5SK" secondAttribute="trailing" constant="7" id="fjN-Qa-40E"/>
-                            <constraint firstItem="Zo9-fN-Vha" firstAttribute="centerY" secondItem="97S-0H-5SK" secondAttribute="centerY" id="k2E-hH-Vgb"/>
-                            <constraint firstItem="eM5-rv-37p" firstAttribute="top" secondItem="Zo9-fN-Vha" secondAttribute="bottom" constant="52" id="lMs-cO-zQL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Zo9-fN-Vha" secondAttribute="trailing" constant="-8" id="ntR-Lo-a9I"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Join a group" id="BdZ-hE-hEh"/>
                     <connections>
