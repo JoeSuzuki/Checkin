@@ -39,11 +39,16 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var picker200: UIPickerView!
     @IBOutlet weak var time10: UILabel!
     @IBOutlet weak var time20: UILabel!
+    @IBOutlet weak var amLabel: UIPickerView!
+    @IBOutlet weak var amLabel2: UIPickerView!
+    @IBOutlet weak var am: UILabel!
+    @IBOutlet weak var ampm: UILabel!
     
     
     let days = ["Sunday", "Monday", "Tuesday", "Wenesday", "Thursday", "Friday", "Saturday"]
     let startTime = ["1","2","3","4","5","6","7","8","9","10","11","12"]
     let endTime = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+    let amPm = ["AM", "PM"]
     var ref: DatabaseReference!
     let userID = Auth.auth().currentUser!.uid
     // image save
@@ -114,6 +119,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
             var countrows : Int = days.count
             var countrowss : Int = endTime.count
+            var countrow : Int = amPm.count
             if pickerView == dayPicker1 {
                 countrows = self.days.count
                 return countrows
@@ -129,53 +135,60 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
             } else if pickerView == picker200 {
                 countrowss = self.endTime.count
                 return countrowss
-            } else {
-                countrowss = self.endTime.count
-                return countrowss
+            } else if pickerView == amLabel {
+                countrow = self.amPm.count
+                return countrow
+            } else if pickerView == amLabel2 {
+                countrow = self.amPm.count
+                return countrow
             }
+            return countrowss
         }
         func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
             if pickerView == dayPicker1 {
                 let titleRow = days[row]
                 return titleRow
-            }
-            else if pickerView == dayPicker2{
+            } else if pickerView == dayPicker2{
                 let titleRow = days[row]
                 return titleRow
             } else if pickerView == picker1 {
                 let titleRow = startTime[row]
                 return titleRow
-            }
-            else if pickerView == picker2{
+            } else if pickerView == picker2{
                 let titleRow = endTime[row]
                 return titleRow
             } else if pickerView == picker100 {
                 let titleRow = startTime[row]
                 return titleRow
-            }
-            else if pickerView == picker200 {
+            } else if pickerView == picker200 {
                 let titleRow = endTime[row]
                 return titleRow
+            } else if pickerView == amLabel {
+                let titleRow = amPm[row]
+                return titleRow
+            } else if pickerView == amLabel2 {
+                let titleRow = amPm[row]
+                return titleRow
             }
-
             return ""
         }
         func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
             if pickerView == dayPicker1 {
                 self.textBox1.text = self.days[row]
-            }
-            else if pickerView == dayPicker2 {
+            } else if pickerView == dayPicker2 {
                 self.textBox2.text = self.days[row]
             } else if pickerView == picker1 {
                 self.time1.text = self.startTime[row]
-            }
-            else if pickerView == picker2 {
+            } else if pickerView == picker2 {
                 self.time2.text = self.endTime[row]
             } else if pickerView == picker100 {
                 self.time10.text = self.startTime[row]
-            }
-            else if pickerView == picker200 {
+            } else if pickerView == picker200 {
                 self.time20.text = self.endTime[row]
+            } else if pickerView == amLabel {
+                self.am.text = self.amPm[row]
+            } else if pickerView == amLabel2 {
+                self.ampm.text = self.amPm[row]
             }
         }
     @IBAction func timePicker(_ sender: UIDatePicker) {
