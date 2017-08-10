@@ -25,18 +25,19 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var textBox1: UITextField!
     @IBOutlet weak var textBox2: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
-    @IBOutlet weak var timePicker1: UIDatePicker!
-    @IBOutlet weak var timePicker2: UIDatePicker!
     @IBOutlet weak var urlText: UITextField!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var timeLabel2: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var timeIntDisplay: UILabel!
-  
+    @IBOutlet weak var picker1: UIPickerView!
+    @IBOutlet weak var picker2: UIPickerView!
+    @IBOutlet weak var time2: UILabel!
+    @IBOutlet weak var time1: UILabel!
     let days = ["Sunday", "Monday", "Tuesday", "Wenesday", "Thursday", "Friday", "Saturday"]
+    let startTime = ["1","2","3","4","5","6","7","8","9","10","11","12"]
+    let endTime = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
     var ref: DatabaseReference!
     let userID = Auth.auth().currentUser!.uid
     // image save
@@ -50,8 +51,6 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         ref = Database.database().reference().child("personal groups info").child(userID).childByAutoId()
         refKey = ref.key
         self.clearsSelectionOnViewWillAppear = false
-        self.timePicker1.datePickerMode = .time
-        self.timePicker2.datePickerMode = .time
         imagePicker.delegate = self
         var numOfMembers: Int = 0
         var numOfCheckIns: Int = 0
@@ -108,10 +107,20 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         }
         func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
             var countrows : Int = days.count
-            if pickerView == dayPicker2 {
+            var countrowss : Int = endTime.count
+            if pickerView == dayPicker1 {
                 countrows = self.days.count
+                return countrows
+            } else if pickerView == dayPicker2 {
+                countrows = self.days.count
+                return countrows
+            } else if pickerView == picker1 {
+                countrowss = self.startTime.count
+                return countrowss
+            } else {
+                countrowss = self.endTime.count
+                return countrowss
             }
-            return countrows
         }
         func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
             if pickerView == dayPicker1 {
@@ -120,6 +129,13 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
             }
             else if pickerView == dayPicker2{
                 let titleRow = days[row]
+                return titleRow
+            } else if pickerView == picker1 {
+                let titleRow = startTime[row]
+                return titleRow
+            }
+            else if pickerView == picker2{
+                let titleRow = endTime[row]
                 return titleRow
             }
             return ""
@@ -130,6 +146,11 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
             }
             else if pickerView == dayPicker2 {
                 self.textBox2.text = self.days[row]
+            } else if pickerView == picker1 {
+                self.time1.text = self.startTime[row]
+            }
+            else if pickerView == picker2 {
+                self.time2.text = self.endTime[row]
             }
         }
     @IBAction func timePicker(_ sender: UIDatePicker) {
