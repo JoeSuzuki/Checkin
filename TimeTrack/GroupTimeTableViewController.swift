@@ -28,8 +28,8 @@ class GroupTimeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //configureDatabase()
-        ref = Database.database().reference().child("time info")
-        ref?.queryOrderedByKey().observe(.childAdded, with: {
+        ref = Database.database().reference().child("time info").child(Constants.idd.myStrings)
+        ref?.observe(DataEventType.value, with: {
             (snapshot) in
             let value = snapshot.value as! [String: AnyObject]
             let name = value["name"] as? String

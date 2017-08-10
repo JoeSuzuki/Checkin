@@ -143,7 +143,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     }
     @IBAction func timeIntSilder(_ sender: UISlider) {
         timeIntDisplay.text = String(Int(sender.value))
-        Constants.timeInterval.myInts = 1
+        Constants.timeInterval.myInts = Int(sender.value)
     }
     
     @IBAction func urlTextAction(_ sender: UITextField) {
@@ -236,7 +236,8 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         let membersRef = Database.database().reference().child("Members of Groups").child(Constants.idd.myStrings)
         membersRef.updateChildValues([userID:userID])
         //performSegue(withIdentifier: "groupSegue", sender: self)
-
+        let timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
+        timeRef.child("timeInt").setValue(Constants.timeInterval.myInts)
         let initialViewController = UIStoryboard.initialViewController(for: .main)
         self.view.window?.rootViewController = initialViewController
         self.view.window?.makeKeyAndVisible()
