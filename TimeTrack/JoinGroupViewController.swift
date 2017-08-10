@@ -70,6 +70,10 @@ class JoinGroupViewController: UIViewController {
                     count = Int(snapshot.childrenCount)
                     reff.updateChildValues(["numOfMembers": count])
                 })
+                let timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
+                timeRef.child("name").setValue("")
+                timeRef.child("time").setValue("")
+                
                 let alert = SCLAlertView()
                 _ = alert.showSuccess(kSuccessTitle, subTitle: kSubtitld)
                 break

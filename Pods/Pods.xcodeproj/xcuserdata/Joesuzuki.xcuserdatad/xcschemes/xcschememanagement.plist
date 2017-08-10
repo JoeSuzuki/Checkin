@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JTAppleCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TimeTrack.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,17 +47,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>56B46E81268501199C25E4FC55226F93</key>
+		<key>37D30DDD0BBE80D2BEFDE745358C392C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>57DEAC6CB2D40BCCA48CE47DDA756466</key>
+		<key>BFED2E29E95E065400F8846E0231A970</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C377370F12F3CAAB00DAC993D1FDCD09</key>
 		<dict>
 			<key>primary</key>
 			<true/>

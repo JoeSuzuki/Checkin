@@ -42,6 +42,7 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.10)
+  - JTAppleCalendar (7.0.4)
   - SCLAlertView (0.7.0)
 
 DEPENDENCIES:
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - FirebaseUI/Auth
+  - JTAppleCalendar (~> 7.0)
   - SCLAlertView
 
 SPEC CHECKSUMS:
@@ -63,8 +65,9 @@ SPEC CHECKSUMS:
   FirebaseUI: 5ebebe2c096c71f20abd1d43d0388958373bdaa0
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
+  JTAppleCalendar: 6def48ecd0daae1d5baaa45e813124c2a20b184d
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: 8fdc1055bc0aca367ee0f000fa146916eb95b942
+PODFILE CHECKSUM: 7d7858e6c56cbdb64d15ceff79f37bec0df00fd3
 
 COCOAPODS: 1.2.1

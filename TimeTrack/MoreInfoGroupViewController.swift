@@ -31,6 +31,16 @@ class MoreInfoGroupViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func checkInButton(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "time", sender: sender)
+    }
+    
+     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let groupTimeTableViewController = segue.destination as! GroupTimeTableViewController
+        Constants.idd.myStrings = idLabelView.text!
+        
+    }
+
     
 
     /*

@@ -12,4 +12,5 @@ target 'TimeTrack' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'SCLAlertView'
+  pod 'JTAppleCalendar', '~> 7.0'
 end

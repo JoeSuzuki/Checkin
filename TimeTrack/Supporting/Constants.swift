@@ -66,6 +66,9 @@ struct Constants {
     struct idd {
         static var myStrings: String = ""
     }
+    struct timeInterval {
+        static var myInts: Int = 1
+    }
     
 // Profile
     struct fullname {

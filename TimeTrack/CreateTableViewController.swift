@@ -34,6 +34,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timeLabel2: UILabel!
     @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var timeIntDisplay: UILabel!
   
     let days = ["Sunday", "Monday", "Tuesday", "Wenesday", "Thursday", "Friday", "Saturday"]
     var ref: DatabaseReference!
@@ -140,6 +141,10 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         let seconds = calendar.component(.second, from: date)
         print("hours = \(hour):\(minutes):\(seconds)")
     }
+    @IBAction func timeIntSilder(_ sender: UISlider) {
+        timeIntDisplay.text = String(Int(sender.value))
+        Constants.timeInterval.myInts = 1
+    }
     
     @IBAction func urlTextAction(_ sender: UITextField) {
         if urlText.text != nil {
@@ -231,7 +236,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         let membersRef = Database.database().reference().child("Members of Groups").child(Constants.idd.myStrings)
         membersRef.updateChildValues([userID:userID])
         //performSegue(withIdentifier: "groupSegue", sender: self)
-        
+
         let initialViewController = UIStoryboard.initialViewController(for: .main)
         self.view.window?.rootViewController = initialViewController
         self.view.window?.makeKeyAndVisible()
