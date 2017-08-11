@@ -45,9 +45,9 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var ampm: UILabel!
     
     
-    let days = ["Sunday", "Monday", "Tuesday", "Wenesday", "Thursday", "Friday", "Saturday"]
-    let startTime = ["1","2","3","4","5","6","7","8","9","10","11","12"]
-    let endTime = ["0", "1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+    let days = Constants.daysInWeek.days
+    let startTime = Constants.hours.hour
+    let endTime = Constants.minutes.min
     let amPm = ["AM", "PM"]
     var ref: DatabaseReference!
     let userID = Auth.auth().currentUser!.uid
@@ -67,17 +67,6 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         var numOfCheckIns: Int = 0
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard)))
         idLabel.text = refKey
-        let date = Date()
-        let calendar = Calendar.current
-        
-        let hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
-        let seconds = calendar.component(.second, from: date)
-        print ("\(hour):\(minutes):\(seconds)")
-        
-        let day = calendar.component(.day, from: date)
-        let month = calendar.component(.month, from: date)
-        print("\(day).\(month)")
 
     }
     override func didReceiveMemoryWarning() {
@@ -194,6 +183,15 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 15.0
     }
+//    (Int(time1.text!)!, Int(time2.text!)!)
+    func timeConvert(_ startTime: Int,_ endTime: Int,_ ms: String) -> Array<Any> {
+        var newStartTime = startTime
+        if ms == "PM" {
+            newStartTime += 12
+        }
+        return [newStartTime, endTime, ms]
+    }
+    
     @IBAction func timePicker(_ sender: UIDatePicker) {
         let date = Date()
         let calendar = Calendar.current
@@ -256,6 +254,8 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         Constants.to.myStrings = textBox2.text as Any as! String
         Constants.description.myStrings = descriptionText.text as Any as! String
         Constants.idd.myStrings = refKey
+        Constants.timeOpens.time = timeConvert(Int(time1.text!)!, Int(time2.text!)!, am.text! )
+        Constants.timeCloses.time = timeConvert(Int(time10.text!)!, Int(time20.text!)!, ampm.text! )
         let imageName = NSUUID().uuidString
         let storedImage = storageRef.child("users").child(userID).child("groups").child(imageName)
         Constants.img.myImg = imageName
@@ -300,6 +300,8 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         //performSegue(withIdentifier: "groupSegue", sender: self)
         let timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         timeRef.child("timeInt").setValue(Constants.timeInterval.myInts)
+        timeRef.child("timeOpen").setValue(Constants.timeOpens.time)
+        timeRef.child("timeCloses").setValue(Constants.timeCloses.time)
         let initialViewController = UIStoryboard.initialViewController(for: .main)
         self.view.window?.rootViewController = initialViewController
         self.view.window?.makeKeyAndVisible()

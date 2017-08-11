@@ -35,15 +35,6 @@ class TableViewController: UITableViewController {
     var name: [String] = []
 //    var imageName: String = ""
 //    var imaged = UIImage?.self
-    @IBOutlet var groupTableView: UITableView!
-    @IBAction func infoButton(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "joinGroup", sender: self)
-        
-    }
-    @IBAction func addGroups(_ sender: Any) {
-        performSegue(withIdentifier: "addGroup", sender: self)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         //configureDatabase()
@@ -58,24 +49,41 @@ class TableViewController: UITableViewController {
             let mem = value["numOfMembers"] as? Int
             self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
         })
-//        self.ref?.observe(.childAdded, with: { (snapshot)  in
-//            if let result = snapshot.value as? [String : Any],
-//                // if let locationResult = snapshot.value as? [String : Any],
-//                let groupName = result["name"] as? [String : Any],
-//                let name = groupName["name"] as? String
-//            {
-//                let groupName = result["name"]
-//                self.name.append(name)
-//                self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: "canal street"))
-//            }
-//        })
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        print ("\(hour):\(minutes):\(seconds)")
+        
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        print("\(day).\(month)")
+        //        self.ref?.observe(.childAdded, with: { (snapshot)  in
+        //            if let result = snapshot.value as? [String : Any],
+        //                // if let locationResult = snapshot.value as? [String : Any],
+        //                let groupName = result["name"] as? [String : Any],
+        //                let name = groupName["name"] as? String
+        //            {
+        //                let groupName = result["name"]
+        //                self.name.append(name)
+        //                self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: "canal street"))
+        //            }
+        //        })
         
     }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayOfCellData.count
+        if segmentedControl.selectedSegmentIndex == 0  {
+            return arrayOfCellData.count
+        } else if segmentedControl.selectedSegmentIndex == 0  {
+            return 0
+        } else {
+            return 0
+        }
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if segmentedControl.selectedSegmentIndex == 0  {
         if arrayOfCellData[indexPath.row].cell == 1 {
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
             cell.mainImageView.image = arrayOfCellData[indexPath.row].image
@@ -102,24 +110,57 @@ class TableViewController: UITableViewController {
                 cell.totalMembers.text = String(describing: totalMembers)
             }
             return cell
+            }
+        } else if segmentedControl.selectedSegmentIndex == 1  {
+            let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
+            cell.mainImageView.image = arrayOfCellData[indexPath.row].image
+            cell.mainLabelView.text = arrayOfCellData[indexPath.row].text!
+            cell.addressLabelView.text = arrayOfCellData[indexPath.row].address
+            if let members = arrayOfCellData[indexPath.row].numOfCheckIns {
+                cell.counterLabelView.text = String(describing: members)
+            }
+            cell.idLabel.text = arrayOfCellData[indexPath.row].id
+            if let totalMembers = arrayOfCellData[indexPath.row].memberTotal {
+                cell.totalMembers.text = String(describing: totalMembers)
+            }
+            return cell
+        } else {
+            let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
+            cell.mainImageView.image = arrayOfCellData[indexPath.row].image
+            cell.mainLabelView.text = arrayOfCellData[indexPath.row].text!
+            cell.addressLabelView.text = arrayOfCellData[indexPath.row].address
+            if let members = arrayOfCellData[indexPath.row].numOfCheckIns {
+                cell.counterLabelView.text = String(describing: members)
+            }
+            cell.idLabel.text = arrayOfCellData[indexPath.row].id
+            if let totalMembers = arrayOfCellData[indexPath.row].memberTotal {
+                cell.totalMembers.text = String(describing: totalMembers)
+            }
+            return cell
         }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if segmentedControl.selectedSegmentIndex == 0  {
         if arrayOfCellData[indexPath.row].cell == 1 {
             return 235
         } else if arrayOfCellData[indexPath.row].cell == 2  {
             return 105
         } else {
             return 235
+            }
+        } else if segmentedControl.selectedSegmentIndex == 0 {
+            return 235
+        } else {
+            return 235
         }
     }
-   
-
+    
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        if segmentedControl.selectedSegmentIndex == 0  {
         performSegue(withIdentifier: "segue", sender: self)
-
+        
         let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
         
         Constants.groupsName.myStrings = (cell.mainLabelView?.text!)!
@@ -128,6 +169,30 @@ class TableViewController: UITableViewController {
         Constants.idd.myStrings = (cell.idLabel?.text!)!
         Constants.numberOfMembers.myInts = Int((cell.totalMembers?.text!)!)!
         //        totalMembers
+        }
+    }
+
+
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet var groupTableView: UITableView!
+    @IBAction func infoButton(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "joinGroup", sender: self)
+        
+    }
+
+    @IBAction func addGroups(_ sender: Any) {
+        performSegue(withIdentifier: "addGroup", sender: self)
+    }
+
+    @IBAction func indexChanged(_ sender: UISegmentedControl) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            print("ok")
+        case 1:
+            print("ddd")
+        default:
+            break; 
+        }
     }
 }
 //
