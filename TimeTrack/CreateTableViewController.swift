@@ -47,7 +47,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     
     let days = ["Sunday", "Monday", "Tuesday", "Wenesday", "Thursday", "Friday", "Saturday"]
     let startTime = ["1","2","3","4","5","6","7","8","9","10","11","12"]
-    let endTime = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+    let endTime = ["0", "1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
     let amPm = ["AM", "PM"]
     var ref: DatabaseReference!
     let userID = Auth.auth().currentUser!.uid
@@ -191,6 +191,9 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
                 self.ampm.text = self.amPm[row]
             }
         }
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 15.0
+    }
     @IBAction func timePicker(_ sender: UIDatePicker) {
         let date = Date()
         let calendar = Calendar.current
