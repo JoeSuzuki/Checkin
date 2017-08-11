@@ -60,6 +60,10 @@ class TableViewController: UITableViewController {
         let day = calendar.component(.day, from: date)
         let month = calendar.component(.month, from: date)
         print("\(day).\(month)")
+        let subViewOfSegment: UIView = segmentedControl.subviews[0] as UIView
+        subViewOfSegment.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
+        let subViewOfSegments: UIView = segmentedControl.subviews[1] as UIView
+        subViewOfSegments.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
         //        self.ref?.observe(.childAdded, with: { (snapshot)  in
         //            if let result = snapshot.value as? [String : Any],
         //                // if let locationResult = snapshot.value as? [String : Any],
@@ -185,13 +189,12 @@ class TableViewController: UITableViewController {
     }
 
     @IBAction func indexChanged(_ sender: UISegmentedControl) {
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            print("ok")
-        case 1:
-            print("ddd")
-        default:
-            break; 
+        if segmentedControl.selectedSegmentIndex == 0  {
+            let subViewOfSegment: UIView = segmentedControl.subviews[0] as UIView
+            subViewOfSegment.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
+        } else if segmentedControl.selectedSegmentIndex == 1  {
+            let subViewOfSegment: UIView = segmentedControl.subviews[1] as UIView
+            subViewOfSegment.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
         }
     }
 }

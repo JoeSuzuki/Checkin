@@ -293,6 +293,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         self.ref.child("key").setValue(Constants.idd.myStrings)
         self.ref.child("numOfMembers").setValue(Constants.numberOfMembers.myInts)
         self.ref.child("numOfCheckIns").setValue(Constants.numberOfCheckIns.myInts)
+        self.ref.child("owner").setValue(userID)
         let groupsRef = Database.database().reference().child("groupsIds")
         groupsRef.updateChildValues([Constants.idd.myStrings: Constants.idd.myStrings])
         let membersRef = Database.database().reference().child("Members of Groups").child(Constants.idd.myStrings)
