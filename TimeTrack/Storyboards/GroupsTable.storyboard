@@ -48,8 +48,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2hF-ZR-8wD">
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2hF-ZR-8wD">
                                     <rect key="frame" x="0.0" y="-1" width="375" height="29"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <segments>
                                         <segment title="My Groups"/>
                                         <segment title="Joined"/>
@@ -60,11 +61,6 @@
                                 </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="2hF-ZR-8wD" firstAttribute="leading" secondItem="uRf-NG-AwZ" secondAttribute="leading" id="IJ8-Vn-cdU"/>
-                                <constraint firstAttribute="trailing" secondItem="2hF-ZR-8wD" secondAttribute="trailing" id="xN8-jW-H75"/>
-                                <constraint firstItem="2hF-ZR-8wD" firstAttribute="top" secondItem="uRf-NG-AwZ" secondAttribute="top" constant="-1" id="y3q-zd-9b3"/>
-                            </constraints>
                         </view>
                         <connections>
                             <outlet property="dataSource" destination="rJA-Qk-1Mr" id="zcu-eT-Mcb"/>
@@ -782,7 +778,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="MGA-dP-HKE">
-                                                    <rect key="frame" x="56" y="3" width="262" height="38.5"/>
+                                                    <rect key="frame" x="56" y="3" width="262" height="38"/>
                                                     <connections>
                                                         <action selector="timeIntSilder:" destination="KYx-Yy-cu8" eventType="valueChanged" id="mdf-34-Pnu"/>
                                                     </connections>

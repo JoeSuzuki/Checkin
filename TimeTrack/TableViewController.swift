@@ -65,6 +65,8 @@ class TableViewController: UITableViewController {
         subViewOfSegment.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
         let subViewOfSegments: UIView = segmentedControl.subviews[1] as UIView
         subViewOfSegments.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
+
+
         //        self.ref?.observe(.childAdded, with: { (snapshot)  in
         //            if let result = snapshot.value as? [String : Any],
         //                // if let locationResult = snapshot.value as? [String : Any],
@@ -76,7 +78,7 @@ class TableViewController: UITableViewController {
         //                self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: "canal street"))
         //            }
         //        })
-        
+    
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -180,6 +182,9 @@ class TableViewController: UITableViewController {
     }
 
     @IBAction func indexChanged(_ sender: UISegmentedControl) {
+//        let rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("swiped:"))
+//        rightSwipe.direction = .right
+//        self.segmentedControl.addGestureRecognizer(rightSwipe)
         if segmentedControl.selectedSegmentIndex == 0  {
             let subViewOfSegment: UIView = segmentedControl.subviews[0] as UIView
             subViewOfSegment.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)

@@ -73,7 +73,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         var numOfCheckIns: Int = 0
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard)))
         idLabel.text = refKey
-
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -254,10 +254,10 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         dismiss(animated: true, completion: nil)
     }
     func checkField(sender: AnyObject) {
-        if (groupNameTextField.text?.isEmpty)! && (locationTextField.text?.isEmpty)! && (time1.text?.isEmpty)! && (time2.text?.isEmpty)! && (am.text?.isEmpty)! && (time10.text?.isEmpty)! && (time20.text?.isEmpty)! && (ampm.text?.isEmpty)! && imageView == nil{
+        if (groupNameTextField.text?.isEmpty)! && (locationTextField.text?.isEmpty)! && (time1.text?.isEmpty)! && (time2.text?.isEmpty)! && (am.text?.isEmpty)! && (time10.text?.isEmpty)! && (time20.text?.isEmpty)! && (ampm.text?.isEmpty)! {
             addButton.isEnabled = false
             }
-        else{
+        else{  
             addButton.isEnabled = true
         }
     }
