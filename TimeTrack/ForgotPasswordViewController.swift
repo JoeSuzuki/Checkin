@@ -1,29 +1,22 @@
 //
 //  ForgotPasswordViewController.swift
-//  Firebase-boilerplate
+//  TimeTrack
 //
-//  Created by Mariano Montori on 7/25/17.
-//  Copyright © 2017 Mariano Montori. All rights reserved.
+//  Created by Joe Suzuki on 7/23/17.
+//  Copyright © 2017 JoeSuzuki. All rights reserved.
 //
-
 import UIKit
 
 class ForgotPasswordViewController: UIViewController {
-
+    
     @IBOutlet weak var emailTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
     }
-    // hides keyboard
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    // hides keyboard when pressing return
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        emailTextField.resignFirstResponder()
-        return(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -32,7 +25,7 @@ class ForgotPasswordViewController: UIViewController {
     @IBAction func resetPasswordClicked(_ sender: UIButton) {
         guard let email = emailTextField.text,
             !email.isEmpty else {
-            return
+                return
         }
         AuthService.passwordReset(email: email)
     }
@@ -40,9 +33,8 @@ class ForgotPasswordViewController: UIViewController {
 
 extension ForgotPasswordViewController{
     func configureView(){
-//        applyKeyboardPush()
-//        applyKeyboardDismisser()
-        self.view.backgroundColor = UIColor(red: 71/255, green: 186/255, blue: 251/255, alpha: 1)
-
+        applyKeyboardPush()
+        applyKeyboardDismisser()
     }
 }
+

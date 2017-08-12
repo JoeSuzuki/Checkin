@@ -45,14 +45,14 @@ struct AuthService {
     }
     
     /*
-    ================= NOTE ====================
-    Allows you to delete an authenticated user.
-    Keep in mind you must also handle and 
-    delete any database/storage that the user 
-    uses. This only removes the user from 
-    Firebase's Authentication.
-    ===========================================
-    */
+     ================= NOTE ====================
+     Allows you to delete an authenticated user.
+     Keep in mind you must also handle and
+     delete any database/storage that the user
+     uses. This only removes the user from
+     Firebase's Authentication.
+     ===========================================
+     */
     
     static func presentDelete(viewController : UIViewController, user : FIRUser){
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -83,12 +83,12 @@ struct AuthService {
     }
     
     /*
-    ================= NOTE ====================
-    This allows the user to return back to the
-    login screen (storyboard) when the user has
-    logged out.
-    ===========================================
-    */
+     ================= NOTE ====================
+     This allows the user to return back to the
+     login screen (storyboard) when the user has
+     logged out.
+     ===========================================
+     */
     static func authListener(viewController view : UIViewController) -> AuthStateDidChangeListenerHandle {
         let authHandle = Auth.auth().addStateDidChangeListener() { (auth, user) in
             guard user == nil else { return }
@@ -101,12 +101,12 @@ struct AuthService {
     }
     
     /*
-    ================= NOTE ====================
-    Use this when you have confirmed the user 
-    has logged out. Make sure to use this with
-    authListener.
-    ===========================================
-    */
+     ================= NOTE ====================
+     Use this when you have confirmed the user
+     has logged out. Make sure to use this with
+     authListener.
+     ===========================================
+     */
     static func removeAuthListener(authHandle : AuthStateDidChangeListenerHandle?){
         if let authHandle = authHandle {
             Auth.auth().removeStateDidChangeListener(authHandle)
@@ -114,13 +114,13 @@ struct AuthService {
     }
     
     /*
-    ====================== WARNING ==========================
-    Only use this function where you create the AuthListener!
-    It can cause problems otherwise since the listener might
-    not be removed. You can also make sure that the listener
-    is removed.
-    =========================================================
-    */
+     ====================== WARNING ==========================
+     Only use this function where you create the AuthListener!
+     It can cause problems otherwise since the listener might
+     not be removed. You can also make sure that the listener
+     is removed.
+     =========================================================
+     */
     static func presentLogOut(viewController : UIViewController){
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         

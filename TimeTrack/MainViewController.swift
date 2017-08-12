@@ -1,9 +1,9 @@
 //
 //  MainViewController.swift
-//  Firebase-boilerplate
+//  TimeTrack
 //
-//  Created by Mariano Montori on 7/24/17.
-//  Copyright © 2017 Mariano Montori. All rights reserved.
+//  Created by Joe Suzuki on 7/23/17.
+//  Copyright © 2017 JoeSuzuki. All rights reserved.
 //
 
 import UIKit

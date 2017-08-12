@@ -1,10 +1,10 @@
 //
 //  LoginViewController.swift
+//  TimeTrack
 //
-//  Created by Mariano Montori on 7/24/17.
-//  Copyright © 2017 Mariano Montori. All rights reserved.
+//  Created by Joe Suzuki on 7/23/17.
+//  Copyright © 2017 JoeSuzuki. All rights reserved.
 //
-
 import UIKit
 
 class LoginViewController: UIViewController {
@@ -17,17 +17,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-
     }
-    // hides keyboard
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    // hides keyboard when pressing return
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        emailTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
-        return(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -52,7 +44,7 @@ class LoginViewController: UIViewController {
         dismissKeyboard()
         guard let email = emailTextField.text,
             let password = passwordTextField.text else{
-            return
+                return
         }
         AuthService.signIn(controller: self, email: email, password: password) { (user) in
             guard let user = user else {
@@ -88,11 +80,9 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController{
     func configureView(){
-//        applyKeyboardPush()
-//        applyKeyboardDismisser()
+        applyKeyboardPush()
+        applyKeyboardDismisser()
         logInButton.layer.cornerRadius = 10
         createAccountButton.layer.cornerRadius = 10
-        self.view.backgroundColor = UIColor(red: 71/255, green: 186/255, blue: 251/255, alpha: 1)
-        
     }
 }

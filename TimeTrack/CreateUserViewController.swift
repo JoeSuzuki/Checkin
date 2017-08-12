@@ -1,16 +1,15 @@
 //
 //  CreateUserViewController.swift
-//  Firebase-boilerplate
+//  TimeTrack
 //
-//  Created by Mariano Montori on 7/24/17.
-//  Copyright © 2017 Mariano Montori. All rights reserved.
+//  Created by Joe Suzuki on 7/23/17.
+//  Copyright © 2017 JoeSuzuki. All rights reserved.
 //
-
 import UIKit
 import FirebaseAuth
 
 class CreateUserViewController: UIViewController {
-
+    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -21,21 +20,11 @@ class CreateUserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 
-    }
-    // hides keyboard
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    // hides keyboard when pressing return
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        firstNameTextField.resignFirstResponder()
-        lastNameTextField.resignFirstResponder()
-        usernameTextField.resignFirstResponder()
-        emailTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
-        return(true)
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -60,7 +49,7 @@ class CreateUserViewController: UIViewController {
             else {
                 print("Required fields are not all filled!")
                 return
-            }
+        }
         
         AuthService.createUser(controller: self, email: email, password: password) { (authUser) in
             guard let firUser = authUser else {
@@ -84,10 +73,8 @@ class CreateUserViewController: UIViewController {
 
 extension CreateUserViewController{
     func configureView(){
-//        applyKeyboardPush()
-//        applyKeyboardDismisser()
+        applyKeyboardPush()
+        applyKeyboardDismisser()
         signUpButton.layer.cornerRadius = 10
-        self.view.backgroundColor = UIColor(red: 71/255, green: 186/255, blue: 251/255, alpha: 1)
-
     }
 }

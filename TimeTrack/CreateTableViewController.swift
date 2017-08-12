@@ -313,7 +313,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         let groupsRef = Database.database().reference().child("groupsIds")
         groupsRef.updateChildValues([Constants.idd.myStrings: Constants.idd.myStrings])
         let membersRef = Database.database().reference().child("Members of Groups").child(Constants.idd.myStrings)
-        membersRef.updateChildValues([userID:userID])
+        membersRef.updateChildValues(["Owner":userID])
         //performSegue(withIdentifier: "groupSegue", sender: self)
         let timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         timeRef.child("timeInt").setValue(Constants.timeInterval.myInts)

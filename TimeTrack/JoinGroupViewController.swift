@@ -39,7 +39,7 @@ class JoinGroupViewController: UIViewController {
             let value = snapshot.value as! String
     //     let key = value["key"] as? String
             self.childIds.append(value)
-            //print(childIds)
+            //print(self.childIds)
         })
     }
     
@@ -59,10 +59,12 @@ class JoinGroupViewController: UIViewController {
         return true
     }
     @IBAction func passwordEnterButton(_ sender: UIButton) {
+        print(childIds)
         for key in self.childIds {
+            print(key)
             if self.passwordTextField.text! == key {
                 let membersRef = Database.database().reference().child("Members of Groups").child(key)
-                membersRef.updateChildValues([userID: userID])
+                membersRef.updateChildValues(["joiner": userID])
                 let reff = Database.database().reference().child("personal groups info").child(userID).child(key)
                 var count: Int = 0
                 membersRef.observe(.value, with: { (snapshot: DataSnapshot!) in
@@ -70,18 +72,17 @@ class JoinGroupViewController: UIViewController {
                     count = Int(snapshot.childrenCount)
                     reff.updateChildValues(["numOfMembers": count])
                 })
-                
+                let initialViewController = UIStoryboard.initialViewController(for: .main)
+                self.view.window?.rootViewController = initialViewController
+                self.view.window?.makeKeyAndVisible()
                 let alert = SCLAlertView()
                 _ = alert.showSuccess(kSuccessTitle, subTitle: kSubtitld)
-                break
-                
+                return
             } else {
                 let membersRef = Database.database().reference().child("Members of Groups")
-                _ = SCLAlertView().showError("Opps!", subTitle:"Your passcode seems to not be correct. ", closeButtonTitle:"OK")
-                break
             }
-            
         }
+        _ = SCLAlertView().showError("Opps!", subTitle:"Your passcode seems to not be correct. ", closeButtonTitle:"OK")
     }
 }
 //
