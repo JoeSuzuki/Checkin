@@ -782,7 +782,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="MGA-dP-HKE">
-                                                    <rect key="frame" x="56" y="3" width="262" height="38.5"/>
+                                                    <rect key="frame" x="56" y="3" width="262" height="38"/>
                                                     <connections>
                                                         <action selector="timeIntSilder:" destination="KYx-Yy-cu8" eventType="valueChanged" id="mdf-34-Pnu"/>
                                                     </connections>

@@ -103,7 +103,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icons8-Contacts-50" translatesAutoresizingMaskIntoConstraints="NO" id="C1R-qG-ef4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-Contacts-50" translatesAutoresizingMaskIntoConstraints="NO" id="C1R-qG-ef4">
                                 <rect key="frame" x="129" y="72" width="118" height="118"/>
                                 <color key="backgroundColor" white="0.89378605769999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -174,7 +174,7 @@
                             <constraint firstItem="Ikd-Ia-Jna" firstAttribute="leading" secondItem="bQN-4H-eoW" secondAttribute="leading" id="A9c-cU-2VB"/>
                             <constraint firstItem="QgK-Fj-APz" firstAttribute="leading" secondItem="EPv-Ig-fF8" secondAttribute="leading" id="AyN-VC-fKI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ikd-Ia-Jna" secondAttribute="trailing" constant="-1" id="DLO-2r-Len"/>
-                            <constraint firstItem="C1R-qG-ef4" firstAttribute="leading" secondItem="AoW-VW-yJ4" secondAttribute="leading" id="Fri-Pd-EVr"/>
+                            <constraint firstItem="C1R-qG-ef4" firstAttribute="leading" secondItem="AoW-VW-yJ4" secondAttribute="leading" constant="4" id="Fri-Pd-EVr"/>
                             <constraint firstItem="Ikd-Ia-Jna" firstAttribute="top" secondItem="AoW-VW-yJ4" secondAttribute="bottom" constant="8" symbolic="YES" id="G8p-mf-L5I"/>
                             <constraint firstItem="Ikd-Ia-Jna" firstAttribute="trailing" secondItem="bQN-4H-eoW" secondAttribute="trailing" id="Ntu-48-OcX"/>
                             <constraint firstItem="bQN-4H-eoW" firstAttribute="leading" secondItem="EPv-Ig-fF8" secondAttribute="trailing" constant="8" symbolic="YES" id="QI7-vS-tkk"/>
@@ -182,9 +182,9 @@
                             <constraint firstItem="QgK-Fj-APz" firstAttribute="leading" secondItem="AMb-Rm-GV8" secondAttribute="leading" id="Xbk-hx-1cK"/>
                             <constraint firstItem="QgK-Fj-APz" firstAttribute="top" secondItem="HvQ-lB-vGF" secondAttribute="bottom" constant="134" id="ZeK-9P-agK"/>
                             <constraint firstItem="C1R-qG-ef4" firstAttribute="centerX" secondItem="AMb-Rm-GV8" secondAttribute="centerX" id="b2y-fn-fgg"/>
-                            <constraint firstItem="C1R-qG-ef4" firstAttribute="top" secondItem="HvQ-lB-vGF" secondAttribute="bottom" id="eGm-HN-q52"/>
+                            <constraint firstItem="C1R-qG-ef4" firstAttribute="top" secondItem="HvQ-lB-vGF" secondAttribute="bottom" constant="8" id="eGm-HN-q52"/>
                             <constraint firstItem="AoW-VW-yJ4" firstAttribute="centerX" secondItem="pFK-cs-Hrk" secondAttribute="centerX" id="fht-Un-UgB"/>
-                            <constraint firstItem="C1R-qG-ef4" firstAttribute="trailing" secondItem="AoW-VW-yJ4" secondAttribute="trailing" id="gzt-rS-g4l"/>
+                            <constraint firstItem="C1R-qG-ef4" firstAttribute="trailing" secondItem="AoW-VW-yJ4" secondAttribute="trailing" constant="4" id="gzt-rS-g4l"/>
                             <constraint firstItem="EPv-Ig-fF8" firstAttribute="top" secondItem="QgK-Fj-APz" secondAttribute="bottom" constant="5" id="h1j-n2-OxR"/>
                             <constraint firstItem="QgK-Fj-APz" firstAttribute="bottom" secondItem="Ikd-Ia-Jna" secondAttribute="bottom" id="hDz-Xt-uwg"/>
                             <constraint firstItem="pFK-cs-Hrk" firstAttribute="leading" secondItem="AMb-Rm-GV8" secondAttribute="leadingMargin" constant="22" id="i8I-jN-MdI"/>
