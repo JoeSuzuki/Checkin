@@ -43,6 +43,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var amLabel2: UIPickerView!
     @IBOutlet weak var am: UILabel!
     @IBOutlet weak var ampm: UILabel!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     
     let days = Constants.daysInWeek.days
@@ -56,7 +57,12 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     let storageRef = Storage.storage().reference()
     let databaseRef = Database.database().reference()
     var refKey: String = ""
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+       // addButton.isEnabled = false
+        checkField(sender: addButton)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference().child("personal groups info").child(userID).childByAutoId()
@@ -221,6 +227,8 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
                 self.dayPicker2.isHidden = false
             }
         }
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+            }
     @IBAction func editButtonClicked(_ sender: UIButton) {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -244,6 +252,14 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    func checkField(sender: AnyObject) {
+        if (groupNameTextField.text?.isEmpty)! && (locationTextField.text?.isEmpty)! && (time1.text?.isEmpty)! && (time2.text?.isEmpty)! && (am.text?.isEmpty)! && (time10.text?.isEmpty)! && (time20.text?.isEmpty)! && (ampm.text?.isEmpty)! && imageView == nil{
+            addButton.isEnabled = false
+            }
+        else{
+            addButton.isEnabled = true
+        }
     }
 
     @IBAction func addButton(_ sender: Any) {
@@ -303,6 +319,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         timeRef.child("timeInt").setValue(Constants.timeInterval.myInts)
         timeRef.child("timeOpen").setValue(Constants.timeOpens.time)
         timeRef.child("timeCloses").setValue(Constants.timeCloses.time)
+        timeRef.child("check-in").setValue("")
         let initialViewController = UIStoryboard.initialViewController(for: .main)
         self.view.window?.rootViewController = initialViewController
         self.view.window?.makeKeyAndVisible()

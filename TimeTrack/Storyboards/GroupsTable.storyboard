@@ -96,7 +96,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnR-Y3-1mS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2292" y="1861.6191904047978"/>
+            <point key="canvasLocation" x="-2330" y="1740"/>
         </scene>
         <!--More Info Group View Controller-->
         <scene sceneID="tmx-9o-cuR">
@@ -259,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2PV-FA-JWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1351" y="2487"/>
+            <point key="canvasLocation" x="-1390" y="2365"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="a2X-6F-Tav">
@@ -399,7 +399,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PnT-Pk-r5S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-703" y="2487"/>
+            <point key="canvasLocation" x="-742" y="2365"/>
         </scene>
         <!--Add Groups-->
         <scene sceneID="7G7-tg-ksH">
@@ -458,7 +458,7 @@
                                         <rect key="frame" x="0.0" y="144" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3NY-Go-2HR" id="E5L-4K-jlS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XNY-Ps-nAy">
@@ -782,7 +782,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="MGA-dP-HKE">
-                                                    <rect key="frame" x="56" y="3" width="262" height="38"/>
+                                                    <rect key="frame" x="56" y="3" width="262" height="38.5"/>
                                                     <connections>
                                                         <action selector="timeIntSilder:" destination="KYx-Yy-cu8" eventType="valueChanged" id="mdf-34-Pnu"/>
                                                     </connections>
@@ -952,6 +952,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="740"/>
                     <connections>
+                        <outlet property="addButton" destination="y1A-qm-cLK" id="YqV-Jp-sJN"/>
                         <outlet property="am" destination="YT3-aJ-N76" id="vPj-e0-Uiz"/>
                         <outlet property="amLabel" destination="fGn-5r-F56" id="x3X-K7-oZQ"/>
                         <outlet property="amLabel2" destination="In8-Sr-fae" id="q2d-38-mmD"/>
@@ -980,7 +981,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cno-zl-dvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1351" y="1157"/>
+            <point key="canvasLocation" x="-1391.2" y="1034.4827586206898"/>
         </scene>
         <!--Join a group-->
         <scene sceneID="I3W-82-VjR">
@@ -1027,7 +1028,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Zh-2l-ldf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1351.2" y="1861.6191904047978"/>
+            <point key="canvasLocation" x="-1390" y="1740"/>
         </scene>
         <!--Group Time1 View Controller-->
         <scene sceneID="mXM-8i-PKh">
@@ -1121,7 +1122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bg6-Uf-S8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-545" y="3097"/>
+            <point key="canvasLocation" x="-585" y="2975"/>
         </scene>
     </scenes>
     <resources>

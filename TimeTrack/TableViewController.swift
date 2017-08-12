@@ -38,6 +38,7 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //configureDatabase()
+        groupTableView?.reloadData()
         ref = Database.database().reference().child("personal groups info").child(userID!)
         ref?.queryOrderedByKey().observe(.childAdded, with: {
             (snapshot) in
@@ -77,11 +78,17 @@ class TableViewController: UITableViewController {
         //        })
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        groupTableView?.reloadData()
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if segmentedControl.selectedSegmentIndex == 0  {
             return arrayOfCellData.count
-        } else if segmentedControl.selectedSegmentIndex == 0  {
+            groupTableView?.reloadData()
+        } else if segmentedControl.selectedSegmentIndex == 1  {
             return 0
+            groupTableView?.reloadData()
         } else {
             return 0
         }
@@ -101,6 +108,7 @@ class TableViewController: UITableViewController {
                 cell.totalMembers.text = String(describing: totalMembers)
             }
             return cell
+            groupTableView?.reloadData()
         } else {
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
             cell.mainImageView.image = arrayOfCellData[indexPath.row].image
@@ -114,33 +122,16 @@ class TableViewController: UITableViewController {
                 cell.totalMembers.text = String(describing: totalMembers)
             }
             return cell
+            groupTableView?.reloadData()
             }
         } else if segmentedControl.selectedSegmentIndex == 1  {
+            groupTableView?.reloadData()
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-            cell.mainImageView.image = arrayOfCellData[indexPath.row].image
-            cell.mainLabelView.text = arrayOfCellData[indexPath.row].text!
-            cell.addressLabelView.text = arrayOfCellData[indexPath.row].address
-            if let members = arrayOfCellData[indexPath.row].numOfCheckIns {
-                cell.counterLabelView.text = String(describing: members)
-            }
-            cell.idLabel.text = arrayOfCellData[indexPath.row].id
-            if let totalMembers = arrayOfCellData[indexPath.row].memberTotal {
-                cell.totalMembers.text = String(describing: totalMembers)
-            }
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-            cell.mainImageView.image = arrayOfCellData[indexPath.row].image
-            cell.mainLabelView.text = arrayOfCellData[indexPath.row].text!
-            cell.addressLabelView.text = arrayOfCellData[indexPath.row].address
-            if let members = arrayOfCellData[indexPath.row].numOfCheckIns {
-                cell.counterLabelView.text = String(describing: members)
-            }
-            cell.idLabel.text = arrayOfCellData[indexPath.row].id
-            if let totalMembers = arrayOfCellData[indexPath.row].memberTotal {
-                cell.totalMembers.text = String(describing: totalMembers)
-            }
             return cell
+            groupTableView?.reloadData()
         }
     }
     
@@ -153,7 +144,7 @@ class TableViewController: UITableViewController {
         } else {
             return 235
             }
-        } else if segmentedControl.selectedSegmentIndex == 0 {
+        } else if segmentedControl.selectedSegmentIndex == 1 {
             return 235
         } else {
             return 235
@@ -192,9 +183,11 @@ class TableViewController: UITableViewController {
         if segmentedControl.selectedSegmentIndex == 0  {
             let subViewOfSegment: UIView = segmentedControl.subviews[0] as UIView
             subViewOfSegment.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
+            groupTableView?.reloadData()
         } else if segmentedControl.selectedSegmentIndex == 1  {
             let subViewOfSegment: UIView = segmentedControl.subviews[1] as UIView
             subViewOfSegment.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
+            groupTableView?.reloadData()
         }
     }
 }
