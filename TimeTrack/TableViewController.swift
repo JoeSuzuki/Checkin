@@ -19,9 +19,18 @@ struct cellData {
     let id: String!
     let memberTotal: Int!
 }
+struct joinedCellData {
+    let cell: Int!
+    let text: String?
+    let image: UIImage?
+    let address: String?
+    let numOfCheckIns: Int?
+    let id: String!
+    let memberTotal: Int!
+}
 var myIndex = 0
 class TableViewController: UITableViewController {
-
+    
     //let ref = Database.database().reference().child("users")
     var tableText: String?
     var tableImage: UIImage?
@@ -30,13 +39,24 @@ class TableViewController: UITableViewController {
             groupTableView.reloadData()
         }
     }
+    var joinedArrayOfCellData = [joinedCellData](){
+        didSet{
+            groupTableView.reloadData()
+        }
+    }
     var ref: DatabaseReference?
     let userID = Auth.auth().currentUser?.uid
     var name: [String] = []
-//    var imageName: String = ""
-//    var imaged = UIImage?.self
+    var ownerRef: DatabaseReference?
+    var memberRef: DatabaseReference?
+    var personalRef: DatabaseReference?
+    var ownerUID = ""
+    var reff: DatabaseReference?
+    //    var imageName: String = ""
+    //    var imaged = UIImage?.self
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(ownerUID)
         //configureDatabase()
         groupTableView?.reloadData()
         ref = Database.database().reference().child("personal groups info").child(userID!)
@@ -50,6 +70,50 @@ class TableViewController: UITableViewController {
             let mem = value["numOfMembers"] as? Int
             self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
         })
+        
+        // join table view
+        ownerRef = Database.database().reference().child("users").child(userID!).child("joined")// find groups that the user joined
+        ownerRef?.queryOrderedByKey().observe(.childAdded, with: {
+            (snapshot) in
+            let value = snapshot.value as! [String: AnyObject]
+            let keyed = value["key"] as! String! // set the group keys
+            let reff = Database.database().reference().child("personal groups info").child(self.userID!).child("joined").child(keyed!) // ref to personal groups for tableview
+            self.memberRef = Database.database().reference().child("Members of Groups").child(keyed!) // find owner of the joined grou
+            
+            self.memberRef?.observe(.value, with: {
+                (snapshot) in
+                let value = snapshot.value as! [String: AnyObject]
+                self.ownerUID = value["Owner"] as! String
+                print(self.ownerUID)
+                self.personalRef =  Database.database().reference().child("personal groups info").child(self.ownerUID).child(keyed!)
+                self.personalRef?.observe(.value, with: { // get info from owner
+                    (snapshot) in
+                    let value = snapshot.value as! [String: AnyObject]
+                    let name = value["name"] as? String
+                    let location = value["location"] as? String
+                    let checkIns = value["numOfCheckIns"] as? Int
+                    let keyed = value["key"] as! String!
+                    let mem = value["numOfMembers"] as? Int
+                    let description = value["description"] as! String!
+                    let from = value["from"] as! String!
+                    let to = value["to"] as! String!
+                    let url = value["url"] as! String!
+                    let img = value["img"] as! String!
+                    reff.child("location").setValue(location)
+                    reff.child("from").setValue(from)
+                    reff.child("to").setValue(to)
+                    reff.child("name").setValue(name)
+                    reff.child("description").setValue(description)
+                    reff.child("img").setValue(img)
+                    reff.child("url").setValue(url)
+                    reff.child("key").setValue(keyed)
+                    reff.child("numOfMembers").setValue(mem)
+                    reff.child("numOfCheckIns").setValue(checkIns)
+                    self.joinedArrayOfCellData.append(joinedCellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
+                })
+            })
+        })
+
         let date = Date()
         let calendar = Calendar.current
         
@@ -65,24 +129,12 @@ class TableViewController: UITableViewController {
         subViewOfSegment.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
         let subViewOfSegments: UIView = segmentedControl.subviews[1] as UIView
         subViewOfSegments.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
-
-
-        //        self.ref?.observe(.childAdded, with: { (snapshot)  in
-        //            if let result = snapshot.value as? [String : Any],
-        //                // if let locationResult = snapshot.value as? [String : Any],
-        //                let groupName = result["name"] as? [String : Any],
-        //                let name = groupName["name"] as? String
-        //            {
-        //                let groupName = result["name"]
-        //                self.name.append(name)
-        //                self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: "canal street"))
-        //            }
-        //        })
-    
-    }
+         }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         groupTableView?.reloadData()
+        groupTableView.separatorStyle = .none
+        
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if segmentedControl.selectedSegmentIndex == 0  {
@@ -97,39 +149,49 @@ class TableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if segmentedControl.selectedSegmentIndex == 0  {
-        if arrayOfCellData[indexPath.row].cell == 1 {
+            if arrayOfCellData[indexPath.row].cell == 1 {
+                let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
+                cell.mainImageView.image = arrayOfCellData[indexPath.row].image
+                cell.mainLabelView.text = arrayOfCellData[indexPath.row].text
+                cell.addressLabelView.text = arrayOfCellData[indexPath.row].address
+                if let members = arrayOfCellData[indexPath.row].numOfCheckIns {
+                    cell.counterLabelView.text = String(describing: members)
+                }
+                cell.idLabel.text = arrayOfCellData[indexPath.row].id
+                if let totalMembers = arrayOfCellData[indexPath.row].memberTotal {
+                    cell.totalMembers.text = String(describing: totalMembers)
+                }
+                return cell
+                groupTableView?.reloadData()
+            } else {
+                let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
+                cell.mainImageView.image = arrayOfCellData[indexPath.row].image
+                cell.mainLabelView.text = arrayOfCellData[indexPath.row].text!
+                cell.addressLabelView.text = arrayOfCellData[indexPath.row].address
+                if let members = arrayOfCellData[indexPath.row].numOfCheckIns {
+                    cell.counterLabelView.text = String(describing: members)
+                }
+                cell.idLabel.text = arrayOfCellData[indexPath.row].id
+                if let totalMembers = arrayOfCellData[indexPath.row].memberTotal {
+                    cell.totalMembers.text = String(describing: totalMembers)
+                }
+                return cell
+                groupTableView?.reloadData()
+            }
+        } else if segmentedControl.selectedSegmentIndex == 1  { // seg2
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-            cell.mainImageView.image = arrayOfCellData[indexPath.row].image
-            cell.mainLabelView.text = arrayOfCellData[indexPath.row].text
-            cell.addressLabelView.text = arrayOfCellData[indexPath.row].address
-            if let members = arrayOfCellData[indexPath.row].numOfCheckIns {
+            cell.mainImageView.image = joinedArrayOfCellData[indexPath.row].image
+            cell.mainLabelView.text = joinedArrayOfCellData[indexPath.row].text
+            cell.addressLabelView.text = joinedArrayOfCellData[indexPath.row].address
+            if let members = joinedArrayOfCellData[indexPath.row].numOfCheckIns {
                 cell.counterLabelView.text = String(describing: members)
             }
-            cell.idLabel.text = arrayOfCellData[indexPath.row].id
-            if let totalMembers = arrayOfCellData[indexPath.row].memberTotal {
+            cell.idLabel.text = joinedArrayOfCellData[indexPath.row].id
+            if let totalMembers = joinedArrayOfCellData[indexPath.row].memberTotal {
                 cell.totalMembers.text = String(describing: totalMembers)
             }
             return cell
             groupTableView?.reloadData()
-        } else {
-            let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-            cell.mainImageView.image = arrayOfCellData[indexPath.row].image
-            cell.mainLabelView.text = arrayOfCellData[indexPath.row].text!
-            cell.addressLabelView.text = arrayOfCellData[indexPath.row].address
-            if let members = arrayOfCellData[indexPath.row].numOfCheckIns {
-                cell.counterLabelView.text = String(describing: members)
-            }
-            cell.idLabel.text = arrayOfCellData[indexPath.row].id
-            if let totalMembers = arrayOfCellData[indexPath.row].memberTotal {
-                cell.totalMembers.text = String(describing: totalMembers)
-            }
-            return cell
-            groupTableView?.reloadData()
-            }
-        } else if segmentedControl.selectedSegmentIndex == 1  {
-            groupTableView?.reloadData()
-            let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-            return cell
         } else {
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
             return cell
@@ -139,14 +201,14 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if segmentedControl.selectedSegmentIndex == 0  {
-        if arrayOfCellData[indexPath.row].cell == 1 {
-            return 235
-        } else if arrayOfCellData[indexPath.row].cell == 2  {
-            return 105
-        } else {
-            return 235
+            if arrayOfCellData[indexPath.row].cell == 1 {
+                return 235
+            } else if arrayOfCellData[indexPath.row].cell == 2  {
+                return 105
+            } else {
+                return 235
             }
-        } else if segmentedControl.selectedSegmentIndex == 1 {
+        } else if segmentedControl.selectedSegmentIndex == 1 { // 2
             return 235
         } else {
             return 235
@@ -156,35 +218,35 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if segmentedControl.selectedSegmentIndex == 0  {
-        performSegue(withIdentifier: "segue", sender: self)
-        
-        let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
-        
-        Constants.groupsName.myStrings = (cell.mainLabelView?.text!)!
-        Constants.groupsLocation.myStrings = (cell.addressLabelView?.text!)!
-        Constants.numberOfCheckIns.myInts = Int(cell.counterLabelView.text!)!
-        Constants.idd.myStrings = (cell.idLabel?.text!)!
-        Constants.numberOfMembers.myInts = Int((cell.totalMembers?.text!)!)!
-        //        totalMembers
+            performSegue(withIdentifier: "segue", sender: self)
+            
+            let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
+            
+            Constants.groupsName.myStrings = (cell.mainLabelView?.text!)!
+            Constants.groupsLocation.myStrings = (cell.addressLabelView?.text!)!
+            Constants.numberOfCheckIns.myInts = Int(cell.counterLabelView.text!)!
+            Constants.idd.myStrings = (cell.idLabel?.text!)!
+            Constants.numberOfMembers.myInts = Int((cell.totalMembers?.text!)!)!
+            //        totalMembers
         }
     }
-
-
+    
+    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet var groupTableView: UITableView!
     @IBAction func infoButton(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "joinGroup", sender: self)
         
     }
-
+    
     @IBAction func addGroups(_ sender: Any) {
         performSegue(withIdentifier: "addGroup", sender: self)
     }
-
+    
     @IBAction func indexChanged(_ sender: UISegmentedControl) {
-//        let rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("swiped:"))
-//        rightSwipe.direction = .right
-//        self.segmentedControl.addGestureRecognizer(rightSwipe)
+        //        let rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("swiped:"))
+        //        rightSwipe.direction = .right
+        //        self.segmentedControl.addGestureRecognizer(rightSwipe)
         if segmentedControl.selectedSegmentIndex == 0  {
             let subViewOfSegment: UIView = segmentedControl.subviews[0] as UIView
             subViewOfSegment.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)

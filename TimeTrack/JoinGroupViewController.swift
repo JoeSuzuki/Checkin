@@ -21,9 +21,10 @@ let kSubtitld = "You joined a group!"
 let kDefaultAnimationDuration = 2.0
 
 class JoinGroupViewController: UIViewController {
-    
     var childIds: [String] = []
+    var ownerIds: [String] = []
     var ref: DatabaseReference!
+    var ownerRefs: DatabaseReference?
     var groupRef: DatabaseReference?
     var groupsRef: DatabaseReference?
     let userID = Auth.auth().currentUser!.uid
@@ -41,6 +42,7 @@ class JoinGroupViewController: UIViewController {
             self.childIds.append(value)
             //print(self.childIds)
         })
+     
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,19 +61,29 @@ class JoinGroupViewController: UIViewController {
         return true
     }
     @IBAction func passwordEnterButton(_ sender: UIButton) {
-        print(childIds)
         for key in self.childIds {
             print(key)
             if self.passwordTextField.text! == key {
+                let userPath = Database.database().reference().child("users").child(userID)
+                userPath.child("joined").child(key).updateChildValues(["key" : key])
                 let membersRef = Database.database().reference().child("Members of Groups").child(key)
-                membersRef.updateChildValues(["joiner": userID])
-                let reff = Database.database().reference().child("personal groups info").child(userID).child(key)
-                var count: Int = 0
-                membersRef.observe(.value, with: { (snapshot: DataSnapshot!) in
-                    //print(snapshot.childrenCount)
-                    count = Int(snapshot.childrenCount)
-                    reff.updateChildValues(["numOfMembers": count])
+                groupsRef?.queryOrderedByKey().observe(.childAdded, with: {
+                    (snapshot) in
+                    
+                    let value = snapshot.value as! String
+                    //     let key = value["key"] as? String
+                    self.childIds.append(value)
+                    //print(self.childIds)
                 })
+                membersRef.child("joiner").updateChildValues([userID: userID])
+                let reff = Database.database().reference().child("personal groups info").child(userID).child(key)
+
+//                var count: Int = 0
+//                membersRef.child("joiner").observe(.value, with: { (snapshot: DataSnapshot!) in
+//                    //print(snapshot.childrenCount)
+//                    count = Int(snapshot.childrenCount)
+//                    reff.updateChildValues(["numOfMembers": count + 1])
+//                })
                 let initialViewController = UIStoryboard.initialViewController(for: .main)
                 self.view.window?.rootViewController = initialViewController
                 self.view.window?.makeKeyAndVisible()

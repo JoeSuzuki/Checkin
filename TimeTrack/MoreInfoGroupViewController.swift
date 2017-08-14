@@ -36,7 +36,7 @@ class MoreInfoGroupViewController: UIViewController {
     }
     
      func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let groupTimeTableViewController = segue.destination as! GroupTimeTableViewController
+      //  let groupTimeTableViewController = segue.destination as! GroupTimeTableViewController
         Constants.idd.myStrings = idLabelView.text!
     }
 

@@ -20,6 +20,7 @@
 		FF115B3D1F2F66D7008A1EB5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF115B3C1F2F66D7008A1EB5 /* MapKit.framework */; };
 		FF37C6071F2525CA0018940B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF37C6061F2525C90018940B /* AppDelegate.swift */; };
 		FF37C60E1F2525CA0018940B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF37C60D1F2525CA0018940B /* Assets.xcassets */; };
+		FF9EDC0F1F41F16700B472D2 /* Joined.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC0E1F41F16700B472D2 /* Joined.swift */; };
 		FFAE463B1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAE463A1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift */; };
 		FFAE463D1F3B50D6001CC9EC /* GroupTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAE463C1F3B50D6001CC9EC /* GroupTimeTableViewController.swift */; };
 		FFAE46401F3B5156001CC9EC /* GroupTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAE463E1F3B5156001CC9EC /* GroupTimeTableViewCell.swift */; };
@@ -73,6 +74,7 @@
 		FF37C6031F2525C90018940B /* TimeTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF37C6061F2525C90018940B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF37C60D1F2525CA0018940B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF9EDC0E1F41F16700B472D2 /* Joined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Joined.swift; sourceTree = "<group>"; };
 		FFAE463A1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTime1TableViewController.swift; sourceTree = "<group>"; };
 		FFAE463C1F3B50D6001CC9EC /* GroupTimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTimeTableViewController.swift; sourceTree = "<group>"; };
 		FFAE463E1F3B5156001CC9EC /* GroupTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTimeTableViewCell.swift; sourceTree = "<group>"; };
@@ -203,11 +205,11 @@
 		FFAFCCD81F2632BB009D2692 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				FFDABC841F2A613A00C64D39 /* Group */,
 				FF115B321F2CF374008A1EB5 /* Login.storyboard */,
 				FFAFCCDD1F26332D009D2692 /* Main.storyboard */,
 				FFDABC8A1F2A84E300C64D39 /* Calender */,
 				FFB799A21F29B103001B7C61 /* Search */,
-				FFDABC841F2A613A00C64D39 /* Group */,
 				FFB7999F1F292153001B7C61 /* Table */,
 				FFB799A31F29B19C001B7C61 /* Profile */,
 			);
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				FFAFCCF31F267164009D2692 /* User.swift */,
+				FF9EDC0E1F41F16700B472D2 /* Joined.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 			files = (
 				FFAE463D1F3B50D6001CC9EC /* GroupTimeTableViewController.swift in Sources */,
 				FF115B2F1F2CF323008A1EB5 /* MainViewController.swift in Sources */,
+				FF9EDC0F1F41F16700B472D2 /* Joined.swift in Sources */,
 				FFC3B0051F36C10600E9BF64 /* CreateTableViewController.swift in Sources */,
 				FFAE463B1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift in Sources */,
 				FF115B361F2CF3C8008A1EB5 /* AuthService.swift in Sources */,
