@@ -56,8 +56,6 @@ class TableViewController: UITableViewController {
     //    var imaged = UIImage?.self
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(ownerUID)
-        //configureDatabase()
         groupTableView?.reloadData()
         ref = Database.database().reference().child("personal groups info").child(userID!)
         ref?.queryOrderedByKey().observe(.childAdded, with: {
@@ -84,7 +82,6 @@ class TableViewController: UITableViewController {
                 (snapshot) in
                 let value = snapshot.value as! [String: AnyObject]
                 self.ownerUID = value["Owner"] as! String
-                print(self.ownerUID)
                 self.personalRef =  Database.database().reference().child("personal groups info").child(self.ownerUID).child(keyed!)
                 self.personalRef?.observe(.value, with: { // get info from owner
                     (snapshot) in
@@ -129,7 +126,7 @@ class TableViewController: UITableViewController {
         subViewOfSegment.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
         let subViewOfSegments: UIView = segmentedControl.subviews[1] as UIView
         subViewOfSegments.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
-         }
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         groupTableView?.reloadData()
@@ -179,23 +176,38 @@ class TableViewController: UITableViewController {
                 groupTableView?.reloadData()
             }
         } else if segmentedControl.selectedSegmentIndex == 1  { // seg2
-            let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-            cell.mainImageView.image = joinedArrayOfCellData[indexPath.row].image
-            cell.mainLabelView.text = joinedArrayOfCellData[indexPath.row].text
-            cell.addressLabelView.text = joinedArrayOfCellData[indexPath.row].address
-            if let members = joinedArrayOfCellData[indexPath.row].numOfCheckIns {
+            if joinedArrayOfCellData[indexPath.row].cell == 1 {
+                let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
+                cell.mainImageView.image = joinedArrayOfCellData[indexPath.row].image
+                cell.mainLabelView.text = joinedArrayOfCellData[indexPath.row].text
+                cell.addressLabelView.text = joinedArrayOfCellData[indexPath.row].address
+                if let members = joinedArrayOfCellData[indexPath.row].numOfCheckIns {
+                        cell.counterLabelView.text = String(describing: members)
+                }
+                cell.idLabel.text = joinedArrayOfCellData[indexPath.row].id
+                if let totalMembers = joinedArrayOfCellData[indexPath.row].memberTotal {
+                    cell.totalMembers.text = String(describing: totalMembers)
+                }
+                return cell
+                    groupTableView?.reloadData()
+            } else {
+                let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
+                cell.mainImageView.image = joinedArrayOfCellData[indexPath.row].image
+                cell.mainLabelView.text = joinedArrayOfCellData[indexPath.row].text
+                    cell.addressLabelView.text = joinedArrayOfCellData[indexPath.row].address
+                if let members = joinedArrayOfCellData[indexPath.row].numOfCheckIns {
                 cell.counterLabelView.text = String(describing: members)
-            }
-            cell.idLabel.text = joinedArrayOfCellData[indexPath.row].id
-            if let totalMembers = joinedArrayOfCellData[indexPath.row].memberTotal {
-                cell.totalMembers.text = String(describing: totalMembers)
-            }
-            return cell
-            groupTableView?.reloadData()
-        } else {
-            let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-            return cell
-            groupTableView?.reloadData()
+                }
+                cell.idLabel.text = joinedArrayOfCellData[indexPath.row].id
+                if let totalMembers = joinedArrayOfCellData[indexPath.row].memberTotal {
+                    cell.totalMembers.text = String(describing: totalMembers)
+                }
+                return cell
+                groupTableView?.reloadData()
+            }} else {
+                let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
+                return cell
+                groupTableView?.reloadData()
         }
     }
     
