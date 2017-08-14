@@ -141,7 +141,7 @@ class TableViewController: UITableViewController {
             return arrayOfCellData.count
             groupTableView?.reloadData()
         } else if segmentedControl.selectedSegmentIndex == 1  {
-            return 0
+            return joinedArrayOfCellData.count
             groupTableView?.reloadData()
         } else {
             return 0
@@ -209,7 +209,13 @@ class TableViewController: UITableViewController {
                 return 235
             }
         } else if segmentedControl.selectedSegmentIndex == 1 { // 2
-            return 235
+            if joinedArrayOfCellData[indexPath.row].cell == 0 {
+                return 235
+            } else if joinedArrayOfCellData[indexPath.row].cell == 1 {
+                return 105
+            } else {
+                return 235
+            }
         } else {
             return 235
         }
@@ -218,6 +224,17 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if segmentedControl.selectedSegmentIndex == 0  {
+            performSegue(withIdentifier: "segue", sender: self)
+            
+            let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
+            
+            Constants.groupsName.myStrings = (cell.mainLabelView?.text!)!
+            Constants.groupsLocation.myStrings = (cell.addressLabelView?.text!)!
+            Constants.numberOfCheckIns.myInts = Int(cell.counterLabelView.text!)!
+            Constants.idd.myStrings = (cell.idLabel?.text!)!
+            Constants.numberOfMembers.myInts = Int((cell.totalMembers?.text!)!)!
+            //        totalMembers
+        } else if segmentedControl.selectedSegmentIndex == 1  {
             performSegue(withIdentifier: "segue", sender: self)
             
             let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
