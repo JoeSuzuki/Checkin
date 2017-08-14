@@ -75,7 +75,7 @@ class TableViewController: UITableViewController {
             (snapshot) in
             let value = snapshot.value as! [String: AnyObject]
             let keyed = value["key"] as! String! // set the group keys
-            let reff = Database.database().reference().child("personal groups info").child(self.userID!).child("joined").child(keyed!) // ref to personal groups for tableview
+            let reff = Database.database().reference().child("personal groups info").child(self.userID!).child(keyed!) // ref to personal groups for tableview
             self.memberRef = Database.database().reference().child("Members of Groups").child(keyed!) // find owner of the joined grou
             
             self.memberRef?.observe(.value, with: {
@@ -270,6 +270,7 @@ class TableViewController: UITableViewController {
     
     @IBAction func addGroups(_ sender: Any) {
         performSegue(withIdentifier: "addGroup", sender: self)
+        
     }
     
     @IBAction func indexChanged(_ sender: UISegmentedControl) {

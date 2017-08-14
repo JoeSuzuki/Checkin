@@ -49,7 +49,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2hF-ZR-8wD">
-                                    <rect key="frame" x="0.0" y="-1" width="375" height="29"/>
+                                    <rect key="frame" x="-3" y="-1" width="381" height="29"/>
                                     <segments>
                                         <segment title="My Groups"/>
                                         <segment title="Joined"/>
@@ -61,8 +61,8 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="2hF-ZR-8wD" firstAttribute="leading" secondItem="uRf-NG-AwZ" secondAttribute="leading" id="S1n-Xb-ynb"/>
-                                <constraint firstAttribute="trailing" secondItem="2hF-ZR-8wD" secondAttribute="trailing" id="XaD-d6-7k8"/>
+                                <constraint firstItem="2hF-ZR-8wD" firstAttribute="leading" secondItem="uRf-NG-AwZ" secondAttribute="leading" constant="-3" id="S1n-Xb-ynb"/>
+                                <constraint firstAttribute="trailing" secondItem="2hF-ZR-8wD" secondAttribute="trailing" constant="-3" id="XaD-d6-7k8"/>
                                 <constraint firstItem="2hF-ZR-8wD" firstAttribute="top" secondItem="uRf-NG-AwZ" secondAttribute="top" constant="-1" id="lCu-Oy-WQT"/>
                             </constraints>
                         </view>
@@ -96,7 +96,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnR-Y3-1mS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2330" y="1740"/>
+            <point key="canvasLocation" x="-2330.4000000000001" y="1739.2803598200901"/>
         </scene>
         <!--More Info Group View Controller-->
         <scene sceneID="tmx-9o-cuR">
@@ -237,7 +237,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="R5l-dP-3JF" secondAttribute="bottom" constant="323" id="8oh-Nu-YWt"/>
                             <constraint firstItem="yUx-b8-8YR" firstAttribute="centerX" secondItem="R5l-dP-3JF" secondAttribute="centerX" id="Fsf-J9-o3U"/>
@@ -399,7 +399,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PnT-Pk-r5S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-778" y="2391"/>
+            <point key="canvasLocation" x="-1279" y="2391"/>
         </scene>
         <!--Add Groups-->
         <scene sceneID="7G7-tg-ksH">
@@ -782,7 +782,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="MGA-dP-HKE">
-                                                    <rect key="frame" x="56" y="3" width="262" height="38.5"/>
+                                                    <rect key="frame" x="56" y="3" width="262" height="38"/>
                                                     <connections>
                                                         <action selector="timeIntSilder:" destination="KYx-Yy-cu8" eventType="valueChanged" id="mdf-34-Pnu"/>
                                                     </connections>
