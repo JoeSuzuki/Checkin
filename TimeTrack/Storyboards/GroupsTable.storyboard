@@ -72,7 +72,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="cCJ-Pc-LdM">
-                        <barButtonItem key="leftBarButtonItem" title="Create" id="96i-FK-TCD">
+                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="96i-FK-TCD">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="addGroups:" destination="rJA-Qk-1Mr" id="yIC-32-xk0"/>
@@ -98,7 +98,7 @@
             </objects>
             <point key="canvasLocation" x="-2330.4000000000001" y="1739.2803598200901"/>
         </scene>
-        <!--More Info Group View Controller-->
+        <!--Title-->
         <scene sceneID="tmx-9o-cuR">
             <objects>
                 <viewController id="U1P-t8-djj" customClass="MoreInfoGroupViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
@@ -161,6 +161,8 @@
                                             <constraint firstAttribute="width" constant="330" id="3pM-X4-OIs"/>
                                             <constraint firstAttribute="height" constant="44" id="Fne-pi-t7c"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="47" id="f6c-Rr-LHH"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="330" id="xPs-Ca-Nos"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="47" id="y2i-n6-oYH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <color key="tintColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -197,7 +199,9 @@
                                         <color key="backgroundColor" white="0.24921874999999999" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="330" id="BoE-oI-mph"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="330" id="gHO-UK-nYz"/>
                                             <constraint firstAttribute="height" constant="47" id="jXv-pE-aGP"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="47" id="zxe-DL-kf4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <state key="normal" title="Invite">
@@ -250,6 +254,9 @@
                             <constraint firstAttribute="trailing" secondItem="R5l-dP-3JF" secondAttribute="trailing" id="w4r-SU-QCR"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="W1U-Sd-qy6">
+                        <barButtonItem key="rightBarButtonItem" title="Msg" id="6jy-tG-iuY"/>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="addressLabelSecon" destination="bE6-ON-Ceh" id="lQS-s8-Thw"/>
@@ -1181,6 +1188,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Ofc-sF-X10">
                         <barButtonItem key="rightBarButtonItem" title="Join" id="zT4-3d-hQF">
+                            <color key="tintColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="joinButton:" destination="olW-KC-rrr" id="PD5-xg-iwJ"/>
                             </connections>

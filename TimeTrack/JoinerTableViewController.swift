@@ -13,6 +13,7 @@ struct JoinTimesData {
     let cell: Int!
     let named: String?
     let timed: String?
+    let DM : String?
 }
 
 class JoinerTableViewController: UITableViewController {
@@ -39,16 +40,22 @@ class JoinerTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        timeTable.reloadData()
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         ref = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         setUp()
         currentTime()
         print(startHour)
-
+//        GroupService.groupTimeInfo(Constants.idd.myStrings) { (user) in
+//            if let user = user {
+//                // handle existing user
+//                Time.setCurrent(user, writeToUserDefaults: true)// saves data to NSArchrive, sets it to true
+//                
+//            
+//            }}
         //configureDatabase()
         //    self.arrayOfTime.append(TimesData(cell : 1, named : "", timed : time))
         // self.clearsSelectionOnViewWillAppear = false
-        timeTable.reloadData()
         startTime = "\(TimeConverter(startHour, mD: startAmpm)):\(startMin)"
         endTime = "\(TimeConverter(endHour, mD: endAmpm)):\(endMin)"
         print(startTime)
@@ -65,9 +72,9 @@ class JoinerTableViewController: UITableViewController {
         let min = Date()
         let max = Date().addingTimeInterval(60 * 60 * 24 * 4)
         let picker = DateTimePicker.show(minimumDate: min, maximumDate: max)
-        picker.highlightColor = UIColor(red: 255.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1)
+        picker.highlightColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
         picker.darkColor = UIColor.darkGray
-        picker.doneButtonTitle = "!! DONE DONE !!"
+        picker.doneButtonTitle = "Check In!"
         picker.todayButtonTitle = "Today"
         picker.is12HourFormat = true
         picker.dateFormat = "hh:mm aa dd/MM/YYYY"
@@ -101,6 +108,39 @@ class JoinerTableViewController: UITableViewController {
         print(newTime)
         return newTime
     }
+    func setUp() {
+        ref?.observe(DataEventType.value, with: {
+            (snapshot) in
+            let value = snapshot.value as! [String: AnyObject]
+            let timeInt = value["timeInt"] as? Int
+            // let checkin = value["check-in"] as? Array
+            self.timeInterval = timeInt!
+        })
+        timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
+        print(Constants.idd.myStrings)
+        timeRef?.child("timeOpen").observe(DataEventType.value, with: {
+            (snapshot) in
+            let value = snapshot.value as! NSArray
+            let hour = value[0] as? Int
+            let min = value[1] as? Int
+            let Apm = value[2] as? String
+            self.startHour = hour!
+            self.startMin = min!
+            self.startAmpm = Apm!
+            self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "Open", timed : "\(self.TimeConverter(self.startHour, mD: self.startAmpm)):\(self.startMin)", DM: self.startAmpm), at:0)
+        })
+        timeRef?.child("timeCloses").observe(DataEventType.value, with: {
+            (snapshot) in
+            let value = snapshot.value as! NSArray
+            let hours = value[0] as? Int
+            let mins = value[1] as? Int
+            let Apms = value[2] as? String
+            self.endHour = hours!
+            self.endMin = mins!
+            self.endAmpm = Apms!
+            self.arrayOfTime.append(JoinTimesData(cell : 1, named : "Closed", timed : "\(self.TimeConverter(self.endHour, mD: self.endAmpm)):\(self.endMin)", DM: self.endAmpm))
+        })
+    }
     
     // MARK: - Table view data source
 
@@ -112,15 +152,16 @@ class JoinerTableViewController: UITableViewController {
             let cell = Bundle.main.loadNibNamed("GroupTimeTableViewCell", owner: self, options: nil)?.first as! GroupTimeTableViewCell
             cell.timeLabel.text = arrayOfTime[indexPath.row].timed
             cell.nameLabel.text = arrayOfTime[indexPath.row].named
+            cell.DM.text = arrayOfTime[indexPath.row].DM
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("GroupTimeTableViewCell", owner: self, options: nil)?.first as! GroupTimeTableViewCell
             cell.timeLabel.text = arrayOfTime[indexPath.row].timed
             cell.nameLabel.text = arrayOfTime[indexPath.row].named
+            cell.DM.text = arrayOfTime[indexPath.row].DM
             return cell
         }
     }
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if arrayOfTime[indexPath.row].cell == 1 {
             return 60
@@ -128,6 +169,4 @@ class JoinerTableViewController: UITableViewController {
             return 60
         }
     }
-    
-
 }

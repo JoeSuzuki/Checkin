@@ -27,7 +27,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var urlText: UITextField!
     @IBOutlet weak var descriptionText: UITextView!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView?
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var timeIntDisplay: UILabel!
@@ -60,7 +60,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        // addButton.isEnabled = false
-        checkField(sender: addButton)
+        checkField()
         
     }
     override func viewDidLoad() {
@@ -73,7 +73,8 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         var numOfCheckIns: Int = 0
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard)))
         idLabel.text = refKey
-        
+        checkField()
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -246,15 +247,18 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
             selectedImageFromPicker = originalImage
         }
         if let selectedImage = selectedImageFromPicker{
-            imageView.image = selectedImage
+            imageView?.image = selectedImage
+            
         }
+        checkField()
         dismiss(animated: true, completion: nil)
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        checkField()
         dismiss(animated: true, completion: nil)
     }
-    func checkField(sender: AnyObject) {
-        if (groupNameTextField.text?.isEmpty)! && (locationTextField.text?.isEmpty)! && (time1.text?.isEmpty)! && (time2.text?.isEmpty)! && (am.text?.isEmpty)! && (time10.text?.isEmpty)! && (time20.text?.isEmpty)! && (ampm.text?.isEmpty)! {
+    func checkField() {
+        if (groupNameTextField.text?.isEmpty)! && (locationTextField.text?.isEmpty)! && (time1.text?.isEmpty)! && (time2.text?.isEmpty)! && (am.text?.isEmpty)! && (time10.text?.isEmpty)! && (time20.text?.isEmpty)! && (ampm.text?.isEmpty)! || imageView == nil{
             addButton.isEnabled = false
             }
         else{  
@@ -276,7 +280,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         let storedImage = storageRef.child("users").child(userID).child("groups").child(imageName)
         Constants.img.myImg = imageName
         
-        if let uploadData = UIImagePNGRepresentation(self.imageView.image!){
+        if let uploadData = UIImagePNGRepresentation((self.imageView?.image!)!){
             storedImage.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                 if error != nil{
                     print(error!)

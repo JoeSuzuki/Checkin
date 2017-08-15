@@ -25,6 +25,8 @@
 		FF9EDC161F43317E00B472D2 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC131F43317E00B472D2 /* DateCollectionViewCell.swift */; };
 		FF9EDC171F43317E00B472D2 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC141F43317E00B472D2 /* DateTimePicker.swift */; };
 		FF9EDC181F43317E00B472D2 /* StepCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC151F43317E00B472D2 /* StepCollectionViewFlowLayout.swift */; };
+		FF9EDC1A1F436D3F00B472D2 /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC191F436D3F00B472D2 /* CalenderViewController.swift */; };
+		FF9EDC1D1F4372DA00B472D2 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC1C1F4372DA00B472D2 /* Time.swift */; };
 		FFAE463B1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAE463A1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift */; };
 		FFAE463D1F3B50D6001CC9EC /* GroupTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAE463C1F3B50D6001CC9EC /* GroupTimeTableViewController.swift */; };
 		FFAE46401F3B5156001CC9EC /* GroupTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAE463E1F3B5156001CC9EC /* GroupTimeTableViewCell.swift */; };
@@ -83,6 +85,8 @@
 		FF9EDC131F43317E00B472D2 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF9EDC141F43317E00B472D2 /* DateTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
 		FF9EDC151F43317E00B472D2 /* StepCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		FF9EDC191F436D3F00B472D2 /* CalenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalenderViewController.swift; path = Storyboards/CalenderViewController.swift; sourceTree = "<group>"; };
+		FF9EDC1C1F4372DA00B472D2 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		FFAE463A1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTime1TableViewController.swift; sourceTree = "<group>"; };
 		FFAE463C1F3B50D6001CC9EC /* GroupTimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTimeTableViewController.swift; sourceTree = "<group>"; };
 		FFAE463E1F3B5156001CC9EC /* GroupTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTimeTableViewCell.swift; sourceTree = "<group>"; };
@@ -198,6 +202,14 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
+		FF9EDC1B1F436D4F00B472D2 /* Calender */ = {
+			isa = PBXGroup;
+			children = (
+				FF9EDC191F436D3F00B472D2 /* CalenderViewController.swift */,
+			);
+			name = Calender;
+			sourceTree = "<group>";
+		};
 		FFAFCCD51F263040009D2692 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,12 +223,13 @@
 		FFAFCCD61F263057009D2692 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FFAFCCCB1F262F5E009D2692 /* ViewController.swift */,
-				FFAFCD111F268C73009D2692 /* Login/Signup */,
 				FFDABC871F2A7EA300C64D39 /* Home */,
-				FFAFCD1E1F279CBF009D2692 /* Groups */,
 				FFB799911F290482001B7C61 /* Table */,
 				FFAFCD101F268C4C009D2692 /* Profile */,
+				FFAFCCCB1F262F5E009D2692 /* ViewController.swift */,
+				FFAFCD111F268C73009D2692 /* Login/Signup */,
+				FFAFCD1E1F279CBF009D2692 /* Groups */,
+				FF9EDC1B1F436D4F00B472D2 /* Calender */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -239,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				FFAFCCF31F267164009D2692 /* User.swift */,
+				FF9EDC1C1F4372DA00B472D2 /* Time.swift */,
 				FF9EDC0E1F41F16700B472D2 /* Joined.swift */,
 			);
 			name = Models;
@@ -536,9 +550,11 @@
 				FF115B3A1F2CF3F9008A1EB5 /* Storyboard+Utility.swift in Sources */,
 				FFD5BD411F2B868E00C3BEE7 /* TimeViewController.swift in Sources */,
 				FFB799961F29056E001B7C61 /* TableViewCell.swift in Sources */,
+				FF9EDC1D1F4372DA00B472D2 /* Time.swift in Sources */,
 				FFAE46401F3B5156001CC9EC /* GroupTimeTableViewCell.swift in Sources */,
 				FFD360741F30F587009B6B17 /* GroupService.swift in Sources */,
 				FFC091191F34E7AB00BD5143 /* SearchTableViewCell.swift in Sources */,
+				FF9EDC1A1F436D3F00B472D2 /* CalenderViewController.swift in Sources */,
 				FFC3B0071F36C11D00E9BF64 /* CreateTableViewCell.swift in Sources */,
 				FF9EDC161F43317E00B472D2 /* DateCollectionViewCell.swift in Sources */,
 				FFC3AFF41F359F6200E9BF64 /* JoinGroupViewController.swift in Sources */,

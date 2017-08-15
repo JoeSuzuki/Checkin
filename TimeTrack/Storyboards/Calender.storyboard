@@ -12,7 +12,7 @@
         <!--Calendar-->
         <scene sceneID="RgQ-vG-6PH">
             <objects>
-                <viewController id="bAO-aT-uWb" sceneMemberID="viewController">
+                <viewController id="bAO-aT-uWb" customClass="CalenderViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KWN-Eo-mSf"/>
                         <viewControllerLayoutGuide type="bottom" id="ODD-tQ-SKe"/>

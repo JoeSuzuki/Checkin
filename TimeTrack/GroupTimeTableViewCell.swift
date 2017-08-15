@@ -12,6 +12,6 @@ class GroupTimeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var DM: UILabel!
 
-    
 }
