@@ -8,6 +8,14 @@
 
 import UIKit
 import Firebase
+import SCLAlertView
+let kSuccessTitleddd = "Awesome!"
+let kErrorTitledddd = "Connection error"
+let kNoticeTitledddd = "Notice"
+let kWarningTitledddd = "Opps"
+let kInfoTitledddd = "Info"
+let kSubtitledddd = "The passcode you entered is incorrect"
+let kSubtitlddddd = "You Checked in!"
 
 struct JoinTimesData {
     let cell: Int!
@@ -45,21 +53,6 @@ class JoinerTableViewController: UITableViewController {
         ref = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         setUp()
         currentTime()
-        print(startHour)
-//        GroupService.groupTimeInfo(Constants.idd.myStrings) { (user) in
-//            if let user = user {
-//                // handle existing user
-//                Time.setCurrent(user, writeToUserDefaults: true)// saves data to NSArchrive, sets it to true
-//                
-//            
-//            }}
-        //configureDatabase()
-        //    self.arrayOfTime.append(TimesData(cell : 1, named : "", timed : time))
-        // self.clearsSelectionOnViewWillAppear = false
-        startTime = "\(TimeConverter(startHour, mD: startAmpm)):\(startMin)"
-        endTime = "\(TimeConverter(endHour, mD: endAmpm)):\(endMin)"
-        print(startTime)
-        print(endTime)
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,9 +74,13 @@ class JoinerTableViewController: UITableViewController {
         //        picker.isDatePickerOnly = true
         picker.completionHandler = { date in
             let formatter = DateFormatter()
+            let alert = SCLAlertView()
+            _ = alert.showSuccess(kSuccessTitleddd, subTitle: kSubtitlddddd)
             formatter.dateFormat = "hh:mm aa dd/MM/YYYY"
             self.item.title = formatter.string(from: date)
+
         }
+        
     }
     func currentTime() {
         let date = Date()
@@ -140,6 +137,7 @@ class JoinerTableViewController: UITableViewController {
             self.endAmpm = Apms!
             self.arrayOfTime.append(JoinTimesData(cell : 1, named : "Closed", timed : "\(self.TimeConverter(self.endHour, mD: self.endAmpm)):\(self.endMin)", DM: self.endAmpm))
         })
+        
     }
     
     // MARK: - Table view data source
