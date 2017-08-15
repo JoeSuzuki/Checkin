@@ -14,4 +14,5 @@ target 'TimeTrack' do
   pod 'SCLAlertView'
   pod 'JTAppleCalendar', '~> 7.0'
   pod 'Kingfisher', '~> 3.0'
+  pod 'DateTimePicker'	
 end

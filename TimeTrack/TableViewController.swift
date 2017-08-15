@@ -56,6 +56,7 @@ class TableViewController: UITableViewController {
     //    var imaged = UIImage?.self
     override func viewDidLoad() {
         super.viewDidLoad()
+        groupTableView.separatorStyle = .none
         groupTableView?.reloadData()
         ref = Database.database().reference().child("personal groups info").child(userID!)
         ref?.queryOrderedByKey().observe(.childAdded, with: {
@@ -111,26 +112,14 @@ class TableViewController: UITableViewController {
             })
         })
 
-        let date = Date()
-        let calendar = Calendar.current
-        
-        let hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
-        let seconds = calendar.component(.second, from: date)
-        print ("\(hour):\(minutes):\(seconds)")
-        
-        let day = calendar.component(.day, from: date)
-        let month = calendar.component(.month, from: date)
-        print("\(day).\(month)")
-        let subViewOfSegment: UIView = segmentedControl.subviews[0] as UIView
-        subViewOfSegment.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
-        let subViewOfSegments: UIView = segmentedControl.subviews[1] as UIView
-        subViewOfSegments.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         groupTableView?.reloadData()
-        groupTableView.separatorStyle = .none
+        let subViewOfSegment: UIView = segmentedControl.subviews[0] as UIView
+        subViewOfSegment.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
+        let subViewOfSegments: UIView = segmentedControl.subviews[1] as UIView
+        subViewOfSegments.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
         
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -216,7 +205,7 @@ class TableViewController: UITableViewController {
             if arrayOfCellData[indexPath.row].cell == 1 {
                 return 235
             } else if arrayOfCellData[indexPath.row].cell == 2  {
-                return 105
+                return 235
             } else {
                 return 235
             }
@@ -224,7 +213,7 @@ class TableViewController: UITableViewController {
             if joinedArrayOfCellData[indexPath.row].cell == 0 {
                 return 235
             } else if joinedArrayOfCellData[indexPath.row].cell == 1 {
-                return 105
+                return 235
             } else {
                 return 235
             }

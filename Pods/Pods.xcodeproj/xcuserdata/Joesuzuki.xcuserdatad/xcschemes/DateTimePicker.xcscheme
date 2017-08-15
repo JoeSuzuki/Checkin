@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C7FA4D087FAD10BA91917B6704A2A008'
-               BlueprintName = 'SCLAlertView'
+               BlueprintIdentifier = '9FA73695D1E57996C128686ADB24DCC2'
+               BlueprintName = 'DateTimePicker'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SCLAlertView.framework'>
+               BuildableName = 'DateTimePicker.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

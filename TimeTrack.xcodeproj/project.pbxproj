@@ -21,6 +21,10 @@
 		FF37C6071F2525CA0018940B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF37C6061F2525C90018940B /* AppDelegate.swift */; };
 		FF37C60E1F2525CA0018940B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF37C60D1F2525CA0018940B /* Assets.xcassets */; };
 		FF9EDC0F1F41F16700B472D2 /* Joined.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC0E1F41F16700B472D2 /* Joined.swift */; };
+		FF9EDC111F432AB800B472D2 /* JoinerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */; };
+		FF9EDC161F43317E00B472D2 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC131F43317E00B472D2 /* DateCollectionViewCell.swift */; };
+		FF9EDC171F43317E00B472D2 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC141F43317E00B472D2 /* DateTimePicker.swift */; };
+		FF9EDC181F43317E00B472D2 /* StepCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC151F43317E00B472D2 /* StepCollectionViewFlowLayout.swift */; };
 		FFAE463B1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAE463A1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift */; };
 		FFAE463D1F3B50D6001CC9EC /* GroupTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAE463C1F3B50D6001CC9EC /* GroupTimeTableViewController.swift */; };
 		FFAE46401F3B5156001CC9EC /* GroupTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAE463E1F3B5156001CC9EC /* GroupTimeTableViewCell.swift */; };
@@ -75,6 +79,10 @@
 		FF37C6061F2525C90018940B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF37C60D1F2525CA0018940B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF9EDC0E1F41F16700B472D2 /* Joined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Joined.swift; sourceTree = "<group>"; };
+		FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinerTableViewController.swift; sourceTree = "<group>"; };
+		FF9EDC131F43317E00B472D2 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		FF9EDC141F43317E00B472D2 /* DateTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
+		FF9EDC151F43317E00B472D2 /* StepCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		FFAE463A1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTime1TableViewController.swift; sourceTree = "<group>"; };
 		FFAE463C1F3B50D6001CC9EC /* GroupTimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTimeTableViewController.swift; sourceTree = "<group>"; };
 		FFAE463E1F3B5156001CC9EC /* GroupTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTimeTableViewCell.swift; sourceTree = "<group>"; };
@@ -166,6 +174,7 @@
 		FF37C6051F2525C90018940B /* TimeTrack */ = {
 			isa = PBXGroup;
 			children = (
+				FF9EDC121F43317E00B472D2 /* Source */,
 				FF37C6061F2525C90018940B /* AppDelegate.swift */,
 				FF37C60D1F2525CA0018940B /* Assets.xcassets */,
 				FFAFCCD51F263040009D2692 /* Supporting Files */,
@@ -177,6 +186,16 @@
 				FFAFCD051F267CA9009D2692 /* Extensions */,
 			);
 			path = TimeTrack;
+			sourceTree = "<group>";
+		};
+		FF9EDC121F43317E00B472D2 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				FF9EDC131F43317E00B472D2 /* DateCollectionViewCell.swift */,
+				FF9EDC141F43317E00B472D2 /* DateTimePicker.swift */,
+				FF9EDC151F43317E00B472D2 /* StepCollectionViewFlowLayout.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		FFAFCCD51F263040009D2692 /* Supporting Files */ = {
@@ -345,6 +364,7 @@
 				FFB799921F2904A8001B7C61 /* TableViewController.swift */,
 				FFC091161F342E7400BD5143 /* MoreInfoGroupViewController.swift */,
 				FFAE463A1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift */,
+				FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */,
 				FFAE463C1F3B50D6001CC9EC /* GroupTimeTableViewController.swift */,
 				FFC3B0061F36C11D00E9BF64 /* CreateTableViewCell.swift */,
 				FFB799941F29056E001B7C61 /* TableViewCell.swift */,
@@ -520,11 +540,13 @@
 				FFD360741F30F587009B6B17 /* GroupService.swift in Sources */,
 				FFC091191F34E7AB00BD5143 /* SearchTableViewCell.swift in Sources */,
 				FFC3B0071F36C11D00E9BF64 /* CreateTableViewCell.swift in Sources */,
+				FF9EDC161F43317E00B472D2 /* DateCollectionViewCell.swift in Sources */,
 				FFC3AFF41F359F6200E9BF64 /* JoinGroupViewController.swift in Sources */,
 				FFAFCD1D1F279CBC009D2692 /* AddGroupsViewController.swift in Sources */,
 				FFAFCD191F278DDC009D2692 /* ProfileViewController.swift in Sources */,
 				FFAFCCF41F267164009D2692 /* User.swift in Sources */,
 				FFAFCD201F27BA0F009D2692 /* CreateViewControllers.swift in Sources */,
+				FF9EDC111F432AB800B472D2 /* JoinerTableViewController.swift in Sources */,
 				FF115B301F2CF323008A1EB5 /* LoginViewController.swift in Sources */,
 				FFDABC831F2A5B6600C64D39 /* SearchViewViewController.swift in Sources */,
 				FFB799931F2904A8001B7C61 /* TableViewController.swift in Sources */,
@@ -534,7 +556,9 @@
 				FFC0911B1F34ECE400BD5143 /* EditViewController.swift in Sources */,
 				FFDABC861F2A7C9B00C64D39 /* SearchTableViewController.swift in Sources */,
 				FF115B2E1F2CF323008A1EB5 /* ForgotPasswordViewController.swift in Sources */,
+				FF9EDC171F43317E00B472D2 /* DateTimePicker.swift in Sources */,
 				FF115B371F2CF3C8008A1EB5 /* UserService.swift in Sources */,
+				FF9EDC181F43317E00B472D2 /* StepCollectionViewFlowLayout.swift in Sources */,
 				FF37C6071F2525CA0018940B /* AppDelegate.swift in Sources */,
 				FFDABC8C1F2B47B700C64D39 /* GroupLocationViewController.swift in Sources */,
 				FFD5BD431F2B96C600C3BEE7 /* DetailsViewController.swift in Sources */,

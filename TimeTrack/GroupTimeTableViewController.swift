@@ -36,10 +36,11 @@ class GroupTimeTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUp()
         //configureDatabase()
         ref = Database.database().reference().child("time info").child(Constants.idd.myStrings)
      //    self.arrayOfTime.append(TimesData(cell : 1, named : "", timed : time))
-        setUp()
+        
     }
     func setUp() {
         ref?.observe(DataEventType.value, with: {
