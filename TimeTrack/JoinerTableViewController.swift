@@ -29,6 +29,8 @@ class JoinerTableViewController: UITableViewController {
     var endHour: Int = 0
     var endMin: Int = 0
     var endAmpm: String = ""
+    var startTime: String = ""
+    var endTime: String = ""
     var arrayOfTime = [JoinTimesData](){
         didSet{
             timeTable.reloadData()
@@ -37,13 +39,20 @@ class JoinerTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
+        ref = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         setUp()
         currentTime()
+        print(startHour)
+
         //configureDatabase()
-        ref = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         //    self.arrayOfTime.append(TimesData(cell : 1, named : "", timed : time))
         // self.clearsSelectionOnViewWillAppear = false
         timeTable.reloadData()
+        startTime = "\(TimeConverter(startHour, mD: startAmpm)):\(startMin)"
+        endTime = "\(TimeConverter(endHour, mD: endAmpm)):\(endMin)"
+        print(startTime)
+        print(endTime)
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,46 +84,23 @@ class JoinerTableViewController: UITableViewController {
         
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
-        let seconds = calendar.component(.second, from: date)
-        print ("\(hour):\(minutes):\(seconds)")
+        //print ("\(hour):\(minutes)")
         
         let day = calendar.component(.day, from: date)
         let month = calendar.component(.month, from: date)
-        print("\(day).\(month)")
-    }
-    
-    func setUp() {
-        ref?.observe(DataEventType.value, with: {
-            (snapshot) in
-            let value = snapshot.value as! [String: AnyObject]
-            let timeInt = value["timeInt"] as? Int
-            // let checkin = value["check-in"] as? Array
-            self.timeInterval = timeInt!
-        })
-        timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-        print(Constants.idd.myStrings)
-            timeRef?.child("timeOpen").observe(DataEventType.value, with: {
-            (snapshot) in
-            let value = snapshot.value as! NSArray
-            let hour = value[0] as? Int
-            let min = value[1] as? Int
-            let Apm = value[2] as? String
-            self.startHour = hour!
-            self.startMin = min!
-            self.startAmpm = Apm!
-                })
-        timeRef?.child("timeCloses").observe(DataEventType.value, with: {
-            (snapshot) in
-            let value = snapshot.value as! NSArray
-            let hours = value[0] as? Int
-            let mins = value[1] as? Int
-            let Apms = value[2] as? String
-            self.endHour = hours!
-            self.endMin = mins!
-            self.endAmpm = Apms!
-        })
+       // print("\(day).\(month)")
     }
 
+    func TimeConverter(_ startTime: Int, mD: String) -> Int{
+        var newTime: Int = 1
+        if mD == "PM" {
+            newTime = startTime - 12
+        } else {
+        newTime = startTime
+        }
+        print(newTime)
+        return newTime
+    }
     
     // MARK: - Table view data source
 

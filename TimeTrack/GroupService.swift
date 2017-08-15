@@ -25,51 +25,46 @@ struct GroupService {
             }
         })
     }
+    static func show(forUID uid: String, completion: () -> Void) {
+        let ref = Database.database().reference().child("users").child(uid)
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let user = User(snapshot: snapshot) else {
+                return completion(nil)
+            }
+            
+            completion(user)
+        })
+    }
+    
+    func setUp() {
+        ref?.observe(DataEventType.value, with: {
+            (snapshot) in
+            let value = snapshot.value as! [String: AnyObject]
+            let timeInt = value["timeInt"] as? Int
+            // let checkin = value["check-in"] as? Array
+            self.timeInterval = timeInt!
+            self.timeRef?.child("timeOpen").observe(DataEventType.value, with: {
+                (snapshot) in
+                let value = snapshot.value as! NSArray
+                let hour = value[0] as? Int
+                let min = value[1] as? Int
+                let Apm = value[2] as? String
+                self.startHour = hour!
+                self.startMin = min!
+                self.startAmpm = Apm!
+                print(self.startHour)
+                self.timeRef?.child("timeCloses").observe(DataEventType.value, with: {
+                    (snapshot) in
+                    let value = snapshot.value as! NSArray
+                    let hours = value[0] as? Int
+                    let mins = value[1] as? Int
+                    let Apms = value[2] as? String
+                    self.endHour = hours!
+                    self.endMin = mins!
+                    self.endAmpm = Apms!
+                })
+            })
+        })
+    }
+
 }
-//    static func showJoinedGroupInfo(forUID keyed: String, currentUser: FIRUser, completion: @escaping (Joined?) -> Void) {
-//        let reff = Database.database().reference().child("personal groups info").child(currentUser).child(keyed)
-//        let membersRef = Database.database().reference().child("Members of Groups").child(keyed) // Get user uid
-//        
-//        membersRef.observeSingleEvent(of: .value, with: { (snapshot) in
-//            guard let group = Joined(snapshot: snapshot) else {
-//                return completion(nil)
-//            }
-//
-//            completion(user)
-//        })
-//    }
-//    
-//    membersRef.observe(DataEventType.value, with: { (snapshot) in
-//    let postDict = snapshot.value as? [String : AnyObject] ?? [:]
-//    self.ownerUID = postDict["Owner"] as! String
-//    print(self.ownerUID)
-//    })
-//    print(self.ownerUID)
-//    
-//    self.personalRef =  Database.database().reference().child("personal groups info").child(self.ownerUID).child(keyed!)// get info from other user
-//    self.personalRef?.observe(.childAdded, with: {
-//    (snapshot) in
-//    // Get user value
-//    let value = snapshot.value as! [String: AnyObject]
-//    let name = value["name"] as? String
-//    let location = value["location"] as? String
-//    let checkIns = value["numOfCheckIns"] as? Int
-//    let keyed = value["key"] as! String!
-//    let mem = value["numOfMembers"] as? Int
-//    let description = value["description"] as! String!
-//    let from = value["from"] as! String!
-//    let to = value["to"] as! String!
-//    let url = value["url"] as! String!
-//    let img = value["img"] as! String!
-//    reff.child("location").setValue(location)
-//    reff.child("from").setValue(from)
-//    reff.child("to").setValue(to)
-//    reff.child("name").setValue(name)
-//    reff.child("description").setValue(description)
-//    reff.child("img").setValue(img)
-//    reff.child("url").setValue(url)
-//    reff.child("key").setValue(keyed)
-//    reff.child("numOfMembers").setValue(mem)
-//    reff.child("numOfCheckIns").setValue(checkIns)
-//    reff.child("owner").setValue(self.ownerUID)
-//    })
