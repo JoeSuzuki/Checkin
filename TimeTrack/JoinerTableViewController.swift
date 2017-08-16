@@ -131,6 +131,10 @@ class JoinerTableViewController: UITableViewController {
     func colorChange(_ textLabel: UILabel) {
         if textLabel.text == "available" {
             textLabel.textColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
+        } else if textLabel.text == "closed"{
+            textLabel.textColor = UIColor(red: 255/255, green: 16/255, blue: 31/255, alpha: 1)
+        } else  if textLabel.text == "unavailable" {
+            textLabel.textColor = UIColor(red: 255/255, green: 16/255, blue: 31/255, alpha: 1)
         }
     }
     func timeIntervalChange(_ interval: Int) -> Array<Any>{
@@ -184,7 +188,7 @@ class JoinerTableViewController: UITableViewController {
             self.endHour = hours!
             self.endMin = mins!
             self.endAmpm = Apms!
-            self.arrayOfTime.append(JoinTimesData(cell : 1, named : "Closed", timed : "\(self.TimeConverter(self.endHour, mD: self.endAmpm)):\(self.endMin)", DM: self.endAmpm))
+            self.arrayOfTime.append(JoinTimesData(cell : 1, named : "closed", timed : "\(self.TimeConverter(self.endHour, mD: self.endAmpm)):\(self.endMin)", DM: self.endAmpm))
         })
     }
     
@@ -200,6 +204,7 @@ class JoinerTableViewController: UITableViewController {
             cell.nameLabel.text = arrayOfTime[indexPath.row].named
             cell.DM.text = arrayOfTime[indexPath.row].DM
             colorChange(cell.nameLabel)
+            
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("GroupTimeTableViewCell", owner: self, options: nil)?.first as! GroupTimeTableViewCell
