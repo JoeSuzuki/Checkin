@@ -40,6 +40,7 @@ class JoinerTableViewController: UITableViewController {
     var endAmpm: String = ""
     var startTime: String = ""
     var endTime: String = ""
+    var timeContainer = [String]()
     var arrayOfTime = [JoinTimesData](){
         didSet{
             timeTable.reloadData()
@@ -62,25 +63,47 @@ class JoinerTableViewController: UITableViewController {
     @IBOutlet weak var item: UINavigationItem!
     
     @IBAction func joinButton(_ sender: UIBarButtonItem) {
-        let min = Date()
-        let max = Date().addingTimeInterval(60 * 60 * 24 * 4)
-        let picker = DateTimePicker.show(minimumDate: min, maximumDate: max)
-        picker.highlightColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
-        picker.darkColor = UIColor.darkGray
-        picker.doneButtonTitle = "Check In!"
-        picker.todayButtonTitle = "Today"
-        picker.is12HourFormat = true
-        picker.dateFormat = "hh:mm aa dd/MM/YYYY"
-        //        picker.isDatePickerOnly = true
-        picker.completionHandler = { date in
-            let formatter = DateFormatter()
-            let alert = SCLAlertView()
-            _ = alert.showSuccess(kSuccessTitleddd, subTitle: kSubtitlddddd)
-            formatter.dateFormat = "hh:mm aa dd/MM/YYYY"
-            self.item.title = formatter.string(from: date)
-
+//        let min = Date()
+//        let max = Date().addingTimeInterval(60 * 60 * 24 * 4)
+//        let picker = DateTimePicker.show(minimumDate: min, maximumDate: max)
+//        picker.highlightColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
+//        picker.darkColor = UIColor.darkGray
+//        picker.doneButtonTitle = "Check In!"
+//        picker.todayButtonTitle = "Today"
+//        picker.is12HourFormat = true
+//        picker.dateFormat = "hh:mm aa dd/MM/YYYY"
+//        //        picker.isDatePickerOnly = true
+//        picker.completionHandler = { date in
+//            let formatter = DateFormatter()
+//            let alert = SCLAlertView()
+//            _ = alert.showSuccess(kSuccessTitleddd, subTitle: kSubtitlddddd)
+//            formatter.dateFormat = "hh:mm aa dd/MM/YYYY"
+//            self.item.title = formatter.string(from: date)
+//        }
+        timeSetup()
+    }
+    func timeSetup() {
+        timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
+        var nextStepHour = startHour
+        var nextStepMin = startMin
+        let timeIntHour = timeIntervalChange(timeInterval)[0]
+        var timeIntMin = timeIntervalChange(timeInterval)[1]
+        //        print(nextStepMin)
+        //        print(nextStepHour)
+        while nextStepHour < endHour || nextStepMin < endMin {
+            nextStepHour +=  timeIntHour as! Int
+            nextStepMin += timeIntMin as! Int
+            if nextStepMin >= 60 {
+                while nextStepMin >= 60 {
+                nextStepMin -= 60
+                nextStepHour += 1
+                }
+            }
+            print(nextStepMin)
+            print(nextStepHour)
+            timeContainer.append("\(nextStepHour):\(nextStepMin)")
+            timeRef?.child("check-in").updateChildValues(["base":timeContainer])
         }
-        
     }
     func currentTime() {
         let date = Date()
@@ -105,6 +128,32 @@ class JoinerTableViewController: UITableViewController {
         print(newTime)
         return newTime
     }
+    func colorChange(_ textLabel: UILabel) {
+        if textLabel.text == "available" {
+            textLabel.textColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
+        }
+    }
+    func timeIntervalChange(_ interval: Int) -> Array<Any>{
+        var hour = 0
+        var g = interval
+        if interval > 60 {
+            while g >= 60 {
+                g -= 60
+                hour += 1
+            }
+            return [hour , g]
+        } else if interval == 60 {
+                var newmin = 0
+                var newHour = 1
+                var newTime = [newHour, newmin]
+            return newTime
+        } else if interval < 60 {
+            return [0,interval]
+        } else {
+            return [0,interval]
+        }
+    }
+    
     func setUp() {
         ref?.observe(DataEventType.value, with: {
             (snapshot) in
@@ -124,7 +173,7 @@ class JoinerTableViewController: UITableViewController {
             self.startHour = hour!
             self.startMin = min!
             self.startAmpm = Apm!
-            self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "Open", timed : "\(self.TimeConverter(self.startHour, mD: self.startAmpm)):\(self.startMin)", DM: self.startAmpm), at:0)
+            self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "available", timed : "\(self.TimeConverter(self.startHour, mD: self.startAmpm)):\(self.startMin)", DM: self.startAmpm), at:0)
         })
         timeRef?.child("timeCloses").observe(DataEventType.value, with: {
             (snapshot) in
@@ -137,7 +186,6 @@ class JoinerTableViewController: UITableViewController {
             self.endAmpm = Apms!
             self.arrayOfTime.append(JoinTimesData(cell : 1, named : "Closed", timed : "\(self.TimeConverter(self.endHour, mD: self.endAmpm)):\(self.endMin)", DM: self.endAmpm))
         })
-        
     }
     
     // MARK: - Table view data source
@@ -151,12 +199,14 @@ class JoinerTableViewController: UITableViewController {
             cell.timeLabel.text = arrayOfTime[indexPath.row].timed
             cell.nameLabel.text = arrayOfTime[indexPath.row].named
             cell.DM.text = arrayOfTime[indexPath.row].DM
+            colorChange(cell.nameLabel)
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("GroupTimeTableViewCell", owner: self, options: nil)?.first as! GroupTimeTableViewCell
             cell.timeLabel.text = arrayOfTime[indexPath.row].timed
             cell.nameLabel.text = arrayOfTime[indexPath.row].named
             cell.DM.text = arrayOfTime[indexPath.row].DM
+            colorChange(cell.nameLabel)
             return cell
         }
     }

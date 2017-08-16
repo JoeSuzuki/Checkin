@@ -52,6 +52,7 @@ class TableViewController: UITableViewController {
     var personalRef: DatabaseReference?
     var ownerUID = ""
     var reff: DatabaseReference?
+    
     //    var imageName: String = ""
     //    var imaged = UIImage?.self
     override func viewDidLoad() {

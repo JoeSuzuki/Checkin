@@ -326,7 +326,6 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         timeRef.child("timeInt").setValue(Constants.timeInterval.myInts)
         timeRef.child("timeOpen").setValue(Constants.timeOpens.time)
         timeRef.child("timeCloses").setValue(Constants.timeCloses.time)
-        timeRef.child("check-in").setValue("")
         let initialViewController = UIStoryboard.initialViewController(for: .main)
         self.view.window?.rootViewController = initialViewController
         self.view.window?.makeKeyAndVisible()
