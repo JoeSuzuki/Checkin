@@ -116,26 +116,41 @@ class JoinerTableViewController: UITableViewController {
         var nextStepMin = startMin
         let timeIntHour = timeIntervalChange(timeInterval)[0]
         let timeIntMin = timeIntervalChange(timeInterval)[1]
+        let minutesAdded = timeIntMin as! Int
+        let hourAdded = timeIntHour as! Int
+
         while nextStepHour < endHour || nextStepMin < endMin {
-            nextStepHour +=  timeIntHour as! Int
-            nextStepMin += timeIntMin as! Int
-            let minutesAdded = timeIntMin as! Int
-            if nextStepMin >= 60 {
-                while nextStepMin >= 60 {
-                    if nextStepHour + 1 >= endHour {
-                        if nextStepMin + minutesAdded <= endMin {
-                            break
-                        }
-                    } else {
-                nextStepMin -= 60
-                nextStepHour += 1
-                    }
+            if nextStepHour +  hourAdded == endHour {
+                if nextStepMin + minutesAdded < endMin {
+                    nextStepHour +=  timeIntHour as! Int
+                    nextStepMin += timeIntMin as! Int
+                } else {
+                    break
                 }
             }
+            if nextStepMin >= 60 {
+                while nextStepMin >= 60 {
+                    nextStepMin -= 60
+                    nextStepHour += 1
+                }
+            }
+            if nextStepHour + hourAdded < endHour || nextStepMin + minutesAdded < endMin {
+            nextStepHour +=  timeIntHour as! Int
+            nextStepMin += timeIntMin as! Int
+                if nextStepMin >= 60 {
+                    while nextStepMin >= 60 {
+                        nextStepMin -= 60
+                        nextStepHour += 1
+                    }
+                }
+            print("fffdf")
             print(nextStepMin)
             print(nextStepHour)
             timeContainer.append("\(nextStepHour):\(nextStepMin)")
             timeRef?.child("check-in").updateChildValues(["base":timeContainer])
+            } else {
+            break
+            }
         }
     }
     
