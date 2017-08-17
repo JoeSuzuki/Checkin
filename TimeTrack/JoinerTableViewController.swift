@@ -40,6 +40,7 @@ class JoinerTableViewController: UITableViewController {
     var endAmpm: String = ""
     var startTime: String = ""
     var endTime: String = ""
+    var timeContainer = [String]()
     var hourContainer = [Int]()
     var minContainer = [Int]()
     var arrayOfTime = [JoinTimesData](){
@@ -47,6 +48,8 @@ class JoinerTableViewController: UITableViewController {
             timeTable.reloadData()
         }
     }
+    var newItems = [DataSnapshot]()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,49 +58,8 @@ class JoinerTableViewController: UITableViewController {
         ref = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         currentTime()
         setUp{ success in
-            if success{
-                timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-                var nextStepHour = startHour
-                var nextStepMin = startMin
-                let timeIntHour = timeIntervalChange(timeInterval)[0]
-                let timeIntMin = timeIntervalChange(timeInterval)[1]
-                let minutesAdded = timeIntMin as! Int
-                let hourAdded = timeIntHour as! Int
-                
-                while nextStepHour < endHour || nextStepMin < endMin {
-                    if nextStepHour +  hourAdded == endHour {
-                        if nextStepMin + minutesAdded < endMin {
-                            nextStepHour +=  timeIntHour as! Int
-                            nextStepMin += timeIntMin as! Int
-                        } else {
-                            break
-                        }
-                    }
-                    if nextStepMin >= 60 {
-                        while nextStepMin >= 60 {
-                            nextStepMin -= 60
-                            nextStepHour += 1
-                        }
-                    }
-                    if nextStepHour + hourAdded < endHour || nextStepMin + minutesAdded < endMin {
-                        nextStepHour +=  timeIntHour as! Int
-                        nextStepMin += timeIntMin as! Int
-                        if nextStepMin >= 60 {
-                            while nextStepMin >= 60 {
-                                nextStepMin -= 60
-                                nextStepHour += 1
-                            }
-                        }
-                        print(nextStepMin)
-                        print(nextStepHour)
-                        hourContainer.append(nextStepHour)
-                        minContainer.append(nextStepMin)
-                        timeRef?.updateChildValues(["Hour":hourContainer])
-                        timeRef?.updateChildValues(["Minute":minContainer])
-                    } else {
-                        break
-                    }
-                }
+            if success {
+                    timeSetup()
             }
             else{
                 print("broke")
@@ -132,6 +94,7 @@ class JoinerTableViewController: UITableViewController {
 //            self.item.title = formatter.string(from: date)
 //        }
         timeSetup()
+       // basicSetView()
     }
     func timeSetup(){
         print("hello")
@@ -169,15 +132,62 @@ class JoinerTableViewController: UITableViewController {
                 }
             print(nextStepMin)
             print(nextStepHour)
-            hourContainer.append(nextStepHour)
-            minContainer.append(nextStepMin)
-            timeRef?.child("Hour").updateChildValues(["Hour":hourContainer])
-            timeRef?.child("Minute").updateChildValues(["Minute":minContainer])
+                timeRef?.child("check-in").updateChildValues([timeCreator(nextStepHour, nextStepMin): ""])
+//            hourContainer.append(nextStepHour)
+//            minContainer.append(nextStepMin)
+//            timeRef?.updateChildValues(["Hour": hourContainer])
+//            timeRef?.updateChildValues(["Min": minContainer])
             } else {
             break
             }
         }
     }
+    func timeCreator(_ hour: Int, _ min: Int) -> String {
+        var newHour = hour
+        var Dm = ""
+        var stringHour = ""
+        var stringMin = ""
+        if newHour > 12 {
+            newHour -= 12
+            Dm = "PM"
+            if newHour < 10{
+                stringHour = "0\(newHour)"
+            } else {
+                stringHour = "\(newHour)"
+            }
+            if min < 10 {
+                stringMin = "\(min)0 "
+            }else {
+                stringMin = "\(min) "
+            }
+        } else {
+            Dm = "AM"
+            if newHour < 10{
+                stringHour = "0\(newHour)"
+            } else {
+                stringHour = "\(newHour)"
+            }
+            if min < 10 {
+                stringMin = "\(min)0 "
+            }else {
+                stringMin = "\(min) "
+            }
+        }
+        return stringHour + ":" + stringMin + Dm
+    }
+    
+//    func basicSetView() {
+//        timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
+//        timeRef?.child("Hour").observe(DataEventType.value, with: {
+//            (snapshot) in
+//            let value = snapshot.value as! [String:Int]
+//            for item in value {
+//                self.newItems.append(item as! DataSnapshot)
+//                self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "available", timed : "\(self.TimeConverter(self.startHour, mD: self.startAmpm)):\(self.startMin)", DM: self.startAmpm), at:0)
+//            }
+//    })
+//        print(newItems)
+//    }
     
     func currentTime() {
         let date = Date()
