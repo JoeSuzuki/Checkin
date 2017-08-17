@@ -40,7 +40,8 @@ class JoinerTableViewController: UITableViewController {
     var endAmpm: String = ""
     var startTime: String = ""
     var endTime: String = ""
-    var timeContainer = [String]()
+    var hourContainer = [Int]()
+    var minContainer = [Int]()
     var arrayOfTime = [JoinTimesData](){
         didSet{
             timeTable.reloadData()
@@ -55,24 +56,47 @@ class JoinerTableViewController: UITableViewController {
         currentTime()
         setUp{ success in
             if success{
-                self.timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-                var nextStepHour = self.startHour
-                var nextStepMin = self.startMin
-                let timeIntHour = self.timeIntervalChange(self.timeInterval)[0]
-                let timeIntMin = self.timeIntervalChange(self.timeInterval)[1]
-                while nextStepHour < self.endHour || nextStepMin < self.endMin {
-                    nextStepHour +=  timeIntHour as! Int
-                    nextStepMin += timeIntMin as! Int
+                timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
+                var nextStepHour = startHour
+                var nextStepMin = startMin
+                let timeIntHour = timeIntervalChange(timeInterval)[0]
+                let timeIntMin = timeIntervalChange(timeInterval)[1]
+                let minutesAdded = timeIntMin as! Int
+                let hourAdded = timeIntHour as! Int
+                
+                while nextStepHour < endHour || nextStepMin < endMin {
+                    if nextStepHour +  hourAdded == endHour {
+                        if nextStepMin + minutesAdded < endMin {
+                            nextStepHour +=  timeIntHour as! Int
+                            nextStepMin += timeIntMin as! Int
+                        } else {
+                            break
+                        }
+                    }
                     if nextStepMin >= 60 {
                         while nextStepMin >= 60 {
                             nextStepMin -= 60
                             nextStepHour += 1
                         }
                     }
-                    print(nextStepMin)
-                    print(nextStepHour)
-                    self.timeContainer.append("\(nextStepHour):\(nextStepMin)")
-                    self.timeRef?.child("check-in").updateChildValues(["base":self.timeContainer])
+                    if nextStepHour + hourAdded < endHour || nextStepMin + minutesAdded < endMin {
+                        nextStepHour +=  timeIntHour as! Int
+                        nextStepMin += timeIntMin as! Int
+                        if nextStepMin >= 60 {
+                            while nextStepMin >= 60 {
+                                nextStepMin -= 60
+                                nextStepHour += 1
+                            }
+                        }
+                        print(nextStepMin)
+                        print(nextStepHour)
+                        hourContainer.append(nextStepHour)
+                        minContainer.append(nextStepMin)
+                        timeRef?.updateChildValues(["Hour":hourContainer])
+                        timeRef?.updateChildValues(["Minute":minContainer])
+                    } else {
+                        break
+                    }
                 }
             }
             else{
@@ -143,11 +167,12 @@ class JoinerTableViewController: UITableViewController {
                         nextStepHour += 1
                     }
                 }
-            print("fffdf")
             print(nextStepMin)
             print(nextStepHour)
-            timeContainer.append("\(nextStepHour):\(nextStepMin)")
-            timeRef?.child("check-in").updateChildValues(["base":timeContainer])
+            hourContainer.append(nextStepHour)
+            minContainer.append(nextStepMin)
+            timeRef?.child("Hour").updateChildValues(["Hour":hourContainer])
+            timeRef?.child("Minute").updateChildValues(["Minute":minContainer])
             } else {
             break
             }
