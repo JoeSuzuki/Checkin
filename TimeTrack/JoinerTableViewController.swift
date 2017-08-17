@@ -52,10 +52,37 @@ class JoinerTableViewController: UITableViewController {
         timeTable.reloadData()
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         ref = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-        setUp()
         currentTime()
+        setUp{ success in
+            if success{
+                self.timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
+                var nextStepHour = self.startHour
+                var nextStepMin = self.startMin
+                let timeIntHour = self.timeIntervalChange(self.timeInterval)[0]
+                let timeIntMin = self.timeIntervalChange(self.timeInterval)[1]
+                while nextStepHour < self.endHour || nextStepMin < self.endMin {
+                    nextStepHour +=  timeIntHour as! Int
+                    nextStepMin += timeIntMin as! Int
+                    if nextStepMin >= 60 {
+                        while nextStepMin >= 60 {
+                            nextStepMin -= 60
+                            nextStepHour += 1
+                        }
+                    }
+                    print(nextStepMin)
+                    print(nextStepHour)
+                    self.timeContainer.append("\(nextStepHour):\(nextStepMin)")
+                    self.timeRef?.child("check-in").updateChildValues(["base":self.timeContainer])
+                }
+            }
+            else{
+                print("broke")
+            }
+        }
     }
-
+//    override func viewDidAppear(_ animated: Bool) {
+//        
+//    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -82,21 +109,27 @@ class JoinerTableViewController: UITableViewController {
 //        }
         timeSetup()
     }
-    func timeSetup() {
+    func timeSetup(){
+        print("hello")
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         var nextStepHour = startHour
         var nextStepMin = startMin
         let timeIntHour = timeIntervalChange(timeInterval)[0]
-        var timeIntMin = timeIntervalChange(timeInterval)[1]
-        //        print(nextStepMin)
-        //        print(nextStepHour)
+        let timeIntMin = timeIntervalChange(timeInterval)[1]
         while nextStepHour < endHour || nextStepMin < endMin {
             nextStepHour +=  timeIntHour as! Int
             nextStepMin += timeIntMin as! Int
+            let minutesAdded = timeIntMin as! Int
             if nextStepMin >= 60 {
                 while nextStepMin >= 60 {
+                    if nextStepHour + 1 >= endHour {
+                        if nextStepMin + minutesAdded <= endMin {
+                            break
+                        }
+                    } else {
                 nextStepMin -= 60
                 nextStepHour += 1
+                    }
                 }
             }
             print(nextStepMin)
@@ -105,6 +138,7 @@ class JoinerTableViewController: UITableViewController {
             timeRef?.child("check-in").updateChildValues(["base":timeContainer])
         }
     }
+    
     func currentTime() {
         let date = Date()
         let calendar = Calendar.current
@@ -158,7 +192,7 @@ class JoinerTableViewController: UITableViewController {
         }
     }
     
-    func setUp() {
+    func setUp(completion: (Bool) -> ()){
         ref?.observe(DataEventType.value, with: {
             (snapshot) in
             let value = snapshot.value as! [String: AnyObject]
@@ -189,7 +223,9 @@ class JoinerTableViewController: UITableViewController {
             self.endMin = mins!
             self.endAmpm = Apms!
             self.arrayOfTime.append(JoinTimesData(cell : 1, named : "closed", timed : "\(self.TimeConverter(self.endHour, mD: self.endAmpm)):\(self.endMin)", DM: self.endAmpm))
+//            completion(true)
         })
+        completion(true)
     }
     
     // MARK: - Table view data source
