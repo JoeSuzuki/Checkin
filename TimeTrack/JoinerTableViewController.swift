@@ -44,6 +44,8 @@ class JoinerTableViewController: UITableViewController{
     var timeContainer = [String]()
     var hourContainer = [Int]()
     var minContainer = [Int]()
+    var keysArray = [String]()
+//    var valuesArray = [Dictionary]()
     var arrayOfTime = [JoinTimesData](){
         didSet{
             timeTable.reloadData()
@@ -204,19 +206,7 @@ class JoinerTableViewController: UITableViewController{
 
     func organize() {
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-        timeRef?.child("AM").observe(DataEventType.value, with: {
-            (snapshot) in
-            for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                let key = snap.key
-                let value = snap.value
-                if value as! String == "" {
-                    self.arrayOfTime.insert(JoinTimesData(cell : 1, named :"available" , timed : key as! String), at:0)
-                } else {
-                    self.arrayOfTime.insert(JoinTimesData(cell : 1, named : value as! String, timed : key as! String), at:0)
-                }
-            }
-        })
+
         timeRef?.child("PM").observe(DataEventType.value, with: {
             (snapshot) in
             for child in snapshot.children {
@@ -224,22 +214,26 @@ class JoinerTableViewController: UITableViewController{
                 let key = snap.key
                 let value = snap.value
                 if value as! String == "" {
-                    self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "available", timed : key as! String), at:0)
+                    self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "available", timed : key as! String), at:self.arrayOfTime.count)
+                } else {
+                    self.arrayOfTime.insert(JoinTimesData(cell : 1, named : value as! String, timed : key as! String), at:self.arrayOfTime.count)
+                }
+            }
+        })
+        timeRef?.child("AM").observe(DataEventType.value, with: {
+            (snapshot) in
+            for child in snapshot.children.reversed() {
+                let snap = child as! DataSnapshot
+                let key = snap.key
+                let value = snap.value
+                //                keysArray[String]()
+                //                valuesArray[Dictionary]()/////
+                if value as! String == "" {
+                    self.arrayOfTime.insert(JoinTimesData(cell : 1, named :"available" , timed : key as! String), at:0)
                 } else {
                     self.arrayOfTime.insert(JoinTimesData(cell : 1, named : value as! String, timed : key as! String), at:0)
                 }
             }
-        })
-        timeRef?.child("timeCloses").observe(DataEventType.value, with: {
-            (snapshot) in
-            let value = snapshot.value as! NSArray
-            let hours = value[0] as? Int
-            let mins = value[1] as? Int
-            let Apms = value[2] as? String
-            self.endHour = hours!
-            self.endMin = mins!
-            self.endAmpm = Apms!
-            self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "closed", timed : "\(self.timeCreator(self.endHour, self.endMin))"), at:0)
         })
         timeRef?.child("timeOpen").observe(DataEventType.value, with: {
             (snapshot) in
@@ -250,8 +244,20 @@ class JoinerTableViewController: UITableViewController{
             self.startHour = hour!
             self.startMin = min!
             self.startAmpm = Apm!
-            self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "available", timed : "\(self.timeCreator(self.startHour, self.startMin))"), at:self.arrayOfTime.count)
+            self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "available", timed : "\(self.timeCreator(self.startHour, self.startMin))"), at:0)
         })
+        timeRef?.child("timeCloses").observe(DataEventType.value, with: {
+            (snapshot) in
+            let value = snapshot.value as! NSArray
+            let hours = value[0] as? Int
+            let mins = value[1] as? Int
+            let Apms = value[2] as? String
+            self.endHour = hours!
+            self.endMin = mins!
+            self.endAmpm = Apms!
+            self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "closed", timed : "\(self.timeCreator(self.endHour, self.endMin))"), at:self.arrayOfTime.count)
+        })
+
     }
 
     func colorChange(_ textLabel: UILabel) {
@@ -372,9 +378,12 @@ class JoinerTableViewController: UITableViewController{
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! GroupTimeTableViewCell
+
         if cell.nameLabel.text == "available" {
             let alert = SCLAlertView()
             _ = alert.addButton("Join") {
+                var name = self.firstButton(cell.nameLabel)
+                var indexs = self.number(cell.timeLabel)
                 
             }
             _ = alert.showInfo("Check-In", subTitle: "Are you sure you want to check in to the time you selected?")
