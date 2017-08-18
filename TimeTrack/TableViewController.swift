@@ -117,6 +117,9 @@ class TableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         groupTableView?.reloadData()
+        if let index = self.groupTableView.indexPathForSelectedRow{
+            self.groupTableView.deselectRow(at: index, animated: true)
+        }
         let subViewOfSegment: UIView = segmentedControl.subviews[0] as UIView
         subViewOfSegment.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
         let subViewOfSegments: UIView = segmentedControl.subviews[1] as UIView
