@@ -57,16 +57,6 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     let storageRef = Storage.storage().reference()
     let databaseRef = Database.database().reference()
     var refKey: String = ""
-    var timeRef: DatabaseReference?
-    var timeInterval = 1
-    var startHour: Int = 0
-    var startMin: Int = 0
-    var startAmpm: String = ""
-    var endHour: Int = 0
-    var endMin: Int = 0
-    var endAmpm: String = ""
-    var startTimed: String = ""
-    var endTimed: String = ""
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        // addButton.isEnabled = false
@@ -84,6 +74,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard)))
         idLabel.text = refKey
         checkField()
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -274,158 +265,8 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
             addButton.isEnabled = true
         }
     }
-    func timeSetup(){
-        print("hello")
-        timeRef = Database.database().reference().child("time info").child(refKey)
-        var nextStepHour = startHour
-        var nextStepMin = startMin
-        let timeIntHour = timeIntervalChange(timeInterval)[0]
-        let timeIntMin = timeIntervalChange(timeInterval)[1]
-        let minutesAdded = timeIntMin as! Int
-        let hourAdded = timeIntHour as! Int
-        
-        while nextStepHour < endHour || nextStepMin < endMin {
-            if nextStepHour +  hourAdded == endHour {
-                if nextStepMin + minutesAdded < endMin {
-                    nextStepHour +=  timeIntHour as! Int
-                    nextStepMin += timeIntMin as! Int
-                } else {
-                    break
-                }
-            }
-            if nextStepMin >= 60 {
-                while nextStepMin >= 60 {
-                    nextStepMin -= 60
-                    nextStepHour += 1
-                }
-            }
-            if nextStepHour + hourAdded < endHour || nextStepMin + minutesAdded < endMin {
-                nextStepHour +=  timeIntHour as! Int
-                nextStepMin += timeIntMin as! Int
-                if nextStepMin >= 60 {
-                    while nextStepMin >= 60 {
-                        nextStepMin -= 60
-                        nextStepHour += 1
-                    }
-                }
-                print(nextStepMin)
-                print(nextStepHour)
-                timeRef?.child("check-in").updateChildValues([timeCreator(nextStepHour, nextStepMin): ""])
-                //hourContainer.append(nextStepHour)
-                //minContainer.append(nextStepMin)
-                //time.append([(nextStepHour, nextStepMin, DmCreator(nextStepHour))])
-                //            timeRef?.updateChildValues(["Hour": hourContainer])
-                //            timeRef?.updateChildValues(["Min": minContainer])
-            } else {
-                break
-            }
-        }
-    }
-    func timeCreator(_ hour: Int, _ min: Int) -> String {
-        var newHour = hour
-        var Dm = ""
-        var stringHour = ""
-        var stringMin = ""
-        if newHour > 12 {
-            newHour -= 12
-            Dm = "PM"
-            if newHour < 10{
-                stringHour = "0\(newHour)"
-            } else {
-                stringHour = "\(newHour)"
-            }
-            if min < 10 {
-                stringMin = "\(min)0 "
-            }else {
-                stringMin = "\(min) "
-            }
-        } else {
-            Dm = "AM"
-            if newHour < 10{
-                stringHour = "0\(newHour)"
-            } else {
-                stringHour = "\(newHour)"
-            }
-            if min < 10 {
-                stringMin = "\(min)0 "
-            }else {
-                stringMin = "\(min) "
-            }
-        }
-        return stringHour + ":" + stringMin + Dm
-    }
-    func TimeConverter(_ startTime: Int, mD: String) -> Int{
-        var newTime: Int = 1
-        if mD == "PM" {
-            newTime = startTime - 12
-        } else {
-            newTime = startTime
-        }
-        print(newTime)
-        return newTime
-    }
-    func timeIntervalChange(_ interval: Int) -> Array<Any>{
-        var hour = 0
-        var g = interval
-        if interval > 60 {
-            while g >= 60 {
-                g -= 60
-                hour += 1
-            }
-            return [hour , g]
-        } else if interval == 60 {
-            var newmin = 0
-            var newHour = 1
-            var newTime = [newHour, newmin]
-            return newTime
-        } else if interval < 60 {
-            return [0,interval]
-        } else {
-            return [0,interval]
-        }
-    }
-    func setUp(completion: (Bool) -> ()){
-        timeRef = Database.database().reference().child("time info").child(refKey)
-        timeRef?.observe(DataEventType.value, with: {
-            (snapshot) in
-            let value = snapshot.value as! [String: AnyObject]
-            let timeInt = value["timeInt"] as? Int
-            // let checkin = value["check-in"] as? Array
-            self.timeInterval = timeInt!
-        })
-        timeRef?.child("timeOpen").observe(DataEventType.value, with: {
-            (snapshot) in
-            let value = snapshot.value as! NSArray
-            let hour = value[0] as? Int
-            let min = value[1] as? Int
-            let Apm = value[2] as? String
-            self.startHour = hour!
-            self.startMin = min!
-            self.startAmpm = Apm!
-        })
-        timeRef?.child("timeCloses").observe(DataEventType.value, with: {
-            (snapshot) in
-            let value = snapshot.value as! NSArray
-            let hours = value[0] as? Int
-            let mins = value[1] as? Int
-            let Apms = value[2] as? String
-            self.endHour = hours!
-            self.endMin = mins!
-            self.endAmpm = Apms!
-        })
-        completion(true)
-    }
 
     @IBAction func addButton(_ sender: Any) {
-        setUp{ success in
-            if success {
-                timeSetup()
-            }
-            else{
-                print("broke")
-            }
-        }
-        timeSetup()
         Constants.location.myStrings = locationTextField.text!
         Constants.name.myStrings = groupNameTextField.text as
             Any as! String

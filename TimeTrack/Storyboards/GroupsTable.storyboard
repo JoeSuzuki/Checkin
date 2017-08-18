@@ -792,7 +792,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="MGA-dP-HKE">
-                                                    <rect key="frame" x="56" y="3" width="262" height="38"/>
+                                                    <rect key="frame" x="56" y="3" width="262" height="38.5"/>
                                                     <connections>
                                                         <action selector="timeIntSilder:" destination="KYx-Yy-cu8" eventType="valueChanged" id="mdf-34-Pnu"/>
                                                     </connections>
@@ -954,11 +954,15 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="y1A-qm-cLK">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="addButton:" destination="KYx-Yy-cu8" id="b8G-EH-7HX"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="740"/>
                     <connections>
+                        <outlet property="addButton" destination="y1A-qm-cLK" id="YqV-Jp-sJN"/>
                         <outlet property="am" destination="YT3-aJ-N76" id="vPj-e0-Uiz"/>
                         <outlet property="amLabel" destination="fGn-5r-F56" id="x3X-K7-oZQ"/>
                         <outlet property="amLabel2" destination="In8-Sr-fae" id="q2d-38-mmD"/>
