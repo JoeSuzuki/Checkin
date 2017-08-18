@@ -43,12 +43,14 @@ class JoinerTableViewController: UITableViewController {
     var timeContainer = [String]()
     var hourContainer = [Int]()
     var minContainer = [Int]()
+    var time = [(Int, Int, String)]()
     var arrayOfTime = [JoinTimesData](){
         didSet{
             timeTable.reloadData()
         }
     }
-    var newItems = [DataSnapshot]()
+    var timer = [String]()
+    var user = [String]()
 
 
     override func viewDidLoad() {
@@ -94,7 +96,7 @@ class JoinerTableViewController: UITableViewController {
 //            self.item.title = formatter.string(from: date)
 //        }
         timeSetup()
-       // basicSetView()
+      //  getInfo()
     }
     func timeSetup(){
         print("hello")
@@ -132,10 +134,11 @@ class JoinerTableViewController: UITableViewController {
                 }
             print(nextStepMin)
             print(nextStepHour)
-                timeRef?.child("check-in").updateChildValues([timeCreator(nextStepHour, nextStepMin): ""])
-//            hourContainer.append(nextStepHour)
-//            minContainer.append(nextStepMin)
-//            timeRef?.updateChildValues(["Hour": hourContainer])
+            timeRef?.child("check-in").updateChildValues([timeCreator(nextStepHour, nextStepMin): ""])
+            //hourContainer.append(nextStepHour)
+            //minContainer.append(nextStepMin)
+            //time.append([(nextStepHour, nextStepMin, DmCreator(nextStepHour))])
+                //            timeRef?.updateChildValues(["Hour": hourContainer])
 //            timeRef?.updateChildValues(["Min": minContainer])
             } else {
             break
@@ -175,19 +178,28 @@ class JoinerTableViewController: UITableViewController {
         }
         return stringHour + ":" + stringMin + Dm
     }
+    func DmCreator(_ hour: Int) -> String {
+        var newHour = hour
+        var Dm = ""
+        if newHour > 12 {
+            Dm = "PM"
+        } else {
+            Dm = "AM"
+        }
+        return Dm
+    }
     
-//    func basicSetView() {
-//        timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-//        timeRef?.child("Hour").observe(DataEventType.value, with: {
-//            (snapshot) in
-//            let value = snapshot.value as! [String:Int]
-//            for item in value {
-//                self.newItems.append(item as! DataSnapshot)
-//                self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "available", timed : "\(self.TimeConverter(self.startHour, mD: self.startAmpm)):\(self.startMin)", DM: self.startAmpm), at:0)
-//            }
-//    })
-//        print(newItems)
-//    }
+    func getInfo() {
+        timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
+        timeRef?.child("check-in").observe(DataEventType.value, with: {
+            (snapshot) in
+            let value = snapshot.value as! [String:String]
+            self.timer.append(snapshot.key as! String)
+            self.user.append(snapshot.value as! String)
+        })
+        
+    }
+    
     
     func currentTime() {
         let date = Date()
@@ -241,17 +253,15 @@ class JoinerTableViewController: UITableViewController {
             return [0,interval]
         }
     }
-    
-    func setUp(completion: (Bool) -> ()){
-        ref?.observe(DataEventType.value, with: {
+       func setUp(completion: (Bool) -> ()){
+        timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
+        timeRef?.observe(DataEventType.value, with: {
             (snapshot) in
             let value = snapshot.value as! [String: AnyObject]
             let timeInt = value["timeInt"] as? Int
             // let checkin = value["check-in"] as? Array
             self.timeInterval = timeInt!
         })
-        timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-        print(Constants.idd.myStrings)
         timeRef?.child("timeOpen").observe(DataEventType.value, with: {
             (snapshot) in
             let value = snapshot.value as! NSArray
