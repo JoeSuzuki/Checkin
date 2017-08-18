@@ -45,7 +45,7 @@ class JoinerTableViewController: UITableViewController{
     var hourContainer = [Int]()
     var minContainer = [Int]()
     var keysArray = [String]()
-//    var valuesArray = [Dictionary]()
+    var valuesArray = [String]()
     var arrayOfTime = [JoinTimesData](){
         didSet{
             timeTable.reloadData()
@@ -69,8 +69,6 @@ class JoinerTableViewController: UITableViewController{
                 timeSetup()
             }
         }
-
-        
     }
 //    override func viewDidAppear(_ animated: Bool) {
 //        
@@ -80,25 +78,9 @@ class JoinerTableViewController: UITableViewController{
     }
 
     @IBOutlet weak var item: UINavigationItem!
-    
     @IBAction func joinButton(_ sender: UIBarButtonItem) {
-//        let min = Date()
-//        let max = Date().addingTimeInterval(60 * 60 * 24 * 4)
-//        let picker = DateTimePicker.show(minimumDate: min, maximumDate: max)
-//        picker.highlightColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
-//        picker.darkColor = UIColor.darkGray
-//        picker.doneButtonTitle = "Check In!"
-//        picker.todayButtonTitle = "Today"
-//        picker.is12HourFormat = true
-//        picker.dateFormat = "hh:mm aa dd/MM/YYYY"
-//        //        picker.isDatePickerOnly = true
-//        picker.completionHandler = { date in
-//            let formatter = DateFormatter()
-//            let alert = SCLAlertView()
-//            _ = alert.showSuccess(kSuccessTitleddd, subTitle: kSubtitlddddd)
-//            formatter.dateFormat = "hh:mm aa dd/MM/YYYY"
-//            self.item.title = formatter.string(from: date)
-//        }
+
+            timeSetup()
     }
     func timeSetup(){
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
@@ -133,21 +115,12 @@ class JoinerTableViewController: UITableViewController{
                         nextStepHour += 1
                     }
                 }
-            print(nextStepMin)
-            print(nextStepHour)
             timeDevolve(timeCreator(nextStepHour, nextStepMin))
-                //timeRef?.child("check-in").updateChildValues([timeCreator(nextStepHour, nextStepMin): ""])
-//            hourContainer.append(nextStepHour)
-//            minContainer.append(nextStepMin)
-//            timeRef?.updateChildValues(["Hour": hourContainer])
-//            timeRef?.updateChildValues(["Min": minContainer])
-        } else {
-            break
             }
         }
         organize()
     }
-    func timeDevolve(_ stringTime: String) {
+    func timeDevolve(_ stringTime: String) {// writes to firebase AM and PM times per interval
         let seperatedTimeList = stringTime.components(separatedBy: " ")
         let stringDm = seperatedTimeList[1]
         let beggining = seperatedTimeList[0]
@@ -157,7 +130,7 @@ class JoinerTableViewController: UITableViewController{
             timeRef?.child("PM").updateChildValues([stringTime: ""])
         }
     }
-    func timeCreator(_ hour: Int, _ min: Int) -> String {
+    func timeCreator(_ hour: Int, _ min: Int) -> String { // takes ints and outputs a time friendly string
         var newHour = hour
         var Dm = ""
         var stringHour = ""
@@ -206,19 +179,16 @@ class JoinerTableViewController: UITableViewController{
 
     func organize() {
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-
-        timeRef?.child("PM").observe(DataEventType.value, with: {
+        timeRef?.child("AM").observe(DataEventType.value, with: {
             (snapshot) in
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
                 let key = snap.key
                 let value = snap.value
-                if value as! String == "" {
-                    self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "available", timed : key as! String), at:self.arrayOfTime.count)
-                } else {
-                    self.arrayOfTime.insert(JoinTimesData(cell : 1, named : value as! String, timed : key as! String), at:self.arrayOfTime.count)
-                }
-            }
+                self.keysArray.append(key)
+                self.valuesArray.append(value as! String)
+                print(self.keysArray)
+                print(self.valuesArray)}
         })
         timeRef?.child("AM").observe(DataEventType.value, with: {
             (snapshot) in
@@ -226,12 +196,28 @@ class JoinerTableViewController: UITableViewController{
                 let snap = child as! DataSnapshot
                 let key = snap.key
                 let value = snap.value
-                //                keysArray[String]()
-                //                valuesArray[Dictionary]()/////
                 if value as! String == "" {
                     self.arrayOfTime.insert(JoinTimesData(cell : 1, named :"available" , timed : key as! String), at:0)
                 } else {
                     self.arrayOfTime.insert(JoinTimesData(cell : 1, named : value as! String, timed : key as! String), at:0)
+                }
+            }
+        })
+        
+        timeRef?.child("PM").observe(DataEventType.value, with: {
+            (snapshot) in
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let key = snap.key
+                let value = snap.value
+                self.keysArray.append(key)
+                self.valuesArray.append(value as! String)
+                print(self.keysArray)
+                print(self.valuesArray)
+                if value as! String == "" {
+                    self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "available", timed : key as! String), at:self.arrayOfTime.count)
+                } else {
+                    self.arrayOfTime.insert(JoinTimesData(cell : 1, named : value as! String, timed : key as! String), at:self.arrayOfTime.count)
                 }
             }
         })
@@ -257,7 +243,6 @@ class JoinerTableViewController: UITableViewController{
             self.endAmpm = Apms!
             self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "closed", timed : "\(self.timeCreator(self.endHour, self.endMin))"), at:self.arrayOfTime.count)
         })
-
     }
 
     func colorChange(_ textLabel: UILabel) {
