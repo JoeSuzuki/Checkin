@@ -324,7 +324,7 @@ class JoinerTableViewController: UITableViewController{
         userPath = Database.database().reference().child("users").child(userID!)
             userPath?.observe(DataEventType.value, with: {
             (snapshot) in
-            let value = snapshot.value as! [String: AnyObject]
+            let value = snapshot.value as! String
             let first = value["firstName"] as? String
             let last = value["lastName"] as? String
             self.fullName = first! + " " + last!
