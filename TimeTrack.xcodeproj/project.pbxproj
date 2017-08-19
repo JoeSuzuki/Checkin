@@ -20,6 +20,8 @@
 		FF115B3D1F2F66D7008A1EB5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF115B3C1F2F66D7008A1EB5 /* MapKit.framework */; };
 		FF37C6071F2525CA0018940B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF37C6061F2525C90018940B /* AppDelegate.swift */; };
 		FF37C60E1F2525CA0018940B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF37C60D1F2525CA0018940B /* Assets.xcassets */; };
+		FF3827B71F47D6FD009A6AA7 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3827B61F47D6FD009A6AA7 /* StorageService.swift */; };
+		FF3827BB1F47D95D009A6AA7 /* MGPhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3827BA1F47D95D009A6AA7 /* MGPhotoHelper.swift */; };
 		FF9EDC0F1F41F16700B472D2 /* Joined.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC0E1F41F16700B472D2 /* Joined.swift */; };
 		FF9EDC111F432AB800B472D2 /* JoinerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */; };
 		FF9EDC161F43317E00B472D2 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC131F43317E00B472D2 /* DateCollectionViewCell.swift */; };
@@ -80,6 +82,8 @@
 		FF37C6031F2525C90018940B /* TimeTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF37C6061F2525C90018940B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF37C60D1F2525CA0018940B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF3827B61F47D6FD009A6AA7 /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		FF3827BA1F47D95D009A6AA7 /* MGPhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGPhotoHelper.swift; sourceTree = "<group>"; };
 		FF9EDC0E1F41F16700B472D2 /* Joined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Joined.swift; sourceTree = "<group>"; };
 		FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinerTableViewController.swift; sourceTree = "<group>"; };
 		FF9EDC131F43317E00B472D2 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				FF37C6051F2525C90018940B /* TimeTrack */,
+				FF3827BC1F47D964009A6AA7 /* Helpers */,
 				FF37C6041F2525C90018940B /* Products */,
 				CF02B642D820083B7BEB0CDA /* Pods */,
 				3778478B13B8BA38E1BC3FDE /* Frameworks */,
@@ -190,6 +195,14 @@
 				FFAFCD051F267CA9009D2692 /* Extensions */,
 			);
 			path = TimeTrack;
+			sourceTree = "<group>";
+		};
+		FF3827BC1F47D964009A6AA7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FF3827BA1F47D95D009A6AA7 /* MGPhotoHelper.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		FF9EDC121F43317E00B472D2 /* Source */ = {
@@ -262,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				FF115B341F2CF3C8008A1EB5 /* AuthService.swift */,
+				FF3827B61F47D6FD009A6AA7 /* StorageService.swift */,
 				FFD360731F30F587009B6B17 /* GroupService.swift */,
 				FF115B351F2CF3C8008A1EB5 /* UserService.swift */,
 			);
@@ -566,6 +580,7 @@
 				FF115B301F2CF323008A1EB5 /* LoginViewController.swift in Sources */,
 				FFDABC831F2A5B6600C64D39 /* SearchViewViewController.swift in Sources */,
 				FFB799931F2904A8001B7C61 /* TableViewController.swift in Sources */,
+				FF3827B71F47D6FD009A6AA7 /* StorageService.swift in Sources */,
 				FFAFCCCC1F262F5E009D2692 /* ViewController.swift in Sources */,
 				FFAFCD001F267B79009D2692 /* Constants.swift in Sources */,
 				FF115B311F2CF323008A1EB5 /* CreateUserViewController.swift in Sources */,
@@ -577,6 +592,7 @@
 				FF9EDC181F43317E00B472D2 /* StepCollectionViewFlowLayout.swift in Sources */,
 				FF37C6071F2525CA0018940B /* AppDelegate.swift in Sources */,
 				FFDABC8C1F2B47B700C64D39 /* GroupLocationViewController.swift in Sources */,
+				FF3827BB1F47D95D009A6AA7 /* MGPhotoHelper.swift in Sources */,
 				FFD5BD431F2B96C600C3BEE7 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

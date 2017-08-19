@@ -18,10 +18,15 @@ class User : NSObject {
     let firstName : String
     let lastName : String
     let username : String
+    let profileURL : String?
     var dictValue: [String : Any] {
-        return ["firstName" : firstName,
-                "lastName" : lastName,
-                "username" : username]
+        var data : [String : Any] = ["firstName" : firstName,
+                                     "lastName" : lastName,
+                                     "username" : username]
+        if let url = profileURL {
+            data["profileURL"] = url
+        }
+        return data
     }
     
     //Standard User init()
@@ -30,6 +35,7 @@ class User : NSObject {
         self.firstName = firstName
         self.lastName = lastName
         self.username = username
+        self.profileURL = nil
         super.init()
     }
     
@@ -40,6 +46,12 @@ class User : NSObject {
             let lastName = dict["lastName"] as? String,
             let username = dict["username"] as? String
             else { return nil }
+        if let url = dict["profileURL"] as? String {
+            self.profileURL = url
+        }
+        else {
+            self.profileURL = nil
+        }
         self.uid = snapshot.key
         self.firstName = firstName
         self.lastName = lastName
@@ -51,13 +63,15 @@ class User : NSObject {
         guard let uid = aDecoder.decodeObject(forKey: "uid") as? String,
             let firstName = aDecoder.decodeObject(forKey: "firstName") as? String,
             let lastName = aDecoder.decodeObject(forKey: "lastName") as? String,
-            let username = aDecoder.decodeObject(forKey: "username") as? String
+            let username = aDecoder.decodeObject(forKey: "username") as? String,
+            let url = aDecoder.decodeObject(forKey: "profileURL") as? String?
             else { return nil }
         
         self.uid = uid
         self.firstName = firstName
         self.lastName = lastName
         self.username = username
+        self.profileURL = url
     }
     
     
@@ -81,6 +95,11 @@ class User : NSObject {
         
         _current = user
     }
+    
+    class func clearCurrent(){
+        UserDefaults.standard.removeObject(forKey: "currentUser")
+        _current = nil
+    }
 }
 
 extension User: NSCoding {
@@ -89,5 +108,6 @@ extension User: NSCoding {
         aCoder.encode(firstName, forKey: "firstName")
         aCoder.encode(lastName, forKey: "lastName")
         aCoder.encode(username, forKey: "username")
+        aCoder.encode(profileURL, forKey: "profileURL")
     }
 }
