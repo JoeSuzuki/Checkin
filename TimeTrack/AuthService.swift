@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import SCLAlertView
 
 struct AuthService {
     
@@ -33,14 +34,42 @@ struct AuthService {
         }
     }
     
+    static func presentPasswordReset(controller : UIViewController){
+        let alertController = UIAlertController(title: "Are you sure you want to reset your password?", message: nil, preferredStyle: .actionSheet)
+        
+        let signOutAction = UIAlertAction(title: "Send Email", style: .default) { _ in
+            guard let auth = Auth.auth().currentUser,
+                let email = auth.email else {
+                    SCLAlertView().showInfo("Opps!", subTitle: "Something went wrong, please try again!")
+                    return
+            }
+            AuthService.passwordReset(email: email, success: { (success) in
+                if success {
+                    SCLAlertView().showSuccess("Success!", subTitle: "Email sent.")
+                }
+                else {
+                    SCLAlertView().showInfo("Opps!", subTitle: "Something went wrong, please try again!")
+                }
+            })
+        }
+        
+        alertController.addAction(signOutAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        controller.present(alertController, animated: true)
+    }
+    
     // Allows you to reset password for an email
-    static func passwordReset(email: String){
+    static func passwordReset(email: String, success : @escaping (Bool) -> Void){
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             if let error = error {
                 print("email error for: \(email)")
                 print("error: \(error.localizedDescription)")
-                return
+                return success(false)
             }
+            return success(true)
         }
     }
     
@@ -54,8 +83,13 @@ struct AuthService {
      ===========================================
      */
     
-    static func presentDelete(viewController : UIViewController, user : FIRUser){
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    static func presentDelete(viewController : UIViewController){
+        guard let user = Auth.auth().currentUser else {
+            print("NO USER EXISTS???")
+            return
+        }
+        
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to delete your account? You cannot undo this action.", preferredStyle: .actionSheet)
         
         let signOutAction = UIAlertAction(title: "Delete Account", style: .destructive) { _ in
             deleteAccount(user: user)
@@ -70,7 +104,7 @@ struct AuthService {
     }
     
     static func deleteAccount(user : FIRUser){
-        UserService.deleteUser(forUID: User.current.uid, success: { (success) in
+        UserService.deleteUser(for: User.current, success: { (success) in
             if success {
                 logUserOut()
                 user.delete { error in
@@ -122,7 +156,7 @@ struct AuthService {
      =========================================================
      */
     static func presentLogOut(viewController : UIViewController){
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "Are you sure you want to log out?", message: nil, preferredStyle: .actionSheet)
         
         let signOutAction = UIAlertAction(title: "Log Out", style: .destructive) { _ in
             logUserOut()
@@ -136,9 +170,12 @@ struct AuthService {
         viewController.present(alertController, animated: true)
     }
     
-    static func logUserOut(){
+    static func logUserOut(_ clearUser : Bool = true){
         do {
             try Auth.auth().signOut()
+            if clearUser {
+                User.clearCurrent()
+            }
         } catch let error as NSError {
             assertionFailure("Error signing out: \(error.localizedDescription)")
         }

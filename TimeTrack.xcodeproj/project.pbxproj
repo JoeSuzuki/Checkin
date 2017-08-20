@@ -21,7 +21,8 @@
 		FF37C6071F2525CA0018940B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF37C6061F2525C90018940B /* AppDelegate.swift */; };
 		FF37C60E1F2525CA0018940B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF37C60D1F2525CA0018940B /* Assets.xcassets */; };
 		FF3827B71F47D6FD009A6AA7 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3827B61F47D6FD009A6AA7 /* StorageService.swift */; };
-		FF3827BB1F47D95D009A6AA7 /* MGPhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3827BA1F47D95D009A6AA7 /* MGPhotoHelper.swift */; };
+		FF3827BE1F47FDCF009A6AA7 /* TableViewSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3827BD1F47FDCF009A6AA7 /* TableViewSettingsViewController.swift */; };
+		FF3827C01F482B0D009A6AA7 /* PhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3827BF1F482B0D009A6AA7 /* PhotoHelper.swift */; };
 		FF9EDC0F1F41F16700B472D2 /* Joined.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC0E1F41F16700B472D2 /* Joined.swift */; };
 		FF9EDC111F432AB800B472D2 /* JoinerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */; };
 		FF9EDC161F43317E00B472D2 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC131F43317E00B472D2 /* DateCollectionViewCell.swift */; };
@@ -83,7 +84,8 @@
 		FF37C6061F2525C90018940B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF37C60D1F2525CA0018940B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF3827B61F47D6FD009A6AA7 /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
-		FF3827BA1F47D95D009A6AA7 /* MGPhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGPhotoHelper.swift; sourceTree = "<group>"; };
+		FF3827BD1F47FDCF009A6AA7 /* TableViewSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSettingsViewController.swift; sourceTree = "<group>"; };
+		FF3827BF1F482B0D009A6AA7 /* PhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoHelper.swift; path = TimeTrack/PhotoHelper.swift; sourceTree = "<group>"; };
 		FF9EDC0E1F41F16700B472D2 /* Joined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Joined.swift; sourceTree = "<group>"; };
 		FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinerTableViewController.swift; sourceTree = "<group>"; };
 		FF9EDC131F43317E00B472D2 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -200,7 +202,7 @@
 		FF3827BC1F47D964009A6AA7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				FF3827BA1F47D95D009A6AA7 /* MGPhotoHelper.swift */,
+				FF3827BF1F482B0D009A6AA7 /* PhotoHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -306,6 +308,7 @@
 			children = (
 				FF115B2B1F2CF323008A1EB5 /* MainViewController.swift */,
 				FFC0911A1F34ECE300BD5143 /* EditViewController.swift */,
+				FF3827BD1F47FDCF009A6AA7 /* TableViewSettingsViewController.swift */,
 				FFAFCD181F278DDC009D2692 /* ProfileViewController.swift */,
 			);
 			name = Profile;
@@ -561,6 +564,7 @@
 				FFC091171F342E7400BD5143 /* MoreInfoGroupViewController.swift in Sources */,
 				FFD5BD451F2BB41700C3BEE7 /* PersonalGroupViewController.swift in Sources */,
 				FF115B3B1F2CF3F9008A1EB5 /* ViewController+Utility.swift in Sources */,
+				FF3827C01F482B0D009A6AA7 /* PhotoHelper.swift in Sources */,
 				FF115B3A1F2CF3F9008A1EB5 /* Storyboard+Utility.swift in Sources */,
 				FFD5BD411F2B868E00C3BEE7 /* TimeViewController.swift in Sources */,
 				FFB799961F29056E001B7C61 /* TableViewCell.swift in Sources */,
@@ -568,6 +572,7 @@
 				FFAE46401F3B5156001CC9EC /* GroupTimeTableViewCell.swift in Sources */,
 				FFD360741F30F587009B6B17 /* GroupService.swift in Sources */,
 				FFC091191F34E7AB00BD5143 /* SearchTableViewCell.swift in Sources */,
+				FF3827BE1F47FDCF009A6AA7 /* TableViewSettingsViewController.swift in Sources */,
 				FF9EDC1A1F436D3F00B472D2 /* CalenderViewController.swift in Sources */,
 				FFC3B0071F36C11D00E9BF64 /* CreateTableViewCell.swift in Sources */,
 				FF9EDC161F43317E00B472D2 /* DateCollectionViewCell.swift in Sources */,
@@ -592,7 +597,6 @@
 				FF9EDC181F43317E00B472D2 /* StepCollectionViewFlowLayout.swift in Sources */,
 				FF37C6071F2525CA0018940B /* AppDelegate.swift in Sources */,
 				FFDABC8C1F2B47B700C64D39 /* GroupLocationViewController.swift in Sources */,
-				FF3827BB1F47D95D009A6AA7 /* MGPhotoHelper.swift in Sources */,
 				FFD5BD431F2B96C600C3BEE7 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

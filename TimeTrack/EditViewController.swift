@@ -7,102 +7,89 @@
 //
 
 import UIKit
-import Firebase
-class EditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    let storageRef = Storage.storage().reference()
-    let databaseRef = Database.database().reference()
-    var first = ""
-    var last = ""
-    var ref: DatabaseReference!
-    let userID = Auth.auth().currentUser!.uid
+import SCLAlertView
+import Kingfisher
+import FirebaseStorage
+
+class EditViewController: UIViewController {
+    
+    let photoHelper = PhotoHelper()
+    var pictureCheck = false
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var editImageButton: UIButton!
+    
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        configureView()
+
+        photoHelper.completionHandler = { image in
+            self.profileImageView.kf.base.image = image
+            self.pictureCheck = true
+        }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        nameTextField.resignFirstResponder()
-        return(true)
-    }
-    
-    @IBAction func editButton(_ sender: UIButton) {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.allowsEditing = true
-        picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        self.present(picker, animated: true, completion: nil)
-    }
-    @IBOutlet weak var image: UIImageView!
-
-    @IBAction func save(_ sender: UIButton) {
-        first = nameTextField.text!
-        last = lastTextField.text!
-        let ref = Database.database().reference().child("users").child(userID)
-        ref.updateChildValues(["firstName":first])
-        ref.updateChildValues(["lastName":last])
-        let imageName = NSUUID().uuidString
-        
-        let storedImage = storageRef.child("profile_images").child(imageName)
-        
-        if let uploadData = UIImagePNGRepresentation(self.image.image!)
-        {
-            storedImage.putData(uploadData, metadata: nil, completion: { (metadata, error) in
-                if error != nil{
-                    print(error!)
-                    return
-                }
-                storedImage.downloadURL(completion: { (url, error) in
-                    if error != nil{
-                        print(error!)
-                        return
-                    }
-                    if let urlText = url?.absoluteString{
-                        self.databaseRef.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["pic" : urlText], withCompletionBlock: { (error, ref) in
-                            if error != nil{
-                                print(error!)
-                                return
-                            }
-                        })
-                    }
-                })
-            })}}
-    
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var lastTextField: UITextField!
-
-    func reNew(){
-        //reload application data (renew root view )
-        UIApplication.shared.keyWindow?.rootViewController = storyboard!.instantiateViewController(withIdentifier: "MainViewController")
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-   
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    @IBAction func saveClicked(_ sender: UIButton) {
+        guard let username = usernameTextField.text,
+            let firstName = firstNameTextField.text,
+            let lastName = lastNameTextField.text
+            else { return }
         
-        var selectedImageFromPicker: UIImage?
+        if username == User.current.username &&
+            firstName == User.current.firstName &&
+            lastName == User.current.lastName &&
+            !pictureCheck {
+            SCLAlertView().showWarning("No changes made.", subTitle: "Make changes to your profile first.")
+            return
+        }
         
-        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage{
-            selectedImageFromPicker = editedImage
-        }else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage{
-            selectedImageFromPicker = originalImage
+        var image : UIImage? = nil
+        if pictureCheck {
+            image = self.profileImageView.kf.base.image
         }
-        if let selectedImage = selectedImageFromPicker{
-            image.image = selectedImage
+        
+        UserService.edit(username: username, firstName: firstName, lastName: lastName, image: image) { (user) in
+            
+            User.setCurrent(user!, writeToUserDefaults: true)
+            SCLAlertView().showSuccess("Success!", subTitle: "Your changes have been saved.")
         }
-        dismiss(animated: true, completion: nil)
     }
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func unwindToRootViewController(segue: UIStoryboardSegue) {
     }
 
+
+    @IBAction func editImageClicked(_ sender: UIButton) {
+        photoHelper.presentActionSheet(from: self)
+    }
+}
+
+extension EditViewController {
+    func configureView() {
+        applyKeyboardDismisser()
+        
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width/2
+        profileImageView.clipsToBounds = true
+        editImageButton.layer.cornerRadius = editImageButton.frame.size.width/2
+        editImageButton.clipsToBounds = true
+        
+        if let url = User.current.profileURL {
+            let imageURL = URL(string: url)
+            profileImageView.kf.setImage(with: imageURL)
+        }
+        else {
+            profileImageView.kf.base.image = UIImage(named: "defaultProfile")
+        }
+        
+        firstNameTextField.text = User.current.firstName
+        lastNameTextField.text = User.current.lastName
+        usernameTextField.text = User.current.username
+    }
 }

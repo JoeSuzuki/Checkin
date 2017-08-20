@@ -56,7 +56,7 @@ class CreateUserViewController: UIViewController {
                 return
             }
             
-            UserService.create(firUser, username: username, firstName: firstName, lastName: lastName) { (user) in
+            UserService.create(firUser, username: username, firstName: firstName, lastName: lastName, image: #imageLiteral(resourceName: "man")) { (user) in
                 guard let user = user else {
                     return
                 }

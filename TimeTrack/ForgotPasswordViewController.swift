@@ -6,6 +6,7 @@
 //  Copyright © 2017 JoeSuzuki. All rights reserved.
 //
 import UIKit
+import SCLAlertView
 
 class ForgotPasswordViewController: UIViewController {
     
@@ -27,7 +28,14 @@ class ForgotPasswordViewController: UIViewController {
             !email.isEmpty else {
                 return
         }
-        AuthService.passwordReset(email: email)
+        AuthService.passwordReset(email: email, success: { (success) in
+            if success {
+                SCLAlertView().showSuccess("Success!", subTitle: "Email sent.")
+            }
+            else {
+                SCLAlertView().showInfo("Opps!", subTitle: "Something is wrong, please try again!")
+            }
+        })
     }
 }
 

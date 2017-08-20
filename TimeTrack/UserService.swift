@@ -5,8 +5,8 @@
 //  Copyright © 2017 Mariano Montori. All rights reserved.
 //
 
-import UIKit
 import Foundation
+import UIKit
 import FirebaseDatabase
 import FirebaseStorage
 
@@ -119,6 +119,7 @@ struct UserService {
     }
     
     
+    
     static func observeProfile(for user: User, completion: @escaping (DatabaseReference, User?) -> Void) -> DatabaseHandle {
         let userRef = Database.database().reference().child("users").child(user.uid)
         return userRef.observe(.value, with: { snapshot in
@@ -134,7 +135,7 @@ struct UserService {
         let storageRef = Storage.storage().reference().child("images/profile/\(User.current.uid).jpg")
         var updatedData : [String : Any] = [:]
         var check = true
-        
+        updatedData["users/\(user.uid)"] = NSNull()
         let dispatcher = DispatchGroup()
         
         if let _ = user.profileURL {
@@ -160,5 +161,4 @@ struct UserService {
             success(check)
         }
     }
-    
 }

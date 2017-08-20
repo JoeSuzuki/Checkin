@@ -321,16 +321,16 @@ class JoinerTableViewController: UITableViewController{
         }
     }
     func firstButton(_ textLabel: UILabel) -> String{
-        userPath = Database.database().reference().child("users").child(userID!)
-            userPath?.observe(DataEventType.value, with: {
-            (snapshot) in
-            let value = snapshot.value as! String
-            let first = value["firstName"] as? String
-            let last = value["lastName"] as? String
-            self.fullName = first! + " " + last!
-        })
-        return fullName
-        
+//        userPath = Database.database().reference().child("users").child(userID!)
+//            userPath?.observe(DataEventType.value, with: {
+//            (snapshot) in
+//            let value = snapshot.value as! String
+//            let first = value["firstName"] as? String
+//            let last = value["lastName"] as? String
+//            self.fullName = first! + " " + last!
+//        })
+//        return fullName
+return ""
     }
     func number(_ time: UILabel) -> Int {
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)

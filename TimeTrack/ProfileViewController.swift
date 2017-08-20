@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()        
         profileHandle = UserService.observeProfile(for: User.current) { [unowned self] (ref, user) in
             self.profileRef = ref
             guard let user = user else {
