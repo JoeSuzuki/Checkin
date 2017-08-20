@@ -56,18 +56,23 @@ class JoinerTableViewController: UITableViewController{
     var fullName = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        arrayOfTime = []
         timeTable.delegate = self
         timeTable.dataSource = self
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         ref = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         currentTime()
-        setUp()
-        timeSetup()
-        
+        setUp() {_ in 
+            self.timeSetup()
+            self.organize()
+            self.arrayOfTime = []
+        }
+
     }
-//    override func viewDidAppear(_ animated: Bool) {
-//        
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        arrayOfTime = []
+
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -76,6 +81,7 @@ class JoinerTableViewController: UITableViewController{
     @IBAction func joinButton(_ sender: UIBarButtonItem) {
 
             timeSetup()
+        organize()
     }
     func timeSetup(){
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
@@ -113,7 +119,6 @@ class JoinerTableViewController: UITableViewController{
             timeDevolve(timeCreator(nextStepHour, nextStepMin))
             }
         }
-        organize()
     }
     func timeDevolve(_ stringTime: String) {// writes to firebase AM and PM times per interval
         let seperatedTimeList = stringTime.components(separatedBy: " ")
@@ -269,16 +274,16 @@ class JoinerTableViewController: UITableViewController{
             return [0,interval]
         }
         }
-    func setUp(){
+    func setUp(completion: @escaping (_ interval: Bool) -> Void){
         ref?.observe(DataEventType.value, with: {
             (snapshot) in
             let value = snapshot.value as! [String: AnyObject]
             let timeInt = value["timeInt"] as? Int
             // let checkin = value["check-in"] as? Array
             self.timeInterval = timeInt!
+            completion(true)
         })
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-//        completion(true)
     }
     
     
