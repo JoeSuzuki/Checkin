@@ -23,8 +23,9 @@ class MoreInfoGroupViewController: UIViewController {
         idLabelView.text = Constants.idd.myStrings
         // mainImageViewSecon.layer.masksToBounds = false
         mainImageViewSecon.layer.cornerRadius = mainImageViewSecon.frame.size.width/2
-        mainImageViewSecon.clipsToBounds = true
-    }
+        mainImageViewSecon.contentMode = UIViewContentMode.scaleAspectFill
+        mainImageViewSecon.layer.masksToBounds = false
+        mainImageViewSecon.clipsToBounds = true    }
 
 
     override func didReceiveMemoryWarning() {

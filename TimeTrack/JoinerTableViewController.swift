@@ -61,14 +61,9 @@ class JoinerTableViewController: UITableViewController{
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         ref = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         currentTime()
-        setUp{ success in
-            if success {
-                    timeSetup()
-            }
-            else{
-                timeSetup()
-            }
-        }
+        setUp()
+        timeSetup()
+        
     }
 //    override func viewDidAppear(_ animated: Bool) {
 //        
@@ -187,8 +182,7 @@ class JoinerTableViewController: UITableViewController{
                 let value = snap.value
                 self.keysArray.append(key)
                 self.valuesArray.append(value as! String)
-                print(self.keysArray)
-                print(self.valuesArray)}
+}
         })
         timeRef?.child("AM").observe(DataEventType.value, with: {
             (snapshot) in
@@ -212,8 +206,6 @@ class JoinerTableViewController: UITableViewController{
                 let value = snap.value
                 self.keysArray.append(key)
                 self.valuesArray.append(value as! String)
-                print(self.keysArray)
-                print(self.valuesArray)
                 if value as! String == "" {
                     self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "available", timed : key as! String), at:self.arrayOfTime.count)
                 } else {
@@ -277,7 +269,7 @@ class JoinerTableViewController: UITableViewController{
             return [0,interval]
         }
         }
-    func setUp(completion: (Bool) -> ()){
+    func setUp(){
         ref?.observe(DataEventType.value, with: {
             (snapshot) in
             let value = snapshot.value as! [String: AnyObject]
@@ -286,10 +278,8 @@ class JoinerTableViewController: UITableViewController{
             self.timeInterval = timeInt!
         })
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-        print(Constants.idd.myStrings)
-
-        completion(true)
-        }
+//        completion(true)
+    }
     
     
     // MARK: - Table view data source
