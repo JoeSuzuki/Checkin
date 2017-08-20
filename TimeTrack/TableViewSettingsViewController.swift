@@ -8,13 +8,16 @@
 
 
 import UIKit
+import Firebase
 import SCLAlertView
 import Kingfisher
-import FirebaseDatabase
+import FirebaseAuth
+
 
 class TableViewSettingsViewController: UITableViewController {
     var profileHandle: DatabaseHandle = 0
     var profileRef: DatabaseReference?
+    var authHandle: AuthStateDidChangeListenerHandle?
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -31,6 +34,7 @@ class TableViewSettingsViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        authHandle = AuthService.authListener(viewController: self)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -47,23 +51,42 @@ class TableViewSettingsViewController: UITableViewController {
         }
         configureView()
     }
+    deinit {
+        AuthService.removeAuthListener(authHandle: authHandle)
+    }
+
+    func configureView(){
+        profileImage.contentMode = UIViewContentMode.scaleAspectFill
+        profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+        profileImage.clipsToBounds = true
+        //        profileImage.layer.masksToBounds = false
+        setLabels()
+    }
+    func setLabels(){
+        nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
+        usernameLabel.text = User.current.username
+    }
+    func resetProfilePic(url : String){
+        let imageURL = URL(string: url)
+        self.profileImage.kf.setImage(with: imageURL)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    @IBAction func logoutButton(_ sender: UIButton) {
+        AuthService.presentLogOut(viewController: self)
+    }
+}
+
+extension TableViewSettingsViewController {
+
     enum Section : Int {
         case accountSettings = 0
     }
     enum AccountSettings : Int {
-        case profiles = 0
-        case settings = 1
-        case help = 2
-        case logout = 3
+        case profiles = 0, settings, help, logOut
     }
-    func logout() {
-        // create the alert
-                    AuthService.presentLogOut(viewController: self)
-        }        // create the alert
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let section = Section(rawValue: indexPath.section),
@@ -77,30 +100,15 @@ class TableViewSettingsViewController: UITableViewController {
             case .profiles:
                 performSegue(withIdentifier: "edit", sender: self)
             case .settings:
-                print("hello")
+                AuthService.presentDelete(viewController: self)
             case .help:
-                print("hello")
-            case .logout:
-                AuthService.presentLogOut(viewController: self)
+                AuthService.presentPasswordReset(controller: self)
+            case .logOut:
+                print("dddd")
             }
         }
     }
 
-    func configureView(){
-        profileImage.contentMode = UIViewContentMode.scaleAspectFill
-        profileImage.layer.cornerRadius = profileImage.frame.size.width/2
-        profileImage.clipsToBounds = true
-//        profileImage.layer.masksToBounds = false
-        setLabels()
-    }
-    func setLabels(){
-        nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
-        usernameLabel.text = User.current.username
-    }
-    func resetProfilePic(url : String){
-        let imageURL = URL(string: url)
-        self.profileImage.kf.setImage(with: imageURL)
-    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 3
