@@ -28,7 +28,7 @@ struct joinedCellData {
     let id: String!
     let memberTotal: Int!
 }
-weak var photo: UIImage!
+weak var photo: UIImage?
 var myIndex = 0
 class TableViewController: UITableViewController {
     
@@ -68,11 +68,13 @@ class TableViewController: UITableViewController {
             let checkIns = value["numOfCheckIns"] as? Int
             let keyed = value["key"] as! String!
             let mem = value["numOfMembers"] as? Int
-            let img = value["img"] as! String!
-            let pic = value["pic"] as! String!
-            let storedImage = self.storageRef.child("users").child(self.userID!).child("groups").child(img!)
+            let img = value["img"] as? String?
+            guard let pic = value["pic"] as? String else {
+                var pic = "https://static.pexels.com/photos/58808/pexels-photo-58808.jpeg"
+                return
+            }
             let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-            let imageURL = URL(string: pic!)
+            let imageURL = URL(string: pic as! String)
             let imageView = cell.mainImageView
             imageView?.kf.setImage(with: imageURL)
             self.arrayOfCellData.append(cellData(cell : 1, text : name , image : imageView?.image, address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
@@ -105,6 +107,11 @@ class TableViewController: UITableViewController {
                     let from = value["from"] as! String!
                     let to = value["to"] as! String!
                     let img = value["img"] as! String!
+                    guard let pics = value["pic"] as? String else {
+                        var pics = "https://static.pexels.com/photos/58808/pexels-photo-58808.jpeg"
+                        return
+                    }
+                    reff.child("pic").setValue(pics)
                     reff.child("location").setValue(location)
                     reff.child("from").setValue(from)
                     reff.child("to").setValue(to)
@@ -114,12 +121,10 @@ class TableViewController: UITableViewController {
                     reff.child("key").setValue(keyed)
                     reff.child("numOfMembers").setValue(mem)
                     reff.child("numOfCheckIns").setValue(checkIns)
-                    let storedImage = self.storageRef.child("users").child(self.userID!).child("groups").child(img!)
                     let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-                    let imageURL = URL(string: "https://console.firebase.google.com/u/0/project/timetrack-8c82e/storage/timetrack-8c82e.appspot.com/files/users/\(self.ownerUID)/groups\(img)")
+                    let imageURL = URL(string: pics)
                     let imageView = cell.mainImageView
                     imageView?.kf.setImage(with: imageURL)
-
                     self.joinedArrayOfCellData.append(joinedCellData(cell : 1, text : name , image : imageView?.image, address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
                 })
             })
@@ -128,7 +133,6 @@ class TableViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        groupTableView?.reloadData()
         if let index = self.groupTableView.indexPathForSelectedRow{
             self.groupTableView.deselectRow(at: index, animated: true)
         }
@@ -136,7 +140,8 @@ class TableViewController: UITableViewController {
         subViewOfSegment.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
         let subViewOfSegments: UIView = segmentedControl.subviews[1] as UIView
         subViewOfSegments.tintColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
-        
+        groupTableView?.reloadData()
+
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if segmentedControl.selectedSegmentIndex == 0  {

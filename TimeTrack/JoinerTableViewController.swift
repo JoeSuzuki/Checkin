@@ -62,15 +62,13 @@ class JoinerTableViewController: UITableViewController{
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         ref = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         currentTime()
-        setUp() {_ in 
-            self.timeSetup()
-            self.organize()
-            self.arrayOfTime = []
-        }
+        self.arrayOfTime = []
+        setUp()
+        timeSetup()
+        organize()
 
     }
     override func viewDidAppear(_ animated: Bool) {
-        arrayOfTime = []
 
     }
     override func didReceiveMemoryWarning() {
@@ -79,8 +77,14 @@ class JoinerTableViewController: UITableViewController{
 
     @IBOutlet weak var item: UINavigationItem!
     @IBAction func joinButton(_ sender: UIBarButtonItem) {
-
-            timeSetup()
+//        setUp() {_ in
+//            self.arrayOfTime = []
+//            self.timeSetup()
+//            self.organize()
+//        }
+                self.arrayOfTime = []
+        
+        timeSetup()
         organize()
     }
     func timeSetup(){
@@ -187,8 +191,9 @@ class JoinerTableViewController: UITableViewController{
                 let value = snap.value
                 self.keysArray.append(key)
                 self.valuesArray.append(value as! String)
-}
+            }
         })
+
         timeRef?.child("AM").observe(DataEventType.value, with: {
             (snapshot) in
             for child in snapshot.children.reversed() {
@@ -274,16 +279,14 @@ class JoinerTableViewController: UITableViewController{
             return [0,interval]
         }
         }
-    func setUp(completion: @escaping (_ interval: Bool) -> Void){
+    func setUp(){
         ref?.observe(DataEventType.value, with: {
             (snapshot) in
             let value = snapshot.value as! [String: AnyObject]
             let timeInt = value["timeInt"] as? Int
             // let checkin = value["check-in"] as? Array
             self.timeInterval = timeInt!
-            completion(true)
         })
-        timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
     }
     
     
