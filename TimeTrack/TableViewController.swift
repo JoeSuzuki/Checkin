@@ -28,6 +28,7 @@ struct joinedCellData {
     let id: String!
     let memberTotal: Int!
 }
+weak var photo: UIImage!
 var myIndex = 0
 class TableViewController: UITableViewController {
     
@@ -53,13 +54,11 @@ class TableViewController: UITableViewController {
     var personalRef: DatabaseReference?
     var ownerUID = ""
     var reff: DatabaseReference?
-    
     //    var imageName: String = ""
     //    var imaged = UIImage?.self
     override func viewDidLoad() {
         super.viewDidLoad()
         groupTableView.separatorStyle = .none
-        groupTableView?.reloadData()
         ref = Database.database().reference().child("personal groups info").child(userID!)
         ref?.queryOrderedByKey().observe(.childAdded, with: {
             (snapshot) in
@@ -77,6 +76,7 @@ class TableViewController: UITableViewController {
             let imageView = cell.mainImageView
             imageView?.kf.setImage(with: imageURL)
             self.arrayOfCellData.append(cellData(cell : 1, text : name , image : imageView?.image, address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
+            
         })
         
         // join table view
@@ -124,7 +124,7 @@ class TableViewController: UITableViewController {
                 })
             })
         })
-
+        groupTableView?.reloadData()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -250,6 +250,7 @@ class TableViewController: UITableViewController {
             Constants.numberOfCheckIns.myInts = Int(cell.counterLabelView.text!)!
             Constants.idd.myStrings = (cell.idLabel?.text!)!
             Constants.numberOfMembers.myInts = Int((cell.totalMembers?.text!)!)!
+            photo = cell.mainImageView.image
             //        totalMembers
         } else if segmentedControl.selectedSegmentIndex == 1  {
             performSegue(withIdentifier: "segue", sender: self)
@@ -261,6 +262,7 @@ class TableViewController: UITableViewController {
             Constants.numberOfCheckIns.myInts = Int(cell.counterLabelView.text!)!
             Constants.idd.myStrings = (cell.idLabel?.text!)!
             Constants.numberOfMembers.myInts = Int((cell.totalMembers?.text!)!)!
+            photo = cell.mainImageView.image
             //        totalMembers
         }
     }

@@ -22,6 +22,7 @@ class MoreInfoGroupViewController: UIViewController {
         counterLabelSecon.text = String(Constants.numberOfCheckIns.myInts)
         idLabelView.text = Constants.idd.myStrings
         // mainImageViewSecon.layer.masksToBounds = false
+        mainImageViewSecon.image = photo
         mainImageViewSecon.layer.cornerRadius = mainImageViewSecon.frame.size.width/2
         mainImageViewSecon.contentMode = UIViewContentMode.scaleAspectFill
         mainImageViewSecon.layer.masksToBounds = false
