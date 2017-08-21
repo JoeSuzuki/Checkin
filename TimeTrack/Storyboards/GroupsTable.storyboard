@@ -298,66 +298,6 @@
             </objects>
             <point key="canvasLocation" x="-494" y="3296"/>
         </scene>
-        <!--Group Time Table View Controller-->
-        <scene sceneID="cYH-kM-NAv">
-            <objects>
-                <tableViewController id="gbX-GO-yay" customClass="GroupTimeTableViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PwE-NX-gdf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="4m7-iR-u9g">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwB-Kf-rdA">
-                                    <rect key="frame" x="149" y="12" width="218" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efq-4N-UNk">
-                                    <rect key="frame" x="8" y="12" width="133" height="21"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="133" id="Iqz-dh-dQx"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="efq-4N-UNk" firstAttribute="leading" secondItem="4m7-iR-u9g" secondAttribute="leadingMargin" id="4jQ-7B-2Bt"/>
-                                <constraint firstItem="nwB-Kf-rdA" firstAttribute="trailing" secondItem="4m7-iR-u9g" secondAttribute="trailingMargin" id="MCp-d9-uiE"/>
-                                <constraint firstItem="efq-4N-UNk" firstAttribute="baseline" secondItem="nwB-Kf-rdA" secondAttribute="baseline" id="Oza-Ob-C1H"/>
-                                <constraint firstItem="nwB-Kf-rdA" firstAttribute="leading" secondItem="efq-4N-UNk" secondAttribute="trailing" constant="8" symbolic="YES" id="jBs-yA-H2n"/>
-                                <constraint firstItem="efq-4N-UNk" firstAttribute="centerY" secondItem="4m7-iR-u9g" secondAttribute="centerY" id="lGw-AG-0IH"/>
-                            </constraints>
-                        </view>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Pam-Tx-t5m">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pam-Tx-t5m" id="iME-JH-o3Y">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="gbX-GO-yay" id="kPG-U7-rqq"/>
-                            <outlet property="delegate" destination="gbX-GO-yay" id="LSF-4F-HHl"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <outlet property="timeTable" destination="PwE-NX-gdf" id="I4m-uy-HIW"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PnT-Pk-r5S" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1374" y="2534"/>
-        </scene>
         <!--Add Groups-->
         <scene sceneID="7G7-tg-ksH">
             <objects>
@@ -1156,7 +1096,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Ofc-sF-X10">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="XZ3-go-Npe">
+                        <barButtonItem key="rightBarButtonItem" title="Restart" id="XZ3-go-Npe">
                             <connections>
                                 <action selector="joinButton:" destination="olW-KC-rrr" id="F4s-uK-6YF"/>
                             </connections>

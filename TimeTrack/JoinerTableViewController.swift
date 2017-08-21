@@ -60,9 +60,8 @@ class JoinerTableViewController: UITableViewController{
         timeTable.dataSource = self
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         ref = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-        currentTime()
-        self.arrayOfTime = []
         setUp()
+        currentTime()
         organize()
         timeTable.reloadData()
     }
@@ -76,15 +75,19 @@ class JoinerTableViewController: UITableViewController{
 
     @IBOutlet weak var item: UINavigationItem!
     @IBAction func joinButton(_ sender: UIBarButtonItem) {
-//        setUp() {_ in
-//            self.arrayOfTime = []
-//            self.timeSetup()
-//            self.organize()
-//        }
-                self.arrayOfTime = []
+            self.arrayOfTime = []
             timeSetup()
             organize()
         timeTable.reloadData()
+    }
+    func setUp(){
+        ref?.observe(DataEventType.value, with: {
+            (snapshot) in
+            let value = snapshot.value as! [String: AnyObject]
+            let timeInt = value["timeInt"] as? Int
+            // let checkin = value["check-in"] as? Array
+            self.timeInterval = timeInt!
+        })
     }
     func timeSetup(){
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
@@ -276,15 +279,7 @@ class JoinerTableViewController: UITableViewController{
             return [0,interval]
         }
         }
-    func setUp(){
-        ref?.observe(DataEventType.value, with: {
-            (snapshot) in
-            let value = snapshot.value as! [String: AnyObject]
-            let timeInt = value["timeInt"] as? Int
-            // let checkin = value["check-in"] as? Array
-            self.timeInterval = timeInt!
-        })
-    }
+
     
     
     // MARK: - Table view data source
@@ -370,7 +365,7 @@ class JoinerTableViewController: UITableViewController{
                 for each in self.totalAmountAm {
                     if cell.timeLabel.text == each {
                         self.timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-                        self.timeRef?.child("AM").child(each).setValue(self.userID)
+                        self.timeRef?.child("AM").child(each).setValue(name)
                         self.timeTable.reloadData()
                     }
                 }
