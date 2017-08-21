@@ -36,7 +36,6 @@
 //        self.endHour = endHour
 //        self.endMin = endMin
 //        self.endAmpm = endAmpm
-//        super.init()
 //    }
 //    
 //    //User init using Firebase snapshots

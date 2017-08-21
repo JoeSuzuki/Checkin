@@ -27,7 +27,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var urlText: UITextField!
     @IBOutlet weak var descriptionText: UITextView!
-    @IBOutlet weak var imageView: UIImageView?
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var timeIntDisplay: UILabel!
@@ -57,6 +57,27 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     let storageRef = Storage.storage().reference()
     let databaseRef = Database.database().reference()
     var refKey: String = ""
+    var timeRef: DatabaseReference?
+    var userPath: DatabaseReference?
+    var timeInterval = 1
+    var startHour: Int = 0
+    var startMin: Int = 0
+    var startAmpm: String = ""
+    var endHour: Int = 0
+    var endMin: Int = 0
+    var endAmpm: String = ""
+    var startTimes: String = ""
+    var endTimes: String = ""
+    var timeContainer = [String]()
+    var hourContainer = [Int]()
+    var minContainer = [Int]()
+    var keysArray = [String]()
+    var valuesArray = [String]()
+    var organizeTime = [String]()
+    var newItems = [DataSnapshot]()
+    var fullName = ""
+    var pictureCheck = false
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        // addButton.isEnabled = false
@@ -67,13 +88,22 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         super.viewDidLoad()
         ref = Database.database().reference().child("personal groups info").child(userID).childByAutoId()
         refKey = ref.key
+        timeRef = Database.database().reference().child("time info")
         self.clearsSelectionOnViewWillAppear = false
         imagePicker.delegate = self
+        groupNameTextField.delegate = self
+        locationTextField.delegate = self
+        imageView = nil
         var numOfMembers: Int = 0
         var numOfCheckIns: Int = 0
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard)))
         idLabel.text = refKey
         checkField()
+        PhotoHelper().completionHandler = { image in
+            self.imageView.image = image
+            self.pictureCheck = true
+            self.imageView.kf.base.image = image
+        }
 
     }
     override func didReceiveMemoryWarning() {
@@ -98,6 +128,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         locationTextField.resignFirstResponder()
         urlText.resignFirstResponder()
         descriptionText.resignFirstResponder()
+        checkField()
     }
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         textBox1.resignFirstResponder()
@@ -106,6 +137,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         locationTextField.resignFirstResponder()
         urlText.resignFirstResponder()
         descriptionText.resignFirstResponder()
+        checkField()
         return true
     }
     
@@ -231,42 +263,133 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
             }
     @IBAction func editButtonClicked(_ sender: UIButton) {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.allowsEditing = true
-        picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        self.present(picker, animated: true, completion: nil)
-    }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        var selectedImageFromPicker: UIImage?
-        
-        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage{
-            selectedImageFromPicker = editedImage
-        }else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage{
-            selectedImageFromPicker = originalImage
-        }
-        if let selectedImage = selectedImageFromPicker{
-            imageView?.image = selectedImage
-            
-        }
-        checkField()
-        dismiss(animated: true, completion: nil)
-    }
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        checkField()
-        dismiss(animated: true, completion: nil)
+        PhotoHelper().presentActionSheet(from: self)
     }
     func checkField() {
-        if (groupNameTextField.text?.isEmpty)! && (locationTextField.text?.isEmpty)! && (time1.text?.isEmpty)! && (time2.text?.isEmpty)! && (am.text?.isEmpty)! && (time10.text?.isEmpty)! && (time20.text?.isEmpty)! && (ampm.text?.isEmpty)! || imageView == nil{
+        if (groupNameTextField.text?.isEmpty)! && (locationTextField.text?.isEmpty)! && (time1.text?.isEmpty)! && (time2.text?.isEmpty)! && (am.text?.isEmpty)! && (time10.text?.isEmpty)! && (time20.text?.isEmpty)! && (ampm.text?.isEmpty)! {
             addButton.isEnabled = false
             }
         else{  
             addButton.isEnabled = true
         }
     }
+    func timeSetup(){
+        timeRef = Database.database().reference().child("time info").child(refKey)
+        var nextStepHour = startHour
+        var nextStepMin = startMin
+        let timeIntHour = timeIntervalChange(timeInterval)[0]
+        let timeIntMin = timeIntervalChange(timeInterval)[1]
+        let minutesAdded = timeIntMin as! Int
+        let hourAdded = timeIntHour as! Int
+        
+        while nextStepHour < endHour || nextStepMin < endMin {
+            if nextStepHour +  hourAdded == endHour {
+                if nextStepMin + minutesAdded < endMin {
+                    nextStepHour +=  timeIntHour as! Int
+                    nextStepMin += timeIntMin as! Int
+                } else {
+                    break
+                }
+            }
+            if nextStepMin >= 60 {
+                while nextStepMin >= 60 {
+                    nextStepMin -= 60
+                    nextStepHour += 1
+                }
+            }
+            if nextStepHour + hourAdded < endHour || nextStepMin + minutesAdded < endMin {
+                nextStepHour +=  timeIntHour as! Int
+                nextStepMin += timeIntMin as! Int
+                if nextStepMin >= 60 {
+                    while nextStepMin >= 60 {
+                        nextStepMin -= 60
+                        nextStepHour += 1
+                    }
+                }
+                timeDevolve(timeCreator(nextStepHour, nextStepMin))
+            }
+        }
+    }
+    func timeDevolve(_ stringTime: String) {// writes to firebase AM and PM times per interval
+        timeRef = Database.database().reference().child("time info").child(refKey)
+        let seperatedTimeList = stringTime.components(separatedBy: " ")
+        let stringDm = seperatedTimeList[1]
+        let beggining = seperatedTimeList[0]
+        if stringDm == "AM" {
+            timeRef?.child("AM").updateChildValues([stringTime: ""])
+        } else if stringDm == "PM" {
+            timeRef?.child("PM").updateChildValues([stringTime: ""])
+        }
+    }
+    func timeCreator(_ hour: Int, _ min: Int) -> String { // takes ints and outputs a time friendly string
+        var newHour = hour
+        var Dm = ""
+        var stringHour = ""
+        var stringMin = ""
+        if newHour > 12 {
+            newHour -= 12
+            Dm = "PM"
+            if newHour < 10{
+                stringHour = "0\(newHour)"
+            } else {
+                stringHour = "\(newHour)"
+            }
+            if min < 10 {
+                stringMin = "\(min)0 "
+            }else {
+                stringMin = "\(min) "
+            }
+        } else {
+            Dm = "AM"
+            if newHour < 10{
+                stringHour = "0\(newHour)"
+            } else {
+                stringHour = "\(newHour)"
+            }
+            if min < 10 {
+                stringMin = "\(min)0 "
+            }else {
+                stringMin = "\(min) "
+            }
+        }
+        return stringHour + ":" + stringMin + Dm
+    }
+    
+    
+    func timeIntervalChange(_ interval: Int) -> Array<Any>{
+        var hour = 0
+        var g = interval
+        if interval > 60 {
+            while g >= 60 {
+                g -= 60
+                hour += 1
+            }
+            return [hour , g]
+        } else if interval == 60 {
+            var newmin = 0
+            var newHour = 1
+            var newTime = [newHour, newmin]
+            return newTime
+        } else if interval < 60 {
+            return [0,interval]
+        } else {
+            return [0,interval]
+        }
+    }
+    func setUp(completion: @escaping (_ interval: Bool) -> Void){
+        ref?.observe(DataEventType.value, with: {
+            (snapshot) in
+            let value = snapshot.value as! [String: AnyObject]
+            let timeInt = value["timeInt"] as? Int
+            // let checkin = value["check-in"] as? Array
+            self.timeInterval = timeInt!
+            completion(true)
+        })
+    }
+    
 
     @IBAction func addButton(_ sender: Any) {
+        var timeRef: DatabaseReference?
         Constants.location.myStrings = locationTextField.text!
         Constants.name.myStrings = groupNameTextField.text as
             Any as! String
@@ -274,6 +397,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         Constants.to.myStrings = textBox2.text as Any as! String
         Constants.description.myStrings = descriptionText.text as Any as! String
         Constants.idd.myStrings = refKey
+        timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         Constants.timeOpens.time = timeConvert(Int(time1.text!)!, Int(time2.text!)!, am.text! )
         Constants.timeCloses.time = timeConvert(Int(time10.text!)!, Int(time20.text!)!, ampm.text! )
         let imageName = NSUUID().uuidString
@@ -322,10 +446,12 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         let membersRef = Database.database().reference().child("Members of Groups").child(Constants.idd.myStrings)
         membersRef.updateChildValues(["Owner":userID])
         //performSegue(withIdentifier: "groupSegue", sender: self)
-        let timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-        timeRef.child("timeInt").setValue(Constants.timeInterval.myInts)
-        timeRef.child("timeOpen").setValue(Constants.timeOpens.time)
-        timeRef.child("timeCloses").setValue(Constants.timeCloses.time)
+        timeRef?.child("timeInt").setValue(Constants.timeInterval.myInts)
+        timeRef?.child("timeOpen").setValue(Constants.timeOpens.time)
+        timeRef?.child("timeCloses").setValue(Constants.timeCloses.time)
+        setUp() {_ in
+            self.timeSetup()
+        }
         let initialViewController = UIStoryboard.initialViewController(for: .main)
         self.view.window?.rootViewController = initialViewController
         self.view.window?.makeKeyAndVisible()
