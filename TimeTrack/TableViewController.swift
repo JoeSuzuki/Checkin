@@ -44,6 +44,7 @@ class TableViewController: UITableViewController {
             groupTableView.reloadData()
         }
     }
+    let storageRef = Storage.storage().reference()
     var ref: DatabaseReference?
     let userID = Auth.auth().currentUser?.uid
     var name: [String] = []
@@ -68,7 +69,14 @@ class TableViewController: UITableViewController {
             let checkIns = value["numOfCheckIns"] as? Int
             let keyed = value["key"] as! String!
             let mem = value["numOfMembers"] as? Int
-            self.arrayOfCellData.append(cellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
+            let img = value["img"] as! String!
+            let pic = value["pic"] as! String!
+            let storedImage = self.storageRef.child("users").child(self.userID!).child("groups").child(img!)
+            let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
+            let imageURL = URL(string: pic!)
+            let imageView = cell.mainImageView
+            imageView?.kf.setImage(with: imageURL)
+            self.arrayOfCellData.append(cellData(cell : 1, text : name , image : imageView?.image, address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
         })
         
         // join table view
@@ -96,7 +104,6 @@ class TableViewController: UITableViewController {
                     let description = value["description"] as! String!
                     let from = value["from"] as! String!
                     let to = value["to"] as! String!
-                    let url = value["url"] as! String!
                     let img = value["img"] as! String!
                     reff.child("location").setValue(location)
                     reff.child("from").setValue(from)
@@ -104,11 +111,16 @@ class TableViewController: UITableViewController {
                     reff.child("name").setValue(name)
                     reff.child("description").setValue(description)
                     reff.child("img").setValue(img)
-                    reff.child("url").setValue(url)
                     reff.child("key").setValue(keyed)
                     reff.child("numOfMembers").setValue(mem)
                     reff.child("numOfCheckIns").setValue(checkIns)
-                    self.joinedArrayOfCellData.append(joinedCellData(cell : 1, text : name , image : #imageLiteral(resourceName: "docotrsoffice"), address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
+                    let storedImage = self.storageRef.child("users").child(self.userID!).child("groups").child(img!)
+                    let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
+                    let imageURL = URL(string: "https://console.firebase.google.com/u/0/project/timetrack-8c82e/storage/timetrack-8c82e.appspot.com/files/users/\(self.ownerUID)/groups\(img)")
+                    let imageView = cell.mainImageView
+                    imageView?.kf.setImage(with: imageURL)
+
+                    self.joinedArrayOfCellData.append(joinedCellData(cell : 1, text : name , image : imageView?.image, address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
                 })
             })
         })
