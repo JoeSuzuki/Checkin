@@ -53,7 +53,6 @@ class JoinerTableViewController: UITableViewController{
     var organizeTime = [String]()
     var newItems = [DataSnapshot]()
     var fullName = ""
-    var joinerCount = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         arrayOfTime = []
@@ -64,7 +63,6 @@ class JoinerTableViewController: UITableViewController{
         currentTime()
         self.arrayOfTime = []
         setUp()
-        timeSetup()
         organize()
         timeTable.reloadData()
     }
@@ -84,14 +82,8 @@ class JoinerTableViewController: UITableViewController{
 //            self.organize()
 //        }
                 self.arrayOfTime = []
-        if joinerCount < 1 {
-            setUp()
             timeSetup()
-            joinerCount += 1
-        } else {
             organize()
-            timeTable.reloadData()
-        }
         timeTable.reloadData()
     }
     func timeSetup(){
@@ -110,14 +102,12 @@ class JoinerTableViewController: UITableViewController{
                     nextStepMin += timeIntMin as! Int
                 } else {
                     return
-                }
-            }
+                }}
             if nextStepMin >= 60 {
                 while nextStepMin >= 60 {
                     nextStepMin -= 60
                     nextStepHour += 1
-                }
-            }
+                }}
             if nextStepHour + hourAdded < endHour || nextStepMin + minutesAdded < endMin {
             nextStepHour +=  timeIntHour as! Int
             nextStepMin += timeIntMin as! Int
@@ -127,8 +117,8 @@ class JoinerTableViewController: UITableViewController{
                         nextStepHour += 1
                     }
                 }
+                timeDevolve(timeCreator(nextStepHour, nextStepMin))
             }
-            timeDevolve(timeCreator(nextStepHour, nextStepMin))
         }
     }
     func timeDevolve(_ stringTime: String) {// writes to firebase AM and PM times per interval
@@ -325,18 +315,18 @@ class JoinerTableViewController: UITableViewController{
             return 60
         }
     }
-    func firstButton(_ textLabel: UILabel) -> String{
-//        userPath = Database.database().reference().child("users").child(userID!)
-//            userPath?.observe(DataEventType.value, with: {
-//            (snapshot) in
-//            let value = snapshot.value as! String
-//            let first = value["firstName"] as? String
-//            let last = value["lastName"] as? String
-//            self.fullName = first! + " " + last!
-//        })
-//        return fullName
-return ""
+    func firstButton() -> String{
+        userPath = Database.database().reference().child("users").child(userID!)
+        userPath?.observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let first = value?["firstName"] as? String
+            let last = value?["lastName"] as? String
+            self.fullName = first! + " " + last!
+        })
+        return fullName
     }
+    var totalAmountAm = [String]()
+    var totalAmountPm = [String]()
     func number(_ time: UILabel) -> Int {
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         var finalCont = 0
@@ -349,6 +339,7 @@ return ""
                 if time.text == key {
                     finalCont = cont
                 }
+                self.totalAmountAm.append(key)
                 cont += 1
             }
         })
@@ -361,6 +352,7 @@ return ""
                 if time.text == key {
                     finalCont = cont
                 }
+                self.totalAmountPm.append(key)
                 cont += 1
             }
         })
@@ -372,9 +364,17 @@ return ""
         if cell.nameLabel.text == "available" {
             let alert = SCLAlertView()
             _ = alert.addButton("Join") {
-                var name = self.firstButton(cell.nameLabel)
-                var indexs = self.number(cell.timeLabel)
-                
+                var name = self.firstButton() // name of user
+                var indexs = self.number(cell.timeLabel) //index of the time selected
+                cell.nameLabel.text = name // user name
+                for each in self.totalAmountAm {
+                    if cell.timeLabel.text == each {
+                        self.timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
+                        self.timeRef?.child("AM").child(each).setValue(self.userID)
+                        self.timeTable.reloadData()
+                    }
+                }
+                self.timeTable.reloadData()
             }
             _ = alert.showInfo("Check-In", subTitle: "Are you sure you want to check in to the time you selected?")
         } else if cell.nameLabel.text == "closed"{

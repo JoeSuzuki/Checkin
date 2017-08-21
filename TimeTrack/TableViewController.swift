@@ -59,6 +59,7 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         groupTableView.separatorStyle = .none
+        
         ref = Database.database().reference().child("personal groups info").child(userID!)
         ref?.queryOrderedByKey().observe(.childAdded, with: {
             (snapshot) in
