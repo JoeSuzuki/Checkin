@@ -17,7 +17,6 @@ let kInfoTitledddd = "Info"
 let kSubtitledddd = "The passcode you entered is incorrect"
 let kSubtitlddddd = "You Checked in!"
 
-
 struct JoinTimesData {
     let cell: Int!
     let named: String?
@@ -54,6 +53,7 @@ class JoinerTableViewController: UITableViewController{
     var organizeTime = [String]()
     var newItems = [DataSnapshot]()
     var fullName = ""
+    var joinerCount = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         arrayOfTime = []
@@ -66,9 +66,10 @@ class JoinerTableViewController: UITableViewController{
         setUp()
         timeSetup()
         organize()
-
+        timeTable.reloadData()
     }
     override func viewDidAppear(_ animated: Bool) {
+        timeTable.reloadData()
 
     }
     override func didReceiveMemoryWarning() {
@@ -83,9 +84,15 @@ class JoinerTableViewController: UITableViewController{
 //            self.organize()
 //        }
                 self.arrayOfTime = []
-        
-        timeSetup()
-        organize()
+        if joinerCount < 1 {
+            setUp()
+            timeSetup()
+            joinerCount += 1
+        } else {
+            organize()
+            timeTable.reloadData()
+        }
+        timeTable.reloadData()
     }
     func timeSetup(){
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
@@ -102,7 +109,7 @@ class JoinerTableViewController: UITableViewController{
                     nextStepHour +=  timeIntHour as! Int
                     nextStepMin += timeIntMin as! Int
                 } else {
-                    break
+                    return
                 }
             }
             if nextStepMin >= 60 {
@@ -120,8 +127,8 @@ class JoinerTableViewController: UITableViewController{
                         nextStepHour += 1
                     }
                 }
-            timeDevolve(timeCreator(nextStepHour, nextStepMin))
             }
+            timeDevolve(timeCreator(nextStepHour, nextStepMin))
         }
     }
     func timeDevolve(_ stringTime: String) {// writes to firebase AM and PM times per interval
