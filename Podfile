@@ -15,4 +15,5 @@ target 'TimeTrack' do
   pod 'JTAppleCalendar', '~> 7.0'
   pod 'Kingfisher', '~> 3.0'
   pod 'DateTimePicker'	
+  pod 'Alamofire', '~> 4.4'
 end

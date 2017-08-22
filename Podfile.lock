@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.5.0)
   - DateTimePicker (1.1.2)
   - Firebase/Auth (4.0.3):
     - Firebase/Core
@@ -48,6 +49,7 @@ PODS:
   - SCLAlertView (0.7.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.4)
   - DateTimePicker
   - Firebase/Auth
   - Firebase/Core
@@ -59,6 +61,7 @@ DEPENDENCIES:
   - SCLAlertView
 
 SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   DateTimePicker: 518bffa5438ef83a7a687cc4d5e187e5c12012b8
   Firebase: 9e33fdfbca37cab635c693883caa90a4475b842b
   FirebaseAnalytics: ad41720e3e67fc63fbe3d2948d3e26932a8de311
@@ -74,6 +77,6 @@ SPEC CHECKSUMS:
   Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: c170031cbd6f9680c8156a108be55060e6c9c7ce
+PODFILE CHECKSUM: f27d486e1caf864d3c4265156aff72349b0f65a2
 
 COCOAPODS: 1.2.1

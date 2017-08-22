@@ -79,6 +79,7 @@ class TableViewController: UITableViewController {
             let imageView = cell.mainImageView
             imageView?.kf.setImage(with: imageURL)
             self.arrayOfCellData.append(cellData(cell : 1, text : name , image : imageView?.image, address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
+            self.groupTableView.reloadData()
             
         })
         

@@ -30,7 +30,6 @@
 		FF9EDC181F43317E00B472D2 /* StepCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC151F43317E00B472D2 /* StepCollectionViewFlowLayout.swift */; };
 		FF9EDC1A1F436D3F00B472D2 /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC191F436D3F00B472D2 /* CalenderViewController.swift */; };
 		FF9EDC1D1F4372DA00B472D2 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC1C1F4372DA00B472D2 /* Time.swift */; };
-		FFAE463B1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAE463A1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift */; };
 		FFAE463D1F3B50D6001CC9EC /* GroupTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAE463C1F3B50D6001CC9EC /* GroupTimeTableViewController.swift */; };
 		FFAE46401F3B5156001CC9EC /* GroupTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAE463E1F3B5156001CC9EC /* GroupTimeTableViewCell.swift */; };
 		FFAE46411F3B5156001CC9EC /* GroupTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFAE463F1F3B5156001CC9EC /* GroupTimeTableViewCell.xib */; };
@@ -87,13 +86,12 @@
 		FF3827BD1F47FDCF009A6AA7 /* TableViewSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSettingsViewController.swift; sourceTree = "<group>"; };
 		FF3827BF1F482B0D009A6AA7 /* PhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoHelper.swift; path = TimeTrack/PhotoHelper.swift; sourceTree = "<group>"; };
 		FF9EDC0E1F41F16700B472D2 /* Joined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Joined.swift; sourceTree = "<group>"; };
-		FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinerTableViewController.swift; sourceTree = "<group>"; };
+		FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = JoinerTableViewController.swift; sourceTree = "<group>"; };
 		FF9EDC131F43317E00B472D2 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF9EDC141F43317E00B472D2 /* DateTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
 		FF9EDC151F43317E00B472D2 /* StepCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		FF9EDC191F436D3F00B472D2 /* CalenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalenderViewController.swift; path = Storyboards/CalenderViewController.swift; sourceTree = "<group>"; };
 		FF9EDC1C1F4372DA00B472D2 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
-		FFAE463A1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTime1TableViewController.swift; sourceTree = "<group>"; };
 		FFAE463C1F3B50D6001CC9EC /* GroupTimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTimeTableViewController.swift; sourceTree = "<group>"; };
 		FFAE463E1F3B5156001CC9EC /* GroupTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTimeTableViewCell.swift; sourceTree = "<group>"; };
 		FFAE463F1F3B5156001CC9EC /* GroupTimeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupTimeTableViewCell.xib; path = ../GroupTimeTableViewCell.xib; sourceTree = "<group>"; };
@@ -394,7 +392,6 @@
 			children = (
 				FFB799921F2904A8001B7C61 /* TableViewController.swift */,
 				FFC091161F342E7400BD5143 /* MoreInfoGroupViewController.swift */,
-				FFAE463A1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift */,
 				FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */,
 				FFAE463C1F3B50D6001CC9EC /* GroupTimeTableViewController.swift */,
 				FFC3B0061F36C11D00E9BF64 /* CreateTableViewCell.swift */,
@@ -559,7 +556,6 @@
 				FF115B2F1F2CF323008A1EB5 /* MainViewController.swift in Sources */,
 				FF9EDC0F1F41F16700B472D2 /* Joined.swift in Sources */,
 				FFC3B0051F36C10600E9BF64 /* CreateTableViewController.swift in Sources */,
-				FFAE463B1F3B4F3A001CC9EC /* GroupTime1TableViewController.swift in Sources */,
 				FF115B361F2CF3C8008A1EB5 /* AuthService.swift in Sources */,
 				FFC091171F342E7400BD5143 /* MoreInfoGroupViewController.swift in Sources */,
 				FFD5BD451F2BB41700C3BEE7 /* PersonalGroupViewController.swift in Sources */,
