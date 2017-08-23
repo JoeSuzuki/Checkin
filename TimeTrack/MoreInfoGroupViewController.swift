@@ -31,6 +31,7 @@ class MoreInfoGroupViewController: UIViewController {
     var organizeTime = [String]()
     var newItems = [DataSnapshot]()
     var fullName = ""
+    var editer: String = ""
 
     @IBOutlet weak var mainImageViewSecon: UIImageView!
     @IBOutlet weak var mainNameLabelSecon: UILabel!
@@ -49,132 +50,49 @@ class MoreInfoGroupViewController: UIViewController {
         mainImageViewSecon.contentMode = UIViewContentMode.scaleAspectFill
         mainImageViewSecon.layer.masksToBounds = false
         mainImageViewSecon.clipsToBounds = true
-        timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-        ref = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-        setUp()
-
-    }
-    func setUp(){
-        ref?.observe(DataEventType.value, with: {
+        let membersRef = Database.database().reference().child("Members of Groups").child(Constants.idd.myStrings)
+        membersRef.observe(.value, with: {
             (snapshot) in
             let value = snapshot.value as! [String: AnyObject]
-            let timeInt = value["timeInt"] as? Int
-            // let checkin = value["check-in"] as? Array
-            self.timeInterval = timeInt!
+            self.editer = value["Owner"] as! String
+            print(self.editer)
+            print(self.userID!)
         })
+//        edit{
+//            print("nice apple")
+//        }
     }
-    func timeSetup(){
-        timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-        var nextStepHour = startHour
-        var nextStepMin = startMin
-        let timeIntHour = timeIntervalChange(timeInterval)[0]
-        let timeIntMin = timeIntervalChange(timeInterval)[1]
-        let minutesAdded = timeIntMin as! Int
-        let hourAdded = timeIntHour as! Int
-        
-        while nextStepHour < endHour || nextStepMin < endMin {
-            if nextStepHour +  hourAdded == endHour {
-                if nextStepMin + minutesAdded < endMin {
-                    nextStepHour +=  timeIntHour as! Int
-                    nextStepMin += timeIntMin as! Int
-                } else {
-                    return
-                }}
-            if nextStepMin >= 60 {
-                while nextStepMin >= 60 {
-                    nextStepMin -= 60
-                    nextStepHour += 1
-                }}
-            if nextStepHour + hourAdded < endHour || nextStepMin + minutesAdded < endMin {
-                nextStepHour +=  timeIntHour as! Int
-                nextStepMin += timeIntMin as! Int
-                if nextStepMin >= 60 {
-                    while nextStepMin >= 60 {
-                        nextStepMin -= 60
-                        nextStepHour += 1
-                    }
-                }
-               // timeDevolve(timeCreator(nextStepHour, nextStepMin))
-            }
-        }
-    }
-    func timeDevolve(_ stringTime: String) {// writes to firebase AM and PM times per interval
-        let seperatedTimeList = stringTime.components(separatedBy: " ")
-        let stringDm = seperatedTimeList[1]
-        let beggining = seperatedTimeList[0]
-        if stringDm == "AM" {
-            timeRef?.child("AM").updateChildValues([stringTime: ""])
-        } else if stringDm == "PM" {
-            timeRef?.child("PM").updateChildValues([stringTime: ""])
-        }
-    }
-    func timeCreator(_ hour: Int, _ min: Int) -> String { // takes ints and outputs a time friendly string
-        var newHour = hour
-        var Dm = ""
-        var stringHour = ""
-        var stringMin = ""
-        if newHour > 12 {
-            newHour -= 12
-            Dm = "PM"
-            if newHour < 10{
-                stringHour = "0\(newHour)"
-            } else {
-                stringHour = "\(newHour)"
-            }
-            if min < 10 {
-                stringMin = "\(min)0 "
-            }else {
-                stringMin = "\(min) "
-            }
-        } else {
-            Dm = "AM"
-            if newHour < 10{
-                stringHour = "0\(newHour)"
-            } else {
-                stringHour = "\(newHour)"
-            }
-            if min < 10 {
-                stringMin = "\(min)0 "
-            }else {
-                stringMin = "\(min) "
-            }
-        }
-        return stringHour + ":" + stringMin + Dm
-    }
-     func timeIntervalChange(_ interval: Int) -> Array<Any>{
-        var hour = 0
-        var g = interval
-        if interval > 60 {
-            while g >= 60 {
-                g -= 60
-                hour += 1
-            }
-            return [hour , g]
-        } else if interval == 60 {
-            var newmin = 0
-            var newHour = 1
-            var newTime = [newHour, newmin]
-            return newTime
-        } else if interval < 60 {
-            return [0,interval]
-        } else {
-            return [0,interval]
-        }
-    }
+//    func edit(completion: () -> ()) {
+//        ref = Database.database().reference().child("personal groups info").child(userID!)
+//        ref?.child(idLabelView.text!).observe(.childAdded, with: {
+//            (snapshot) in
+//            let value = snapshot.value as! [String: AnyObject]
+//            let edit = value["edit"] as? String
+//            self.editer = edit!
+//            
+//        })
+//        completion()
+//    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     @IBAction func checkInButton(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "time", sender: sender)
+        print(self.editer)
+        print(self.userID)
+        if self.editer == self.userID {
+            self.performSegue(withIdentifier: "time", sender: sender)// owner
+        } else {
+            self.performSegue(withIdentifier: "joinerTime", sender: sender)// joiner
+        }
     }
-    
-     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let groupTimeTableViewController = segue.destination as! GroupTimeTableViewController
-        Constants.idd.myStrings = idLabelView.text!
-    }
+}
 
-    
+
+    //     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let JoinerTimeJoinTableViewController = segue.destination as! JoinerTimeJoinTableViewController
+//        Constants.idd.myStrings = idLabelView.text!
+//    }
 
     /*
     // MARK: - Navigation
@@ -186,4 +104,3 @@ class MoreInfoGroupViewController: UIViewController {
     }
     */
 
-}

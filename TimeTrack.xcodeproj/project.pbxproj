@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A939F7E74347450DA6F7A78 /* Pods_TimeTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D5DC40930E04B3B8DCC3E8 /* Pods_TimeTrack.framework */; };
+		FF0A7FFD1F4DDB7B00DED0A9 /* JoinerTimeJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0A7FFC1F4DDB7B00DED0A9 /* JoinerTimeJoinViewController.swift */; };
 		FF115B2E1F2CF323008A1EB5 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF115B2A1F2CF323008A1EB5 /* ForgotPasswordViewController.swift */; };
 		FF115B2F1F2CF323008A1EB5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF115B2B1F2CF323008A1EB5 /* MainViewController.swift */; };
 		FF115B301F2CF323008A1EB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF115B2C1F2CF323008A1EB5 /* LoginViewController.swift */; };
@@ -64,6 +65,7 @@
 		6801CD89ACDD442B4F6F39C8 /* Pods-TimeTrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeTrack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeTrack/Pods-TimeTrack.debug.xcconfig"; sourceTree = "<group>"; };
 		D98F24E38427006E6B42796C /* Pods-TimeTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeTrack.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeTrack/Pods-TimeTrack.release.xcconfig"; sourceTree = "<group>"; };
 		F5D5DC40930E04B3B8DCC3E8 /* Pods_TimeTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF0A7FFC1F4DDB7B00DED0A9 /* JoinerTimeJoinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinerTimeJoinViewController.swift; sourceTree = "<group>"; };
 		FF115B2A1F2CF323008A1EB5 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		FF115B2B1F2CF323008A1EB5 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FF115B2C1F2CF323008A1EB5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 			children = (
 				FFB799921F2904A8001B7C61 /* TableViewController.swift */,
 				FFC091161F342E7400BD5143 /* MoreInfoGroupViewController.swift */,
+				FF0A7FFC1F4DDB7B00DED0A9 /* JoinerTimeJoinViewController.swift */,
 				FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */,
 				FFAE463C1F3B50D6001CC9EC /* GroupTimeTableViewController.swift */,
 				FFC3B0061F36C11D00E9BF64 /* CreateTableViewCell.swift */,
@@ -529,6 +532,7 @@
 				FFC091171F342E7400BD5143 /* MoreInfoGroupViewController.swift in Sources */,
 				FF115B3B1F2CF3F9008A1EB5 /* ViewController+Utility.swift in Sources */,
 				FF3827C01F482B0D009A6AA7 /* PhotoHelper.swift in Sources */,
+				FF0A7FFD1F4DDB7B00DED0A9 /* JoinerTimeJoinViewController.swift in Sources */,
 				FF115B3A1F2CF3F9008A1EB5 /* Storyboard+Utility.swift in Sources */,
 				FFB799961F29056E001B7C61 /* TableViewCell.swift in Sources */,
 				FF9EDC1D1F4372DA00B472D2 /* Time.swift in Sources */,

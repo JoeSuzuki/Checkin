@@ -125,6 +125,7 @@ class TableViewController: UITableViewController {
                     reff.child("key").setValue(keyed)
                     reff.child("numOfMembers").setValue(mem)
                     reff.child("numOfCheckIns").setValue(checkIns)
+                    reff.child("edit").setValue("false")
                     let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
                     let imageURL = URL(string: pics)
                     let imageView = cell.mainImageView

@@ -82,6 +82,9 @@ struct Constants {
     struct timeInterval {
         static var myInts: Int = 1
     }
+    struct edit {
+        static var myStrings: String = ""
+    }
     
 // Profile
     struct fullname {
