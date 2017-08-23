@@ -51,7 +51,7 @@ class JoinerTimeJoinTableViewController: UITableViewController{
         number { () in
             print("nice")
         }
-        firstButton()
+//        firstButton()
         self.organize()
         timeTable.reloadData()
         
