@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeTrack/JoinerTableViewController.swift"
-            timestampString = "525162412.568248"
+            timestampString = "525195194.527204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "timeSetup(completion:)"
             landmarkType = "7">
          </BreakpointContent>

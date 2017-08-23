@@ -61,20 +61,16 @@ class JoinerTableViewController: UITableViewController{
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         ref = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         currentTime()
+        number { () in
+            print("nice")
+        }
         firstButton()
-        //setUp()
-        //timeSetup()
         self.organize()
               timeTable.reloadData()
         
     }
     override func viewDidAppear(_ animated: Bool) {
-        //     timeTable.reloadData()
-        //        self.arrayOfTime = []
-        //setUp()
-        //timeSetup()
-        //self.arrayOfTime = []
-        //organize()
+
         self.organize()
     }
     override func didReceiveMemoryWarning() {
@@ -83,19 +79,14 @@ class JoinerTableViewController: UITableViewController{
     
     @IBOutlet weak var item: UINavigationItem!
     @IBAction func joinButton(_ sender: UIBarButtonItem) {
-//        setUp{ () in
-//            self.timeSetup { () in
-//                //            self.arrayOfTime = []
         setUp{ () in
             self.timeSetup { () in
-                //            self.arrayOfTime = []
                 self.organize()
-                //self.timeTable.reloadData()
+                self.number { () in
+                    print("nice")
+                }
             }
         }
-        // //                //self.timeTable.reloadData()
-//            }
-//        }
     }
     func setUp(completion: @escaping () -> ()){
         ref?.observe(DataEventType.value, with: {
@@ -320,6 +311,7 @@ class JoinerTableViewController: UITableViewController{
             return cell
         }
     }
+    var usernameLabel = User.current.username
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if arrayOfTime[indexPath.row].cell == 1 {
             return 60
@@ -349,8 +341,8 @@ class JoinerTableViewController: UITableViewController{
                 return
             }
             for snapshotItem in snapshotArray {
-                let key = snapshotItem.key
-                self.totalAmountPm.append(key)
+                let value = snapshotItem.value
+                self.totalAmountPm.append(value as! String)
             }
         })
         timeRef?.child("PM").observeSingleEvent(of: .value, with: {
@@ -359,8 +351,8 @@ class JoinerTableViewController: UITableViewController{
                 return
             }
             for snapshotItem in snapshotArray {
-                let key = snapshotItem.key
-                self.totalAmountPm.append(key)
+                let value = snapshotItem.value
+                self.totalAmountPm.append(value as! String)
             }
         })
         completion()
@@ -381,48 +373,44 @@ class JoinerTableViewController: UITableViewController{
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! GroupTimeTableViewCell
+//        number { () in
+//        
+//        for each in totalAmountAm {
+//            if each == usernameLabel {
+//                SCLAlertView().showInfo("You have a spot!", subTitle: "You can only occupy one spot.")
+//                break
+//            }
+//        }
+//        for each in totalAmountPm {
+//            if each == usernameLabel {
+//                SCLAlertView().showInfo("You have a spot!", subTitle: "You can only occupy one spot.")
+//                break
+//            }
+//            
+//        }
+//        }
         if cell.nameLabel.text == "available" {
             let alert = SCLAlertView()
             _ = alert.addButton("Join") {
-//                    self.timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-//                    self.timeRef?.child("PM").child(cell.timeLabel.text!).setValue(names)
-//                    tableView.reloadRows(at: [indexPath], with: .fade)
-////                                var indexs = self.number(cell.timeLabel) //index of the time selected
-//
-//                }
-//                tableView.reloadRows(at: [indexPath], with: .fade)
-//                var indexs = self.number(cell.timeLabel) //index of the time selected
-//                cell.nameLabel.text = name // user name
-//                    self.number { () in
-//                        for each in self.totalAmountAm {
-//                           // print("each: \(each)")
-//                            print("\(String(describing: cell.timeLabel.text))")
-//                            if each == cell.timeLabel.text {
-//                                self.timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-//                                self.timeRef?.child("AM").updateChildValues([each : self.fullName])
-//                            }
-//                        }
-//                        for each in self.totalAmountPm {
-//                            if each == cell.timeLabel.text {
-//                                self.timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-//                                self.timeRef?.child("PM").updateChildValues([each : self.fullName])
-//                            }
-//                        }
-//
-//                }}
-                
-                var usernameLabel = User.current.username
-        self.timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-        self.timeRef?.child(self.timeDevolver(cell.timeLabel.text!)).updateChildValues([cell.timeLabel.text! : usernameLabel ])
+                self.timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
+                self.timeRef?.child(self.timeDevolver(cell.timeLabel.text!)).updateChildValues([cell.timeLabel.text! : self.usernameLabel ])
                 self.organize()
-                self.timeTable.reloadData()
+                //self.timeTable.reloadData()
             }
             _ = alert.showInfo("Check-In", subTitle: "Are you sure you want to check in to the time you selected?")
         } else if cell.nameLabel.text == "closed"{
             SCLAlertView().showInfo("Unavailable", subTitle: "This location closes at this time, please select a different time.")
+        } else if cell.nameLabel.text == usernameLabel {
+            let alert = SCLAlertView()
+            _ = alert.addButton("Leave") {
+                self.timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
+                self.timeRef?.child(self.timeDevolver(cell.timeLabel.text!)).updateChildValues([cell.timeLabel.text! : "" ])
+                self.organize()
+                //self.timeTable.reloadData()
+            }
+            _ = alert.showInfo("Leave?", subTitle: "Are you sure you want to leave time you selected?")
         } else {
             SCLAlertView().showInfo("Unavailable", subTitle: "This time has been taken, please select a different time.")
         }
     }
-    
 }

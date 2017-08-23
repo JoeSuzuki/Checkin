@@ -108,6 +108,7 @@ class TableViewController: UITableViewController {
                     let description = value["description"] as! String!
                     let from = value["from"] as! String!
                     let to = value["to"] as! String!
+                    let owner = value["owner"] as! String!
                     let img = value["img"] as! String!
                     guard let pics = value["pic"] as? String else {
                         var pics = "https://static.pexels.com/photos/58808/pexels-photo-58808.jpeg"
@@ -118,6 +119,7 @@ class TableViewController: UITableViewController {
                     reff.child("from").setValue(from)
                     reff.child("to").setValue(to)
                     reff.child("name").setValue(name)
+                    reff.child("owner").setValue(owner)
                     reff.child("description").setValue(description)
                     reff.child("img").setValue(img)
                     reff.child("key").setValue(keyed)
