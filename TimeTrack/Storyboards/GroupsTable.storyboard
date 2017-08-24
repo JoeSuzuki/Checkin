@@ -1113,25 +1113,6 @@
             </objects>
             <point key="canvasLocation" x="-1391" y="3297"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="ebp-mj-2ko">
-            <objects>
-                <viewController wantsFullScreenLayout="YES" id="Olv-XD-sbi" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wGw-sv-eV2"/>
-                        <viewControllerLayoutGuide type="bottom" id="Cwh-ra-uw8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="EgC-L5-l4h">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ES2-6W-3w3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-654" y="2534"/>
-        </scene>
         <!--Joiner Time Join Table View Controller-->
         <scene sceneID="x3d-hx-PcG">
             <objects>

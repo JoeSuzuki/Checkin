@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -255,83 +254,6 @@
             </objects>
             <point key="canvasLocation" x="-1074" y="1432"/>
         </scene>
-        <!--Profile-->
-        <scene sceneID="ETv-sK-ypx">
-            <objects>
-                <viewController id="vyB-8K-76H" customClass="ProfileViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uCy-fy-WlG"/>
-                        <viewControllerLayoutGuide type="bottom" id="qLI-2M-tV9"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ofl-1o-2JB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-Contacts-50" translatesAutoresizingMaskIntoConstraints="NO" id="0UR-xy-xN1">
-                                <rect key="frame" x="16" y="35" width="231" height="231"/>
-                                <color key="backgroundColor" white="0.89378605769230768" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="138" id="V6D-Ce-2Ya"/>
-                                    <constraint firstAttribute="width" constant="138" id="XPz-m0-kZL"/>
-                                    <constraint firstAttribute="width" secondItem="0UR-xy-xN1" secondAttribute="height" multiplier="1:1" id="flb-fX-mOQ"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="138" id="qrf-Yq-iZJ"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Zt-1r-X97">
-                                <rect key="frame" x="255" y="35" width="218" height="133"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="NRW-qy-ibS"/>
-                                    <constraint firstAttribute="width" constant="218" id="jD0-Yh-3Kf"/>
-                                    <constraint firstAttribute="height" constant="40" id="oby-ia-okT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa3-er-5QU">
-                                <rect key="frame" x="255" y="178" width="218" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="218" id="R0p-n0-LrN"/>
-                                    <constraint firstAttribute="height" constant="40" id="jsi-C5-fND"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="qLI-2M-tV9" firstAttribute="top" secondItem="wa3-er-5QU" secondAttribute="bottom" constant="449" id="7mv-l4-BBj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3Zt-1r-X97" secondAttribute="trailing" constant="-21" id="9Ng-UD-XU6"/>
-                            <constraint firstItem="qLI-2M-tV9" firstAttribute="top" secondItem="0UR-xy-xN1" secondAttribute="bottom" constant="401" id="K7e-RT-ncy"/>
-                            <constraint firstItem="0UR-xy-xN1" firstAttribute="top" secondItem="3Zt-1r-X97" secondAttribute="top" id="KYH-bk-fyM"/>
-                            <constraint firstItem="3Zt-1r-X97" firstAttribute="leading" secondItem="wa3-er-5QU" secondAttribute="leading" id="LNx-Sb-JKS"/>
-                            <constraint firstItem="3Zt-1r-X97" firstAttribute="trailing" secondItem="wa3-er-5QU" secondAttribute="trailing" id="XFg-td-zeJ"/>
-                            <constraint firstItem="3Zt-1r-X97" firstAttribute="leading" secondItem="0UR-xy-xN1" secondAttribute="trailing" constant="8" symbolic="YES" id="iJd-Ph-dAf"/>
-                            <constraint firstItem="0UR-xy-xN1" firstAttribute="leading" secondItem="ofl-1o-2JB" secondAttribute="leadingMargin" id="jXR-Lg-cx7"/>
-                            <constraint firstItem="0UR-xy-xN1" firstAttribute="top" secondItem="uCy-fy-WlG" secondAttribute="bottom" constant="15" id="re2-3g-yfC"/>
-                            <constraint firstItem="wa3-er-5QU" firstAttribute="top" secondItem="3Zt-1r-X97" secondAttribute="bottom" constant="10" id="zBN-Nj-zFh"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Profile" id="sLP-GR-hWl">
-                        <barButtonItem key="rightBarButtonItem" image="icons8-Settings-50" id="iuf-8X-sAm">
-                            <inset key="imageInsets" minX="16" minY="15" maxX="7" maxY="12"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="settingButton:" destination="vyB-8K-76H" id="9KJ-ij-qsm"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="nameLabel" destination="3Zt-1r-X97" id="9V6-Ve-yaZ"/>
-                        <outlet property="profileImage" destination="0UR-xy-xN1" id="v2w-aG-YH7"/>
-                        <outlet property="usernameLabel" destination="wa3-er-5QU" id="2gh-BK-klp"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d8g-Px-sV6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="399" y="714"/>
-        </scene>
         <!--Edit View Controller-->
         <scene sceneID="JZO-Tm-vx7">
             <objects>
@@ -470,8 +392,6 @@
     </scenes>
     <resources>
         <image name="btn_options_black" width="24" height="24"/>
-        <image name="icons8-Contacts-50" width="50" height="50"/>
-        <image name="icons8-Settings-50" width="50" height="50"/>
         <image name="icons8-Settings-64" width="64" height="64"/>
         <image name="tab_profile_black" width="25" height="25"/>
     </resources>

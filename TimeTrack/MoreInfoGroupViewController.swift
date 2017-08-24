@@ -61,6 +61,7 @@ class MoreInfoGroupViewController: UIViewController {
 //        edit{
 //            print("nice apple")
 //        }
+        print("Please Apple? ")
     }
 //    func edit(completion: () -> ()) {
 //        ref = Database.database().reference().child("personal groups info").child(userID!)
