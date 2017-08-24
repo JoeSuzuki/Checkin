@@ -254,10 +254,11 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         checkField()
+        imageView?.image = nil
         dismiss(animated: true, completion: nil)
     }
     func checkField() {
-        if (groupNameTextField.text?.isEmpty)! && (locationTextField.text?.isEmpty)! && (time1.text?.isEmpty)! && (time2.text?.isEmpty)! && (am.text?.isEmpty)! && (time10.text?.isEmpty)! && (time20.text?.isEmpty)! && (ampm.text?.isEmpty)! || imageView == nil{
+        if (groupNameTextField.text?.isEmpty)! && (locationTextField.text?.isEmpty)! && (time1.text?.isEmpty)! && (time2.text?.isEmpty)! && (am.text?.isEmpty)! && (time10.text?.isEmpty)! && (time20.text?.isEmpty)! && (ampm.text?.isEmpty)! || imageView?.image == nil{
             addButton.isEnabled = false
         }
         else{
@@ -266,8 +267,6 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     }
     
     @IBAction func addButton(_ sender: Any) {
-
-        
         Constants.location.myStrings = locationTextField.text!
         Constants.name.myStrings = groupNameTextField.text as
             Any as! String

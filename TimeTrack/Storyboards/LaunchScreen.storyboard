@@ -22,29 +22,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeTrack" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ig-IW-7rX">
-                                <rect key="frame" x="0.0" y="20" width="375" height="167"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
-                                <color key="textColor" red="0.99203723669052124" green="0.9921455979347229" blue="0.9961208701133728" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The smart way to check-in." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnE-be-Hr5">
-                                <rect key="frame" x="0.0" y="183" width="375" height="157"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="crj-8h-XHr">
+                                <rect key="frame" x="67" y="100" width="240" height="207"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The smart way to check-in." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnE-be-Hr5">
+                                <rect key="frame" x="8" y="315" width="359" height="157"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="157" id="Kgv-9f-0aB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
                                 <color key="textColor" red="0.99203723669052124" green="0.9921455979347229" blue="0.9961208701133728" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.2784313725" green="0.72941176470000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="MnE-be-Hr5" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="163" id="3Vq-Y7-e04"/>
-                            <constraint firstItem="2Ig-IW-7rX" firstAttribute="trailing" secondItem="MnE-be-Hr5" secondAttribute="trailing" id="8LJ-2r-yDT"/>
-                            <constraint firstAttribute="trailing" secondItem="2Ig-IW-7rX" secondAttribute="trailing" id="Fmn-cY-udo"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="MnE-be-Hr5" secondAttribute="bottom" constant="327" id="OAc-Of-OG3"/>
-                            <constraint firstItem="2Ig-IW-7rX" firstAttribute="leading" secondItem="MnE-be-Hr5" secondAttribute="leading" id="Rhg-7D-NGh"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="2Ig-IW-7rX" secondAttribute="bottom" constant="480" id="lVb-8h-FPU"/>
-                            <constraint firstItem="2Ig-IW-7rX" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="m7F-ku-UrL"/>
-                            <constraint firstItem="MnE-be-Hr5" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-16" id="wMs-43-aZm"/>
+                            <constraint firstItem="MnE-be-Hr5" firstAttribute="top" secondItem="crj-8h-XHr" secondAttribute="bottom" constant="8" symbolic="YES" id="1Mb-xc-sLz"/>
+                            <constraint firstItem="crj-8h-XHr" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="51" id="CVx-KP-5k8"/>
+                            <constraint firstItem="crj-8h-XHr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Cho-i3-sOd"/>
+                            <constraint firstItem="MnE-be-Hr5" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-8" id="Gda-CM-Fc9"/>
+                            <constraint firstItem="crj-8h-XHr" firstAttribute="centerX" secondItem="MnE-be-Hr5" secondAttribute="centerX" id="ZCJ-d4-WuD"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="MnE-be-Hr5" secondAttribute="bottom" constant="195" id="r7t-oq-San"/>
+                            <constraint firstItem="crj-8h-XHr" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="80" id="ubE-nC-o3y"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -54,4 +53,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="512" height="512"/>
+    </resources>
 </document>
