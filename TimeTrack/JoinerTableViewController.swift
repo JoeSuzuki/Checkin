@@ -5,6 +5,8 @@
 //  Created by Joe Suzuki on 8/15/17.
 //  Copyright © 2017 JoeSuzuki. All rights reserved.
 //
+//sssssss
+
 import UIKit
 import Firebase
 import SCLAlertView
@@ -63,17 +65,13 @@ class JoinerTableViewController: UITableViewController{
         number { () in
             print("nice")
         }
-        self.organize{ () in
-            print("nice")
-        }
+        self.organize()
         timeTable.reloadData()
         
     }
     override func viewDidAppear(_ animated: Bool) {
         
-        self.organize{ () in
-            print("nice")
-        }
+        self.organize()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -84,9 +82,7 @@ class JoinerTableViewController: UITableViewController{
         setUp{ () in
             self.timers { () in
                 print("ddd")
-                self.organize{ () in
-                    print("nice")
-                }
+                self.organize()
             }
         }
         timeTable.reloadData()
@@ -181,7 +177,7 @@ class JoinerTableViewController: UITableViewController{
     }
     
     
-    func organize(completion: () -> ()) {
+    func organize() {
         arrayOfTime = []
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         timeRef?.child("AM").observeSingleEvent(of: .value, with: {
@@ -192,16 +188,12 @@ class JoinerTableViewController: UITableViewController{
             for snapshotItem in snapshotArray {
                 let key = snapshotItem.key
                 let value = snapshotItem.value
-                if key == (self.timeCreator(self.endHour, self.endMin)){
-                    self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "closed", timed : "\(self.timeCreator(self.endHour, self.endMin))"), at:self.arrayOfTime.count)
-                } else {
                     if value as! String == ""{
                         self.arrayOfTime.append(JoinTimesData(cell: 1, named: "available", timed: key as! String))
                     } else {
                         self.arrayOfTime.insert(JoinTimesData(cell : 1, named : value as! String, timed : key as! String), at:0)
                     }
                 }
-            }
         })
         self.timeRef?.child("PM").observeSingleEvent(of: .value, with: {
             (snapshot) in
@@ -211,18 +203,14 @@ class JoinerTableViewController: UITableViewController{
             for snapshotItem in snapshotArray {
                 let key = snapshotItem.key
                 let value = snapshotItem.value
-                if key == (self.timeCreator(self.endHour, self.endMin)){
-                    self.arrayOfTime.insert(JoinTimesData(cell : 1, named : "closed", timed : "\(self.timeCreator(self.endHour, self.endMin))"), at:self.arrayOfTime.count)
-                } else {
+
                     if value as! String == ""{
                         self.arrayOfTime.append(JoinTimesData(cell: 1, named: "available", timed: key as! String))
                     } else {
                         self.arrayOfTime.insert(JoinTimesData(cell : 1, named : value as! String, timed : key as! String), at:0)
                     }
                 }
-            }
         })
-        completion()
     }
     
     func timeDevolve(_ stringTime: String, completion: () ->()) {// writes to firebase AM and PM times per interval
@@ -387,14 +375,7 @@ class JoinerTableViewController: UITableViewController{
         let seperatedTimeList = stringTime.components(separatedBy: " ")
         let stringDm = seperatedTimeList[1]
         let beggining = seperatedTimeList[0]
-        if stringDm == "AM" {
-            return "AM"
-        } else if stringDm == "PM" {
-            timeRef?.child("PM").updateChildValues([stringTime: ""])
-            return "PM"
-        } else {
-            return "AM"
-        }
+        return stringDm
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -420,9 +401,7 @@ class JoinerTableViewController: UITableViewController{
             _ = alert.addButton("Join") {
                 self.timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
                 self.timeRef?.child(self.timeDevolver(cell.timeLabel.text!)).updateChildValues([cell.timeLabel.text! : self.usernameLabel ])
-                self.organize{ () in
-                    print("nice")
-                }                //self.timeTable.reloadData()
+               // self.organize()//self.timeTable.reloadData()
             }
             _ = alert.showInfo("Check-In", subTitle: "Are you sure you want to check in to the time you selected?")
         } else if cell.nameLabel.text == "closed"{
@@ -432,13 +411,12 @@ class JoinerTableViewController: UITableViewController{
             _ = alert.addButton("Leave") {
                 self.timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
                 self.timeRef?.child(self.timeDevolver(cell.timeLabel.text!)).updateChildValues([cell.timeLabel.text! : "" ])
-                self.organize{ () in
-                    print("nice")
-                }                //self.timeTable.reloadData()
+                //self.organize()     //self.timeTable.reloadData()
             }
             _ = alert.showInfo("Leave?", subTitle: "Are you sure you want to leave time you selected?")
         } else {
             SCLAlertView().showInfo("Unavailable", subTitle: "This time has been taken, please select a different time.")
         }
+        self.organize()
     }
 }
