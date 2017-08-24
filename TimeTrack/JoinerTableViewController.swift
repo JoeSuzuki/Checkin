@@ -16,29 +16,6 @@ let kInfoTitledddd = "Info"
 let kSubtitledddd = "The passcode you entered is incorrect"
 let kSubtitlddddd = "You Checked in!"
 
-//while OpenHour + HourInterval < endHour || OpenMin + MinInterval < endMin{
-//    if OpenHour +  HourInterval == endHour {
-//        if OpenMin + MinInterval < endMin {
-//            if OpenMin >= 60 {
-//                while OpenMin >= 60 {
-//                    OpenMin -= 60
-//                    OpenHour += 1
-//                }
-//            }
-//            OpenHour +=  HourInterval
-//            OpenMin += MinInterval
-//        }
-//    }
-//    if OpenHour + HourInterval < endHour || OpenMin + MinInterval < endMin {
-//        OpenHour +=  HourInterval
-//        OpenMin += MinInterval
-//        if OpenMin >= 60 {
-//            while OpenMin >= 60 {
-//                OpenMin -= 60
-//                OpenHour += 1
-//            }
-//        }
-//    }
 struct JoinTimesData {
     let cell: Int!
     let named: String?
@@ -86,14 +63,17 @@ class JoinerTableViewController: UITableViewController{
         number { () in
             print("nice")
         }
-        firstButton()
-        self.organize()
+        self.organize{ () in
+            print("nice")
+        }
         timeTable.reloadData()
         
     }
     override func viewDidAppear(_ animated: Bool) {
         
-        self.organize()
+        self.organize{ () in
+            print("nice")
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -102,15 +82,17 @@ class JoinerTableViewController: UITableViewController{
     @IBOutlet weak var item: UINavigationItem!
     @IBAction func joinButton(_ sender: UIBarButtonItem) {
         setUp{ () in
-            self.timeSetup { () in
-                self.organize()
-//                self.number { () in
-//                    print("nice")
-//                }
+            self.timers { () in
+                print("ddd")
+                self.organize{ () in
+                    print("nice")
+                }
             }
         }
+        timeTable.reloadData()
+
     }
-    func setUp(completion: () -> ()){
+    func setUp(completion: @escaping () -> ()){
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         timeRef?.child("timeCloses").observe(DataEventType.value, with: {
             (snapshot) in
@@ -121,81 +103,85 @@ class JoinerTableViewController: UITableViewController{
             self.endHour = hours!
             self.endMin = mins!
             self.endAmpm = Apms!
-            
-        })
-        timeRef?.child("timeOpen").observe(DataEventType.value, with: {
-            (snapshot) in
-            let value = snapshot.value as! NSArray
-            let hours = value[0] as? Int
-            let mins = value[1] as? Int
-            let Apms = value[2] as? String
-            self.startHour = hours!
-            self.startMin = mins!
-            self.startAmpm = Apms!
-            
-        })
-        ref?.observe(DataEventType.value, with: {
-            (snapshot) in
-            let value = snapshot.value as! [String: AnyObject]
-            let timeInt = value["timeInt"] as? Int
-            // let checkin = value["check-in"] as? Array
-            self.timeInterval = timeInt!
+            self.timeRef?.child("timeOpen").observe(DataEventType.value, with: {
+                (snapshot) in
+                let value = snapshot.value as! NSArray
+                let hours = value[0] as? Int
+                let mins = value[1] as? Int
+                let Apms = value[2] as? String
+                self.startHour = hours!
+                self.startMin = mins!
+                self.startAmpm = Apms!
+                self.timeRef?.observe(DataEventType.value, with: {
+                    (snapshot) in
+                    let value = snapshot.value as! [String: AnyObject]
+                    let timeInt = value["timeInt"] as? Int
+                    // let checkin = value["check-in"] as? Array
+                    self.timeInterval = timeInt!
+                    completion()
+                })
+            })
         })
         print("setup works!")
-        completion()
 
     }
-    
-    func timeSetup(completion: () -> ()){
-        
-        timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
-        var OpenHour = startHour
-        var OpenMin = startMin
-        let timeIntHour = timeIntervalChange(timeInterval)[0]
-        let timeIntMin = timeIntervalChange(timeInterval)[1]
-        let MinInterval = timeIntMin as! Int // min Interval
-        let HourInterval = timeIntHour as! Int // hour Interval
-        
-        while OpenHour < endHour {
-            if OpenHour + HourInterval == endHour && OpenMin + MinInterval < endMin {
-                while OpenHour + HourInterval == endHour && OpenMin + MinInterval < endMin {
-                    OpenHour += HourInterval
-                    OpenMin += MinInterval
-                    print("startHour + changeHour: \(OpenHour)")
-                    print("startMin + changeMin: \(OpenMin)")
-                    timeDevolve(timeCreator(OpenHour, OpenMin))
+    func timers(completion: ()-> ()) {
+        let time = Time(startHour: TimeInterval(self.startHour), intervalMinutes: TimeInterval(self.timeInterval), endHour: TimeInterval(self.endHour))
+        let ranges = time.timeRepresentations.enumerated().flatMap { index, value -> String? in
+            if index + 1 < time.timeRepresentations.count {
+                return value + " - " + time.timeRepresentations[index + 1]
+            }
+            return nil
+        }
+        print(time.timeRepresentations)
+        for each in time.timeRepresentations {
+            print("eachtime: \(each)")
+            let seperatedTimeList = each.components(separatedBy: ":")
+            var minnn: Int = Int(seperatedTimeList[1])!
+            var hourr: Int = Int(seperatedTimeList[0])!
+            print(minnn)
+            print(hourr)
+            var Dm = ""
+            var stringHour = ""
+            var stringMin = ""
+            var newTimes = ""
+            if hourr > 12 {
+                hourr -= 12
+                Dm = "PM"
+                if hourr < 10{
+                    stringHour = "0\(hourr)"
+                } else {
+                    stringHour = "\(hourr)"
                 }
-            } else if OpenHour + HourInterval < endHour && OpenMin + MinInterval < endMin{
-                if OpenHour + HourInterval < endHour && OpenMin + MinInterval < endMin {
-                    while OpenHour + HourInterval < endHour && OpenMin + MinInterval < endMin {
-                        OpenHour += HourInterval
-                        OpenMin += MinInterval
-                        print("startHour + changeHour: \(OpenHour)")
-                        print("startMin + changeMin: \(OpenMin)")
-                        timeDevolve(timeCreator(OpenHour, OpenMin))
-                    }
+                if minnn < 10 {
+                    stringMin = "\(minnn)0 "
+                }else {
+                    stringMin = "\(minnn) "
                 }
-            } else if OpenHour + HourInterval <= endHour {
-                var tempHour = 0
-                var tempStartMin = OpenMin + MinInterval
-                var tempMin = 0
-                while OpenMin + MinInterval >= 60 {
-                    tempStartMin -= 60
-                    tempHour += 1
-                    tempMin = tempStartMin
+            } else {
+                Dm = "AM"
+                if hourr < 10{
+                    stringHour = "0\(hourr)"
+                } else {
+                    stringHour = "\(hourr)"
                 }
-                if OpenHour + HourInterval + tempHour <= endHour && OpenMin + MinInterval + tempMin <= endMin {
-                    OpenHour += HourInterval
-                    OpenMin += MinInterval
+                if minnn < 10 {
+                    stringMin = "\(minnn)0 "
+                }else {
+                    stringMin = "\(minnn) "
                 }
+            }
+            newTimes = stringHour + ":" + stringMin + Dm
+            print(newTimes)
+            timeDevolve(newTimes) { () in
+                print("nice apple")
             }
         }
         completion()
-        
     }
     
     
-    func organize() {
+    func organize(completion: () -> ()) {
         arrayOfTime = []
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         timeRef?.child("AM").observeSingleEvent(of: .value, with: {
@@ -217,7 +203,7 @@ class JoinerTableViewController: UITableViewController{
                 }
             }
         })
-        timeRef?.child("PM").observeSingleEvent(of: .value, with: {
+        self.timeRef?.child("PM").observeSingleEvent(of: .value, with: {
             (snapshot) in
             guard let snapshotArray = snapshot.children.allObjects as? [DataSnapshot] else {
                 return
@@ -236,9 +222,10 @@ class JoinerTableViewController: UITableViewController{
                 }
             }
         })
+        completion()
     }
     
-    func timeDevolve(_ stringTime: String) {// writes to firebase AM and PM times per interval
+    func timeDevolve(_ stringTime: String, completion: () ->()) {// writes to firebase AM and PM times per interval
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
         let seperatedTimeList = stringTime.components(separatedBy: " ")
         let stringDm = seperatedTimeList[1]
@@ -248,6 +235,7 @@ class JoinerTableViewController: UITableViewController{
         } else if stringDm == "PM" {
             timeRef?.child("PM").updateChildValues([stringTime: ""])
         }
+        completion()
     }
     func timeCreator(_ hour: Int, _ min: Int) -> String { // takes ints and outputs a time friendly string
         var newHour = hour
@@ -289,7 +277,7 @@ class JoinerTableViewController: UITableViewController{
         
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
-        //print ("\(hour):\(minutes)")
+        print ("\(hour):\(minutes)")
         
         let day = calendar.component(.day, from: date)
         let month = calendar.component(.month, from: date)
@@ -432,8 +420,9 @@ class JoinerTableViewController: UITableViewController{
             _ = alert.addButton("Join") {
                 self.timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
                 self.timeRef?.child(self.timeDevolver(cell.timeLabel.text!)).updateChildValues([cell.timeLabel.text! : self.usernameLabel ])
-                self.organize()
-                //self.timeTable.reloadData()
+                self.organize{ () in
+                    print("nice")
+                }                //self.timeTable.reloadData()
             }
             _ = alert.showInfo("Check-In", subTitle: "Are you sure you want to check in to the time you selected?")
         } else if cell.nameLabel.text == "closed"{
@@ -443,8 +432,9 @@ class JoinerTableViewController: UITableViewController{
             _ = alert.addButton("Leave") {
                 self.timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
                 self.timeRef?.child(self.timeDevolver(cell.timeLabel.text!)).updateChildValues([cell.timeLabel.text! : "" ])
-                self.organize()
-                //self.timeTable.reloadData()
+                self.organize{ () in
+                    print("nice")
+                }                //self.timeTable.reloadData()
             }
             _ = alert.showInfo("Leave?", subTitle: "Are you sure you want to leave time you selected?")
         } else {
