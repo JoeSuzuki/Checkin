@@ -266,6 +266,8 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
     }
     
     @IBAction func addButton(_ sender: Any) {
+
+        
         Constants.location.myStrings = locationTextField.text!
         Constants.name.myStrings = groupNameTextField.text as
             Any as! String

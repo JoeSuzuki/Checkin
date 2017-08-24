@@ -17,7 +17,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zJW-cB-3UD" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="clock" id="A2U-Z2-1H9">
-                        <inset key="imageInsets" minX="0.0" minY="1" maxX="0.0" maxY="-1"/>
+                        <inset key="imageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -203,7 +203,6 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.92538958790000003" green="0.92554813619999998" blue="0.92537957429999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="cUk-OO-06w" firstAttribute="width" secondItem="iOb-Bo-UKd" secondAttribute="width" id="FyW-3X-o9q"/>
                                     <constraint firstAttribute="width" constant="130" id="ILb-IV-74m"/>
@@ -671,7 +670,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="MGA-dP-HKE">
-                                                    <rect key="frame" x="56" y="3" width="262" height="38.5"/>
+                                                    <rect key="frame" x="56" y="3" width="262" height="38"/>
                                                     <connections>
                                                         <action selector="timeIntSilder:" destination="KYx-Yy-cu8" eventType="valueChanged" id="mdf-34-Pnu"/>
                                                     </connections>
@@ -1103,7 +1102,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXB-BE-0M1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1391" y="3193"/>
+            <point key="canvasLocation" x="-1391" y="3297"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ebp-mj-2ko">
@@ -1128,7 +1127,7 @@
         <scene sceneID="x3d-hx-PcG">
             <objects>
                 <tableViewController id="tEI-D0-38e" customClass="JoinerTimeJoinTableViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5li-Sh-LxN">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5li-Sh-LxN">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

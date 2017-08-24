@@ -16,4 +16,5 @@ target 'TimeTrack' do
   pod 'Kingfisher', '~> 3.0'
   pod 'DateTimePicker'	
   pod 'Alamofire', '~> 4.4'
+  pod 'paper-onboarding', '~> 2.0.1' 
 end

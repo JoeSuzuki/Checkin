@@ -60,7 +60,67 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         groupTableView.separatorStyle = .none
         
+        start { () in
+            loader()
+            // join table view
+            ownerRef = Database.database().reference().child("users").child(userID!).child("joined")// find groups that the user joined
+            ownerRef?.queryOrderedByKey().observe(.childAdded, with: {
+                (snapshot) in
+                let value = snapshot.value as! [String: AnyObject]
+                let keyed = value["key"] as! String! // set the group keys
+                let reff = Database.database().reference().child("personal groups info").child(self.userID!).child(keyed!) // ref to personal groups for tableview
+                self.memberRef = Database.database().reference().child("Members of Groups").child(keyed!) // find owner of the joined grou
+                
+                self.memberRef?.observe(.value, with: {
+                    (snapshot) in
+                    let value = snapshot.value as! [String: AnyObject]
+                    self.ownerUID = value["Owner"] as! String
+                    self.personalRef =  Database.database().reference().child("personal groups info").child(self.ownerUID).child(keyed!)
+                    self.personalRef?.observe(.value, with: { // get info from owner
+                        (snapshot) in
+                        let value = snapshot.value as! [String: AnyObject]
+                        let name = value["name"] as? String
+                        let location = value["location"] as? String
+                        let checkIns = value["numOfCheckIns"] as? Int
+                        let keyed = value["key"] as! String!
+                        let mem = value["numOfMembers"] as? Int
+                        let description = value["description"] as! String!
+                        let from = value["from"] as! String!
+                        let to = value["to"] as! String!
+                        let owner = value["owner"] as! String!
+                        let img = value["img"] as! String!
+                        guard let pics = value["pic"] as? String else {
+                            var pics = "https://static.pexels.com/photos/58808/pexels-photo-58808.jpeg"
+                            return
+                        }
+                        reff.child("pic").setValue(pics)
+                        reff.child("location").setValue(location)
+                        reff.child("from").setValue(from)
+                        reff.child("to").setValue(to)
+                        reff.child("name").setValue(name)
+                        reff.child("owner").setValue(owner)
+                        reff.child("description").setValue(description)
+                        reff.child("img").setValue(img)
+                        reff.child("key").setValue(keyed)
+                        reff.child("numOfMembers").setValue(mem)
+                        reff.child("numOfCheckIns").setValue(checkIns)
+                        reff.child("edit").setValue("false")
+                        let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
+                        let imageURL = URL(string: pics)
+                        let imageView = cell.mainImageView
+                        imageView?.kf.setImage(with: imageURL)
+                        self.joinedArrayOfCellData.append(joinedCellData(cell : 1, text : name , image : imageView?.image, address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
+                    })
+                })
+            })
+        }
+        groupTableView?.reloadData()
+    }
+    func start(completion: () -> ()) {
         ref = Database.database().reference().child("personal groups info").child(userID!)
+        completion()
+    }
+    func loader( ) {
         ref?.queryOrderedByKey().observe(.childAdded, with: {
             (snapshot) in
             let value = snapshot.value as! [String: AnyObject]
@@ -79,62 +139,11 @@ class TableViewController: UITableViewController {
             let imageView = cell.mainImageView
             imageView?.kf.setImage(with: imageURL)
             self.arrayOfCellData.append(cellData(cell : 1, text : name , image : imageView?.image, address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
+            
             self.groupTableView.reloadData()
             
         })
-        
-        // join table view
-        ownerRef = Database.database().reference().child("users").child(userID!).child("joined")// find groups that the user joined
-        ownerRef?.queryOrderedByKey().observe(.childAdded, with: {
-            (snapshot) in
-            let value = snapshot.value as! [String: AnyObject]
-            let keyed = value["key"] as! String! // set the group keys
-            let reff = Database.database().reference().child("personal groups info").child(self.userID!).child(keyed!) // ref to personal groups for tableview
-            self.memberRef = Database.database().reference().child("Members of Groups").child(keyed!) // find owner of the joined grou
-            
-            self.memberRef?.observe(.value, with: {
-                (snapshot) in
-                let value = snapshot.value as! [String: AnyObject]
-                self.ownerUID = value["Owner"] as! String
-                self.personalRef =  Database.database().reference().child("personal groups info").child(self.ownerUID).child(keyed!)
-                self.personalRef?.observe(.value, with: { // get info from owner
-                    (snapshot) in
-                    let value = snapshot.value as! [String: AnyObject]
-                    let name = value["name"] as? String
-                    let location = value["location"] as? String
-                    let checkIns = value["numOfCheckIns"] as? Int
-                    let keyed = value["key"] as! String!
-                    let mem = value["numOfMembers"] as? Int
-                    let description = value["description"] as! String!
-                    let from = value["from"] as! String!
-                    let to = value["to"] as! String!
-                    let owner = value["owner"] as! String!
-                    let img = value["img"] as! String!
-                    guard let pics = value["pic"] as? String else {
-                        var pics = "https://static.pexels.com/photos/58808/pexels-photo-58808.jpeg"
-                        return
-                    }
-                    reff.child("pic").setValue(pics)
-                    reff.child("location").setValue(location)
-                    reff.child("from").setValue(from)
-                    reff.child("to").setValue(to)
-                    reff.child("name").setValue(name)
-                    reff.child("owner").setValue(owner)
-                    reff.child("description").setValue(description)
-                    reff.child("img").setValue(img)
-                    reff.child("key").setValue(keyed)
-                    reff.child("numOfMembers").setValue(mem)
-                    reff.child("numOfCheckIns").setValue(checkIns)
-                    reff.child("edit").setValue("false")
-                    let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-                    let imageURL = URL(string: pics)
-                    let imageView = cell.mainImageView
-                    imageView?.kf.setImage(with: imageURL)
-                    self.joinedArrayOfCellData.append(joinedCellData(cell : 1, text : name , image : imageView?.image, address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
-                })
-            })
-        })
-        groupTableView?.reloadData()
+
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

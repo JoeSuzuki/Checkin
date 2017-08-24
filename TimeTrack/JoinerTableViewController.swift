@@ -75,6 +75,7 @@ class JoinerTableViewController: UITableViewController{
         
         self.organize()
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

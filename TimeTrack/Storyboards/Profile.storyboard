@@ -15,7 +15,9 @@
         <scene sceneID="Ag6-sP-yWM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V4K-pC-b74" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="tab_profile_black" id="Ijn-TR-MBT"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="tab_profile_black" id="Ijn-TR-MBT">
+                        <inset key="imageInsets" minX="12" minY="15" maxX="12" maxY="8"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -55,10 +57,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-Contacts-50" translatesAutoresizingMaskIntoConstraints="NO" id="yT3-iI-gZy">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tab_profile_black" translatesAutoresizingMaskIntoConstraints="NO" id="yT3-iI-gZy">
                                                     <rect key="frame" x="8" y="5" width="89" height="89"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="0.89378605769999997" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVD-pB-drO">
                                                     <rect key="frame" x="105" y="5" width="262" height="34"/>
@@ -228,7 +229,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Zt-1r-X97">
-                                <rect key="frame" x="255" y="35" width="125" height="133"/>
+                                <rect key="frame" x="255" y="35" width="218" height="133"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="NRW-qy-ibS"/>
                                     <constraint firstAttribute="width" constant="218" id="jD0-Yh-3Kf"/>
@@ -239,7 +240,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa3-er-5QU">
-                                <rect key="frame" x="255" y="178" width="125" height="40"/>
+                                <rect key="frame" x="255" y="178" width="218" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="218" id="R0p-n0-LrN"/>
                                     <constraint firstAttribute="height" constant="40" id="jsi-C5-fND"/>
@@ -294,7 +295,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-Contacts-50" translatesAutoresizingMaskIntoConstraints="NO" id="C1R-qG-ef4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab_profile_black" translatesAutoresizingMaskIntoConstraints="NO" id="C1R-qG-ef4">
                                 <rect key="frame" x="129" y="8" width="118" height="118"/>
                                 <color key="backgroundColor" white="0.89378605769999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>

@@ -46,6 +46,7 @@ PODS:
   - GTMSessionFetcher/Core (1.1.10)
   - JTAppleCalendar (7.0.4)
   - Kingfisher (3.10.3)
+  - paper-onboarding (2.0.1)
   - SCLAlertView (0.7.0)
 
 DEPENDENCIES:
@@ -58,6 +59,7 @@ DEPENDENCIES:
   - FirebaseUI/Auth
   - JTAppleCalendar (~> 7.0)
   - Kingfisher (~> 3.0)
+  - paper-onboarding (~> 2.0.1)
   - SCLAlertView
 
 SPEC CHECKSUMS:
@@ -75,8 +77,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   JTAppleCalendar: 6def48ecd0daae1d5baaa45e813124c2a20b184d
   Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
+  paper-onboarding: a8e001214d9ce9decf78e160b3823f396dbd51ac
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: f27d486e1caf864d3c4265156aff72349b0f65a2
+PODFILE CHECKSUM: e91cd74b8e730b05cfdcdcaf085c3598175e24e8
 
 COCOAPODS: 1.2.1
