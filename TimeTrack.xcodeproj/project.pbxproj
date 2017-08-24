@@ -52,7 +52,6 @@
 		FFC091191F34E7AB00BD5143 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC091181F34E7AB00BD5143 /* SearchTableViewCell.swift */; };
 		FFC0911B1F34ECE400BD5143 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC0911A1F34ECE300BD5143 /* EditViewController.swift */; };
 		FFC3AFF41F359F6200E9BF64 /* JoinGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3AFF31F359F6200E9BF64 /* JoinGroupViewController.swift */; };
-		FFC3AFF61F35A4F300E9BF64 /* AddGroups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFC3AFF51F35A4F300E9BF64 /* AddGroups.storyboard */; };
 		FFC3B0051F36C10600E9BF64 /* CreateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3B0041F36C10600E9BF64 /* CreateTableViewController.swift */; };
 		FFC3B0071F36C11D00E9BF64 /* CreateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3B0061F36C11D00E9BF64 /* CreateTableViewCell.swift */; };
 		FFD360741F30F587009B6B17 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD360731F30F587009B6B17 /* GroupService.swift */; };
@@ -113,7 +112,6 @@
 		FFC091181F34E7AB00BD5143 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		FFC0911A1F34ECE300BD5143 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		FFC3AFF31F359F6200E9BF64 /* JoinGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGroupViewController.swift; sourceTree = "<group>"; };
-		FFC3AFF51F35A4F300E9BF64 /* AddGroups.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddGroups.storyboard; sourceTree = "<group>"; };
 		FFC3B0041F36C10600E9BF64 /* CreateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTableViewController.swift; sourceTree = "<group>"; };
 		FFC3B0061F36C11D00E9BF64 /* CreateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTableViewCell.swift; sourceTree = "<group>"; };
 		FFD360731F30F587009B6B17 /* GroupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
@@ -230,8 +228,8 @@
 			children = (
 				FFDABC871F2A7EA300C64D39 /* Home */,
 				FFB799911F290482001B7C61 /* Table */,
-				FFAFCD101F268C4C009D2692 /* Profile */,
 				FFAFCCCB1F262F5E009D2692 /* ViewController.swift */,
+				FFAFCD101F268C4C009D2692 /* Profile */,
 				FFAFCD111F268C73009D2692 /* Login/Signup */,
 				FFAFCD1F1F27BA0F009D2692 /* CreateViewControllers.swift */,
 				FF9EDC1B1F436D4F00B472D2 /* Calender */,
@@ -242,7 +240,6 @@
 		FFAFCCD81F2632BB009D2692 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				FFDABC841F2A613A00C64D39 /* Group */,
 				FF115B321F2CF374008A1EB5 /* Login.storyboard */,
 				FFAFCCDD1F26332D009D2692 /* Main.storyboard */,
 				FFDABC8A1F2A84E300C64D39 /* Calender */,
@@ -350,14 +347,6 @@
 			name = Profile;
 			sourceTree = "<group>";
 		};
-		FFDABC841F2A613A00C64D39 /* Group */ = {
-			isa = PBXGroup;
-			children = (
-				FFC3AFF51F35A4F300E9BF64 /* AddGroups.storyboard */,
-			);
-			name = Group;
-			sourceTree = "<group>";
-		};
 		FFDABC871F2A7EA300C64D39 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,7 +448,6 @@
 				FFAE46411F3B5156001CC9EC /* GroupTimeTableViewCell.xib in Resources */,
 				FFAFCCCF1F262F67009D2692 /* GoogleService-Info.plist in Resources */,
 				FFAFCD0B1F2688A5009D2692 /* Profile.storyboard in Resources */,
-				FFC3AFF61F35A4F300E9BF64 /* AddGroups.storyboard in Resources */,
 				FFB799A11F29A7C7001B7C61 /* Search.storyboard in Resources */,
 				FFAFCCE41F2634CE009D2692 /* LaunchScreen.storyboard in Resources */,
 				FFB7998C1F28F1EA001B7C61 /* GroupsTable.storyboard in Resources */,

@@ -54,7 +54,14 @@ class TableViewSettingsViewController: UITableViewController {
     deinit {
         AuthService.removeAuthListener(authHandle: authHandle)
     }
+    @IBAction func settingsButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "help", sender: self)
+    }
+    @IBAction func helpSupport(_ sender: UIButton) {
+        AuthService.presentDelete(viewController: self)
+    }
 
+    @IBOutlet weak var helpSupport: UIButton!
     func configureView(){
         profileImage.contentMode = UIViewContentMode.scaleAspectFill
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
@@ -100,9 +107,11 @@ extension TableViewSettingsViewController {
             case .profiles:
                 performSegue(withIdentifier: "edit", sender: self)
             case .settings:
-                AuthService.presentDelete(viewController: self)
+//                AuthService.presentDelete(viewController: self)
+                performSegue(withIdentifier: "help", sender: self)
             case .help:
-                AuthService.presentPasswordReset(controller: self)
+//                AuthService.presentPasswordReset(controller: self)
+                performSegue(withIdentifier: "help", sender: self)
             case .logOut:
                 print("dddd")
             }

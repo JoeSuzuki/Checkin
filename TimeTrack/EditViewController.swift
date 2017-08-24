@@ -85,7 +85,7 @@ extension EditViewController {
             profileImageView.kf.setImage(with: imageURL)
         }
         else {
-            profileImageView.kf.base.image = UIImage(named: "defaultProfile")
+            profileImageView.kf.base.image = UIImage(named: "tab_profile_black")
         }
         
         firstNameTextField.text = User.current.firstName

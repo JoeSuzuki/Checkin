@@ -15,9 +15,7 @@
         <scene sceneID="Ag6-sP-yWM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V4K-pC-b74" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="tab_profile_black" id="Ijn-TR-MBT">
-                        <inset key="imageInsets" minX="12" minY="15" maxX="12" maxY="8"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Profile" image="tab_profile_black" id="Ijn-TR-MBT"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -96,7 +94,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-Settings-50" translatesAutoresizingMaskIntoConstraints="NO" id="tKH-uT-rzN">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-Settings-64" translatesAutoresizingMaskIntoConstraints="NO" id="tKH-uT-rzN">
                                                     <rect key="frame" x="8" y="4" width="40" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="XdX-TR-2al"/>
@@ -108,6 +106,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsD-iX-c9s">
+                                                    <rect key="frame" x="0.0" y="2" width="375" height="47"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="helpSupport:" destination="Zcj-Oo-sRj" eventType="touchUpInside" id="pjP-DK-Pch"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="tKH-uT-rzN" firstAttribute="centerY" secondItem="Q1g-5W-idC" secondAttribute="centerY" id="6ra-tr-yd3"/>
@@ -139,6 +144,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7Y-bI-LA7">
+                                                    <rect key="frame" x="0.0" y="1" width="375" height="47"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="settingsButton:" destination="Zcj-Oo-sRj" eventType="touchUpInside" id="DAU-vW-J4o"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="tmF-Iu-M41" firstAttribute="trailing" secondItem="ymc-PO-TzC" secondAttribute="trailingMargin" id="6f3-MF-YJN"/>
@@ -200,11 +212,48 @@
                         <outlet property="profileImage" destination="yT3-iI-gZy" id="iWH-3f-EfC"/>
                         <outlet property="usernameLabel" destination="DVD-pB-drO" id="w3v-NT-VzG"/>
                         <segue destination="Pwg-3T-LAL" kind="show" identifier="edit" id="tQl-M8-VZt"/>
+                        <segue destination="iGT-fl-S4q" kind="show" identifier="help" id="chO-sP-2lB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIT-js-epk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1074.4000000000001" y="713.79310344827593"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="W5k-eV-U8H">
+            <objects>
+                <viewController id="iGT-fl-S4q" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hUy-3r-TGF"/>
+                        <viewControllerLayoutGuide type="bottom" id="nam-dP-H6X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e1F-N9-g4c">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Neb-5e-Taq">
+                                <rect key="frame" x="33" y="240" width="309" height="83"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nam-dP-H6X" firstAttribute="top" secondItem="Neb-5e-Taq" secondAttribute="bottom" constant="231" id="7Yp-RI-l9v"/>
+                            <constraint firstItem="Neb-5e-Taq" firstAttribute="top" secondItem="hUy-3r-TGF" secondAttribute="bottom" constant="240" id="Io5-h1-YSM"/>
+                            <constraint firstItem="Neb-5e-Taq" firstAttribute="leading" secondItem="e1F-N9-g4c" secondAttribute="leadingMargin" constant="17" id="Mkt-Wx-ti3"/>
+                            <constraint firstItem="nam-dP-H6X" firstAttribute="top" secondItem="Neb-5e-Taq" secondAttribute="bottom" constant="231" id="ZJO-xH-GQ9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Neb-5e-Taq" secondAttribute="trailing" constant="17" id="f40-pk-Y6g"/>
+                            <constraint firstItem="Neb-5e-Taq" firstAttribute="top" secondItem="hUy-3r-TGF" secondAttribute="bottom" constant="240" id="h9T-8j-fmC"/>
+                            <constraint firstItem="Neb-5e-Taq" firstAttribute="leading" secondItem="e1F-N9-g4c" secondAttribute="leadingMargin" constant="17" id="xSH-tI-nIz"/>
+                            <constraint firstItem="Neb-5e-Taq" firstAttribute="centerX" secondItem="e1F-N9-g4c" secondAttribute="centerX" id="yvT-oy-5lK"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hxg-Hq-wXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1074" y="1432"/>
         </scene>
         <!--Profile-->
         <scene sceneID="ETv-sK-ypx">
@@ -423,6 +472,7 @@
         <image name="btn_options_black" width="24" height="24"/>
         <image name="icons8-Contacts-50" width="50" height="50"/>
         <image name="icons8-Settings-50" width="50" height="50"/>
+        <image name="icons8-Settings-64" width="64" height="64"/>
         <image name="tab_profile_black" width="25" height="25"/>
     </resources>
 </document>

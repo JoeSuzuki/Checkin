@@ -21,8 +21,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="IbV-UC-yb7" kind="relationship" relationship="viewControllers" id="1xy-4V-Ecw"/>
-                        <segue destination="dkU-Qz-gVv" kind="relationship" relationship="viewControllers" id="HRA-Qm-pSA"/>
-                        <segue destination="Jd0-OP-rpx" kind="relationship" relationship="viewControllers" id="VvT-Cm-aoi"/>
                         <segue destination="pFk-HC-NgA" kind="relationship" relationship="viewControllers" id="sv0-eI-UlB"/>
                     </connections>
                 </tabBarController>
@@ -33,12 +31,12 @@
         <!--Profile-->
         <scene sceneID="XhN-tP-kWy">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kes-Mu-7I5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Profile" id="pFk-HC-NgA" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Pu7-UJ-5l6"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kes-Mu-7I5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1267" y="439"/>
+            <point key="canvasLocation" x="-1429" y="341"/>
         </scene>
         <!--AddGroups-->
         <scene sceneID="M3C-Z1-4tr">

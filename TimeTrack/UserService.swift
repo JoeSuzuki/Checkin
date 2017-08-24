@@ -1,10 +1,3 @@
-//
-//  UserService.swift
-//
-//  Created by Mariano Montori on 7/24/17.
-//  Copyright © 2017 Mariano Montori. All rights reserved.
-//
-
 import Foundation
 import UIKit
 import FirebaseDatabase
