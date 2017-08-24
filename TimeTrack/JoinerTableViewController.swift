@@ -65,8 +65,10 @@ class JoinerTableViewController: UITableViewController{
         number { () in
             print("nice")
         }
-        self.organize()
-        timeTable.reloadData()
+        setUp{ () in
+                self.organize()
+        }
+        //timeTable.reloadData()
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -83,10 +85,9 @@ class JoinerTableViewController: UITableViewController{
             self.timers { () in
                 print("ddd")
                 self.organize()
+                return
             }
         }
-        timeTable.reloadData()
-
     }
     func setUp(completion: @escaping () -> ()){
         timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
@@ -191,7 +192,7 @@ class JoinerTableViewController: UITableViewController{
                     if value as! String == ""{
                         self.arrayOfTime.append(JoinTimesData(cell: 1, named: "available", timed: key as! String))
                     } else {
-                        self.arrayOfTime.insert(JoinTimesData(cell : 1, named : value as! String, timed : key as! String), at:0)
+                        self.arrayOfTime.append(JoinTimesData(cell : 1, named : value as! String, timed : key as! String))
                     }
                 }
         })
@@ -207,7 +208,7 @@ class JoinerTableViewController: UITableViewController{
                     if value as! String == ""{
                         self.arrayOfTime.append(JoinTimesData(cell: 1, named: "available", timed: key as! String))
                     } else {
-                        self.arrayOfTime.insert(JoinTimesData(cell : 1, named : value as! String, timed : key as! String), at:0)
+                        self.arrayOfTime.append(JoinTimesData(cell : 1, named : value as! String, timed : key as! String))
                     }
                 }
         })
@@ -380,28 +381,13 @@ class JoinerTableViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! GroupTimeTableViewCell
-        //        number { () in
-        //
-        //        for each in totalAmountAm {
-        //            if each == usernameLabel {
-        //                SCLAlertView().showInfo("You have a spot!", subTitle: "You can only occupy one spot.")
-        //                break
-        //            }
-        //        }
-        //        for each in totalAmountPm {
-        //            if each == usernameLabel {
-        //                SCLAlertView().showInfo("You have a spot!", subTitle: "You can only occupy one spot.")
-        //                break
-        //            }
-        //
-        //        }
-        //        }
+
         if cell.nameLabel.text == "available" {
             let alert = SCLAlertView()
             _ = alert.addButton("Join") {
                 self.timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
                 self.timeRef?.child(self.timeDevolver(cell.timeLabel.text!)).updateChildValues([cell.timeLabel.text! : self.usernameLabel ])
-               // self.organize()//self.timeTable.reloadData()
+                self.organize()//self.timeTable.reloadData()
             }
             _ = alert.showInfo("Check-In", subTitle: "Are you sure you want to check in to the time you selected?")
         } else if cell.nameLabel.text == "closed"{
@@ -411,12 +397,12 @@ class JoinerTableViewController: UITableViewController{
             _ = alert.addButton("Leave") {
                 self.timeRef = Database.database().reference().child("time info").child(Constants.idd.myStrings)
                 self.timeRef?.child(self.timeDevolver(cell.timeLabel.text!)).updateChildValues([cell.timeLabel.text! : "" ])
-                //self.organize()     //self.timeTable.reloadData()
+                self.organize()     //self.timeTable.reloadData()
             }
             _ = alert.showInfo("Leave?", subTitle: "Are you sure you want to leave time you selected?")
         } else {
             SCLAlertView().showInfo("Unavailable", subTitle: "This time has been taken, please select a different time.")
         }
-        self.organize()
+        //self.organize()
     }
 }
