@@ -30,6 +30,7 @@ class MoreInfoGroupViewController: UIViewController {
         addressLabelSecon.text = Constants.groupsLocation.myStrings
         counterLabelSecon.text = String(Constants.numberOfCheckIns.myInts)
         idLabelView.text = Constants.idd.myStrings
+        descriptionLabelSecon.text = Constants.description.myStrings
         // mainImageViewSecon.layer.masksToBounds = false
         mainImageViewSecon.image = photo
         mainImageViewSecon.layer.cornerRadius = mainImageViewSecon.frame.size.width/2

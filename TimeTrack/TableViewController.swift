@@ -53,6 +53,7 @@ class TableViewController: UITableViewController {
     var memberRef: DatabaseReference?
     var personalRef: DatabaseReference?
     var ownerUID = ""
+    var descriptions: String?
     var reff: DatabaseReference?
     //    var imageName: String = ""
     //    var imaged = UIImage?.self
@@ -84,7 +85,8 @@ class TableViewController: UITableViewController {
                         let checkIns = value["numOfCheckIns"] as? Int
                         let keyed = value["key"] as! String!
                         let mem = value["numOfMembers"] as? Int
-                        let description = value["description"] as! String!
+                        let descriptionss = value["description"] as! String!
+                        self.descriptions = descriptionss!
                         let from = value["from"] as! String!
                         let to = value["to"] as! String!
                         let owner = value["owner"] as! String!
@@ -99,7 +101,7 @@ class TableViewController: UITableViewController {
                         reff.child("to").setValue(to)
                         reff.child("name").setValue(name)
                         reff.child("owner").setValue(owner)
-                        reff.child("description").setValue(description)
+                        reff.child("description").setValue(descriptionss)
                         reff.child("img").setValue(img)
                         reff.child("key").setValue(keyed)
                         reff.child("numOfMembers").setValue(mem)
@@ -131,6 +133,7 @@ class TableViewController: UITableViewController {
             let keyed = value["key"] as! String!
             let mem = value["numOfMembers"] as? Int
             let img = value["img"] as? String?
+            let descriptionss = value["description"] as? String
             guard let pic = value["pic"] as? String else {
                 var pic = "https://static.pexels.com/photos/58808/pexels-photo-58808.jpeg"
                 return
@@ -270,6 +273,7 @@ class TableViewController: UITableViewController {
             Constants.numberOfCheckIns.myInts = Int(cell.counterLabelView.text!)!
             Constants.idd.myStrings = (cell.idLabel?.text!)!
             Constants.numberOfMembers.myInts = Int((cell.totalMembers?.text!)!)!
+            Constants.description.myStrings = self.descriptions!
             photo = cell.mainImageView.image
             //        totalMembers
         } else if segmentedControl.selectedSegmentIndex == 1  {
@@ -282,6 +286,7 @@ class TableViewController: UITableViewController {
             Constants.numberOfCheckIns.myInts = Int(cell.counterLabelView.text!)!
             Constants.idd.myStrings = (cell.idLabel?.text!)!
             Constants.numberOfMembers.myInts = Int((cell.totalMembers?.text!)!)!
+            Constants.description.myStrings = self.descriptions!
             photo = cell.mainImageView.image
             //        totalMembers
         }

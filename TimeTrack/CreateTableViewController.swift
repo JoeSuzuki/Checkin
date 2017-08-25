@@ -187,7 +187,7 @@ class CreateTableViewController: UITableViewController, UIPickerViewDelegate, UI
         }
     }
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 15.0
+        return 14.0
     }
     //    (Int(time1.text!)!, Int(time2.text!)!)
     func timeConvert(_ startTime: Int,_ endTime: Int,_ ms: String) -> Array<Any> {
