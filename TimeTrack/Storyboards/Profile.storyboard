@@ -40,7 +40,7 @@
             <objects>
                 <tableViewController id="Zcj-Oo-sRj" customClass="TableViewSettingsViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="pZ6-FH-o7R">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="sectionIndexBackgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -204,6 +204,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="xv9-hD-504"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -227,11 +228,11 @@
                         <viewControllerLayoutGuide type="bottom" id="nam-dP-H6X"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="e1F-N9-g4c">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Neb-5e-Taq">
-                                <rect key="frame" x="33" y="240" width="309" height="83"/>
+                                <rect key="frame" x="33" y="240" width="309" height="103"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -263,7 +264,7 @@
                         <viewControllerLayoutGuide type="bottom" id="bk0-ru-r0r"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="AMb-Rm-GV8">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab_profile_black" translatesAutoresizingMaskIntoConstraints="NO" id="C1R-qG-ef4">
@@ -284,7 +285,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFK-cs-Hrk">
-                                <rect key="frame" x="38" y="456" width="292" height="51"/>
+                                <rect key="frame" x="38" y="476" width="292" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="bGv-Yc-0m1"/>
                                 </constraints>

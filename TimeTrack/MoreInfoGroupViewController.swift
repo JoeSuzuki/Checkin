@@ -14,21 +14,6 @@ class MoreInfoGroupViewController: UIViewController {
     var timeRef: DatabaseReference?
     let userID = Auth.auth().currentUser?.uid
     var userPath: DatabaseReference?
-    var timeInterval = 1
-    var startHour: Int = 0
-    var startMin: Int = 0
-    var startAmpm: String = ""
-    var endHour: Int = 0
-    var endMin: Int = 0
-    var endAmpm: String = ""
-    var startTime: String = ""
-    var endTime: String = ""
-    var timeContainer = [String]()
-    var hourContainer = [Int]()
-    var minContainer = [Int]()
-    var keysArray = [String]()
-    var valuesArray = [String]()
-    var organizeTime = [String]()
     var newItems = [DataSnapshot]()
     var fullName = ""
     var editer: String = ""
@@ -36,6 +21,7 @@ class MoreInfoGroupViewController: UIViewController {
     @IBOutlet weak var mainImageViewSecon: UIImageView!
     @IBOutlet weak var mainNameLabelSecon: UILabel!
     @IBOutlet weak var addressLabelSecon: UILabel!
+    @IBOutlet weak var descriptionLabelSecon: UILabel!
     @IBOutlet weak var counterLabelSecon: UILabel!
     @IBOutlet weak var idLabelView: UILabel!
     override func viewDidLoad() {
@@ -58,22 +44,12 @@ class MoreInfoGroupViewController: UIViewController {
             print(self.editer)
             print(self.userID!)
         })
-//        edit{
-//            print("nice apple")
-//        }
         print("Please Apple? ")
     }
-//    func edit(completion: () -> ()) {
-//        ref = Database.database().reference().child("personal groups info").child(userID!)
-//        ref?.child(idLabelView.text!).observe(.childAdded, with: {
-//            (snapshot) in
-//            let value = snapshot.value as! [String: AnyObject]
-//            let edit = value["edit"] as? String
-//            self.editer = edit!
-//            
-//        })
-//        completion()
-//    }
+
+    @IBAction func settingsButton(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "settings", sender: sender)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -90,18 +66,4 @@ class MoreInfoGroupViewController: UIViewController {
 }
 
 
-    //     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        let JoinerTimeJoinTableViewController = segue.destination as! JoinerTimeJoinTableViewController
-//        Constants.idd.myStrings = idLabelView.text!
-//    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
