@@ -410,7 +410,7 @@
 				TargetAttributes = {
 					FF37C6021F2525C90018940B = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = URE62YMM2S;
+						DevelopmentTeam = H8ZPW869Y2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -664,10 +664,10 @@
 			baseConfigurationReference = 6801CD89ACDD442B4F6F39C8 /* Pods-TimeTrack.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = URE62YMM2S;
+				DEVELOPMENT_TEAM = H8ZPW869Y2;
 				INFOPLIST_FILE = "$(SRCROOT)/TimeTrack/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.JSuzuki.TimeTrack;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JSuzuki.Time-Flex";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -679,10 +679,10 @@
 			baseConfigurationReference = D98F24E38427006E6B42796C /* Pods-TimeTrack.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = URE62YMM2S;
+				DEVELOPMENT_TEAM = H8ZPW869Y2;
 				INFOPLIST_FILE = "$(SRCROOT)/TimeTrack/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.JSuzuki.TimeTrack;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JSuzuki.Time-Flex";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

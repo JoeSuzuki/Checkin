@@ -16,8 +16,8 @@ struct cellData {
     let image: UIImage?
     let address: String?
     let numOfCheckIns: Int?
-    let id: String!
-    let memberTotal: Int!
+    let id: String?
+    let memberTotal: Int?
 }
 struct joinedCellData {
     let cell: Int!
@@ -25,8 +25,8 @@ struct joinedCellData {
     let image: UIImage?
     let address: String?
     let numOfCheckIns: Int?
-    let id: String!
-    let memberTotal: Int!
+    let id: String?
+    let memberTotal: Int?
 }
 weak var photo: UIImage?
 var myIndex = 0
@@ -273,8 +273,14 @@ class TableViewController: UITableViewController {
             Constants.numberOfCheckIns.myInts = Int(cell.counterLabelView.text!)!
             Constants.idd.myStrings = (cell.idLabel?.text!)!
             Constants.numberOfMembers.myInts = Int((cell.totalMembers?.text!)!)!
-            Constants.description.myStrings = self.descriptions!
             photo = cell.mainImageView.image
+            self.personalRef?.observe(.value, with: { // get info from owner
+                (snapshot) in
+                let value = snapshot.value as! [String: AnyObject]
+                let descriptionss = value["description"] as! String!
+                Constants.description.myStrings = self.descriptions!
+            })
+            
             //        totalMembers
         } else if segmentedControl.selectedSegmentIndex == 1  {
             performSegue(withIdentifier: "segue", sender: self)
@@ -286,8 +292,14 @@ class TableViewController: UITableViewController {
             Constants.numberOfCheckIns.myInts = Int(cell.counterLabelView.text!)!
             Constants.idd.myStrings = (cell.idLabel?.text!)!
             Constants.numberOfMembers.myInts = Int((cell.totalMembers?.text!)!)!
-            Constants.description.myStrings = self.descriptions!
             photo = cell.mainImageView.image
+            self.personalRef =  Database.database().reference().child("personal groups info").child(userID!).child(Constants.idd.myStrings)
+            self.personalRef?.observe(.value, with: { // get info from owner
+                (snapshot) in
+                let value = snapshot.value as! [String: AnyObject]
+                let descriptionss = value["description"] as! String!
+                Constants.description.myStrings = self.descriptions!
+            })
             //        totalMembers
         }
     }

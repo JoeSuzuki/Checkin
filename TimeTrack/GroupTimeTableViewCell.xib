@@ -22,12 +22,12 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwp-o5-fCa">
                         <rect key="frame" x="8" y="8" width="153" height="44"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OL1-9R-Ift">
-                        <rect key="frame" x="162" y="8" width="150" height="44"/>
+                        <rect key="frame" x="162" y="9" width="150" height="43"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="150" id="ajB-gc-qEI"/>
                         </constraints>
@@ -51,7 +51,7 @@
                 <outlet property="nameLabel" destination="OL1-9R-Ift" id="NZq-5L-JTQ"/>
                 <outlet property="timeLabel" destination="dwp-o5-fCa" id="8HT-8Y-LMa"/>
             </connections>
-            <point key="canvasLocation" x="81" y="46"/>
+            <point key="canvasLocation" x="-49" y="44"/>
         </tableViewCell>
     </objects>
 </document>
