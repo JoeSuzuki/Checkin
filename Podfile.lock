@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.5.0)
   - DateTimePicker (1.1.2)
+  - Eureka (3.0.0)
   - Firebase/Auth (4.0.3):
     - Firebase/Core
     - FirebaseAuth (= 4.0.0)
@@ -46,12 +47,12 @@ PODS:
   - GTMSessionFetcher/Core (1.1.10)
   - JTAppleCalendar (7.0.4)
   - Kingfisher (3.10.3)
-  - paper-onboarding (2.0.1)
   - SCLAlertView (0.7.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - DateTimePicker
+  - Eureka
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -59,12 +60,12 @@ DEPENDENCIES:
   - FirebaseUI/Auth
   - JTAppleCalendar (~> 7.0)
   - Kingfisher (~> 3.0)
-  - paper-onboarding (~> 2.0.1)
   - SCLAlertView
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   DateTimePicker: 518bffa5438ef83a7a687cc4d5e187e5c12012b8
+  Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
   Firebase: 9e33fdfbca37cab635c693883caa90a4475b842b
   FirebaseAnalytics: ad41720e3e67fc63fbe3d2948d3e26932a8de311
   FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
@@ -77,9 +78,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   JTAppleCalendar: 6def48ecd0daae1d5baaa45e813124c2a20b184d
   Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
-  paper-onboarding: a8e001214d9ce9decf78e160b3823f396dbd51ac
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: e91cd74b8e730b05cfdcdcaf085c3598175e24e8
+PODFILE CHECKSUM: 47b7c5dcbe79bcab50600827d65be2a5c12eccae
 
 COCOAPODS: 1.2.1

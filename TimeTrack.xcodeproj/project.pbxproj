@@ -49,6 +49,8 @@
 		FFB799971F29056E001B7C61 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB799951F29056E001B7C61 /* TableViewCell.xib */; };
 		FFB799A11F29A7C7001B7C61 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB799A01F29A7C7001B7C61 /* Search.storyboard */; };
 		FFB9266F1F55379900089AC6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB9266E1F55379900089AC6 /* Group.swift */; };
+		FFB926731F56B3FA00089AC6 /* CreateGroups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB926721F56B3FA00089AC6 /* CreateGroups.storyboard */; };
+		FFB926791F56B47B00089AC6 /* CreateGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB926781F56B47B00089AC6 /* CreateGroupsViewController.swift */; };
 		FFC091171F342E7400BD5143 /* MoreInfoGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC091161F342E7400BD5143 /* MoreInfoGroupViewController.swift */; };
 		FFC091191F34E7AB00BD5143 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC091181F34E7AB00BD5143 /* SearchTableViewCell.swift */; };
 		FFC0911B1F34ECE400BD5143 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC0911A1F34ECE300BD5143 /* EditViewController.swift */; };
@@ -110,6 +112,8 @@
 		FFB799951F29056E001B7C61 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableViewCell.xib; path = ../TableViewCell.xib; sourceTree = "<group>"; };
 		FFB799A01F29A7C7001B7C61 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		FFB9266E1F55379900089AC6 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		FFB926721F56B3FA00089AC6 /* CreateGroups.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGroups.storyboard; sourceTree = "<group>"; };
+		FFB926781F56B47B00089AC6 /* CreateGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupsViewController.swift; sourceTree = "<group>"; };
 		FFC091161F342E7400BD5143 /* MoreInfoGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfoGroupViewController.swift; sourceTree = "<group>"; };
 		FFC091181F34E7AB00BD5143 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		FFC0911A1F34ECE300BD5143 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 		FFAFCCD61F263057009D2692 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FFB926751F56B44A00089AC6 /* Create */,
 				FFDABC871F2A7EA300C64D39 /* Home */,
 				FFB799911F290482001B7C61 /* Table */,
 				FFAFCCCB1F262F5E009D2692 /* ViewController.swift */,
@@ -247,6 +252,7 @@
 				FFDABC8A1F2A84E300C64D39 /* Calender */,
 				FFB799A21F29B103001B7C61 /* Search */,
 				FFB7999F1F292153001B7C61 /* Table */,
+				FFB926741F56B40C00089AC6 /* Create */,
 				FFB799A31F29B19C001B7C61 /* Profile */,
 			);
 			path = Storyboards;
@@ -349,6 +355,22 @@
 			name = Profile;
 			sourceTree = "<group>";
 		};
+		FFB926741F56B40C00089AC6 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				FFB926721F56B3FA00089AC6 /* CreateGroups.storyboard */,
+			);
+			name = Create;
+			sourceTree = "<group>";
+		};
+		FFB926751F56B44A00089AC6 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				FFB926781F56B47B00089AC6 /* CreateGroupsViewController.swift */,
+			);
+			name = Create;
+			sourceTree = "<group>";
+		};
 		FFDABC871F2A7EA300C64D39 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,6 +470,7 @@
 			files = (
 				FF37C60E1F2525CA0018940B /* Assets.xcassets in Resources */,
 				FFB799971F29056E001B7C61 /* TableViewCell.xib in Resources */,
+				FFB926731F56B3FA00089AC6 /* CreateGroups.storyboard in Resources */,
 				FFAE46411F3B5156001CC9EC /* GroupTimeTableViewCell.xib in Resources */,
 				FFAFCCCF1F262F67009D2692 /* GoogleService-Info.plist in Resources */,
 				FFAFCD0B1F2688A5009D2692 /* Profile.storyboard in Resources */,
@@ -551,6 +574,7 @@
 				FFDABC861F2A7C9B00C64D39 /* SearchTableViewController.swift in Sources */,
 				FF115B2E1F2CF323008A1EB5 /* ForgotPasswordViewController.swift in Sources */,
 				FF9EDC171F43317E00B472D2 /* DateTimePicker.swift in Sources */,
+				FFB926791F56B47B00089AC6 /* CreateGroupsViewController.swift in Sources */,
 				FF115B371F2CF3C8008A1EB5 /* UserService.swift in Sources */,
 				FF9EDC181F43317E00B472D2 /* StepCollectionViewFlowLayout.swift in Sources */,
 				FF37C6071F2525CA0018940B /* AppDelegate.swift in Sources */,
