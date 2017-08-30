@@ -28,7 +28,7 @@ class Joined : NSObject {
     let endDM: String
     let interval: Int
     let descriptions: String
-    let url: String?
+    let profileURL: String?
     var dictValue: [String : Any] {
         var data : [String : Any] = ["groupUID" : groupUID,
                                       "ownerUID" : ownerUID,
@@ -40,18 +40,28 @@ class Joined : NSObject {
                                       "endDay" : endDay,
                                       "interval" : interval,
                                       "descriptions" : descriptions]
-        if let pictureUrl = url {
-            data["url"] = pictureUrl
+        if let url = profileURL {
+            data["profileURL"] = url
         }
         return data
     }
     
     //Standard User init()
-    init(groupUID: String, ownerUID: String, name: String, address: String, startDay: String, endDay: String, startHour: String, startMin: String, startDM: String, endHour: String, endMin: String, endDM: String, interval: String, description: String) {
-        self.uid = uid
-        self.firstName = firstName
-        self.lastName = lastName
-        self.username = username
+    init(groupUID: String, ownerUID: String, name: String, address: String, startDay: String, endDay: String, startHour: Int, startMin: Int, startDM: String, endHour: Int, endMin: Int, endDM: String, interval: Int, descriptions: String) {
+        self.groupUID = groupUID
+        self.ownerUID = ownerUID
+        self.name = name
+        self.address = address
+        self.startDay = groupUID
+        self.endDay = ownerUID
+        self.startHour = startHour
+        self.startMin = startMin
+        self.startDM = startDM
+        self.endHour = endHour
+        self.endMin = endMin
+        self.endDM = endDM
+        self.interval = interval
+        self.descriptions = descriptions
         self.profileURL = nil
         super.init()
     }
