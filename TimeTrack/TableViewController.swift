@@ -18,6 +18,7 @@ struct cellData {
     let numOfCheckIns: Int?
     let id: String?
     let memberTotal: Int?
+    let description: String?
 }
 struct joinedCellData {
     let cell: Int!
@@ -27,9 +28,12 @@ struct joinedCellData {
     let numOfCheckIns: Int?
     let id: String?
     let memberTotal: Int?
+    let description: String?
 }
+
 weak var photo: UIImage?
 var myIndex = 0
+
 class TableViewController: UITableViewController {
     
     //let ref = Database.database().reference().child("users")
@@ -86,7 +90,6 @@ class TableViewController: UITableViewController {
                         let keyed = value["key"] as! String!
                         let mem = value["numOfMembers"] as? Int
                         let descriptionss = value["description"] as! String!
-                        self.descriptions = descriptionss!
                         let from = value["from"] as! String!
                         let to = value["to"] as! String!
                         let owner = value["owner"] as! String!
@@ -111,7 +114,8 @@ class TableViewController: UITableViewController {
                         let imageURL = URL(string: pics)
                         let imageView = cell.mainImageView
                         imageView?.kf.setImage(with: imageURL)
-                        self.joinedArrayOfCellData.append(joinedCellData(cell : 1, text : name , image : imageView?.image, address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
+                        self.joinedArrayOfCellData.append(joinedCellData(cell : 1, text : name , image : imageView?.image, address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem, description: descriptionss))
+                        self.groupTableView?.reloadData()
                     })
                 })
             })
@@ -142,12 +146,10 @@ class TableViewController: UITableViewController {
             let imageURL = URL(string: pic as! String)
             let imageView = cell.mainImageView
             imageView?.kf.setImage(with: imageURL)
-            self.arrayOfCellData.append(cellData(cell : 1, text : name , image : imageView?.image, address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem))
-            
+            self.arrayOfCellData.append(cellData(cell : 1, text : name , image : imageView?.image, address: location, numOfCheckIns: checkIns, id: keyed, memberTotal: mem, description: descriptionss))
             self.groupTableView.reloadData()
-            
         })
-
+        groupTableView?.reloadData()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -179,6 +181,7 @@ class TableViewController: UITableViewController {
                 cell.mainImageView.image = arrayOfCellData[indexPath.row].image
                 cell.mainLabelView.text = arrayOfCellData[indexPath.row].text
                 cell.addressLabelView.text = arrayOfCellData[indexPath.row].address
+                cell.descriptionLabel.text = arrayOfCellData[indexPath.row].description
                 if let members = arrayOfCellData[indexPath.row].numOfCheckIns {
                     cell.counterLabelView.text = String(describing: members)
                 }
@@ -193,6 +196,7 @@ class TableViewController: UITableViewController {
                 cell.mainImageView.image = arrayOfCellData[indexPath.row].image
                 cell.mainLabelView.text = arrayOfCellData[indexPath.row].text!
                 cell.addressLabelView.text = arrayOfCellData[indexPath.row].address
+                cell.descriptionLabel.text = arrayOfCellData[indexPath.row].description
                 if let members = arrayOfCellData[indexPath.row].numOfCheckIns {
                     cell.counterLabelView.text = String(describing: members)
                 }
@@ -209,6 +213,7 @@ class TableViewController: UITableViewController {
                 cell.mainImageView.image = joinedArrayOfCellData[indexPath.row].image
                 cell.mainLabelView.text = joinedArrayOfCellData[indexPath.row].text
                 cell.addressLabelView.text = joinedArrayOfCellData[indexPath.row].address
+                cell.descriptionLabel.text = joinedArrayOfCellData[indexPath.row].description
                 if let members = joinedArrayOfCellData[indexPath.row].numOfCheckIns {
                         cell.counterLabelView.text = String(describing: members)
                 }
@@ -223,6 +228,7 @@ class TableViewController: UITableViewController {
                 cell.mainImageView.image = joinedArrayOfCellData[indexPath.row].image
                 cell.mainLabelView.text = joinedArrayOfCellData[indexPath.row].text
                     cell.addressLabelView.text = joinedArrayOfCellData[indexPath.row].address
+                cell.descriptionLabel.text = joinedArrayOfCellData[indexPath.row].description
                 if let members = joinedArrayOfCellData[indexPath.row].numOfCheckIns {
                 cell.counterLabelView.text = String(describing: members)
                 }
@@ -237,6 +243,7 @@ class TableViewController: UITableViewController {
                 return cell
                 groupTableView?.reloadData()
         }
+        groupTableView?.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -274,12 +281,8 @@ class TableViewController: UITableViewController {
             Constants.idd.myStrings = (cell.idLabel?.text!)!
             Constants.numberOfMembers.myInts = Int((cell.totalMembers?.text!)!)!
             photo = cell.mainImageView.image
-            self.personalRef?.observe(.value, with: { // get info from owner
-                (snapshot) in
-                let value = snapshot.value as! [String: AnyObject]
-                let descriptionss = value["description"] as! String!
-                Constants.description.myStrings = self.descriptions!
-            })
+            Constants.description.myStrings = (cell.descriptionLabel?.text!)!
+            
             
             //        totalMembers
         } else if segmentedControl.selectedSegmentIndex == 1  {
@@ -293,13 +296,7 @@ class TableViewController: UITableViewController {
             Constants.idd.myStrings = (cell.idLabel?.text!)!
             Constants.numberOfMembers.myInts = Int((cell.totalMembers?.text!)!)!
             photo = cell.mainImageView.image
-            self.personalRef =  Database.database().reference().child("personal groups info").child(userID!).child(Constants.idd.myStrings)
-            self.personalRef?.observe(.value, with: { // get info from owner
-                (snapshot) in
-                let value = snapshot.value as! [String: AnyObject]
-                let descriptionss = value["description"] as! String!
-                Constants.description.myStrings = self.descriptions!
-            })
+            Constants.description.myStrings = (cell.descriptionLabel?.text!)!
             //        totalMembers
         }
     }

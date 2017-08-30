@@ -23,27 +23,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="crj-8h-XHr">
-                                <rect key="frame" x="67" y="100" width="240" height="207"/>
+                                <rect key="frame" x="68" y="93" width="238" height="247"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The smart way to check-in." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnE-be-Hr5">
-                                <rect key="frame" x="8" y="315" width="359" height="157"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="157" id="Kgv-9f-0aB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
-                                <color key="textColor" red="0.99203723669052124" green="0.9921455979347229" blue="0.9961208701133728" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.2784313725" green="0.72941176470000002" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="MnE-be-Hr5" firstAttribute="top" secondItem="crj-8h-XHr" secondAttribute="bottom" constant="8" symbolic="YES" id="1Mb-xc-sLz"/>
-                            <constraint firstItem="crj-8h-XHr" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="51" id="CVx-KP-5k8"/>
-                            <constraint firstItem="crj-8h-XHr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Cho-i3-sOd"/>
-                            <constraint firstItem="MnE-be-Hr5" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-8" id="Gda-CM-Fc9"/>
-                            <constraint firstItem="crj-8h-XHr" firstAttribute="centerX" secondItem="MnE-be-Hr5" secondAttribute="centerX" id="ZCJ-d4-WuD"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="MnE-be-Hr5" secondAttribute="bottom" constant="195" id="r7t-oq-San"/>
-                            <constraint firstItem="crj-8h-XHr" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="80" id="ubE-nC-o3y"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="crj-8h-XHr" secondAttribute="bottom" constant="327" id="44i-Gl-Fc8"/>
+                            <constraint firstItem="crj-8h-XHr" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="52" id="FTk-ua-cPh"/>
+                            <constraint firstItem="crj-8h-XHr" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="73" id="RbX-bc-sfD"/>
+                            <constraint firstItem="crj-8h-XHr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="wS8-uX-0zT"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>

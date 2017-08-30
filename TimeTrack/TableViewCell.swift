@@ -16,6 +16,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var counterLabelView: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var totalMembers: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
 
 }
 

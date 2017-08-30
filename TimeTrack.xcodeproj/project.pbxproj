@@ -25,7 +25,6 @@
 		FF3827B71F47D6FD009A6AA7 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3827B61F47D6FD009A6AA7 /* StorageService.swift */; };
 		FF3827BE1F47FDCF009A6AA7 /* TableViewSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3827BD1F47FDCF009A6AA7 /* TableViewSettingsViewController.swift */; };
 		FF3827C01F482B0D009A6AA7 /* PhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3827BF1F482B0D009A6AA7 /* PhotoHelper.swift */; };
-		FF9EDC0F1F41F16700B472D2 /* Joined.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC0E1F41F16700B472D2 /* Joined.swift */; };
 		FF9EDC111F432AB800B472D2 /* JoinerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */; };
 		FF9EDC161F43317E00B472D2 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC131F43317E00B472D2 /* DateCollectionViewCell.swift */; };
 		FF9EDC171F43317E00B472D2 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC141F43317E00B472D2 /* DateTimePicker.swift */; };
@@ -49,6 +48,7 @@
 		FFB799961F29056E001B7C61 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB799941F29056E001B7C61 /* TableViewCell.swift */; };
 		FFB799971F29056E001B7C61 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB799951F29056E001B7C61 /* TableViewCell.xib */; };
 		FFB799A11F29A7C7001B7C61 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB799A01F29A7C7001B7C61 /* Search.storyboard */; };
+		FFB9266F1F55379900089AC6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB9266E1F55379900089AC6 /* Group.swift */; };
 		FFC091171F342E7400BD5143 /* MoreInfoGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC091161F342E7400BD5143 /* MoreInfoGroupViewController.swift */; };
 		FFC091191F34E7AB00BD5143 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC091181F34E7AB00BD5143 /* SearchTableViewCell.swift */; };
 		FFC0911B1F34ECE400BD5143 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC0911A1F34ECE300BD5143 /* EditViewController.swift */; };
@@ -83,7 +83,6 @@
 		FF3827B61F47D6FD009A6AA7 /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		FF3827BD1F47FDCF009A6AA7 /* TableViewSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSettingsViewController.swift; sourceTree = "<group>"; };
 		FF3827BF1F482B0D009A6AA7 /* PhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoHelper.swift; path = TimeTrack/PhotoHelper.swift; sourceTree = "<group>"; };
-		FF9EDC0E1F41F16700B472D2 /* Joined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Joined.swift; sourceTree = "<group>"; };
 		FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = JoinerTableViewController.swift; sourceTree = "<group>"; };
 		FF9EDC131F43317E00B472D2 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF9EDC141F43317E00B472D2 /* DateTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		FFB799941F29056E001B7C61 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FFB799951F29056E001B7C61 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableViewCell.xib; path = ../TableViewCell.xib; sourceTree = "<group>"; };
 		FFB799A01F29A7C7001B7C61 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		FFB9266E1F55379900089AC6 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		FFC091161F342E7400BD5143 /* MoreInfoGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfoGroupViewController.swift; sourceTree = "<group>"; };
 		FFC091181F34E7AB00BD5143 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		FFC0911A1F34ECE300BD5143 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -180,9 +180,9 @@
 				FF37C60D1F2525CA0018940B /* Assets.xcassets */,
 				FFAFCCD51F263040009D2692 /* Supporting Files */,
 				FFAFCCD81F2632BB009D2692 /* Storyboards */,
-				FFAFCCF01F267069009D2692 /* Services */,
 				FFAFCCD61F263057009D2692 /* View Controllers */,
 				FFAFCCF51F267A96009D2692 /* Supporting */,
+				FFAFCCF01F267069009D2692 /* Services */,
 				FFAFCCEB1F26648C009D2692 /* Models */,
 				FFAFCD051F267CA9009D2692 /* Extensions */,
 			);
@@ -256,8 +256,8 @@
 			isa = PBXGroup;
 			children = (
 				FFAFCCF31F267164009D2692 /* User.swift */,
+				FFB9266E1F55379900089AC6 /* Group.swift */,
 				FF9EDC1C1F4372DA00B472D2 /* Time.swift */,
-				FF9EDC0E1F41F16700B472D2 /* Joined.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -517,11 +517,11 @@
 			files = (
 				FFAE463D1F3B50D6001CC9EC /* GroupTimeTableViewController.swift in Sources */,
 				FF115B2F1F2CF323008A1EB5 /* MainViewController.swift in Sources */,
-				FF9EDC0F1F41F16700B472D2 /* Joined.swift in Sources */,
 				FFC3B0051F36C10600E9BF64 /* CreateTableViewController.swift in Sources */,
 				FF115B361F2CF3C8008A1EB5 /* AuthService.swift in Sources */,
 				FFC091171F342E7400BD5143 /* MoreInfoGroupViewController.swift in Sources */,
 				FF115B3B1F2CF3F9008A1EB5 /* ViewController+Utility.swift in Sources */,
+				FFB9266F1F55379900089AC6 /* Group.swift in Sources */,
 				FF3827C01F482B0D009A6AA7 /* PhotoHelper.swift in Sources */,
 				FF0A7FFD1F4DDB7B00DED0A9 /* JoinerTimeJoinViewController.swift in Sources */,
 				FF115B3A1F2CF3F9008A1EB5 /* Storyboard+Utility.swift in Sources */,
@@ -667,7 +667,7 @@
 				DEVELOPMENT_TEAM = H8ZPW869Y2;
 				INFOPLIST_FILE = "$(SRCROOT)/TimeTrack/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.JSuzuki.Time-Flex";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JSuzuki.TimeFlex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -682,7 +682,7 @@
 				DEVELOPMENT_TEAM = H8ZPW869Y2;
 				INFOPLIST_FILE = "$(SRCROOT)/TimeTrack/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.JSuzuki.Time-Flex";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JSuzuki.TimeFlex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

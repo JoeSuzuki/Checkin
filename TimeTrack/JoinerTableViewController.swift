@@ -70,12 +70,13 @@ class JoinerTableViewController: UITableViewController{
     }
     override func viewDidAppear(_ animated: Bool) {
         self.organize()
+       // observeTime()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     @IBOutlet weak var item: UINavigationItem!
     @IBAction func joinButton(_ sender: UIBarButtonItem) {
         setUp{ () in
@@ -271,7 +272,22 @@ class JoinerTableViewController: UITableViewController{
             textLabel.textColor = UIColor(red: 253/255, green: 229/255, blue: 16/255, alpha: 1)
         }
     }
-    
+    func timeWatch(_ textLabel: UILabel) {
+        let date = Date()
+        let calendar = Calendar.current
+        var hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let begin = "\(hour):\(minutes)"
+        hour = Int(hour)
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        item.title = "\(month)/\(day)/\(year)"
+        if textLabel.text == begin {
+            textLabel.textColor = UIColor(red: 255/255, green: 16/255, blue: 31/255, alpha: 1)
+        }
+    }
+
     func timeIntervalChange(_ interval: Int) -> Array<Any>{
         var hour = 0
         var g = interval
@@ -303,6 +319,8 @@ class JoinerTableViewController: UITableViewController{
             cell.timeLabel.text = arrayOfTime[indexPath.row].timed
             cell.nameLabel.text = arrayOfTime[indexPath.row].named
             colorChange(cell.nameLabel)
+            timeWatch(cell.timeLabel)
+            timeWatch(cell.timeLabel)
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("GroupTimeTableViewCell", owner: self, options: nil)?.first as! GroupTimeTableViewCell
