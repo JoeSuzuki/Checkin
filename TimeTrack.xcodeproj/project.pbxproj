@@ -51,6 +51,8 @@
 		FFB9266F1F55379900089AC6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB9266E1F55379900089AC6 /* Group.swift */; };
 		FFB926731F56B3FA00089AC6 /* CreateGroups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB926721F56B3FA00089AC6 /* CreateGroups.storyboard */; };
 		FFB926791F56B47B00089AC6 /* CreateGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB926781F56B47B00089AC6 /* CreateGroupsViewController.swift */; };
+		FFB9267B1F56C22C00089AC6 /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB9267A1F56C22C00089AC6 /* CustomCells.swift */; };
+		FFB9267D1F57404000089AC6 /* WeekDaysCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB9267C1F57404000089AC6 /* WeekDaysCell.xib */; };
 		FFC091171F342E7400BD5143 /* MoreInfoGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC091161F342E7400BD5143 /* MoreInfoGroupViewController.swift */; };
 		FFC091191F34E7AB00BD5143 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC091181F34E7AB00BD5143 /* SearchTableViewCell.swift */; };
 		FFC0911B1F34ECE400BD5143 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC0911A1F34ECE300BD5143 /* EditViewController.swift */; };
@@ -114,6 +116,8 @@
 		FFB9266E1F55379900089AC6 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		FFB926721F56B3FA00089AC6 /* CreateGroups.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGroups.storyboard; sourceTree = "<group>"; };
 		FFB926781F56B47B00089AC6 /* CreateGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupsViewController.swift; sourceTree = "<group>"; };
+		FFB9267A1F56C22C00089AC6 /* CustomCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCells.swift; path = Storyboards/CustomCells.swift; sourceTree = "<group>"; };
+		FFB9267C1F57404000089AC6 /* WeekDaysCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeekDaysCell.xib; sourceTree = "<group>"; };
 		FFC091161F342E7400BD5143 /* MoreInfoGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfoGroupViewController.swift; sourceTree = "<group>"; };
 		FFC091181F34E7AB00BD5143 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		FFC0911A1F34ECE300BD5143 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -359,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				FFB926721F56B3FA00089AC6 /* CreateGroups.storyboard */,
+				FFB9267C1F57404000089AC6 /* WeekDaysCell.xib */,
 			);
 			name = Create;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				FFB926781F56B47B00089AC6 /* CreateGroupsViewController.swift */,
+				FFB9267A1F56C22C00089AC6 /* CustomCells.swift */,
 			);
 			name = Create;
 			sourceTree = "<group>";
@@ -472,6 +478,7 @@
 				FFB799971F29056E001B7C61 /* TableViewCell.xib in Resources */,
 				FFB926731F56B3FA00089AC6 /* CreateGroups.storyboard in Resources */,
 				FFAE46411F3B5156001CC9EC /* GroupTimeTableViewCell.xib in Resources */,
+				FFB9267D1F57404000089AC6 /* WeekDaysCell.xib in Resources */,
 				FFAFCCCF1F262F67009D2692 /* GoogleService-Info.plist in Resources */,
 				FFAFCD0B1F2688A5009D2692 /* Profile.storyboard in Resources */,
 				FFB799A11F29A7C7001B7C61 /* Search.storyboard in Resources */,
@@ -540,6 +547,7 @@
 			files = (
 				FFAE463D1F3B50D6001CC9EC /* GroupTimeTableViewController.swift in Sources */,
 				FF115B2F1F2CF323008A1EB5 /* MainViewController.swift in Sources */,
+				FFB9267B1F56C22C00089AC6 /* CustomCells.swift in Sources */,
 				FFC3B0051F36C10600E9BF64 /* CreateTableViewController.swift in Sources */,
 				FF115B361F2CF3C8008A1EB5 /* AuthService.swift in Sources */,
 				FFC091171F342E7400BD5143 /* MoreInfoGroupViewController.swift in Sources */,

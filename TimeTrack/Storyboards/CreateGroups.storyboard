@@ -673,10 +673,10 @@
             </objects>
             <point key="canvasLocation" x="-9" y="836"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Groups View Controller-->
         <scene sceneID="Fw9-hN-tw4">
             <objects>
-                <viewController id="zua-6C-7KM" sceneMemberID="viewController">
+                <viewController id="zua-6C-7KM" customClass="CreateGroupsViewController" customModule="TimeTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wNY-S9-jR2"/>
                         <viewControllerLayoutGuide type="bottom" id="l8Z-gj-DWC"/>
@@ -686,6 +686,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="leW-Ne-PSr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zb3-gk-qOq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,7 +704,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="KYx-Yy-cu8" kind="relationship" relationship="rootViewController" id="2uG-ZQ-zgE"/>
+                        <segue destination="zua-6C-7KM" kind="relationship" relationship="rootViewController" id="O1D-Ry-MDb"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7MZ-aj-cml" userLabel="First Responder" sceneMemberID="firstResponder"/>
