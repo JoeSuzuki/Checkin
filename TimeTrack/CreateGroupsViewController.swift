@@ -13,18 +13,20 @@ import MapKit
 import CoreLocation
 
 class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        var locationManager = CLLocationManager()
-        form +++ Section("Section1")
+        form +++ Section("")
             <<< TextRow(){ row in
-                row.title = "Text Row"
-                row.placeholder = "Enter text here"
+                row.title = "Name"
+                row.placeholder = "Enter name here"
+            }
+            <<< TextRow(){ row in
+                row.title = "Description"
+                row.placeholder = "Enter description here"
             }
             <<< PhoneRow(){
-                $0.title = "Phone Row"
-                $0.placeholder = "And numbers here"
+                $0.title = "Phone Number"
+                $0.placeholder = "###-####-###"
             }
             +++ Section("Section2")
             <<< DateRow(){
@@ -43,7 +45,5 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
     // Leaves 20pt of space between the keyboard and the highlighted row after scrolling to an off screen row
     rowKeyboardSpacing = 20
     }
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation:CLLocation = locations[0] as CLLocation // note that locations is same as the one in the function declaration
-    }
+  
 }
