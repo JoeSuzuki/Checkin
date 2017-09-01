@@ -17,7 +17,7 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        form +++ Section("")
+        form +++ Section("General")
             <<< TextRow(){ row in
                 row.title = "Name"
                 row.placeholder = "Enter name here"
@@ -27,14 +27,9 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
                 $0.textAreaHeight = .dynamic(initialTextViewHeight: 110)
             }
             +++ Section("Availblity")
-            <<< LocationRow(){
-                $0.title = "Location"
-                $0.value = CLLocation(latitude: 40.71, longitude: 74.00)
-            }
             <<< WeekDayRow(){
                 $0.value = [.sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday]
             }
-
             <<< TimeInlineRow(){
                 $0.title = "Open Time"
                 $0.value = Date()
@@ -52,6 +47,10 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
                 $0.value = Calendar.current.date(from: dateComp)
             }
             +++ Section("Contacts")
+            <<< LocationRow(){
+                $0.title = "Location"
+                $0.value = CLLocation(latitude: 40.71, longitude: 74.00)
+            }
             <<< URLRow() {
                 $0.title = "URL"
                 $0.placeholder = ""
@@ -61,10 +60,8 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
                 $0.placeholder = "###-####-###"
             }
             <<< EmailRow() {
-                $0.title = "Email Rule"
-                $0.add(rule: RuleRequired())
+                $0.title = "Email"
                 $0.add(rule: RuleEmail())
-                $0.validationOptions = .validatesOnChangeAfterBlurred
             }
         
 
