@@ -13,6 +13,8 @@ import MapKit
 import CoreLocation
 
 class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate {
+    var locationManager: CLLocationManager!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         form +++ Section("")
@@ -20,24 +22,52 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
                 row.title = "Name"
                 row.placeholder = "Enter name here"
             }
-            <<< TextRow(){ row in
-                row.title = "Description"
-                row.placeholder = "Enter description here"
+            <<< TextAreaRow() {
+                $0.placeholder = "Description"
+                $0.textAreaHeight = .dynamic(initialTextViewHeight: 110)
+            }
+            +++ Section("Availblity")
+            <<< LocationRow(){
+                $0.title = "Location"
+                $0.value = CLLocation(latitude: 40.71, longitude: 74.00)
+            }
+            <<< WeekDayRow(){
+                $0.value = [.sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday]
+            }
+
+            <<< TimeInlineRow(){
+                $0.title = "Open Time"
+                $0.value = Date()
+            }
+            <<< TimeInlineRow(){
+                $0.title = "Close Time"
+                $0.value = Date()
+            }
+            <<< CountDownInlineRow(){
+                $0.title = "Interval per Minute"
+                var dateComp = DateComponents()
+                dateComp.hour = 0
+                dateComp.minute = 30
+                dateComp.timeZone = TimeZone.current
+                $0.value = Calendar.current.date(from: dateComp)
+            }
+            +++ Section("Contacts")
+            <<< URLRow() {
+                $0.title = "URL"
+                $0.placeholder = ""
             }
             <<< PhoneRow(){
                 $0.title = "Phone Number"
                 $0.placeholder = "###-####-###"
             }
-            +++ Section("Section2")
-            <<< DateRow(){
-                $0.title = "Date Row"
-                $0.value = Date(timeIntervalSinceReferenceDate: 0)
+            <<< EmailRow() {
+                $0.title = "Email Rule"
+                $0.add(rule: RuleRequired())
+                $0.add(rule: RuleEmail())
+                $0.validationOptions = .validatesOnChangeAfterBlurred
             }
-            <<< LocationRow(){
-                $0.title = "LocationRow"
-                $0.value = CLLocation(latitude: -34.91, longitude: -56.1646)
-            }
-            
+        
+
     	// Enables the navigation accessory and stops navigation when a disabled row is encountered
     navigationOptions = RowNavigationOptions.Enabled.union(.StopDisabledRow)
     // Enables smooth scrolling on navigation to off-screen rows
