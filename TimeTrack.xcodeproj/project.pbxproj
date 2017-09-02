@@ -25,6 +25,10 @@
 		FF3827B71F47D6FD009A6AA7 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3827B61F47D6FD009A6AA7 /* StorageService.swift */; };
 		FF3827BE1F47FDCF009A6AA7 /* TableViewSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3827BD1F47FDCF009A6AA7 /* TableViewSettingsViewController.swift */; };
 		FF3827C01F482B0D009A6AA7 /* PhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3827BF1F482B0D009A6AA7 /* PhotoHelper.swift */; };
+		FF8888231F5A4B6B0064E490 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8888201F5A4B6B0064E490 /* SwitchCell.xib */; };
+		FF8888241F5A4B6B0064E490 /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8888211F5A4B6B0064E490 /* DatePickerCell.xib */; };
+		FF8888251F5A4B6B0064E490 /* TextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8888221F5A4B6B0064E490 /* TextCell.xib */; };
+		FF8888361F5A6BD60064E490 /* TextCelll.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8888351F5A6BD60064E490 /* TextCelll.xib */; };
 		FF9EDC111F432AB800B472D2 /* JoinerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */; };
 		FF9EDC161F43317E00B472D2 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC131F43317E00B472D2 /* DateCollectionViewCell.swift */; };
 		FF9EDC171F43317E00B472D2 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC141F43317E00B472D2 /* DateTimePicker.swift */; };
@@ -87,6 +91,10 @@
 		FF3827B61F47D6FD009A6AA7 /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		FF3827BD1F47FDCF009A6AA7 /* TableViewSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSettingsViewController.swift; sourceTree = "<group>"; };
 		FF3827BF1F482B0D009A6AA7 /* PhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoHelper.swift; path = TimeTrack/PhotoHelper.swift; sourceTree = "<group>"; };
+		FF8888201F5A4B6B0064E490 /* SwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
+		FF8888211F5A4B6B0064E490 /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
+		FF8888221F5A4B6B0064E490 /* TextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextCell.xib; sourceTree = "<group>"; };
+		FF8888351F5A6BD60064E490 /* TextCelll.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextCelll.xib; sourceTree = "<group>"; };
 		FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = JoinerTableViewController.swift; sourceTree = "<group>"; };
 		FF9EDC131F43317E00B472D2 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF9EDC141F43317E00B472D2 /* DateTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
@@ -363,6 +371,10 @@
 			isa = PBXGroup;
 			children = (
 				FFB926721F56B3FA00089AC6 /* CreateGroups.storyboard */,
+				FF8888201F5A4B6B0064E490 /* SwitchCell.xib */,
+				FF8888211F5A4B6B0064E490 /* DatePickerCell.xib */,
+				FF8888221F5A4B6B0064E490 /* TextCell.xib */,
+				FF8888351F5A6BD60064E490 /* TextCelll.xib */,
 				FFB9267C1F57404000089AC6 /* WeekDaysCell.xib */,
 			);
 			name = Create;
@@ -476,17 +488,21 @@
 			files = (
 				FF37C60E1F2525CA0018940B /* Assets.xcassets in Resources */,
 				FFB799971F29056E001B7C61 /* TableViewCell.xib in Resources */,
+				FF8888251F5A4B6B0064E490 /* TextCell.xib in Resources */,
 				FFB926731F56B3FA00089AC6 /* CreateGroups.storyboard in Resources */,
 				FFAE46411F3B5156001CC9EC /* GroupTimeTableViewCell.xib in Resources */,
 				FFB9267D1F57404000089AC6 /* WeekDaysCell.xib in Resources */,
+				FF8888231F5A4B6B0064E490 /* SwitchCell.xib in Resources */,
 				FFAFCCCF1F262F67009D2692 /* GoogleService-Info.plist in Resources */,
 				FFAFCD0B1F2688A5009D2692 /* Profile.storyboard in Resources */,
 				FFB799A11F29A7C7001B7C61 /* Search.storyboard in Resources */,
 				FFAFCCE41F2634CE009D2692 /* LaunchScreen.storyboard in Resources */,
 				FFB7998C1F28F1EA001B7C61 /* GroupsTable.storyboard in Resources */,
 				FFDABC891F2A84DF00C64D39 /* Calender.storyboard in Resources */,
+				FF8888241F5A4B6B0064E490 /* DatePickerCell.xib in Resources */,
 				FFAFCCDE1F26332D009D2692 /* Main.storyboard in Resources */,
 				FF115B331F2CF374008A1EB5 /* Login.storyboard in Resources */,
+				FF8888361F5A6BD60064E490 /* TextCelll.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

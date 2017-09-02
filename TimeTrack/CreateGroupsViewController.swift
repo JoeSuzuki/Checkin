@@ -18,9 +18,13 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         form +++ Section("General")
-            <<< TextRow(){ row in
-                row.title = "Name"
-                row.placeholder = "Enter name here"
+            <<< TextRow() {
+                $0.cellProvider = CellProvider<TextCell>(nibName: "TextCell", bundle: Bundle.main)
+                }
+                .onChange { row in
+                    if let textView = row.cell.viewWithTag(99) as? UITextView {
+                        textView.text = row.cell.textField.text
+                    }
             }
             <<< TextAreaRow() {
                 $0.placeholder = "Description"
@@ -63,8 +67,6 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
                 $0.title = "Email"
                 $0.add(rule: RuleEmail())
             }
-        
-
     	// Enables the navigation accessory and stops navigation when a disabled row is encountered
     navigationOptions = RowNavigationOptions.Enabled.union(.StopDisabledRow)
     // Enables smooth scrolling on navigation to off-screen rows
@@ -72,5 +74,5 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
     // Leaves 20pt of space between the keyboard and the highlighted row after scrolling to an off screen row
     rowKeyboardSpacing = 20
     }
-  
+
 }
