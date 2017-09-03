@@ -14,21 +14,17 @@ import CoreLocation
 
 class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
-
+    var name = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         form +++ Section("General")
-            <<< TextRow() {
-                $0.cellProvider = CellProvider<TextCell>(nibName: "TextCell", bundle: Bundle.main)
-                }
-                .onChange { row in
-                    if let textView = row.cell.viewWithTag(99) as? UITextView {
-                        textView.text = row.cell.textField.text
-                    }
+            <<< TextRow(){ row in
+                row.title = "Name"
+                row.placeholder = "Enter name here"
             }
             <<< TextAreaRow() {
                 $0.placeholder = "Description"
-                $0.textAreaHeight = .dynamic(initialTextViewHeight: 110)
+                $0.textAreaHeight = .dynamic(initialTextViewHeight: 70)
             }
             +++ Section("Availblity")
             <<< WeekDayRow(){
@@ -73,6 +69,17 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
     animateScroll = true
     // Leaves 20pt of space between the keyboard and the highlighted row after scrolling to an off screen row
     rowKeyboardSpacing = 20
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: .saveButtonPressed)
+        navigationItem.rightBarButtonItem = saveButton
+        view.backgroundColor = .white
     }
-
+    // MARK: - Actions
+    func saveButtonPressed(_ sender: UIBarButtonItem) {
+        print("ppp")
+    }
 }
+// MARK: - Selectors
+extension Selector {
+    fileprivate static let saveButtonPressed = #selector(CreateGroupsViewController.saveButtonPressed(_:))
+}
+

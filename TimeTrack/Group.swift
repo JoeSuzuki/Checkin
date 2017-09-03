@@ -17,54 +17,54 @@ class Joined : NSObject {
     let uid : String
     let ownerUID : String
     let name: String
-    let address: String//
-    let startDay: String
-    let endDay: String
-    let startHour: Int//
-    let startMin: Int
-    let startDM: String
-    let endHour: Int
-    let endMin: Int
-    let endDM: String
-    let interval: Int
     let descriptions: String
-    let profileURL: String?
+    let address: String//
+    let startDay: NSArray
+    let startTime: String//
+    let endTime: String
+    let interval: String
+    let urls: String?
+    let phoneNumber: String?
+    let email: String?
+    var profileURL: String?
     var dictValue: [String : Any] {
         var data : [String : Any] = ["ownerUID" : ownerUID,
                                       "name" : name,
                                       "address" : address,
                                       "startDay" : startDay,
-                                      "endDay" : endDay,
-                                      "startHour" : startHour,
-                                      "startMin" : startMin,
-                                      "startDM" : startDM,
-                                      "endHour" : endHour,
-                                      "endMin" : endMin,
-                                      "endDM" : endDM,
+                                      "startHour" : startTime,
+                                      "endHour" : endTime,
                                       "interval" : interval,
                                       "descriptions" : descriptions]
-        if let url = profileURL {
-            data["profileURL"] = url
+        if let urls = urls {
+            data["urls"] = urls
+        }
+        if let phoneNumber = phoneNumber {
+            data["phoneNumber"] = phoneNumber
+        }
+        if let email = email {
+            data["email"] = email
+        }
+        if let profileURL = profileURL {
+            data["profileURL"] = profileURL
         }
         return data
     }
     
     //Standard User init()
-    init(uid: String, ownerUID: String, name: String, address: String, startDay: String, endDay: String, startHour: Int, startMin: Int, startDM: String, endHour: Int, endMin: Int, endDM: String, interval: Int, descriptions: String) {
+    init(uid: String, ownerUID: String, name: String, address: String, startDay: NSArray, startHour: String, endHour: String, interval: String, descriptions: String) {
         self.uid = uid
         self.ownerUID = ownerUID
         self.name = name
         self.address = address
         self.startDay = startDay
-        self.endDay = endDay
-        self.startHour = startHour
-        self.startMin = startMin
-        self.startDM = startDM
-        self.endHour = endHour
-        self.endMin = endMin
-        self.endDM = endDM
+        self.startTime = startHour
+        self.endTime = endHour
         self.interval = interval
         self.descriptions = descriptions
+        self.urls = nil
+        self.phoneNumber = nil
+        self.email = nil
         self.profileURL = nil
         super.init()
     }
@@ -75,19 +75,32 @@ class Joined : NSObject {
             let ownerUID = dict["ownerUID"] as? String,
             let name = dict["name"] as? String,
             let address = dict["address"] as? String,
-            let startDay = dict["startDay"] as? String,
-            let endDay = dict["endDay"] as? String,
-            let startHour = dict["startHour"] as? Int,
-            let startMin = dict["startMin"] as? Int,
-            let startDM = dict["startDM"] as? String,
-            let endHour = dict["endHour"] as? Int,
-            let endMin = dict["endMin"] as? Int,
-            let endDM = dict["endDM"] as? String,
-            let interval = dict["interval"] as? Int,
+            let startDay = dict["startDay"] as? NSArray,
+            let startTime = dict["startTime"] as? String,
+            let endTime = dict["endTime"] as? String,
+            let interval = dict["interval"] as? String,
             let descriptions = dict["descriptions"] as? String
             else { return nil }
-        if let url = dict["profileURL"] as? String {
-            self.profileURL = url
+        if let urls = dict["urls"] as? String {
+            self.urls = urls
+        }
+        else {
+            self.urls = nil
+        }
+        if let phoneNumber = dict["phoneNumber"] as? String {
+            self.phoneNumber = phoneNumber
+        }
+        else {
+            self.phoneNumber = nil
+        }
+        if let email = dict["email"] as? String {
+            self.email = email
+        }
+        else {
+            self.email = nil
+        }
+        if let profileURL = dict["profileURL"] as? String {
+            self.profileURL = profileURL
         }
         else {
             self.profileURL = nil
@@ -97,13 +110,8 @@ class Joined : NSObject {
         self.name = name
         self.address = address
         self.startDay = startDay
-        self.endDay = endDay
-        self.startHour = startHour
-        self.startMin = startMin
-        self.startDM = startDM
-        self.endHour = endHour
-        self.endMin = endMin
-        self.endDM = endDM
+        self.startTime = startTime
+        self.endTime = endTime
         self.interval = interval
         self.descriptions = descriptions
     }
