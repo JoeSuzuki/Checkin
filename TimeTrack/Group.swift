@@ -22,7 +22,7 @@ class Joined : NSObject {
     let startDay: NSArray
     let startTime: String//
     let endTime: String
-    let interval: String
+    let interval: TimeInterval
     let urls: String?
     let phoneNumber: String?
     let email: String?
@@ -52,7 +52,7 @@ class Joined : NSObject {
     }
     
     //Standard User init()
-    init(uid: String, ownerUID: String, name: String, address: String, startDay: NSArray, startHour: String, endHour: String, interval: String, descriptions: String) {
+    init(uid: String, ownerUID: String, name: String, address: String, startDay: NSArray, startHour: String, endHour: String, interval: TimeInterval, descriptions: String) {
         self.uid = uid
         self.ownerUID = ownerUID
         self.name = name
@@ -78,7 +78,7 @@ class Joined : NSObject {
             let startDay = dict["startDay"] as? NSArray,
             let startTime = dict["startTime"] as? String,
             let endTime = dict["endTime"] as? String,
-            let interval = dict["interval"] as? String,
+            let interval = dict["interval"] as? TimeInterval,
             let descriptions = dict["descriptions"] as? String
             else { return nil }
         if let urls = dict["urls"] as? String {

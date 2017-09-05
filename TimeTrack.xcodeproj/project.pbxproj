@@ -29,6 +29,8 @@
 		FF8888241F5A4B6B0064E490 /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8888211F5A4B6B0064E490 /* DatePickerCell.xib */; };
 		FF8888251F5A4B6B0064E490 /* TextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8888221F5A4B6B0064E490 /* TextCell.xib */; };
 		FF8888361F5A6BD60064E490 /* TextCelll.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8888351F5A6BD60064E490 /* TextCelll.xib */; };
+		FF8888C71F5CD1FC0064E490 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8888C51F5CD1FC0064E490 /* ImagePickerController.swift */; };
+		FF8888C81F5CD1FC0064E490 /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8888C61F5CD1FC0064E490 /* ImageRow.swift */; };
 		FF9EDC111F432AB800B472D2 /* JoinerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */; };
 		FF9EDC161F43317E00B472D2 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC131F43317E00B472D2 /* DateCollectionViewCell.swift */; };
 		FF9EDC171F43317E00B472D2 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9EDC141F43317E00B472D2 /* DateTimePicker.swift */; };
@@ -95,6 +97,8 @@
 		FF8888211F5A4B6B0064E490 /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		FF8888221F5A4B6B0064E490 /* TextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextCell.xib; sourceTree = "<group>"; };
 		FF8888351F5A6BD60064E490 /* TextCelll.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextCelll.xib; sourceTree = "<group>"; };
+		FF8888C51F5CD1FC0064E490 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		FF8888C61F5CD1FC0064E490 /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRow.swift; sourceTree = "<group>"; };
 		FF9EDC101F432AB800B472D2 /* JoinerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = JoinerTableViewController.swift; sourceTree = "<group>"; };
 		FF9EDC131F43317E00B472D2 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF9EDC141F43317E00B472D2 /* DateTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
@@ -385,6 +389,8 @@
 			children = (
 				FFB926781F56B47B00089AC6 /* CreateGroupsViewController.swift */,
 				FFB9267A1F56C22C00089AC6 /* CustomCells.swift */,
+				FF8888C51F5CD1FC0064E490 /* ImagePickerController.swift */,
+				FF8888C61F5CD1FC0064E490 /* ImageRow.swift */,
 			);
 			name = Create;
 			sourceTree = "<group>";
@@ -580,9 +586,11 @@
 				FF3827BE1F47FDCF009A6AA7 /* TableViewSettingsViewController.swift in Sources */,
 				FF9EDC1A1F436D3F00B472D2 /* CalenderViewController.swift in Sources */,
 				FFC3B0071F36C11D00E9BF64 /* CreateTableViewCell.swift in Sources */,
+				FF8888C71F5CD1FC0064E490 /* ImagePickerController.swift in Sources */,
 				FF9EDC161F43317E00B472D2 /* DateCollectionViewCell.swift in Sources */,
 				FFC3AFF41F359F6200E9BF64 /* JoinGroupViewController.swift in Sources */,
 				FFAFCD191F278DDC009D2692 /* ProfileViewController.swift in Sources */,
+				FF8888C81F5CD1FC0064E490 /* ImageRow.swift in Sources */,
 				FF0A80051F4FC06500DED0A9 /* MoreInfoSettingsViewController.swift in Sources */,
 				FFAFCCF41F267164009D2692 /* User.swift in Sources */,
 				FFAFCD201F27BA0F009D2692 /* CreateViewControllers.swift in Sources */,

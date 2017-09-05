@@ -17,4 +17,6 @@ target 'TimeTrack' do
   pod 'DateTimePicker'	
   pod 'Alamofire', '~> 4.4'
   pod 'Eureka'
+pod 'PostalAddressRow', '~> 1.0'
+
 end

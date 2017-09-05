@@ -49,6 +49,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PostalAddressRow-PostalAddressRow.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PostalAddressRow.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SCLAlertView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,17 +72,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2A1B78B5FE601F67A622D6C17B6425EE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>2F0C0F810568D3E82219429D9D870F04</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>3380590F973AFAFA30255D504B7DEDAC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>34681CE2C8E310F5888EFFA49EAF8183</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +102,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A7CD0E02A5C32341CE4D1362CBBBA271</key>
+		<key>A9A995C9CEB3BE910095E41856282DDD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,7 +112,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C04F1810DDEB3973A57FE9E6AF681285</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C10E0C33DB803E079015A2E17A5DCCE3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -47,6 +47,8 @@ PODS:
   - GTMSessionFetcher/Core (1.1.10)
   - JTAppleCalendar (7.0.4)
   - Kingfisher (3.10.3)
+  - PostalAddressRow (1.1.0):
+    - Eureka (= 3.0)
   - SCLAlertView (0.7.0)
 
 DEPENDENCIES:
@@ -60,6 +62,7 @@ DEPENDENCIES:
   - FirebaseUI/Auth
   - JTAppleCalendar (~> 7.0)
   - Kingfisher (~> 3.0)
+  - PostalAddressRow (~> 1.0)
   - SCLAlertView
 
 SPEC CHECKSUMS:
@@ -78,8 +81,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   JTAppleCalendar: 6def48ecd0daae1d5baaa45e813124c2a20b184d
   Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
+  PostalAddressRow: 8e56ae5154c00540981f47aa11ba8004e486d834
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: 47b7c5dcbe79bcab50600827d65be2a5c12eccae
+PODFILE CHECKSUM: cb51e941fec6813a22df2e157a0bfb45bc82ad25
 
 COCOAPODS: 1.2.1
