@@ -143,6 +143,9 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
     rowKeyboardSpacing = 20
         let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: .saveButtonPressed)
         navigationItem.rightBarButtonItem = saveButton
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: .cancelButtonPressed)
+        navigationItem.leftBarButtonItem = cancelButton
+        UINavigationBar.appearance().tintColor = UIColor.white
         view.backgroundColor = .white
     }
     // MARK: - Actions
@@ -157,9 +160,12 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
 //        }
 //
     }
+    func cancelButtonPressed(_ sender: UIBarButtonItem) {
+    }
 }
 // MARK: - Selectors
 extension Selector {
     fileprivate static let saveButtonPressed = #selector(CreateGroupsViewController.saveButtonPressed(_:))
+    fileprivate static let cancelButtonPressed = #selector(CreateGroupsViewController.cancelButtonPressed(_:))
 }
 
