@@ -20,11 +20,11 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
     var newItem : Joined? = nil
     var name: String?
     var descriptions: String?
-    var address: String?
+    var address: Array<Any>?
 //    var startDay: NSArray = []
 //    var startTime: String = ""
 //    var endTime: String = ""
-//    var interval: TimeInterval
+    var interval: TimeInterval = 0.0
     var urls: String?
     var phoneNumber: String?
     var email: String?
@@ -100,9 +100,9 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
                 dateComp.minute = 30
                 dateComp.timeZone = TimeZone.current
                 $0.value = Calendar.current.date(from: dateComp)
-//                $0.onChange { [unowned self] row in
-//                    interval = row.value
-//                }
+                $0.onChange { [unowned self] row in
+                    self.interval = row.value
+                }
             }
             +++ Section("Contacts")
             <<< PostalAddressRow() {
@@ -111,13 +111,16 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
                 $0.cityPlaceholder = "City"
                 $0.countryPlaceholder = "Country"
                 $0.postalCodePlaceholder = "Zip code"
+                $0.onChange { [unowned self] row in
+                    var location: String = "\(streetTextField), \(postalCodeTextField), \(cityTextField), \(stateTextField), \(countryTextField)"
+                }
             }
-            <<< URLRow() {
+            <<< TextRow() {
                 $0.title = "URL"
-                $0.placeholder = ""
-//                $0.onChange { [unowned self] row in
-//                    urls = row.value
-//                }
+                $0.placeholder = "Enter URL here"
+                $0.onChange { [unowned self] row in
+                    self.urls = row.value
+                }
             }
             <<< PhoneRow(){
                 $0.title = "Phone Number"
@@ -150,15 +153,15 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
     }
     // MARK: - Actions
     func saveButtonPressed(_ sender: UIBarButtonItem) {
-//        print("ppp")
-//        newItem = Joined(name: name, descriptions: descriptions, address: address, startDay: startDay, startTime: startTime, endTime: endTime, interval: interval, urls: urls, phoneNumber: phoneNumber, email: email, profileURL: profileURL)
-//        
-//        if let newItem = newItem  {
-//            GroupService.create(for: newItem, image: image) { (item) in
-//                self.newItem = item
-//            }
-//        }
-//
+        print("ppp")
+        newItem = Joined(name: name, descriptions: descriptions, address: address, startDay: startDay, startTime: startTime, endTime: endTime, interval: interval, urls: urls, phoneNumber: phoneNumber, email: email, profileURL: profileURL)
+        
+        if let newItem = newItem  {
+            GroupService.create(for: newItem, image: image) { (item) in
+                self.newItem = item
+            }
+        }
+
     }
     func cancelButtonPressed(_ sender: UIBarButtonItem) {
     }

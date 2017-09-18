@@ -18,7 +18,7 @@ class Joined : NSObject {
     let ownerUID : String
     let name: String
     let descriptions: String
-    let address: String//
+    let address: Array//
     let startDay: NSArray
     let startTime: String//
     let endTime: String
@@ -52,7 +52,7 @@ class Joined : NSObject {
     }
     
     //Standard User init()
-    init(uid: String, ownerUID: String, name: String, address: String, startDay: NSArray, startHour: String, endHour: String, interval: TimeInterval, descriptions: String) {
+    init(uid: String, ownerUID: String, name: String, address: Array, startDay: NSArray, startHour: String, endHour: String, interval: TimeInterval, descriptions: String) {
         self.uid = uid
         self.ownerUID = ownerUID
         self.name = name
@@ -74,7 +74,7 @@ class Joined : NSObject {
         guard let dict = snapshot.value as? [String : Any],
             let ownerUID = dict["ownerUID"] as? String,
             let name = dict["name"] as? String,
-            let address = dict["address"] as? String,
+            let address = dict["address"] as? Array,
             let startDay = dict["startDay"] as? NSArray,
             let startTime = dict["startTime"] as? String,
             let endTime = dict["endTime"] as? String,
