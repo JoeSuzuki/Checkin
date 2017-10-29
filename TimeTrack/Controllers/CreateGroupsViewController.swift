@@ -17,7 +17,7 @@ import PostalAddressRow
 
 class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
-    var newItem : Joined? = nil
+//    var newItem : Joined? = nil
     var name: String?
     var descriptions: String?
     var address: Array<Any>?
@@ -82,6 +82,8 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
             <<< TimeInlineRow(){
                 $0.title = "Open Time"
                 $0.value = Date()
+                var time = TimeInlineRow().value
+                print(time)
 //                $0.onChange { [unowned self] row in
 //                    startTime = row.value
 //                }
@@ -100,9 +102,9 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
                 dateComp.minute = 30
                 dateComp.timeZone = TimeZone.current
                 $0.value = Calendar.current.date(from: dateComp)
-                $0.onChange { [unowned self] row in
-                    self.interval = row.value
-                }
+//                $0.onChange { [unowned self] row in
+//                    self.interval = row.value
+//                }
             }
             +++ Section("Contacts")
             <<< PostalAddressRow() {
@@ -111,9 +113,9 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
                 $0.cityPlaceholder = "City"
                 $0.countryPlaceholder = "Country"
                 $0.postalCodePlaceholder = "Zip code"
-                $0.onChange { [unowned self] row in
-                    var location: String = "\(streetTextField), \(postalCodeTextField), \(cityTextField), \(stateTextField), \(countryTextField)"
-                }
+//                $0.onChange { [unowned self] row in
+//                    var location: String = "\(streetTextField), \(postalCodeTextField), \(cityTextField), \(stateTextField), \(countryTextField)"
+//                }
             }
             <<< TextRow() {
                 $0.title = "URL"
@@ -154,13 +156,13 @@ class CreateGroupsViewController: FormViewController, CLLocationManagerDelegate 
     // MARK: - Actions
     func saveButtonPressed(_ sender: UIBarButtonItem) {
         print("ppp")
-        newItem = Joined(name: name, descriptions: descriptions, address: address, startDay: startDay, startTime: startTime, endTime: endTime, interval: interval, urls: urls, phoneNumber: phoneNumber, email: email, profileURL: profileURL)
-        
-        if let newItem = newItem  {
-            GroupService.create(for: newItem, image: image) { (item) in
-                self.newItem = item
-            }
-        }
+//        newItem = Joined(name: name, descriptions: descriptions, address: address, startDay: startDay, startTime: startTime, endTime: endTime, interval: interval, urls: urls, phoneNumber: phoneNumber, email: email, profileURL: profileURL)
+//        
+//        if let newItem = newItem  {
+//            GroupService.create(for: newItem, image: image) { (item) in
+//                self.newItem = item
+//            }
+//        }
 
     }
     func cancelButtonPressed(_ sender: UIBarButtonItem) {
